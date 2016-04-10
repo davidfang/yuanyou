@@ -21,12 +21,12 @@ export default class Content extends React.Component{
           <span className='glyphicon glyphicon-chevron-down brand-success btn-default' style={{color:'green'}}   aria-hidden="true"></span>
           </h4>
         </div>);
-      };
-    })
+      }
+    });
 
-    return <div  className="row  center-block">
+    return <div  >
       {rows}
-      <div>
+      <div className="row  center-block">
         {
           this.props.products.map(function (product) {
             return <div key={product.name}>

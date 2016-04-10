@@ -2,10 +2,11 @@
 //require('styles/App.css');
 
 import React from 'react';
-import Hello from './Hello';
+//import ReactDOM from 'react-dom';
 import Head from './Head';
 import Notice from './Notice';
 import Content from './Content';
+//import Dd3 from './Dd3';
 let yeomanImage = require('../images/yeoman.png');
 let userInfo = {name:'张三丰',thumbnails:yeomanImage,account:5000};
 let notice = {msg:'暂无消息',length:5,data:{}};
@@ -32,7 +33,7 @@ class AppComponent extends React.Component {
         <Head userInfo={userInfo}/>
         <Notice notice={notice} />
         <Content products ={products} />
-        <Hello username = {this.props.username}/>
+
         <img src={yeomanImage} alt="Yeoman Generator" />
         <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
       </div>
