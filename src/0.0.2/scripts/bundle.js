@@ -58,19 +58,19 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _d3 = __webpack_require__(5);
-	
+
 	var _d32 = _interopRequireDefault(_d3);
-	
+
 	var overlayColors = _d32["default"].scale.category10();
-	
+
 	var Utils = {
 		overlayColors: overlayColors,
 		isReactVersion13: function isReactVersion13() {
@@ -88,7 +88,7 @@
 				return new Date(obj.getTime());
 			}
 			var temp = {}; // obj.constructor(); // changed
-	
+
 			for (var key in obj) {
 				if (obj.hasOwnProperty(key)) {
 					temp[key] = this.cloneMe(obj[key]);
@@ -110,11 +110,11 @@
 			function mergeRecursive(_x, _x2) {
 				return _mergeRecursive.apply(this, arguments);
 			}
-	
+
 			mergeRecursive.toString = function () {
 				return _mergeRecursive.toString();
 			};
-	
+
 			return mergeRecursive;
 		})(function (obj1, obj2) {
 			for (var p in obj2) {
@@ -130,7 +130,7 @@
 					obj1[p] = obj2[p];
 				}
 			}
-	
+
 			return obj1;
 		}),
 		mousePosition: function mousePosition(e) {
@@ -176,7 +176,7 @@
 			}
 			if (accessor(array[lo]) === value) hi = lo;
 			var closestIndex = Math.abs(accessor(array[lo]) - value) < Math.abs(accessor(array[hi]) - value) ? lo : hi;
-	
+
 			return closestIndex;
 		},
 		getClosestItemIndexes: function getClosestItemIndexes(array, value, accessor) {
@@ -197,7 +197,7 @@
 				right: value >= accessor(array[hi]) ? hi + 1 : hi
 			};
 		},
-	
+
 		pluck: function pluck(array, key) {
 			return array.map(function (each) {
 				return Utils.getter(each, key);
@@ -234,21 +234,21 @@
 		hexToRGBA: function hexToRGBA(inputHex, opacity) {
 			var hex = inputHex.replace("#", "");
 			if (inputHex.indexOf("#") > -1 && (hex.length === 3 || hex.length === 6)) {
-	
+
 				var multiplier = hex.length === 3 ? 1 : 2;
-	
+
 				var r = parseInt(hex.substring(0, 1 * multiplier), 16);
 				var g = parseInt(hex.substring(1 * multiplier, 2 * multiplier), 16);
 				var b = parseInt(hex.substring(2 * multiplier, 3 * multiplier), 16);
-	
+
 				var result = "rgba(" + r + ", " + g + ", " + b + ", " + opacity + ")";
-	
+
 				return result;
 			}
 			return inputHex;
 		}
 	};
-	
+
 	module.exports = Utils;
 
 /***/ },
@@ -259,29 +259,29 @@
 	'use strict';
 	var hasOwnProperty = Object.prototype.hasOwnProperty;
 	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-	
+
 	function toObject(val) {
 		if (val === null || val === undefined) {
 			throw new TypeError('Object.assign cannot be called with null or undefined');
 		}
-	
+
 		return Object(val);
 	}
-	
+
 	module.exports = Object.assign || function (target, source) {
 		var from;
 		var to = toObject(target);
 		var symbols;
-	
+
 		for (var s = 1; s < arguments.length; s++) {
 			from = Object(arguments[s]);
-	
+
 			for (var key in from) {
 				if (hasOwnProperty.call(from, key)) {
 					to[key] = from[key];
 				}
 			}
-	
+
 			if (Object.getOwnPropertySymbols) {
 				symbols = Object.getOwnPropertySymbols(from);
 				for (var i = 0; i < symbols.length; i++) {
@@ -291,7 +291,7 @@
 				}
 			}
 		}
-	
+
 		return to;
 	};
 
@@ -301,46 +301,46 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	function getDisplayName(Series) {
 		var name = Series.displayName || Series.name || "Series";
 		return name;
 	}
-	
+
 	function wrap(WrappedSeries) {
 		var BaseCanvasSeries = (function (_React$Component) {
 			_inherits(BaseCanvasSeries, _React$Component);
-	
+
 			function BaseCanvasSeries() {
 				_classCallCheck(this, BaseCanvasSeries);
-	
+
 				_get(Object.getPrototypeOf(BaseCanvasSeries.prototype), "constructor", this).apply(this, arguments);
 			}
-	
+
 			_createClass(BaseCanvasSeries, [{
 				key: "componentDidMount",
 				value: function componentDidMount() {
@@ -348,11 +348,11 @@
 					if (callback) {
 						var type = this.props.type;
 						var getCanvasContexts = this.context.getCanvasContexts;
-	
+
 						if (type !== "svg" && getCanvasContexts !== undefined) {
 							var contexts = getCanvasContexts();
 							var defaultProps = WrappedSeries.defaultProps;
-	
+
 							var props = _extends({}, defaultProps, this.props);
 							if (contexts) BaseCanvasSeries.baseReStockDrawOnCanvasHelper(contexts.axes, this.context, props, callback);
 						}
@@ -383,15 +383,15 @@
 						var yAccessor = nextContext.yAccessor;
 						var seriesId = nextContext.seriesId;
 						var chartId = nextContext.chartId;
-	
+
 						var canvasOrigin = [canvasOriginX, canvasOriginY];
-	
+
 						var defaultProps = WrappedSeries.defaultProps;
-	
+
 						var props = _extends({}, defaultProps, nextProps);
-	
+
 						var draw = BaseCanvasSeries.baseReStockDrawOnCanvas.bind(null, props, callback, canvasOrigin, height, width, compareSeries, indicator, xAccessor, yAccessor);
-	
+
 						nextContext.secretToSuperFastCanvasDraw.push({
 							chartId: chartId,
 							seriesId: seriesId,
@@ -415,13 +415,13 @@
 					var plotData = _context.plotData;
 					var stroke = _context.stroke;
 					var fill = _context.fill;
-	
+
 					var callback = WrappedSeries.drawOnCanvas;
-	
+
 					if (type !== "svg" && callback !== undefined) return null;
-	
+
 					var defaultProps = WrappedSeries.defaultProps;
-	
+
 					return _react2["default"].createElement(WrappedSeries, _extends({ ref: "wrappedSeries"
 					}, defaultProps, {
 						type: type,
@@ -435,14 +435,14 @@
 					}, this.props));
 				}
 			}]);
-	
+
 			return BaseCanvasSeries;
 		})(_react2["default"].Component);
-	
+
 		;
-	
+
 		BaseCanvasSeries.displayName = "wrap(" + getDisplayName(WrappedSeries) + ")";
-	
+
 		BaseCanvasSeries.contextTypes = {
 			getCanvasContexts: _react2["default"].PropTypes.func,
 			canvasOriginX: _react2["default"].PropTypes.number,
@@ -454,7 +454,7 @@
 			seriesId: _react2["default"].PropTypes.number.isRequired,
 			stroke: _react2["default"].PropTypes.string,
 			fill: _react2["default"].PropTypes.string,
-	
+
 			type: _react2["default"].PropTypes.string,
 			indicator: _react2["default"].PropTypes.func,
 			xScale: _react2["default"].PropTypes.func.isRequired,
@@ -464,7 +464,7 @@
 			compareSeries: _react2["default"].PropTypes.array.isRequired,
 			plotData: _react2["default"].PropTypes.array.isRequired
 		};
-	
+
 		BaseCanvasSeries.baseReStockDrawOnCanvasHelper = function (canvasContext, context, props, callback) {
 			var height = context.height;
 			var width = context.width;
@@ -477,30 +477,30 @@
 			var plotData = context.plotData;
 			var canvasOriginX = context.canvasOriginX;
 			var canvasOriginY = context.canvasOriginY;
-	
+
 			var canvasOrigin = [canvasOriginX, canvasOriginY];
-	
+
 			BaseCanvasSeries.baseReStockDrawOnCanvas(props, callback, canvasOrigin, height, width, compareSeries, indicator, xAccessor, yAccessor, canvasContext, xScale, yScale, plotData);
 		};
-	
+
 		BaseCanvasSeries.baseReStockDrawOnCanvas = function (props, callback, canvasOrigin, height, width, compareSeries, indicator, xAccessor, yAccessor, ctx, xScale, yScale, plotData) {
 			ctx.save();
-	
+
 			ctx.setTransform(1, 0, 0, 1, 0, 0);
 			ctx.translate(canvasOrigin[0], canvasOrigin[1]);
-	
+
 			ctx.beginPath();
 			ctx.rect(-1, -1, width + 1, height + 1);
 			ctx.clip();
-	
+
 			if (callback) {
 				var newProps = (0, _objectAssign2["default"])({}, { height: height, width: width, compareSeries: compareSeries, indicator: indicator, xAccessor: xAccessor, yAccessor: yAccessor }, props);
 				callback(newProps, ctx, xScale, yScale, plotData);
 			}
-	
+
 			ctx.restore();
 		};
-	
+
 		Object.keys(WrappedSeries).filter(function (key) {
 			return key !== "propTypes";
 		}).filter(function (key) {
@@ -514,11 +514,11 @@
 		}).forEach(function (key) {
 			return BaseCanvasSeries[key] = WrappedSeries[key];
 		});
-	
+
 		// console.log(Object.keys(BaseCanvasSeries))
 		return BaseCanvasSeries;
 	}
-	
+
 	exports["default"] = wrap;
 	module.exports = exports["default"];
 
@@ -533,33 +533,33 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _d3 = __webpack_require__(5);
-	
+
 	var _d32 = _interopRequireDefault(_d3);
-	
+
 	var _utilsScaleUtils = __webpack_require__(127);
-	
+
 	var _utilsScaleUtils2 = _interopRequireDefault(_utilsScaleUtils);
-	
+
 	var _utilsOverlayUtils = __webpack_require__(126);
-	
+
 	var _utilsOverlayUtils2 = _interopRequireDefault(_utilsOverlayUtils);
-	
+
 	var _utils = __webpack_require__(2);
-	
+
 	var _utils2 = _interopRequireDefault(_utils);
-	
+
 	var overlayColors = _utils2["default"].overlayColors;
 	var pluck = _utils2["default"].pluck;
 	var keysAsArray = _utils2["default"].keysAsArray;
-	
+
 	var ChartDataUtil = {
 		containsChart: function containsChart(props) {
 			return this.getCharts(props).length > 0;
@@ -591,16 +591,16 @@
 		},
 		getChartData: function getChartData(props, innerDimensions, partialData, fullData, other, domainL, domainR) {
 			var _this = this;
-	
+
 			var charts = this.getCharts(props);
-	
+
 			return charts.map(function (each) {
 				var chartProps = each.props;
 				var config = _this.getChartConfigFor(innerDimensions, chartProps, partialData, fullData, other);
 				var plot = _this.getChartPlotFor(config, partialData, domainL, domainR);
-	
+
 				// console.log(config.compareSeries);
-	
+
 				return {
 					id: each.props.id,
 					config: config,
@@ -628,14 +628,14 @@
 			return item;
 		},
 		getDimensions: function getDimensions(innerDimension, chartProps, margin) {
-	
+
 			// console.log(margin);
 			var availableWidth = innerDimension.width;
 			var availableHeight = innerDimension.height;
-	
+
 			var fullWidth = chartProps.width || availableWidth;
 			var fullHeight = chartProps.height || availableHeight;
-	
+
 			return {
 				availableWidth: availableWidth,
 				availableHeight: availableHeight,
@@ -646,11 +646,11 @@
 		getChartConfigFor: function getChartConfigFor(innerDimension, chartProps, partialData, fullData, passThroughProps) {
 			var padding = chartProps.padding;
 			var margin = chartProps.margin;
-	
+
 			var dimensions = this.getDimensions(innerDimension, chartProps);
 			// var indicator = this.getIndicator(chartProps);
 			// this.calculateIndicator(fullData, indicator);
-	
+
 			// var accessors = this.getXYAccessors(chartProps, passThroughProps, indicator);
 			// identify overlays
 			var xAccessor = this.getXAccessor(chartProps, passThroughProps);
@@ -661,17 +661,17 @@
 			// calculate overlays
 			this.calculateOverlays(fullData, overlaysToAdd);
 			// this.calculateRateOfReturn(fullData, compareSeries, compareBase, accessors.yAccessor);
-	
+
 			var origin = typeof chartProps.origin === "function" ? chartProps.origin(dimensions.availableWidth, dimensions.availableHeight) : chartProps.origin;
-	
+
 			var scales = this.defineScales(chartProps, partialData, passThroughProps);
-	
+
 			var indicatorsWithTicks = overlaysToAdd.filter(function (overlay) {
 				return overlay.indicator !== undefined;
 			}).filter(function (overlay) {
 				return overlay.indicator.yTicks !== undefined;
 			});
-	
+
 			var yTicks;
 			if (indicatorsWithTicks.length > 0) {
 				yTicks = indicatorsWithTicks.map(function (overlay) {
@@ -680,7 +680,7 @@
 					return ticks1.concat(ticks2);
 				});
 			}
-	
+
 			var config = {
 				width: dimensions.width,
 				height: dimensions.height,
@@ -712,7 +712,7 @@
 				}];
 			}
 			var xyValues = _utilsScaleUtils2["default"].flattenData(partialData, [config.xAccessor], yaccessors);
-	
+
 			var overlayValues = this.updateOverlayFirstLast(partialData, config.overlays);
 			var indicators = pluck(keysAsArray(config.overlays), "indicator");
 			var domains = indicators.filter(function (indicator) {
@@ -722,20 +722,20 @@
 			}).map(function (indicator) {
 				return indicator.domain();
 			});
-	
+
 			var domain;
 			if (domains.length > 0) {
 				domain = domains.reduce(function (a, b) {
 					return [Math.min(a[0], b[0]), Math.max(a[1], b[1])];
 				});
 			}
-	
+
 			var scales = this.updateScales(xyValues, config.scaleType, partialData, config.width, config.height, config.padding, domain);
-	
+
 			if (domainL !== undefined && domainR !== undefined) {
 				scales.xScale.domain([domainL, domainR]);
 			}
-	
+
 			var plot = {
 				overlayValues: overlayValues,
 				scales: scales
@@ -754,34 +754,34 @@
 			return yAccessors;
 		},
 		updateComparisonData: function updateComparisonData(partialData, compareBase, compareSeries) {
-	
+
 			var first = partialData[0];
 			var base = compareBase(first);
-	
+
 			partialData.forEach(function (d) {
 				d.compare = {};
-	
+
 				d.compare.open = (d.open - base) / base;
 				d.compare.high = (d.high - base) / base;
 				d.compare.low = (d.low - base) / base;
 				d.compare.close = (d.close - base) / base;
-	
+
 				compareSeries.forEach(function (eachSeries) {
 					var key = "compare_" + eachSeries.id;
 					d.compare[key] = (eachSeries.yAccessor(d) - eachSeries.yAccessor(first)) / eachSeries.yAccessor(first);
 				});
 			});
-	
+
 			// console.table(partialData);
 			// console.log(partialData[7].compare);
 		},
-	
+
 		defineScales: function defineScales(props, data, passThroughProps) {
 			var xScale = props.xScale,
 			    yScale = props.yScale;
-	
+
 			if (xScale === undefined && passThroughProps) xScale = passThroughProps.xScale;
-	
+
 			if (xScale === undefined) {
 				var each = data[0];
 				if (typeof each === "object") {
@@ -803,7 +803,7 @@
 			var indicator; // = new Array();
 			_react2["default"].Children.forEach(props.children, function (child) {
 				if (["ReStock.DataSeries"].indexOf(child.props.namespace) > -1) {
-	
+
 					if (child.props && child.props.indicator) {
 						var indicatorProp = child.props.indicator;
 						indicator = indicatorProp(child.props.options, props, child.props);
@@ -818,11 +818,11 @@
 		},
 		getXYAccessors: function getXYAccessors(props, passThroughProps, indicator) {
 			var accessor = { xAccessor: null, yAccessor: null };
-	
+
 			_react2["default"].Children.forEach(props.children, function (child) {
 				if (["ReStock.DataSeries"].indexOf(child.props.namespace) > -1) {
 					if (child.props) {
-	
+
 						var xAccessor = passThroughProps !== undefined && passThroughProps.xAccessor ? passThroughProps.xAccessor : child.props.xAccessor;
 						accessor.xAccessor = xAccessor;
 						accessor.yAccessor = child.props.yAccessor;
@@ -833,7 +833,7 @@
 				accessor.yAccessor = indicator.yAccessor();
 			}
 			// if (indicator) console.log(indicator.yAccessor());
-	
+
 			return accessor;
 		},
 		identifyOverlaysToAdd: function identifyOverlaysToAdd(chartProps) {
@@ -849,7 +849,7 @@
 					var _child$props = child.props;
 					var stroke = _child$props.stroke;
 					var fill = _child$props.fill;
-	
+
 					if (stroke === undefined && indicator !== undefined && indicator.stroke !== undefined) stroke = indicator.stroke();
 					if (fill === undefined && indicator !== undefined && indicator.fill !== undefined) fill = indicator.fill();
 					var overlay = {
@@ -929,7 +929,7 @@
 		updateOverlayFirstLast: function updateOverlayFirstLast(data, overlays) {
 			// console.log("updateOverlayFirstLast");
 			var overlayValues = [];
-	
+
 			overlays.forEach(function (eachOverlay) {
 				// console.log(JSON.stringify(first), Object.keys(first), yAccessor(first));
 				overlayValues.push({
@@ -944,7 +944,7 @@
 			// console.log("updateScales");
 			// width = width - margin.left - margin.right/**/
 			// height = height - margin.top - margin.bottom/**/
-	
+
 			scales.xScale.range([padding.left, width - padding.right]);
 			// if polylinear scale then set data
 			if (scales.xScale.isPolyLinear && scales.xScale.isPolyLinear()) {
@@ -953,16 +953,16 @@
 				// else set the domain
 				scales.xScale.domain(_d32["default"].extent(xyValues.xValues));
 			}
-	
+
 			scales.yScale.range([height - padding.top, padding.bottom]);
-	
+
 			if (overrideDomain !== undefined) {
 				scales.yScale.domain(overrideDomain);
 			} else {
 				var domain = _d32["default"].extent(xyValues.yValues);
 				scales.yScale.domain(domain);
 			}
-	
+
 			return {
 				xScale: scales.xScale.copy(),
 				yScale: scales.yScale.copy()
@@ -979,26 +979,26 @@
 			var threshold = 0.5; // number of datapoints per 1 px
 			var allowedIntervals = ["D", "W", "M"];
 			// console.log(domainL, domainR, data, width);
-	
+
 			var dataForInterval, filteredData, interval, leftX, rightX, leftIndex, rightIndex;
 			for (var i = 0; i < allowedIntervals.length; i++) {
 				interval = allowedIntervals[i];
 				dataForInterval = data[interval];
-	
+
 				leftIndex = _utils2["default"].getClosestItemIndexes(dataForInterval, domainL, xAccessor).left;
 				rightIndex = _utils2["default"].getClosestItemIndexes(dataForInterval, domainR, xAccessor).right;
-	
+
 				// leftIndex = leftX.left;
 				// rightIndex = rightX.right;
-	
+
 				filteredData = dataForInterval.slice(leftIndex, rightIndex);
-	
+
 				// console.log(filteredData.length, width * threshold);
 				if (filteredData.length < width * threshold) break;
 			}
-	
+
 			// console.log(leftX, rightX,  (dd[leftX.left]), xAccessor(dd[rightX.right]));
-	
+
 			return {
 				interval: interval,
 				data: filteredData,
@@ -1007,7 +1007,7 @@
 			};
 		}
 	};
-	
+
 	module.exports = ChartDataUtil;
 
 /***/ },
@@ -1015,13 +1015,13 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	exports["default"] = function (obj) {
 	  return obj && obj.__esModule ? obj : {
 	    "default": obj
 	  };
 	};
-	
+
 	exports.__esModule = true;
 
 /***/ },
@@ -1029,13 +1029,13 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	exports["default"] = function (instance, Constructor) {
 	  if (!(instance instanceof Constructor)) {
 	    throw new TypeError("Cannot call a class as a function");
 	  }
 	};
-	
+
 	exports.__esModule = true;
 
 /***/ },
@@ -1043,23 +1043,23 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _Object$assign = __webpack_require__(183)["default"];
-	
+
 	exports["default"] = _Object$assign || function (target) {
 	  for (var i = 1; i < arguments.length; i++) {
 	    var source = arguments[i];
-	
+
 	    for (var key in source) {
 	      if (Object.prototype.hasOwnProperty.call(source, key)) {
 	        target[key] = source[key];
 	      }
 	    }
 	  }
-	
+
 	  return target;
 	};
-	
+
 	exports.__esModule = true;
 
 /***/ },
@@ -1067,16 +1067,16 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _Object$create = __webpack_require__(184)["default"];
-	
+
 	var _Object$setPrototypeOf = __webpack_require__(187)["default"];
-	
+
 	exports["default"] = function (subClass, superClass) {
 	  if (typeof superClass !== "function" && superClass !== null) {
 	    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
 	  }
-	
+
 	  subClass.prototype = _Object$create(superClass && superClass.prototype, {
 	    constructor: {
 	      value: subClass,
@@ -1087,7 +1087,7 @@
 	  });
 	  if (superClass) _Object$setPrototypeOf ? _Object$setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 	};
-	
+
 	exports.__esModule = true;
 
 /***/ },
@@ -1095,31 +1095,31 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	var _createStore = __webpack_require__(65);
-	
+
 	var _createStore2 = _interopRequireDefault(_createStore);
-	
+
 	var _utilsCombineReducers = __webpack_require__(299);
-	
+
 	var _utilsCombineReducers2 = _interopRequireDefault(_utilsCombineReducers);
-	
+
 	var _utilsBindActionCreators = __webpack_require__(298);
-	
+
 	var _utilsBindActionCreators2 = _interopRequireDefault(_utilsBindActionCreators);
-	
+
 	var _utilsApplyMiddleware = __webpack_require__(297);
-	
+
 	var _utilsApplyMiddleware2 = _interopRequireDefault(_utilsApplyMiddleware);
-	
+
 	var _utilsCompose = __webpack_require__(66);
-	
+
 	var _utilsCompose2 = _interopRequireDefault(_utilsCompose);
-	
+
 	exports.createStore = _createStore2['default'];
 	exports.combineReducers = _utilsCombineReducers2['default'];
 	exports.bindActionCreators = _utilsBindActionCreators2['default'];
@@ -1131,42 +1131,42 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _d3 = __webpack_require__(5);
-	
+
 	var _d32 = _interopRequireDefault(_d3);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var Line = (function (_React$Component) {
 		_inherits(Line, _React$Component);
-	
+
 		function Line() {
 			_classCallCheck(this, Line);
-	
+
 			_get(Object.getPrototypeOf(Line.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(Line, [{
 			key: "render",
 			value: function render() {
@@ -1174,15 +1174,15 @@
 				var stroke = props.stroke;
 				var fill = props.fill;
 				var className = props.className;
-	
+
 				className = className.concat(stroke ? "" : " line-stroke");
 				return _react2["default"].createElement("path", { d: Line.getPath(props), stroke: stroke, fill: fill, className: className });
 			}
 		}]);
-	
+
 		return Line;
 	})(_react2["default"].Component);
-	
+
 	Line.propTypes = {
 		className: _react2["default"].PropTypes.string,
 		xScale: _react2["default"].PropTypes.func.isRequired,
@@ -1194,20 +1194,20 @@
 		fill: _react2["default"].PropTypes.string,
 		type: _react2["default"].PropTypes.string.isRequired
 	};
-	
+
 	Line.defaultProps = {
 		className: "line ",
 		fill: "none",
 		stroke: "black"
 	};
-	
+
 	Line.getPath = function (props) {
 		var plotData = props.plotData;
 		var xScale = props.xScale;
 		var yScale = props.yScale;
 		var xAccessor = props.xAccessor;
 		var yAccessor = props.yAccessor;
-	
+
 		var dataSeries = _d32["default"].svg.line().defined(function (d) {
 			return yAccessor(d) !== undefined;
 		}).x(function (d) {
@@ -1217,17 +1217,17 @@
 		});
 		return dataSeries(plotData);
 	};
-	
+
 	Line.drawOnCanvas = function (props, ctx, xScale, yScale, plotData) {
 		var xAccessor = props.xAccessor;
 		var yAccessor = props.yAccessor;
 		var stroke = props.stroke;
-	
+
 		var path = Line.getPath(props);
-	
+
 		ctx.strokeStyle = stroke;
 		ctx.beginPath();
-	
+
 		var begin = true;
 		plotData.forEach(function (d) {
 			if (yAccessor(d) === undefined) {
@@ -1239,7 +1239,7 @@
 					begin = false;
 					var x = ~ ~(0.5 + xScale(xAccessor(d)));
 					var y = ~ ~(0.5 + yScale(yAccessor(d)));
-	
+
 					ctx.moveTo(x, y);
 				}
 				ctx.lineTo(xScale(xAccessor(d)), yScale(yAccessor(d)));
@@ -1247,7 +1247,7 @@
 		});
 		ctx.stroke();
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(Line);
 	module.exports = exports["default"];
 
@@ -1263,17 +1263,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _interopRequire = __webpack_require__(190)['default'];
-	
+
 	exports.__esModule = true;
-	
+
 	var _squashClickEvent = __webpack_require__(239);
-	
+
 	exports.SquashClickEventMixin = _interopRequire(_squashClickEvent);
-	
+
 	var _expandedStateHandler = __webpack_require__(238);
-	
+
 	exports.ExpandedStateHandlerMixin = _interopRequire(_expandedStateHandler);
 
 /***/ },
@@ -1282,7 +1282,7 @@
 
 	var mixin = __webpack_require__(301);
 	var assign = __webpack_require__(229);
-	
+
 	var mixinProto = mixin({
 	  // lifecycle stuff is as you'd expect
 	  componentDidMount: mixin.MANY,
@@ -1294,27 +1294,27 @@
 	  componentWillUnmount: mixin.MANY,
 	  getChildContext: mixin.MANY_MERGED
 	});
-	
+
 	function setDefaultProps(reactMixin) {
 	  var getDefaultProps = reactMixin.getDefaultProps;
-	
+
 	  if (getDefaultProps) {
 	    reactMixin.defaultProps = getDefaultProps();
-	
+
 	    delete reactMixin.getDefaultProps;
 	  }
 	}
-	
+
 	function setInitialState(reactMixin) {
 	  var getInitialState = reactMixin.getInitialState;
 	  var componentWillMount = reactMixin.componentWillMount;
-	
+
 	  function applyInitialState(instance) {
 	    var state = instance.state || {};
 	    assign(state, getInitialState.call(instance));
 	    instance.state = state;
 	  }
-	
+
 	  if (getInitialState) {
 	    if (!componentWillMount) {
 	      reactMixin.componentWillMount = function() {
@@ -1326,18 +1326,18 @@
 	        componentWillMount.call(this);
 	      };
 	    }
-	
+
 	    delete reactMixin.getInitialState;
 	  }
 	}
-	
+
 	function mixinClass(reactClass, reactMixin) {
 	  setDefaultProps(reactMixin);
 	  setInitialState(reactMixin);
-	
+
 	  var prototypeMethods = {};
 	  var staticProps = {};
-	
+
 	  Object.keys(reactMixin).forEach(function(key) {
 	    if (key === 'mixins') {
 	      return; // Handled below to ensure proper order regardless of property iteration order
@@ -1350,20 +1350,20 @@
 	      staticProps[key] = reactMixin[key];
 	    }
 	  });
-	
+
 	  mixinProto(reactClass.prototype, prototypeMethods);
-	
+
 	  var mergePropTypes = function(left, right, key) {
 	    if (!left) return right;
 	    if (!right) return left;
-	
+
 	    var result = {};
 	    Object.keys(left).forEach(function(leftKey) {
 	      if (!right[leftKey]) {
 	        result[leftKey] = left[leftKey];
 	      }
 	    });
-	
+
 	    Object.keys(right).forEach(function(rightKey) {
 	      if (left[rightKey]) {
 	        result[rightKey] = function checkBothContextTypes() {
@@ -1373,31 +1373,31 @@
 	        result[rightKey] = right[rightKey];
 	      }
 	    });
-	
+
 	    return result;
 	  };
-	
+
 	  mixin({
 	    childContextTypes: mergePropTypes,
 	    contextTypes: mergePropTypes,
 	    propTypes: mixin.MANY_MERGED_LOOSE,
 	    defaultProps: mixin.MANY_MERGED_LOOSE
 	  })(reactClass, staticProps);
-	
+
 	  // statics is a special case because it merges directly onto the class
 	  if (reactMixin.statics) {
 	    Object.getOwnPropertyNames(reactMixin.statics).forEach(function(key) {
 	      var left = reactClass[key];
 	      var right = reactMixin.statics[key];
-	
+
 	      if (left !== undefined && right !== undefined) {
 	        throw new TypeError('Cannot mixin statics because statics.' + key + ' and Component.' + key + ' are defined.');
 	      }
-	
+
 	      reactClass[key] = left !== undefined ? left : right;
 	    });
 	  }
-	
+
 	  // If more mixins are defined, they need to run. This emulate's react's behavior.
 	  // See behavior in code at:
 	  // https://github.com/facebook/react/blob/41aa3496aa632634f650edbe10d617799922d265/src/isomorphic/classic/class/ReactClass.js#L468
@@ -1412,23 +1412,23 @@
 	  if (reactMixin.mixins) {
 	    reactMixin.mixins.reverse().forEach(mixinClass.bind(null, reactClass));
 	  }
-	
+
 	  return reactClass;
 	}
-	
+
 	module.exports = (function() {
 	  var reactMixin = mixinProto;
-	
+
 	  reactMixin.onClass = function(reactClass, mixin) {
 	    return mixinClass(reactClass, mixin);
 	  };
-	
+
 	  reactMixin.decorate = function(mixin) {
 	    return function(reactClass) {
 	      return reactMixin.onClass(reactClass, mixin);
 	    };
 	  };
-	
+
 	  return reactMixin;
 	})();
 
@@ -1438,7 +1438,7 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
@@ -1448,7 +1448,7 @@
 		multiplier: 2,
 		movingAverageType: "sma"
 	};
-	
+
 	exports.BollingerBand = BollingerBand;
 	var MACD = {
 		fast: 12,
@@ -1464,7 +1464,7 @@
 			histogram: 'steelblue'
 		}
 	};
-	
+
 	exports.MACD = MACD;
 	var FullStochasticOscillator = {
 		period: 12,
@@ -1480,7 +1480,7 @@
 		overSold: 80,
 		overBought: 20
 	};
-	
+
 	exports.FullStochasticOscillator = FullStochasticOscillator;
 	var RSI = {
 		period: 14,
@@ -1488,13 +1488,13 @@
 		overSold: 70,
 		overBought: 30
 	};
-	
+
 	exports.RSI = RSI;
 	var EMA = {
 		source: "close",
 		period: 10
 	};
-	
+
 	exports.EMA = EMA;
 	var SMA = {
 		source: "close",
@@ -1507,32 +1507,32 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var ToolTipTSpanLabel = (function (_React$Component) {
 		_inherits(ToolTipTSpanLabel, _React$Component);
-	
+
 		function ToolTipTSpanLabel() {
 			_classCallCheck(this, ToolTipTSpanLabel);
-	
+
 			_get(Object.getPrototypeOf(ToolTipTSpanLabel.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(ToolTipTSpanLabel, [{
 			key: "render",
 			value: function render() {
@@ -1543,10 +1543,10 @@
 				);
 			}
 		}]);
-	
+
 		return ToolTipTSpanLabel;
 	})(_react2["default"].Component);
-	
+
 	module.exports = ToolTipTSpanLabel;
 
 /***/ },
@@ -1554,32 +1554,32 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var ToolTipText = (function (_React$Component) {
 		_inherits(ToolTipText, _React$Component);
-	
+
 		function ToolTipText() {
 			_classCallCheck(this, ToolTipText);
-	
+
 			_get(Object.getPrototypeOf(ToolTipText.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(ToolTipText, [{
 			key: "render",
 			value: function render() {
@@ -1594,10 +1594,10 @@
 				);
 			}
 		}]);
-	
+
 		return ToolTipText;
 	})(_react2["default"].Component);
-	
+
 	ToolTipText.propTypes = {
 		fontFamily: _react2["default"].PropTypes.string.isRequired,
 		fontSize: _react2["default"].PropTypes.number.isRequired
@@ -1606,7 +1606,7 @@
 		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
 		fontSize: 11
 	};
-	
+
 	module.exports = ToolTipText;
 
 /***/ },
@@ -1632,21 +1632,21 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _componentsCreateAll = __webpack_require__(62);
-	
+
 	var _componentsCreateAll2 = _interopRequireDefault(_componentsCreateAll);
-	
+
 	var _createAll = _componentsCreateAll2['default'](_react2['default']);
-	
+
 	var Provider = _createAll.Provider;
 	var connect = _createAll.connect;
 	exports.Provider = Provider;
@@ -1657,16 +1657,16 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _utils = __webpack_require__(2);
-	
+
 	var _utils2 = _interopRequireDefault(_utils);
-	
+
 	var pluck = _utils2["default"].pluck;
 	var sum = _utils2["default"].sum;
-	
+
 	var MACalculator = {
 		setter: function setter(path, key, d, value) {
 			var newD = d,
@@ -1688,9 +1688,9 @@
 				var firstSMA = data.slice(0, period).map(pluckFunc).reduce(function (a, b) {
 					return a + b;
 				}) / period;
-	
+
 				setFunc(data[period], firstSMA);
-	
+
 				// console.log(period, key, pluckKey, subObjectKey, firstSMA);
 				var k = 2 / (period + 1),
 				    prevEMA = firstSMA,
@@ -1706,9 +1706,9 @@
 		},
 		calculateSMANew: function calculateSMANew(data, period, pluckFunc, setFunc) {
 			// console.log("calculateSMA");
-	
+
 			var l = data.length - 1;
-	
+
 			data.map(function (each, i) {
 				return data.slice(i - period + 1, i + 1);
 			}).filter(function (array) {
@@ -1724,11 +1724,11 @@
 			}).reverse().forEach(function (avg, i) {
 				setFunc(data[l - i], avg);
 			});
-	
+
 			return data;
 		}
 	};
-	
+
 	module.exports = MACalculator;
 
 /***/ },
@@ -1747,44 +1747,44 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _shallowEqual = __webpack_require__(50);
-	
+
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
-	
+
 	var PureComponent = (function (_React$Component) {
 		_inherits(PureComponent, _React$Component);
-	
+
 		function PureComponent() {
 			_classCallCheck(this, PureComponent);
-	
+
 			_get(Object.getPrototypeOf(PureComponent.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(PureComponent, [{
 			key: "shouldComponentUpdate",
 			value: function shouldComponentUpdate(nextProps, nextState, nextContext) {
 				return !(0, _shallowEqual2["default"])(this.props, nextProps) || !(0, _shallowEqual2["default"])(this.state, nextState) || !(0, _shallowEqual2["default"])(this.context, nextContext);
 			}
 		}]);
-	
+
 		return PureComponent;
 	})(_react2["default"].Component);
-	
+
 	module.exports = PureComponent;
 
 /***/ },
@@ -1792,45 +1792,45 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	var INCREMENT_COUNTER = "INCREMENT_COUNTER";
 	exports.INCREMENT_COUNTER = INCREMENT_COUNTER;
 	var DECREMENT_COUNTER = "DECREMENT_COUNTER";
-	
+
 	exports.DECREMENT_COUNTER = DECREMENT_COUNTER;
 	var TOGGLE_HEADER = "TOGGLE_HEADER";
 	exports.TOGGLE_HEADER = TOGGLE_HEADER;
 	var TOGGLE_RIGHT_PANE = "TOGGLE_RIGHT_PANE";
 	exports.TOGGLE_RIGHT_PANE = TOGGLE_RIGHT_PANE;
 	var TOGGLE_LEFT_NAV = "TOGGLE_LEFT_NAV";
-	
+
 	exports.TOGGLE_LEFT_NAV = TOGGLE_LEFT_NAV;
 	var CHANGE_ROUTE = "CHANGE_ROUTE";
-	
+
 	exports.CHANGE_ROUTE = CHANGE_ROUTE;
 	var UN_FOCUS = "UN_FOCUS";
-	
+
 	exports.UN_FOCUS = UN_FOCUS;
 	var CHART_PAGE_LAYOUT_CHANGE = "CHART_PAGE_LAYOUT_CHANGE";
-	
+
 	exports.CHART_PAGE_LAYOUT_CHANGE = CHART_PAGE_LAYOUT_CHANGE;
 	var CHART_PAGE_SET_DATA = "CHART_PAGE_SET_DATA";
 	exports.CHART_PAGE_SET_DATA = CHART_PAGE_SET_DATA;
 	var CHART_SHOW_SETTINGS = "CHART_SHOW_SETTINGS";
-	
+
 	exports.CHART_SHOW_SETTINGS = CHART_SHOW_SETTINGS;
 	var CHART_SHOW_INDICATOR_SETTINGS = "CHART_SHOW_INDICATOR_SETTINGS";
 	exports.CHART_SHOW_INDICATOR_SETTINGS = CHART_SHOW_INDICATOR_SETTINGS;
 	var CHART_HIDE_INDICATOR_SETTINGS = "CHART_HIDE_INDICATOR_SETTINGS";
-	
+
 	exports.CHART_HIDE_INDICATOR_SETTINGS = CHART_HIDE_INDICATOR_SETTINGS;
 	var CHART_PAGE_EXCHANGE_DROPDOWN_TOGGLE = "CHART_PAGE_EXCHANGE_DROPDOWN_TOGGLE";
 	exports.CHART_PAGE_EXCHANGE_DROPDOWN_TOGGLE = CHART_PAGE_EXCHANGE_DROPDOWN_TOGGLE;
 	var CHART_PAGE_EXCHANGE_SELECT = "CHART_PAGE_EXCHANGE_SELECT";
-	
+
 	exports.CHART_PAGE_EXCHANGE_SELECT = CHART_PAGE_EXCHANGE_SELECT;
 	var CHART_PAGE_SECURITY_FOCUS = "CHART_PAGE_SECURITY_FOCUS";
 	exports.CHART_PAGE_SECURITY_FOCUS = CHART_PAGE_SECURITY_FOCUS;
@@ -1839,12 +1839,12 @@
 	var CHART_PAGE_LOADING = "CHART_PAGE_LOADING";
 	exports.CHART_PAGE_LOADING = CHART_PAGE_LOADING;
 	var CHART_PAGE_SECURITY_SELECT = "CHART_PAGE_SECURITY_SELECT";
-	
+
 	exports.CHART_PAGE_SECURITY_SELECT = CHART_PAGE_SECURITY_SELECT;
 	var CHART_PAGE_CHART_TYPE_DROPDOWN_TOGGLE = "CHART_PAGE_CHART_TYPE_DROPDOWN_TOGGLE";
 	exports.CHART_PAGE_CHART_TYPE_DROPDOWN_TOGGLE = CHART_PAGE_CHART_TYPE_DROPDOWN_TOGGLE;
 	var CHART_PAGE_CHART_TYPE_SELECT = "CHART_PAGE_CHART_TYPE_SELECT";
-	
+
 	exports.CHART_PAGE_CHART_TYPE_SELECT = CHART_PAGE_CHART_TYPE_SELECT;
 	var CHART_PAGE_CHART_INDICATOR_DROPDOWN_TOGGLE = "CHART_PAGE_CHART_INDICATOR_DROPDOWN_TOGGLE";
 	exports.CHART_PAGE_CHART_INDICATOR_DROPDOWN_TOGGLE = CHART_PAGE_CHART_INDICATOR_DROPDOWN_TOGGLE;
@@ -1853,17 +1853,17 @@
 	var CHART_PAGE_CHART_INDICATOR_REMOVE = "CHART_PAGE_CHART_INDICATOR_REMOVE";
 	exports.CHART_PAGE_CHART_INDICATOR_REMOVE = CHART_PAGE_CHART_INDICATOR_REMOVE;
 	var CHART_PAGE_CHART_INDICATOR_UPDATE = "CHART_PAGE_CHART_INDICATOR_UPDATE";
-	
+
 	exports.CHART_PAGE_CHART_INDICATOR_UPDATE = CHART_PAGE_CHART_INDICATOR_UPDATE;
 	var CHART_PAGE_CHART_SETTINGS_DROPDOWN_TOGGLE = "CHART_PAGE_CHART_SETTINGS_DROPDOWN_TOGGLE";
 	exports.CHART_PAGE_CHART_SETTINGS_DROPDOWN_TOGGLE = CHART_PAGE_CHART_SETTINGS_DROPDOWN_TOGGLE;
 	var CHART_PAGE_CHART_SETTINGS_CHANGE = "CHART_PAGE_CHART_SETTINGS_CHANGE";
-	
+
 	exports.CHART_PAGE_CHART_SETTINGS_CHANGE = CHART_PAGE_CHART_SETTINGS_CHANGE;
 	var WINDOW_RESIZE = "WINDOW_RESIZE";
 	exports.WINDOW_RESIZE = WINDOW_RESIZE;
 	var CHART_PAGE_RESIZE_COMPLETE = "CHART_PAGE_RESIZE_COMPLETE";
-	
+
 	exports.CHART_PAGE_RESIZE_COMPLETE = CHART_PAGE_RESIZE_COMPLETE;
 	var ESCAPE = "ESCAPE";
 	exports.ESCAPE = ESCAPE;
@@ -1877,26 +1877,26 @@
 	  Licensed under the MIT License (MIT), see
 	  http://jedwatson.github.io/classnames
 	*/
-	
+
 	(function () {
 		'use strict';
-	
+
 		function classNames () {
-	
+
 			var classes = '';
-	
+
 			for (var i = 0; i < arguments.length; i++) {
 				var arg = arguments[i];
 				if (!arg) continue;
-	
+
 				var argType = typeof arg;
-	
+
 				if ('string' === argType || 'number' === argType) {
 					classes += ' ' + arg;
-	
+
 				} else if (Array.isArray(arg)) {
 					classes += ' ' + classNames.apply(null, arg);
-	
+
 				} else if ('object' === argType) {
 					for (var key in arg) {
 						if (arg.hasOwnProperty(key) && arg[key]) {
@@ -1905,10 +1905,10 @@
 					}
 				}
 			}
-	
+
 			return classes.substr(1);
 		}
-	
+
 		if (typeof module !== 'undefined' && module.exports) {
 			module.exports = classNames;
 		} else if (true){
@@ -1919,7 +1919,7 @@
 		} else {
 			window.classNames = classNames;
 		}
-	
+
 	}());
 
 
@@ -1980,9 +1980,9 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	exports.__esModule = true;
-	
+
 	exports["default"] = function (hex) {
 	  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 	  return result ? {
@@ -1991,7 +1991,7 @@
 	    b: parseInt(result[3], 16)
 	  } : null;
 	};
-	
+
 	module.exports = exports["default"];
 
 /***/ },
@@ -1999,38 +1999,38 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var StraightLine = (function (_React$Component) {
 		_inherits(StraightLine, _React$Component);
-	
+
 		function StraightLine() {
 			_classCallCheck(this, StraightLine);
-	
+
 			_get(Object.getPrototypeOf(StraightLine.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(StraightLine, [{
 			key: "render",
 			value: function render() {
@@ -2045,20 +2045,20 @@
 				var yAccessor = props.yAccessor;
 				var plotData = props.plotData;
 				var yValue = props.yValue;
-	
+
 				var first = xAccessor(plotData[0]);
 				var last = xAccessor(plotData[plotData.length - 1]);
-	
+
 				return _react2["default"].createElement("line", { className: className,
 					stroke: stroke, opacity: opacity,
 					x1: xScale(first), y1: yScale(yValue),
 					x2: xScale(last), y2: yScale(yValue) });
 			}
 		}]);
-	
+
 		return StraightLine;
 	})(_react2["default"].Component);
-	
+
 	StraightLine.propTypes = {
 		className: _react2["default"].PropTypes.string,
 		xScale: _react2["default"].PropTypes.func.isRequired,
@@ -2077,7 +2077,7 @@
 		stroke: "black",
 		opacity: 0.5
 	};
-	
+
 	StraightLine.drawOnCanvas = function (props, ctx, xScale, yScale, plotData) {
 		var type = props.type;
 		var stroke = props.stroke;
@@ -2087,20 +2087,20 @@
 		var xAccessor = props.xAccessor;
 		var yAccessor = props.yAccessor;
 		var yValue = props.yValue;
-	
+
 		var first = xAccessor(plotData[0]);
 		var last = xAccessor(plotData[plotData.length - 1]);
-	
+
 		ctx.beginPath();
-	
+
 		ctx.strokeStyle = stroke;
 		ctx.globalAlpha = opacity;
-	
+
 		ctx.moveTo(xScale(first), yScale(yValue));
 		ctx.lineTo(xScale(last), yScale(yValue));
 		ctx.stroke();
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(StraightLine);
 	module.exports = exports["default"];
 
@@ -2109,7 +2109,7 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
@@ -2118,7 +2118,7 @@
 		period: 14,
 		reversal: 2,
 		source: "close" };
-	
+
 	exports.Kagi = Kagi;
 	// "high", "low", "open", "close"
 	var Renko = {
@@ -2126,7 +2126,7 @@
 		period: 14,
 		fixedBrickSize: 2,
 		source: "hi/lo" };
-	
+
 	exports.Renko = Renko;
 	// "close", "hi/lo"
 	var PointAndFigure = {
@@ -2141,13 +2141,13 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	exports.changeLayout = changeLayout;
 	exports.loadData = loadData;
 	exports.showChartIndicatorSettings = showChartIndicatorSettings;
@@ -2171,25 +2171,25 @@
 	exports.removeIndicator = removeIndicator;
 	exports.settingsDropDownToggle = settingsDropDownToggle;
 	exports.changeSettings = changeSettings;
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _d3 = __webpack_require__(5);
-	
+
 	var _d32 = _interopRequireDefault(_d3);
-	
+
 	var _reactStockcharts = __webpack_require__(39);
-	
+
 	var _reactStockcharts2 = _interopRequireDefault(_reactStockcharts);
-	
+
 	var _constantsChartTypes = __webpack_require__(32);
-	
+
 	var ChartTypes = _interopRequireWildcard(_constantsChartTypes);
-	
+
 	var _constantsActionTypes = __webpack_require__(24);
-	
+
 	var _ReStock$indicator = _reactStockcharts2["default"].indicator;
 	var indicatorOptions = _ReStock$indicator.defaultOptions;
 	var MACD = _ReStock$indicator.MACD;
@@ -2205,16 +2205,16 @@
 	var KagiTransformer = _ReStock$transforms.KagiTransformer;
 	var PointAndFigureTransformer = _ReStock$transforms.PointAndFigureTransformer;
 	var RenkoTransformer = _ReStock$transforms.RenkoTransformer;
-	
+
 	function changeLayout(layout) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_LAYOUT_CHANGE,
 			layout: layout
 		};
 	}
-	
+
 	var parseDate = _d32["default"].time.format("%Y-%m-%d").parse;
-	
+
 	function loadData(index, security, exchange) {
 		return function (dispatch, getState) {
 			_d32["default"].tsv("resources/data/" + security + ".tsv", function (err, data) {
@@ -2231,7 +2231,7 @@
 			});
 		};
 	}
-	
+
 	function showChartIndicatorSettings(index, reference, settings) {
 		return {
 			type: _constantsActionTypes.CHART_SHOW_INDICATOR_SETTINGS,
@@ -2239,7 +2239,7 @@
 			settings: _extends({}, reference, settings)
 		};
 	}
-	
+
 	function showChartSettings(index, settings) {
 		return {
 			type: _constantsActionTypes.CHART_SHOW_SETTINGS,
@@ -2247,14 +2247,14 @@
 			settings: settings
 		};
 	}
-	
+
 	function closeChartIndicatorSettings(index) {
 		return {
 			type: _constantsActionTypes.CHART_HIDE_INDICATOR_SETTINGS,
 			index: index
 		};
 	}
-	
+
 	function updateChartIndicatorSettings(index, indicator) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_CHART_INDICATOR_UPDATE,
@@ -2262,7 +2262,7 @@
 			indicator: indicator
 		};
 	}
-	
+
 	function setData(index, data) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_SET_DATA,
@@ -2270,7 +2270,7 @@
 			data: data
 		};
 	}
-	
+
 	function resizeChartAsync(dimensions) {
 		return function (dispatch, getState) {
 			setTimeout(function () {
@@ -2278,14 +2278,14 @@
 			}, 100);
 		};
 	}
-	
+
 	function resizeChart(width, height) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_RESIZE_COMPLETE,
 			width: width, height: height
 		};
 	}
-	
+
 	function exchangeSelectDropDownToggle(index, value) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_EXCHANGE_DROPDOWN_TOGGLE,
@@ -2293,7 +2293,7 @@
 			value: value
 		};
 	}
-	
+
 	function exchangeSelect(index, exchange) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_EXCHANGE_SELECT,
@@ -2301,21 +2301,21 @@
 			exchange: exchange
 		};
 	}
-	
+
 	function securityFocus(index) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_SECURITY_FOCUS,
 			index: index
 		};
 	}
-	
+
 	function showLoading(index) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_LOADING,
 			index: index
 		};
 	}
-	
+
 	function securitySearch(index, query) {
 		return function (dispatch, getState) {
 			if (query.length > 2) {
@@ -2325,7 +2325,7 @@
 					var _state$chartPage$chartComponent$index$securitySelector = state.chartPage.chartComponent[index].securitySelector;
 					var exchange = _state$chartPage$chartComponent$index$securitySelector.exchange;
 					var type = _state$chartPage$chartComponent$index$securitySelector.type;
-	
+
 					// state.chartPage.chartComponent[index].securitySelector;
 					// console.log(index, query, state);
 					_d32["default"].json("resources/data/securitysearch.json?q=" + query + "&exchange=" + exchange + "&type=" + type, function (data) {
@@ -2336,7 +2336,7 @@
 			}
 		};
 	}
-	
+
 	function forSecurities(index, securities) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_SECURITY_SEARCH,
@@ -2344,7 +2344,7 @@
 			securities: securities
 		};
 	}
-	
+
 	function chartTypeSelectDropDownToggle(index, value) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_CHART_TYPE_DROPDOWN_TOGGLE,
@@ -2352,7 +2352,7 @@
 			value: value
 		};
 	}
-	
+
 	function getTransforms(chartType, opt) {
 		var transforms = [{ transform: StockscaleTransformer }];
 		var options;
@@ -2384,9 +2384,9 @@
 		}
 		return transforms;
 	}
-	
+
 	function chartTypeSelect(index, chartType) {
-	
+
 		var transforms = getTransforms(chartType);
 		return {
 			type: _constantsActionTypes.CHART_PAGE_CHART_TYPE_SELECT,
@@ -2395,10 +2395,10 @@
 			transforms: transforms
 		};
 	}
-	
+
 	function changeChartSettings(index, chartType, settings) {
 		var transforms = getTransforms(chartType, settings);
-	
+
 		return {
 			type: _constantsActionTypes.CHART_PAGE_CHART_TYPE_SELECT,
 			index: index,
@@ -2406,7 +2406,7 @@
 			transforms: transforms
 		};
 	}
-	
+
 	function indicatorsDropDownToggle(index, value) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_CHART_INDICATOR_DROPDOWN_TOGGLE,
@@ -2414,19 +2414,19 @@
 			value: value
 		};
 	}
-	
+
 	function addIndicator(index, indicator) {
-	
+
 		return function (dispatch, getState) {
 			var state = getState();
 			var list = state.chartPage.chartComponent[index].indicators.list;
-	
+
 			var maxChartId = list.map(function (each) {
 				return each.chartId;
 			}).reduce(function (a, b) {
 				return Math.max(a, b);
 			}, 1);
-	
+
 			var maxDataSeriesId = list.filter(function (each) {
 				return each.chartId === 0;
 			}).map(function (each) {
@@ -2434,7 +2434,7 @@
 			}).reduce(function (a, b) {
 				return Math.max(a, b);
 			}, 0);
-	
+
 			var options, chartId, dataSeriesId;
 			switch (indicator) {
 				case "BollingerBand":
@@ -2484,7 +2484,7 @@
 			dispatch(addIndicatorSync(index, indicatorToAdd));
 		};
 	}
-	
+
 	function addIndicatorSync(index, indicator) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_CHART_INDICATOR_ADD,
@@ -2492,7 +2492,7 @@
 			indicator: indicator
 		};
 	}
-	
+
 	function removeIndicator(index, indicator) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_CHART_INDICATOR_REMOVE,
@@ -2500,7 +2500,7 @@
 			indicator: indicator
 		};
 	}
-	
+
 	function settingsDropDownToggle(index, value) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_CHART_SETTINGS_DROPDOWN_TOGGLE,
@@ -2508,7 +2508,7 @@
 			value: value
 		};
 	}
-	
+
 	function changeSettings(index, settings) {
 		return {
 			type: _constantsActionTypes.CHART_PAGE_CHART_SETTINGS_CHANGE,
@@ -2522,7 +2522,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
@@ -2532,15 +2532,15 @@
 	exports.toggleLeftNav = toggleLeftNav;
 	exports.escape = escape;
 	exports.windowResize = windowResize;
-	
+
 	var _constantsActionTypes = __webpack_require__(24);
-	
+
 	function toggleHeader() {
 		return {
 			type: _constantsActionTypes.TOGGLE_HEADER
 		};
 	}
-	
+
 	function toggleRightPane() {
 		return function (dispatch, getState) {
 			dispatch(toggleRightPaneSync());
@@ -2549,31 +2549,31 @@
 			}, 20);
 		};
 	}
-	
+
 	function toggleRightPaneSync() {
 		return {
 			type: _constantsActionTypes.TOGGLE_RIGHT_PANE
 		};
 	}
-	
+
 	function toggleLeftNav() {
 		return {
 			type: _constantsActionTypes.TOGGLE_LEFT_NAV
 		};
 	}
-	
+
 	function escape() {
 		return {
 			type: _constantsActionTypes.ESCAPE
 		};
 	}
-	
+
 	function windowResize() {
 		return {
 			type: _constantsActionTypes.WINDOW_RESIZE
 		};
 	}
-	
+
 	/*
 	export function toggleLeftNav() {
 		return (dispatch, getState) => {
@@ -2600,7 +2600,7 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -2643,54 +2643,54 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _interopRequireDefault = __webpack_require__(7)['default'];
-	
+
 	exports.__esModule = true;
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _objType = __webpack_require__(240);
-	
+
 	var _objType2 = _interopRequireDefault(_objType);
-	
+
 	var _JSONObjectNode = __webpack_require__(236);
-	
+
 	var _JSONObjectNode2 = _interopRequireDefault(_JSONObjectNode);
-	
+
 	var _JSONArrayNode = __webpack_require__(230);
-	
+
 	var _JSONArrayNode2 = _interopRequireDefault(_JSONArrayNode);
-	
+
 	var _JSONIterableNode = __webpack_require__(233);
-	
+
 	var _JSONIterableNode2 = _interopRequireDefault(_JSONIterableNode);
-	
+
 	var _JSONStringNode = __webpack_require__(237);
-	
+
 	var _JSONStringNode2 = _interopRequireDefault(_JSONStringNode);
-	
+
 	var _JSONNumberNode = __webpack_require__(235);
-	
+
 	var _JSONNumberNode2 = _interopRequireDefault(_JSONNumberNode);
-	
+
 	var _JSONBooleanNode = __webpack_require__(231);
-	
+
 	var _JSONBooleanNode2 = _interopRequireDefault(_JSONBooleanNode);
-	
+
 	var _JSONNullNode = __webpack_require__(234);
-	
+
 	var _JSONNullNode2 = _interopRequireDefault(_JSONNullNode);
-	
+
 	var _JSONDateNode = __webpack_require__(232);
-	
+
 	var _JSONDateNode2 = _interopRequireDefault(_JSONDateNode);
-	
+
 	exports['default'] = function (key, value, prevValue, theme) {
 	  var initialExpanded = arguments.length <= 4 || arguments[4] === undefined ? false : arguments[4];
-	
+
 	  var nodeType = _objType2['default'](value);
 	  if (nodeType === 'Object') {
 	    return _react2['default'].createElement(_JSONObjectNode2['default'], { data: value, previousData: prevValue, theme: theme, initialExpanded: initialExpanded, keyName: key, key: key });
@@ -2711,7 +2711,7 @@
 	  }
 	  return false;
 	};
-	
+
 	module.exports = exports['default'];
 
 /***/ },
@@ -2719,42 +2719,42 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _d3 = __webpack_require__(5);
-	
+
 	var _d32 = _interopRequireDefault(_d3);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var Area = (function (_React$Component) {
 		_inherits(Area, _React$Component);
-	
+
 		function Area() {
 			_classCallCheck(this, Area);
-	
+
 			_get(Object.getPrototypeOf(Area.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(Area, [{
 			key: "render",
 			value: function render() {
@@ -2763,17 +2763,17 @@
 				var fill = props.fill;
 				var className = props.className;
 				var opacity = props.opacity;
-	
+
 				className = className.concat(stroke !== undefined ? "" : " line-stroke");
 				return _react2["default"].createElement("path", { d: Area.getArea(props), stroke: stroke, fill: fill, className: className, opacity: opacity });
 			}
 		}]);
-	
+
 		return Area;
 	})(_react2["default"].Component);
-	
+
 	;
-	
+
 	Area.propTypes = {
 		className: _react2["default"].PropTypes.string,
 		xScale: _react2["default"].PropTypes.func.isRequired,
@@ -2787,7 +2787,7 @@
 		type: _react2["default"].PropTypes.string.isRequired,
 		base: _react2["default"].PropTypes.func
 	};
-	
+
 	Area.defaultProps = {
 		className: "line ",
 		fill: "none",
@@ -2800,12 +2800,12 @@
 		var xAccessor = props.xAccessor;
 		var yAccessor = props.yAccessor;
 		var base = props.base;
-	
+
 		var height = yScale.range()[0];
 		if (base === undefined) base = function () {
 			return height - 1;
 		};
-	
+
 		var areaSeries = _d32["default"].svg.area().defined(function (d) {
 			return yAccessor(d) !== undefined;
 		}).x(function (d) {
@@ -2813,10 +2813,10 @@
 		}).y0(base.bind(null, yScale)).y1(function (d) {
 			return yScale(yAccessor(d));
 		});
-	
+
 		return areaSeries(plotData);
 	};
-	
+
 	Area.drawOnCanvas = function (props, ctx, xScale, yScale, plotData) {
 		var xAccessor = props.xAccessor;
 		var yAccessor = props.yAccessor;
@@ -2824,17 +2824,17 @@
 		var stroke = props.stroke;
 		var opacity = props.opacity;
 		var base = props.base;
-	
+
 		var begin = true;
 		var height = yScale.range()[0];
 		var newBase = base === undefined ? function () {
 			return height - 1;
 		} : base;
-	
+
 		ctx.fillStyle = fill;
 		ctx.strokeStyle = stroke;
 		ctx.globalAlpha = opacity;
-	
+
 		plotData.forEach(function (d) {
 			if (yAccessor(d) !== undefined) {
 				if (begin) {
@@ -2842,17 +2842,17 @@
 					begin = false;
 					var x = ~ ~(0.5 + xScale(xAccessor(d)));
 					var y = ~ ~(0.5 + yScale(yAccessor(d)));
-	
+
 					ctx.moveTo(x, newBase(yScale, d));
 					ctx.lineTo(x, y);
 				}
 				ctx.lineTo(xScale(xAccessor(d)), yScale(yAccessor(d)));
 			}
 		});
-	
+
 		var last = plotData[plotData.length - 1];
 		ctx.lineTo(xScale(xAccessor(last)), newBase(yScale, last));
-	
+
 		if (base !== undefined) {
 			plotData.slice().reverse().forEach(function (d) {
 				if (yAccessor(d) !== undefined) {
@@ -2863,7 +2863,7 @@
 		ctx.closePath();
 		ctx.fill();
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(Area);
 	module.exports = exports["default"];
 
@@ -2872,43 +2872,43 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var HistogramSeries = (function (_React$Component) {
 		_inherits(HistogramSeries, _React$Component);
-	
+
 		function HistogramSeries() {
 			_classCallCheck(this, HistogramSeries);
-	
+
 			_get(Object.getPrototypeOf(HistogramSeries.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(HistogramSeries, [{
 			key: "render",
 			value: function render() {
 				var props = this.props;
-	
+
 				return _react2["default"].createElement(
 					"g",
 					{ className: "histogram" },
@@ -2916,10 +2916,10 @@
 				);
 			}
 		}]);
-	
+
 		return HistogramSeries;
 	})(_react2["default"].Component);
-	
+
 	HistogramSeries.propTypes = {
 		baseAt: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.oneOf(["top", "bottom", "middle"]), _react2["default"].PropTypes.number, _react2["default"].PropTypes.func]).isRequired,
 		direction: _react2["default"].PropTypes.oneOf(["up", "down"]).isRequired,
@@ -2928,7 +2928,7 @@
 		fill: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.func, _react2["default"].PropTypes.string]).isRequired,
 		className: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.func, _react2["default"].PropTypes.string]).isRequired
 	};
-	
+
 	HistogramSeries.defaultProps = {
 		baseAt: "bottom",
 		direction: "up",
@@ -2937,17 +2937,17 @@
 		fill: "steelblue",
 		opacity: 0.5
 	};
-	
+
 	HistogramSeries.drawOnCanvas = function (props, ctx, xScale, yScale, plotData) {
 		var height = props.height;
 		var width = props.width;
 		var xAccessor = props.xAccessor;
 		var yAccessor = props.yAccessor;
-	
+
 		var bars = HistogramSeries.getBars(props, xAccessor, yAccessor, xScale, yScale, plotData);
-	
+
 		ctx.globalAlpha = props.opacity;
-	
+
 		var each,
 		    group = {};
 		for (var i = 0; i < bars.length; i++) {
@@ -2959,7 +2959,7 @@
 				group[each.fill].push(each);
 			}
 		};
-	
+
 		Object.keys(group).forEach(function (key) {
 			if (group[key][0].barWidth < 1) {
 				ctx.strokeStyle = key;
@@ -2992,16 +2992,16 @@
 			});
 		});
 	};
-	
+
 	HistogramSeries.getBarsSVG = function (props) {
 		var xAccessor = props.xAccessor;
 		var yAccessor = props.yAccessor;
 		var xScale = props.xScale;
 		var yScale = props.yScale;
 		var plotData = props.plotData;
-	
+
 		var bars = HistogramSeries.getBars(props, xAccessor, yAccessor, xScale, yScale, plotData);
-	
+
 		return bars.map(function (d, idx) {
 			if (d.barWidth <= 1) {
 				return _react2["default"].createElement("line", { key: idx, className: d.className,
@@ -3020,51 +3020,51 @@
 				height: d.height });
 		});
 	};
-	
+
 	HistogramSeries.getBars = function (props, xAccessor, yAccessor, xScale, yScale, plotData) {
 		var baseAt = props.baseAt;
 		var direction = props.direction;
 		var className = props.className;
 		var fill = props.fill;
 		var stroke = props.stroke;
-	
+
 		var base = baseAt === "top" ? 0 : baseAt === "bottom" ? yScale.range()[0] : baseAt === "middle" ? (yScale.range()[0] + yScale.range()[1]) / 2 : baseAt;
-	
+
 		var dir = direction === "up" ? -1 : 1;
-	
+
 		var getClassName = function getClassName() {
 			return className;
 		};
 		if (typeof className === "function") {
 			getClassName = className;
 		}
-	
+
 		var getFill = function getFill() {
 			return fill;
 		};
 		if (typeof fill === "function") {
 			getFill = fill;
 		}
-	
+
 		var width = xScale(xAccessor(plotData[plotData.length - 1])) - xScale(xAccessor(plotData[0]));
 		var barWidth = Math.round(width / plotData.length * 0.5);
-	
+
 		var bars = plotData.filter(function (d) {
 			return yAccessor(d) !== undefined;
 		}).map(function (d, idx) {
 			var yValue = yAccessor(d);
 			var x = Math.round(xScale(xAccessor(d))) - (barWidth === 1 ? 0 : 0.5 * barWidth),
-			   
+
 			// var x = (xScale(xAccessor(d))) - 0.5 * barWidth,
 			className = getClassName(d),
 			    y,
 			    height;
-	
+
 			var newBase = base;
 			if (typeof base === "function") {
 				newBase = base(xScale, yScale, d);
 			}
-	
+
 			if (dir > 0) {
 				y = newBase;
 				height = yScale.range()[0] - yScale(yValue);
@@ -3072,7 +3072,7 @@
 				y = yScale(yValue);
 				height = newBase - y;
 			}
-	
+
 			if (height < 0) {
 				y = newBase;
 				height = -height;
@@ -3089,7 +3089,7 @@
 		});
 		return bars;
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(HistogramSeries);
 	module.exports = exports["default"];
 
@@ -3098,43 +3098,43 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _DummyTransformer = __webpack_require__(120);
-	
+
 	var _DummyTransformer2 = _interopRequireDefault(_DummyTransformer);
-	
+
 	var _StockscaleTransformer = __webpack_require__(125);
-	
+
 	var _StockscaleTransformer2 = _interopRequireDefault(_StockscaleTransformer);
-	
+
 	var _HeikinAshiTransformer = __webpack_require__(121);
-	
+
 	var _HeikinAshiTransformer2 = _interopRequireDefault(_HeikinAshiTransformer);
-	
+
 	var _KagiTransformer = __webpack_require__(122);
-	
+
 	var _KagiTransformer2 = _interopRequireDefault(_KagiTransformer);
-	
+
 	var _RenkoTransformer = __webpack_require__(124);
-	
+
 	var _RenkoTransformer2 = _interopRequireDefault(_RenkoTransformer);
-	
+
 	var _PointAndFigureTransformer = __webpack_require__(123);
-	
+
 	var _PointAndFigureTransformer2 = _interopRequireDefault(_PointAndFigureTransformer);
-	
+
 	var _defaultOptions = __webpack_require__(29);
-	
+
 	var defaultOptions = _interopRequireWildcard(_defaultOptions);
-	
+
 	exports["default"] = {
 		DummyTransformer: _DummyTransformer2["default"],
 		StockscaleTransformer: _StockscaleTransformer2["default"],
@@ -3151,64 +3151,64 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	// common components
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _libChartCanvas = __webpack_require__(72);
-	
+
 	var _libChartCanvas2 = _interopRequireDefault(_libChartCanvas);
-	
+
 	var _libChart = __webpack_require__(71);
-	
+
 	var _libChart2 = _interopRequireDefault(_libChart);
-	
+
 	var _libDataSeries = __webpack_require__(73);
-	
+
 	var _libDataSeries2 = _interopRequireDefault(_libDataSeries);
-	
+
 	// interaction components
-	
+
 	var _libEventCapture = __webpack_require__(74);
-	
+
 	var _libEventCapture2 = _interopRequireDefault(_libEventCapture);
-	
+
 	// chart types & Series
-	
+
 	var _libSeries = __webpack_require__(110);
-	
+
 	var _libSeries2 = _interopRequireDefault(_libSeries);
-	
+
 	var _libCoordinates = __webpack_require__(86);
-	
+
 	var _libCoordinates2 = _interopRequireDefault(_libCoordinates);
-	
+
 	var _libIndicator = __webpack_require__(97);
-	
+
 	var _libIndicator2 = _interopRequireDefault(_libIndicator);
-	
+
 	var _libTransforms = __webpack_require__(38);
-	
+
 	var _libTransforms2 = _interopRequireDefault(_libTransforms);
-	
+
 	var _libAxes = __webpack_require__(80);
-	
+
 	var _libAxes2 = _interopRequireDefault(_libAxes);
-	
+
 	var _libTooltip = __webpack_require__(119);
-	
+
 	var _libTooltip2 = _interopRequireDefault(_libTooltip);
-	
+
 	var _libHelper = __webpack_require__(90);
-	
+
 	var _libHelper2 = _interopRequireDefault(_libHelper);
-	
+
 	var version = "0.2.5";
-	
+
 	exports["default"] = {
 		ChartCanvas: _libChartCanvas2["default"],
 		Chart: _libChart2["default"],
@@ -3279,13 +3279,13 @@
 /***/ function(module, exports) {
 
 	// shim for using process in browser
-	
+
 	var process = module.exports = {};
 	var queue = [];
 	var draining = false;
 	var currentQueue;
 	var queueIndex = -1;
-	
+
 	function cleanUpNextTick() {
 	    draining = false;
 	    if (currentQueue.length) {
@@ -3297,14 +3297,14 @@
 	        drainQueue();
 	    }
 	}
-	
+
 	function drainQueue() {
 	    if (draining) {
 	        return;
 	    }
 	    var timeout = setTimeout(cleanUpNextTick);
 	    draining = true;
-	
+
 	    var len = queue.length;
 	    while(len) {
 	        currentQueue = queue;
@@ -3321,7 +3321,7 @@
 	    draining = false;
 	    clearTimeout(timeout);
 	}
-	
+
 	process.nextTick = function (fun) {
 	    var args = new Array(arguments.length - 1);
 	    if (arguments.length > 1) {
@@ -3334,7 +3334,7 @@
 	        setTimeout(drainQueue, 0);
 	    }
 	};
-	
+
 	// v8 likes predictible objects
 	function Item(fun, array) {
 	    this.fun = fun;
@@ -3349,9 +3349,9 @@
 	process.argv = [];
 	process.version = ''; // empty string to avoid regexp issues
 	process.versions = {};
-	
+
 	function noop() {}
-	
+
 	process.on = noop;
 	process.addListener = noop;
 	process.once = noop;
@@ -3359,11 +3359,11 @@
 	process.removeListener = noop;
 	process.removeAllListeners = noop;
 	process.emit = noop;
-	
+
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
 	};
-	
+
 	process.cwd = function () { return '/' };
 	process.chdir = function (dir) {
 	    throw new Error('process.chdir is not supported');
@@ -3376,21 +3376,21 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _inherits = __webpack_require__(10)['default'];
-	
+
 	var _classCallCheck = __webpack_require__(8)['default'];
-	
+
 	var _extends = __webpack_require__(9)['default'];
-	
+
 	var _interopRequireDefault = __webpack_require__(7)['default'];
-	
+
 	exports.__esModule = true;
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var styles = {
 	  base: {
 	    display: 'inline-block',
@@ -3415,16 +3415,16 @@
 	    transform: 'rotateZ(0deg)'
 	  }
 	};
-	
+
 	var JSONArrow = (function (_React$Component) {
 	  _inherits(JSONArrow, _React$Component);
-	
+
 	  function JSONArrow() {
 	    _classCallCheck(this, JSONArrow);
-	
+
 	    _React$Component.apply(this, arguments);
 	  }
-	
+
 	  JSONArrow.prototype.render = function render() {
 	    var style = _extends({}, styles.base, {
 	      borderTopColor: this.props.theme.base0D
@@ -3434,10 +3434,10 @@
 	    }
 	    return _react2['default'].createElement('div', { style: style, onClick: this.props.onClick });
 	  };
-	
+
 	  return JSONArrow;
 	})(_react2['default'].Component);
-	
+
 	exports['default'] = JSONArrow;
 	module.exports = exports['default'];
 
@@ -3446,43 +3446,43 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _AxisTicks = __webpack_require__(77);
-	
+
 	var _AxisTicks2 = _interopRequireDefault(_AxisTicks);
-	
+
 	var _AxisLine = __webpack_require__(76);
-	
+
 	var _AxisLine2 = _interopRequireDefault(_AxisLine);
-	
+
 	var Axis = (function (_React$Component) {
 		_inherits(Axis, _React$Component);
-	
+
 		function Axis(props) {
 			_classCallCheck(this, Axis);
-	
+
 			_get(Object.getPrototypeOf(Axis.prototype), "constructor", this).call(this, props);
 			this.drawOnCanvas = this.drawOnCanvas.bind(this);
 		}
-	
+
 		_createClass(Axis, [{
 			key: "componentWillMount",
 			value: function componentWillMount() {
@@ -3497,9 +3497,9 @@
 				var chartId = nextContext.chartId;
 				var canvasOriginX = nextContext.canvasOriginX;
 				var canvasOriginY = nextContext.canvasOriginY;
-	
+
 				var draw = Axis.drawOnCanvasStatic.bind(null, margin, nextProps, [canvasOriginX, canvasOriginY]);
-	
+
 				nextContext.secretToSuperFastCanvasDraw.push({
 					chartId: chartId,
 					type: "axis",
@@ -3528,14 +3528,14 @@
 				var canvasOriginX = _context.canvasOriginX;
 				var canvasOriginY = _context.canvasOriginY;
 				var scale = this.props.scale;
-	
+
 				Axis.drawOnCanvasStatic(margin, this.props, [canvasOriginX, canvasOriginY], ctx, chartData, scale, scale);
 			}
 		}, {
 			key: "render",
 			value: function render() {
 				if (this.context.type !== "svg") return null;
-	
+
 				var domain = this.props.showDomain ? _react2["default"].createElement(_AxisLine2["default"], this.props) : null;
 				var ticks = this.props.showTicks ? _react2["default"].createElement(_AxisTicks2["default"], this.props) : null;
 				var className = "";
@@ -3549,10 +3549,10 @@
 				);
 			}
 		}]);
-	
+
 		return Axis;
 	})(_react2["default"].Component);
-	
+
 	Axis.propTypes = {
 		className: _react2["default"].PropTypes.string.isRequired,
 		orient: _react2["default"].PropTypes.oneOf(["top", "bottom", "left", "right"]).isRequired,
@@ -3569,7 +3569,7 @@
 		fontFamily: _react2["default"].PropTypes.string,
 		fontSize: _react2["default"].PropTypes.number.isRequired
 	};
-	
+
 	Axis.defaultProps = {
 		defaultClassName: "react-stockcharts-axis ",
 		showDomain: true,
@@ -3577,7 +3577,7 @@
 		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
 		fontSize: 12
 	};
-	
+
 	Axis.contextTypes = {
 		getCanvasContexts: _react2["default"].PropTypes.func,
 		type: _react2["default"].PropTypes.string,
@@ -3588,23 +3588,23 @@
 		canvasOriginY: _react2["default"].PropTypes.number,
 		secretToSuperFastCanvasDraw: _react2["default"].PropTypes.array.isRequired
 	};
-	
+
 	Axis.drawOnCanvasStatic = function (margin, props, canvasOrigin, ctx, chartData, xScale, yScale) {
 		var transform = props.transform;
 		var showDomain = props.showDomain;
 		var showTicks = props.showTicks;
-	
+
 		ctx.save();
-	
+
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
 		ctx.translate(canvasOrigin[0] + transform[0], canvasOrigin[1] + transform[1]);
-	
+
 		if (showDomain) _AxisLine2["default"].drawOnCanvasStatic(props, ctx, chartData, xScale, yScale);
 		if (showTicks) _AxisTicks2["default"].drawOnCanvasStatic(props, ctx, chartData, xScale, yScale);
-	
+
 		ctx.restore();
 	};
-	
+
 	exports["default"] = Axis;
 	module.exports = exports["default"];
 
@@ -3613,45 +3613,45 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	// "../utils/Object.assign"
-	
+
 	var EdgeCoordinate = (function (_React$Component) {
 		_inherits(EdgeCoordinate, _React$Component);
-	
+
 		function EdgeCoordinate() {
 			_classCallCheck(this, EdgeCoordinate);
-	
+
 			_get(Object.getPrototypeOf(EdgeCoordinate.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(EdgeCoordinate, [{
 			key: "render",
 			value: function render() {
 				var className = this.props.className;
-	
+
 				var edge = EdgeCoordinate.helper(this.props);
 				if (edge === null) return null;
 				var line, coordinateBase, coordinate;
-	
+
 				if (edge.line !== undefined) {
 					line = _react2["default"].createElement("line", {
 						className: "react-stockcharts-cross-hair", opacity: edge.line.opacity, stroke: edge.line.stroke,
@@ -3684,10 +3684,10 @@
 				);
 			}
 		}]);
-	
+
 		return EdgeCoordinate;
 	})(_react2["default"].Component);
-	
+
 	EdgeCoordinate.propTypes = {
 		type: _react2["default"].PropTypes.oneOf(["vertical", "horizontal"]).isRequired,
 		coordinate: _react2["default"].PropTypes.any.isRequired,
@@ -3713,7 +3713,7 @@
 		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
 		fontSize: 13
 	};
-	
+
 	EdgeCoordinate.helper = function (props) {
 		var displayCoordinate = props.coordinate;
 		var show = props.show;
@@ -3732,16 +3732,16 @@
 		var y1 = props.y1;
 		var x2 = props.x2;
 		var y2 = props.y2;
-	
+
 		if (!show) return null;
-	
+
 		rectWidth = rectWidth ? rectWidth : type === "horizontal" ? 60 : 100;
 		var rectHeight = 20;
-	
+
 		var edgeXRect, edgeYRect, edgeXText, edgeYText;
-	
+
 		if (type === "horizontal") {
-	
+
 			edgeXRect = orient === "right" ? edgeAt + 1 : edgeAt - rectWidth - 1;
 			edgeYRect = y1 - rectHeight / 2;
 			edgeXText = orient === "right" ? edgeAt + rectWidth / 2 : edgeAt - rectWidth / 2;
@@ -3770,41 +3770,41 @@
 			coordinateBase: coordinateBase, coordinate: coordinate, line: line
 		};
 	};
-	
+
 	EdgeCoordinate.drawOnCanvasStatic = function (ctx, props) {
 		props = (0, _objectAssign2["default"])({}, EdgeCoordinate.defaultProps, props);
-	
+
 		var edge = EdgeCoordinate.helper(props);
-	
+
 		if (edge === null) return;
-	
+
 		if (edge.coordinateBase !== undefined) {
 			// var { globalAlpha, fillStyle } = ctx;
 			ctx.globalAlpha = edge.coordinateBase.opacity;
 			ctx.fillStyle = edge.coordinateBase.fill;
-	
+
 			ctx.beginPath();
 			ctx.rect(edge.coordinateBase.edgeXRect, edge.coordinateBase.edgeYRect, edge.coordinateBase.rectWidth, edge.coordinateBase.rectHeight);
 			ctx.fill();
-	
+
 			ctx.font = edge.coordinate.fontSize + "px " + edge.coordinate.fontFamily;
 			ctx.fillStyle = edge.coordinate.textFill;
 			ctx.textAlign = edge.coordinate.textAnchor === "middle" ? "center" : edge.coordinate.textAnchor;
 			ctx.textBaseline = "middle";
-	
+
 			ctx.fillText(edge.coordinate.displayCoordinate, edge.coordinate.edgeXText, edge.coordinate.edgeYText);
 		}
 		if (edge.line !== undefined) {
 			ctx.globalAlpha = edge.line.opacity;
 			ctx.strokeStyle = edge.line.stroke;
-	
+
 			ctx.beginPath();
 			ctx.moveTo(edge.line.x1, edge.line.y1);
 			ctx.lineTo(edge.line.x2, edge.line.y2);
 			ctx.stroke();
 		}
 	};
-	
+
 	module.exports = EdgeCoordinate;
 
 /***/ },
@@ -3812,7 +3812,7 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	function sumOf(array, offset, length) {
 		var sum = 0;
 		for (var i = offset; i < offset + length; i++) {
@@ -3820,7 +3820,7 @@
 		}
 		return sum;
 	}
-	
+
 	function calculateTR(rawData) {
 		var prev = rawData[0];
 		rawData.filter(function (d, idx) {
@@ -3830,10 +3830,10 @@
 			prev = rawData[idx];
 		});
 	}
-	
+
 	function calculateATR(rawData, period) {
 		calculateTR(rawData);
-	
+
 		rawData.forEach(function (d, index) {
 			if (index > period) {
 				// trueRange starts from index 1 so ATR starts from period (not period -1)
@@ -3842,7 +3842,7 @@
 			}
 		});
 	}
-	
+
 	module.exports = calculateATR;
 
 /***/ },
@@ -3850,22 +3850,22 @@
 /***/ function(module, exports) {
 
 	// https://github.com/jonschlinkert/is-equal-shallow/
-	
+
 	/*
 	The MIT License (MIT)
-	
+
 	Copyright (c) 2015, Jon Schlinkert.
-	
+
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
 	in the Software without restriction, including without limitation the rights
 	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 	copies of the Software, and to permit persons to whom the Software is
 	furnished to do so, subject to the following conditions:
-	
+
 	The above copyright notice and this permission notice shall be included in
 	all copies or substantial portions of the Software.
-	
+
 	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -3874,13 +3874,13 @@
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE.
 	*/
-	
+
 	'use strict';
-	
+
 	function isPrimitive(value) {
 		return value == null || typeof value !== 'function' && typeof value !== 'object';
 	};
-	
+
 	function shallowEqual(a, b) {
 		if (!a && !b) {
 			return true;
@@ -3888,7 +3888,7 @@
 		if (!a && b || a && !b) {
 			return false;
 		}
-	
+
 		var numKeysA = 0,
 		    numKeysB = 0,
 		    key;
@@ -3904,7 +3904,7 @@
 		}
 		return numKeysA === numKeysB;
 	};
-	
+
 	module.exports = shallowEqual;
 
 /***/ },
@@ -3922,7 +3922,7 @@
 /***/ function(module, exports) {
 
 	var toString = {}.toString;
-	
+
 	module.exports = function(it){
 	  return toString.call(it).slice(8, -1);
 	};
@@ -4012,7 +4012,7 @@
 	var has  = __webpack_require__(43)
 	  , hide = __webpack_require__(33)
 	  , TAG  = __webpack_require__(22)('toStringTag');
-	
+
 	module.exports = function(it, tag, stat){
 	  if(it && !has(it = stat ? it : it.prototype, TAG))hide(it, TAG, tag);
 	};
@@ -4033,7 +4033,7 @@
 
 	'use strict';
 	var $at  = __webpack_require__(212)(true);
-	
+
 	// 21.1.3.27 String.prototype[@@iterator]()
 	__webpack_require__(54)(String, 'String', function(iterated){
 	  this._t = String(iterated); // target
@@ -4093,38 +4093,38 @@
 			}
 			return result;
 		}
-	
+
 		function init (converter) {
 			function api (key, value, attributes) {
 				var result;
-	
+
 				// Write
-	
+
 				if (arguments.length > 1) {
 					attributes = extend({
 						path: '/'
 					}, api.defaults, attributes);
-	
+
 					if (typeof attributes.expires === 'number') {
 						var expires = new Date();
 						expires.setMilliseconds(expires.getMilliseconds() + attributes.expires * 864e+5);
 						attributes.expires = expires;
 					}
-	
+
 					try {
 						result = JSON.stringify(value);
 						if (/^[\{\[]/.test(result)) {
 							value = result;
 						}
 					} catch (e) {}
-	
+
 					value = encodeURIComponent(String(value));
 					value = value.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
-	
+
 					key = encodeURIComponent(String(key));
 					key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
 					key = key.replace(/[\(\)]/g, escape);
-	
+
 					return (document.cookie = [
 						key, '=', value,
 						attributes.expires && '; expires=' + attributes.expires.toUTCString(), // use expires attribute, max-age is not supported by IE
@@ -4133,52 +4133,52 @@
 						attributes.secure ? '; secure' : ''
 					].join(''));
 				}
-	
+
 				// Read
-	
+
 				if (!key) {
 					result = {};
 				}
-	
+
 				// To prevent the for loop in the first place assign an empty array
 				// in case there are no cookies at all. Also prevents odd result when
 				// calling "get()"
 				var cookies = document.cookie ? document.cookie.split('; ') : [];
 				var rdecode = /(%[0-9A-Z]{2})+/g;
 				var i = 0;
-	
+
 				for (; i < cookies.length; i++) {
 					var parts = cookies[i].split('=');
 					var name = parts[0].replace(rdecode, decodeURIComponent);
 					var cookie = parts.slice(1).join('=');
-	
+
 					if (cookie.charAt(0) === '"') {
 						cookie = cookie.slice(1, -1);
 					}
-	
+
 					try {
 						cookie = converter && converter(cookie, name) || cookie.replace(rdecode, decodeURIComponent);
-	
+
 						if (this.json) {
 							try {
 								cookie = JSON.parse(cookie);
 							} catch (e) {}
 						}
-	
+
 						if (key === name) {
 							result = cookie;
 							break;
 						}
-	
+
 						if (!key) {
 							result[name] = cookie;
 						}
 					} catch (e) {}
 				}
-	
+
 				return result;
 			}
-	
+
 			api.get = api.set = api;
 			api.getJSON = function () {
 				return api.apply({
@@ -4186,18 +4186,18 @@
 				}, [].slice.call(arguments));
 			};
 			api.defaults = {};
-	
+
 			api.remove = function (key, attributes) {
 				api(key, '', extend(attributes, {
 					expires: -1
 				}));
 			};
-	
+
 			api.withConverter = init;
-	
+
 			return api;
 		}
-	
+
 		return init();
 	}));
 
@@ -4210,33 +4210,33 @@
 	// all credits and original code to the author
 	// Dave Vedder <veddermatic@gmail.com> http://www.eskimospy.com/
 	// port by Daniele Zannotti http://www.github.com/dzannotti <dzannotti@me.com>
-	
+
 	'use strict';
-	
+
 	var _inherits = __webpack_require__(10)['default'];
-	
+
 	var _createClass = __webpack_require__(189)['default'];
-	
+
 	var _classCallCheck = __webpack_require__(8)['default'];
-	
+
 	var _extends = __webpack_require__(9)['default'];
-	
+
 	var _interopRequireDefault = __webpack_require__(7)['default'];
-	
+
 	exports.__esModule = true;
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _grabNode = __webpack_require__(35);
-	
+
 	var _grabNode2 = _interopRequireDefault(_grabNode);
-	
+
 	var _themesSolarized = __webpack_require__(241);
-	
+
 	var _themesSolarized2 = _interopRequireDefault(_themesSolarized);
-	
+
 	var styles = {
 	  tree: {
 	    border: 0,
@@ -4251,10 +4251,10 @@
 	    WebkitUserSelect: 'none'
 	  }
 	};
-	
+
 	var JSONTree = (function (_React$Component) {
 	  _inherits(JSONTree, _React$Component);
-	
+
 	  _createClass(JSONTree, null, [{
 	    key: 'propTypes',
 	    value: {
@@ -4268,13 +4268,13 @@
 	    },
 	    enumerable: true
 	  }]);
-	
+
 	  function JSONTree(props) {
 	    _classCallCheck(this, JSONTree);
-	
+
 	    _React$Component.call(this, props);
 	  }
-	
+
 	  JSONTree.prototype.render = function render() {
 	    var keyName = this.props.keyName || 'root';
 	    var rootNode = _grabNode2['default'](keyName, this.props.data, this.props.previousData, this.props.theme, true);
@@ -4284,10 +4284,10 @@
 	      rootNode
 	    );
 	  };
-	
+
 	  return JSONTree;
 	})(_react2['default'].Component);
-	
+
 	exports['default'] = JSONTree;
 	module.exports = exports['default'];
 
@@ -4296,27 +4296,27 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = createAll;
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	var _createProvider = __webpack_require__(243);
-	
+
 	var _createProvider2 = _interopRequireDefault(_createProvider);
-	
+
 	var _createConnect = __webpack_require__(242);
-	
+
 	var _createConnect2 = _interopRequireDefault(_createConnect);
-	
+
 	function createAll(React) {
 	  var Provider = _createProvider2['default'](React);
 	  var connect = _createConnect2['default'](React);
-	
+
 	  return { Provider: Provider, connect: connect };
 	}
-	
+
 	module.exports = exports['default'];
 
 /***/ },
@@ -4324,10 +4324,10 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	exports.__esModule = true;
 	exports["default"] = createStoreShape;
-	
+
 	function createStoreShape(PropTypes) {
 	  return PropTypes.shape({
 	    subscribe: PropTypes.func.isRequired,
@@ -4335,7 +4335,7 @@
 	    getState: PropTypes.func.isRequired
 	  });
 	}
-	
+
 	module.exports = exports["default"];
 
 /***/ },
@@ -4343,11 +4343,11 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	exports['default'] = devTools;
 	var ActionTypes = {
 	  PERFORM_ACTION: 'PERFORM_ACTION',
@@ -4360,11 +4360,11 @@
 	  SET_MONITOR_STATE: 'SET_MONITOR_STATE',
 	  RECOMPUTE_STATES: 'RECOMPUTE_STATES'
 	};
-	
+
 	var INIT_ACTION = {
 	  type: '@@INIT'
 	};
-	
+
 	function toggle(obj, key) {
 	  var clone = _extends({}, obj);
 	  if (clone[key]) {
@@ -4374,7 +4374,7 @@
 	  }
 	  return clone;
 	}
-	
+
 	/**
 	 * Computes the next entry in the log by applying an action.
 	 */
@@ -4385,7 +4385,7 @@
 	      error: 'Interrupted by an error up the chain'
 	    };
 	  }
-	
+
 	  var nextState = state;
 	  var nextError = undefined;
 	  try {
@@ -4394,13 +4394,13 @@
 	    nextError = err.toString();
 	    console.error(err.stack || err);
 	  }
-	
+
 	  return {
 	    state: nextState,
 	    error: nextError
 	  };
 	}
-	
+
 	/**
 	 * Runs the reducer on all actions to get a fresh computation log.
 	 * It's probably a good idea to do this only if the code has changed,
@@ -4408,23 +4408,23 @@
 	 */
 	function recomputeStates(reducer, committedState, stagedActions, skippedActions) {
 	  var computedStates = [];
-	
+
 	  for (var i = 0; i < stagedActions.length; i++) {
 	    var action = stagedActions[i];
-	
+
 	    var previousEntry = computedStates[i - 1];
 	    var previousState = previousEntry ? previousEntry.state : committedState;
 	    var previousError = previousEntry ? previousEntry.error : undefined;
-	
+
 	    var shouldSkip = Boolean(skippedActions[i]);
 	    var entry = shouldSkip ? previousEntry : computeNextEntry(reducer, action, previousState, previousError);
-	
+
 	    computedStates.push(entry);
 	  }
-	
+
 	  return computedStates;
 	}
-	
+
 	/**
 	 * Lifts the app state reducer into a DevTools state reducer.
 	 */
@@ -4439,7 +4439,7 @@
 	    },
 	    timestamps: [Date.now()]
 	  };
-	
+
 	  /**
 	   * Manages how the DevTools actions modify the DevTools state.
 	   */
@@ -4452,7 +4452,7 @@
 	    var currentStateIndex = liftedState.currentStateIndex;
 	    var monitorState = liftedState.monitorState;
 	    var timestamps = liftedState.timestamps;
-	
+
 	    switch (liftedAction.type) {
 	      case ActionTypes.RESET:
 	        committedState = initialState;
@@ -4510,9 +4510,9 @@
 	      default:
 	        break;
 	    }
-	
+
 	    computedStates = recomputeStates(reducer, committedState, stagedActions, skippedActions);
-	
+
 	    return {
 	      committedState: committedState,
 	      stagedActions: stagedActions,
@@ -4524,7 +4524,7 @@
 	    };
 	  };
 	}
-	
+
 	/**
 	 * Lifts an app action to a DevTools action.
 	 */
@@ -4536,7 +4536,7 @@
 	  };
 	  return liftedAction;
 	}
-	
+
 	/**
 	 * Unlifts the DevTools state to the app state.
 	 */
@@ -4544,10 +4544,10 @@
 	  var computedStates = liftedState.computedStates;
 	  var currentStateIndex = liftedState.currentStateIndex;
 	  var state = computedStates[currentStateIndex].state;
-	
+
 	  return state;
 	}
-	
+
 	/**
 	 * Unlifts the DevTools store to act like the app's store.
 	 */
@@ -4574,7 +4574,7 @@
 	    }
 	  });
 	}
-	
+
 	/**
 	 * Action creators to change the DevTools state.
 	 */
@@ -4608,12 +4608,12 @@
 	    };
 	  }
 	};
-	
+
 	exports.ActionCreators = ActionCreators;
 	/**
 	 * Redux DevTools middleware.
 	 */
-	
+
 	function devTools() {
 	  return function (next) {
 	    return function (reducer, initialState) {
@@ -4630,16 +4630,16 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = createStore;
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	var _utilsIsPlainObject = __webpack_require__(67);
-	
+
 	var _utilsIsPlainObject2 = _interopRequireDefault(_utilsIsPlainObject);
-	
+
 	/**
 	 * These are private action types reserved by Redux.
 	 * For any unknown actions, you must return the current state.
@@ -4649,7 +4649,7 @@
 	var ActionTypes = {
 	  INIT: '@@redux/INIT'
 	};
-	
+
 	exports.ActionTypes = ActionTypes;
 	/**
 	 * Creates a Redux store that holds the state tree.
@@ -4671,17 +4671,17 @@
 	 * @returns {Store} A Redux store that lets you read the state, dispatch actions
 	 * and subscribe to changes.
 	 */
-	
+
 	function createStore(reducer, initialState) {
 	  if (typeof reducer !== 'function') {
 	    throw new Error('Expected the reducer to be a function.');
 	  }
-	
+
 	  var currentReducer = reducer;
 	  var currentState = initialState;
 	  var listeners = [];
 	  var isDispatching = false;
-	
+
 	  /**
 	   * Reads the state tree managed by the store.
 	   *
@@ -4690,7 +4690,7 @@
 	  function getState() {
 	    return currentState;
 	  }
-	
+
 	  /**
 	   * Adds a change listener. It will be called any time an action is dispatched,
 	   * and some part of the state tree may potentially have changed. You may then
@@ -4701,13 +4701,13 @@
 	   */
 	  function subscribe(listener) {
 	    listeners.push(listener);
-	
+
 	    return function unsubscribe() {
 	      var index = listeners.indexOf(listener);
 	      listeners.splice(index, 1);
 	    };
 	  }
-	
+
 	  /**
 	   * Dispatches an action. It is the only way to trigger a state change.
 	   *
@@ -4737,28 +4737,28 @@
 	    if (!_utilsIsPlainObject2['default'](action)) {
 	      throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
 	    }
-	
+
 	    if (typeof action.type === 'undefined') {
 	      throw new Error('Actions may not have an undefined "type" property. ' + 'Have you misspelled a constant?');
 	    }
-	
+
 	    if (isDispatching) {
 	      throw new Error('Reducers may not dispatch actions.');
 	    }
-	
+
 	    try {
 	      isDispatching = true;
 	      currentState = currentReducer(currentState, action);
 	    } finally {
 	      isDispatching = false;
 	    }
-	
+
 	    listeners.slice().forEach(function (listener) {
 	      return listener();
 	    });
 	    return action;
 	  }
-	
+
 	  /**
 	   * Replaces the reducer currently used by the store to calculate the state.
 	   *
@@ -4773,12 +4773,12 @@
 	    currentReducer = nextReducer;
 	    dispatch({ type: ActionTypes.INIT });
 	  }
-	
+
 	  // When a store is created, an "INIT" action is dispatched so that every
 	  // reducer returns their initial state. This effectively populates
 	  // the initial state tree.
 	  dispatch({ type: ActionTypes.INIT });
-	
+
 	  return {
 	    dispatch: dispatch,
 	    subscribe: subscribe,
@@ -4799,22 +4799,22 @@
 	 * left. For example, compose(f, g, h) is identical to arg => f(g(h(arg))).
 	 */
 	"use strict";
-	
+
 	exports.__esModule = true;
 	exports["default"] = compose;
-	
+
 	function compose() {
 	  for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
 	    funcs[_key] = arguments[_key];
 	  }
-	
+
 	  return function (arg) {
 	    return funcs.reduceRight(function (composed, f) {
 	      return f(composed);
 	    }, arg);
 	  };
 	}
-	
+
 	module.exports = exports["default"];
 
 /***/ },
@@ -4822,34 +4822,34 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = isPlainObject;
 	var fnToString = function fnToString(fn) {
 	  return Function.prototype.toString.call(fn);
 	};
-	
+
 	/**
 	 * @param {any} obj The object to inspect.
 	 * @returns {boolean} True if the argument appears to be a plain object.
 	 */
-	
+
 	function isPlainObject(obj) {
 	  if (!obj || typeof obj !== 'object') {
 	    return false;
 	  }
-	
+
 	  var proto = typeof obj.constructor === 'function' ? Object.getPrototypeOf(obj) : Object.prototype;
-	
+
 	  if (proto === null) {
 	    return true;
 	  }
-	
+
 	  var constructor = proto.constructor;
-	
+
 	  return typeof constructor === 'function' && constructor instanceof constructor && fnToString(constructor) === fnToString(Object);
 	}
-	
+
 	module.exports = exports['default'];
 
 /***/ },
@@ -4864,17 +4864,17 @@
 	 * @returns {Object} A new object that contains the mapped values for the keys.
 	 */
 	"use strict";
-	
+
 	exports.__esModule = true;
 	exports["default"] = mapValues;
-	
+
 	function mapValues(obj, fn) {
 	  return Object.keys(obj).reduce(function (result, key) {
 	    result[key] = fn(obj[key], key);
 	    return result;
 	  }, {});
 	}
-	
+
 	module.exports = exports["default"];
 
 /***/ },
@@ -4888,41 +4888,41 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var CanvasContainer = (function (_React$Component) {
 		_inherits(CanvasContainer, _React$Component);
-	
+
 		function CanvasContainer() {
 			_classCallCheck(this, CanvasContainer);
-	
+
 			_get(Object.getPrototypeOf(CanvasContainer.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(CanvasContainer, [{
 			key: "getCanvasContexts",
 			value: function getCanvasContexts() {
 				var axesCanvasDOM = _utilsUtils2["default"].isReactVersion14() ? this.refs.canvas_axes : _react2["default"].findDOMNode(this.refs.canvas_axes);
-	
+
 				var mouseCoordDOM = _utilsUtils2["default"].isReactVersion14() ? this.refs.canvas_mouse_coordinates : _react2["default"].findDOMNode(this.refs.canvas_mouse_coordinates);
-	
+
 				if (this.refs.canvas_axes) {
 					return {
 						axes: axesCanvasDOM.getContext('2d'),
@@ -4938,7 +4938,7 @@
 				var width = _props.width;
 				var type = _props.type;
 				var zIndex = _props.zIndex;
-	
+
 				if (type === "svg") return null;
 				return _react2["default"].createElement(
 					"div",
@@ -4950,16 +4950,16 @@
 				);
 			}
 		}]);
-	
+
 		return CanvasContainer;
 	})(_react2["default"].Component);
-	
+
 	CanvasContainer.propTypes = {
 		width: _react2["default"].PropTypes.number.isRequired,
 		height: _react2["default"].PropTypes.number.isRequired,
 		type: _react2["default"].PropTypes.string.isRequired
 	};
-	
+
 	module.exports = CanvasContainer;
 
 /***/ },
@@ -4967,58 +4967,58 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var _utilsPureComponent = __webpack_require__(23);
-	
+
 	var _utilsPureComponent2 = _interopRequireDefault(_utilsPureComponent);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var _utilsChartDataUtil = __webpack_require__(6);
-	
+
 	var _utilsChartDataUtil2 = _interopRequireDefault(_utilsChartDataUtil);
-	
+
 	var Chart = (function (_PureComponent) {
 		_inherits(Chart, _PureComponent);
-	
+
 		function Chart() {
 			_classCallCheck(this, Chart);
-	
+
 			_get(Object.getPrototypeOf(Chart.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(Chart, [{
 			key: "getChildContext",
 			value: function getChildContext() {
 				var _this = this;
-	
+
 				var chartData = this.context.chartData.filter(function (each) {
 					return each.id === _this.props.id;
 				})[0];
-	
+
 				var originX = 0.5 + chartData.config.origin[0] + this.context.margin.left;
 				var originY = 0.5 + chartData.config.origin[1] + this.context.margin.top;
-	
+
 				return {
 					chartId: this.props.id,
 					xScale: chartData.plot.scales.xScale,
@@ -5037,7 +5037,7 @@
 			key: "render",
 			value: function render() {
 				var _this2 = this;
-	
+
 				var origin = _utilsChartDataUtil2["default"].getChartOrigin(this.props.origin, this.context.width, this.context.height);
 				var children = _react2["default"].Children.map(this.props.children, function (child) {
 					if (child === undefined || child === null) return child;
@@ -5056,10 +5056,10 @@
 				);
 			}
 		}]);
-	
+
 		return Chart;
 	})(_utilsPureComponent2["default"]);
-	
+
 	Chart.propTypes = {
 		height: _react2["default"].PropTypes.number,
 		width: _react2["default"].PropTypes.number,
@@ -5073,7 +5073,7 @@
 		yMousePointerDisplayFormat: _react2["default"].PropTypes.func,
 		padding: _react2["default"].PropTypes.object.isRequired
 	};
-	
+
 	Chart.defaultProps = {
 		namespace: "ReStock.Chart",
 		transformDataAs: "none",
@@ -5082,7 +5082,7 @@
 		padding: { top: 0, right: 0, bottom: 0, left: 0 },
 		id: 0
 	};
-	
+
 	Chart.contextTypes = {
 		width: _react2["default"].PropTypes.number.isRequired,
 		height: _react2["default"].PropTypes.number.isRequired,
@@ -5090,7 +5090,7 @@
 		margin: _react2["default"].PropTypes.object.isRequired,
 		type: _react2["default"].PropTypes.string.isRequired
 	};
-	
+
 	Chart.childContextTypes = {
 		xScale: _react2["default"].PropTypes.func.isRequired,
 		yScale: _react2["default"].PropTypes.func.isRequired,
@@ -5104,7 +5104,7 @@
 		canvasOriginY: _react2["default"].PropTypes.number,
 		chartId: _react2["default"].PropTypes.number.isRequired
 	};
-	
+
 	module.exports = Chart;
 
 /***/ },
@@ -5112,49 +5112,49 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var _utilsChartDataUtil = __webpack_require__(6);
-	
+
 	var _utilsChartDataUtil2 = _interopRequireDefault(_utilsChartDataUtil);
-	
+
 	var _transforms = __webpack_require__(38);
-	
+
 	var _EventHandler = __webpack_require__(75);
-	
+
 	var _EventHandler2 = _interopRequireDefault(_EventHandler);
-	
+
 	var _CanvasContainer = __webpack_require__(70);
-	
+
 	var _CanvasContainer2 = _interopRequireDefault(_CanvasContainer);
-	
+
 	var ChartCanvas = (function (_React$Component) {
 		_inherits(ChartCanvas, _React$Component);
-	
+
 		function ChartCanvas() {
 			_classCallCheck(this, ChartCanvas);
-	
+
 			_get(Object.getPrototypeOf(ChartCanvas.prototype), "constructor", this).call(this);
 			this.getCanvases = this.getCanvases.bind(this);
 		}
-	
+
 		_createClass(ChartCanvas, [{
 			key: "getDimensions",
 			value: function getDimensions(props) {
@@ -5197,7 +5197,7 @@
 				var className = _props.className;
 				var clip = _props.clip;
 				var zIndex = _props.zIndex;
-	
+
 				return _react2["default"].createElement(
 					"div",
 					{ style: { position: "relative", height: height, width: width }, className: className },
@@ -5231,10 +5231,10 @@
 				);
 			}
 		}]);
-	
+
 		return ChartCanvas;
 	})(_react2["default"].Component);
-	
+
 	ChartCanvas.propTypes = {
 		width: _react2["default"].PropTypes.number.isRequired,
 		height: _react2["default"].PropTypes.number.isRequired,
@@ -5247,7 +5247,7 @@
 		className: _react2["default"].PropTypes.string,
 		zIndex: _react2["default"].PropTypes.number
 	};
-	
+
 	// clip: React.PropTypes.bool.isRequired,
 	ChartCanvas.defaultProps = {
 		margin: { top: 20, right: 30, bottom: 30, left: 80 },
@@ -5258,7 +5258,7 @@
 		className: "react-stockchart",
 		zIndex: 1
 	};
-	
+
 	// clip: true,
 	// initialDisplay: 30
 	module.exports = ChartCanvas;
@@ -5268,47 +5268,47 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var DataSeries = (function (_React$Component) {
 		_inherits(DataSeries, _React$Component);
-	
+
 		function DataSeries() {
 			_classCallCheck(this, DataSeries);
-	
+
 			_get(Object.getPrototypeOf(DataSeries.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(DataSeries, [{
 			key: "getChildContext",
 			value: function getChildContext() {
 				var _this = this;
-	
+
 				var overlay = this.context.overlays.filter(function (each) {
 					return each.id === _this.props.id;
 				})[0];
-	
+
 				return {
 					seriesId: this.props.id,
 					yAccessor: overlay.yAccessor,
@@ -5321,7 +5321,7 @@
 			key: "render",
 			value: function render() {
 				var _this2 = this;
-	
+
 				var children = _react2["default"].Children.map(this.props.children, function (child) {
 					var newChild = _utilsUtils2["default"].isReactVersion13() ? _react2["default"].withContext(_this2.getChildContext(), function () {
 						return _react2["default"].createElement(child.type, (0, _objectAssign2["default"])({ key: child.key, ref: child.ref }, child.props));
@@ -5336,10 +5336,10 @@
 				);
 			}
 		}]);
-	
+
 		return DataSeries;
 	})(_react2["default"].Component);
-	
+
 	DataSeries.propTypes = {
 		// type: React.PropTypes.oneOf(["sma", "ema"]),
 		id: _react2["default"].PropTypes.number.isRequired,
@@ -5372,43 +5372,43 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _d3 = __webpack_require__(5);
-	
+
 	var _d32 = _interopRequireDefault(_d3);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var mousemove = "mousemove.pan",
 	    mouseup = "mouseup.pan";
-	
+
 	function d3Window(node) {
 		var d3win = node && (node.ownerDocument && node.ownerDocument.defaultView || node.document && node || node.defaultView);
 		return d3win;
 	}
-	
+
 	var EventCapture = (function (_React$Component) {
 		_inherits(EventCapture, _React$Component);
-	
+
 		function EventCapture(props) {
 			_classCallCheck(this, EventCapture);
-	
+
 			_get(Object.getPrototypeOf(EventCapture.prototype), "constructor", this).call(this, props);
 			this.handleEnter = this.handleEnter.bind(this);
 			this.handleLeave = this.handleLeave.bind(this);
@@ -5418,7 +5418,7 @@
 			this.handlePanEnd = this.handlePanEnd.bind(this);
 			this.handlePan = this.handlePan.bind(this);
 		}
-	
+
 		_createClass(EventCapture, [{
 			key: "componentWillMount",
 			value: function componentWillMount() {
@@ -5463,24 +5463,24 @@
 			key: "handleMouseDown",
 			value: function handleMouseDown(e) {
 				var _this = this;
-	
+
 				var mouseEvent = e || _d32["default"].event;
-	
+
 				var chartData = this.context.chartData.filter(function (each) {
 					return each.id === _this.props.mainChart;
 				})[0];
 				if (this.props.pan && this.context.onPanStart) {
 					var mouseXY = _utilsUtils2["default"].mousePosition(mouseEvent);
 					this.context.onPanStart(chartData.plot.scales.xScale.domain(), mouseXY);
-	
+
 					var dx = mouseEvent.pageX - mouseXY[0],
 					    dy = mouseEvent.pageY - mouseXY[1];
-	
+
 					var captureDOM = _utilsUtils2["default"].isReactVersion14() ? this.refs.capture : _react2["default"].findDOMNode(this.refs.capture);
-	
+
 					var win = d3Window(captureDOM);
 					_d32["default"].select(win).on(mousemove, this.handlePan).on(mouseup, this.handlePanEnd);
-	
+
 					this.context.deltaXY([dx, dy]);
 				} else {
 					if (!this.context.focus && this.context.onFocus) this.context.onFocus(true);
@@ -5491,9 +5491,9 @@
 			key: "handlePan",
 			value: function handlePan() {
 				var _this2 = this;
-	
+
 				// console.log("handlePan")
-	
+
 				var deltaXY = this.context.deltaXY();
 				var newPos = [_d32["default"].event.pageX - deltaXY[0], _d32["default"].event.pageY - deltaXY[1]];
 				// console.log("moved from- ", startXY, " to ", newPos);
@@ -5509,11 +5509,11 @@
 			value: function handlePanEnd(event) {
 				var deltaXY = this.context.deltaXY();
 				var newPos = [_d32["default"].event.pageX - deltaXY[0], _d32["default"].event.pageY - deltaXY[1]];
-	
+
 				var captureDOM = _utilsUtils2["default"].isReactVersion14() ? this.refs.capture : _react2["default"].findDOMNode(this.refs.capture);
-	
+
 				var win = d3Window(captureDOM);
-	
+
 				_d32["default"].select(win).on(mousemove, null).on(mouseup, null);
 				if (this.props.pan && this.context.onPanEnd) {
 					this.context.onPanEnd(newPos);
@@ -5539,7 +5539,7 @@
 			key: "render",
 			value: function render() {
 				var className = this.context.panInProgress ? "react-stockcharts-grabbing-cursor" : "react-stockcharts-crosshair-cursor";
-	
+
 				return _react2["default"].createElement("rect", { ref: "capture",
 					className: className,
 					width: this.context.width, height: this.context.height, style: { opacity: 0 },
@@ -5548,17 +5548,17 @@
 					onMouseMove: this.handleMouseMove,
 					onWheel: this.handleWheel,
 					onMouseDown: this.handleMouseDown,
-	
+
 					onTouchStart: this.handleTouchStart,
 					onTouchEnd: this.handleTouchEnd,
 					onTouchMove: this.handleTouchMove
 				});
 			}
 		}]);
-	
+
 		return EventCapture;
 	})(_react2["default"].Component);
-	
+
 	EventCapture.propTypes = {
 		mainChart: _react2["default"].PropTypes.number.isRequired,
 		mouseMove: _react2["default"].PropTypes.bool.isRequired,
@@ -5568,7 +5568,7 @@
 		panSpeedMultiplier: _react2["default"].PropTypes.number.isRequired,
 		defaultFocus: _react2["default"].PropTypes.bool.isRequired
 	};
-	
+
 	EventCapture.defaultProps = {
 		namespace: "ReStock.EventCapture",
 		mouseMove: false,
@@ -5578,7 +5578,7 @@
 		panSpeedMultiplier: 1,
 		defaultFocus: false
 	};
-	
+
 	EventCapture.contextTypes = {
 		width: _react2["default"].PropTypes.number.isRequired,
 		height: _react2["default"].PropTypes.number.isRequired,
@@ -5595,7 +5595,7 @@
 		onFocus: _react2["default"].PropTypes.func,
 		deltaXY: _react2["default"].PropTypes.func
 	};
-	
+
 	module.exports = EventCapture;
 
 /***/ },
@@ -5603,43 +5603,43 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var _utilsPureComponent = __webpack_require__(23);
-	
+
 	var _utilsPureComponent2 = _interopRequireDefault(_utilsPureComponent);
-	
+
 	var _utilsChartDataUtil = __webpack_require__(6);
-	
+
 	var _utilsChartDataUtil2 = _interopRequireDefault(_utilsChartDataUtil);
-	
+
 	var _utilsShallowEqual = __webpack_require__(50);
-	
+
 	var _utilsShallowEqual2 = _interopRequireDefault(_utilsShallowEqual);
-	
+
 	var _transforms = __webpack_require__(38);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	function getLongValue(value) {
 		if (value instanceof Date) {
 			return value.getTime();
@@ -5656,13 +5656,13 @@
 		}
 		return false;
 	}
-	
+
 	var EventHandler = (function (_PureComponent) {
 		_inherits(EventHandler, _PureComponent);
-	
+
 		function EventHandler(props, context) {
 			_classCallCheck(this, EventHandler);
-	
+
 			_get(Object.getPrototypeOf(EventHandler.prototype), "constructor", this).call(this, props, context);
 			this.handleMouseMove = this.handleMouseMove.bind(this);
 			this.handleMouseEnter = this.handleMouseEnter.bind(this);
@@ -5674,7 +5674,7 @@
 			this.handleFocus = this.handleFocus.bind(this);
 			this.deltaXY = this.deltaXY.bind(this);
 			this.getCanvasContexts = this.getCanvasContexts.bind(this);
-	
+
 			this.state = {
 				focus: false,
 				currentItems: [],
@@ -5683,7 +5683,7 @@
 				panInProgress: false
 			};
 		}
-	
+
 		_createClass(EventHandler, [{
 			key: "deltaXY",
 			value: function deltaXY(dxy) {
@@ -5727,19 +5727,19 @@
 				var dataTransform = props.dataTransform;
 				var interval = props.interval;
 				var dimensions = props.dimensions;
-	
+
 				var transformedData = this.getTransformedData(rawData, defaultDataTransform, dataTransform, interval);
-	
+
 				var data = transformedData.data;
 				var options = transformedData.options;
-	
+
 				var dataForInterval = data[interval];
 				var mainChart = _utilsChartDataUtil2["default"].getMainChart(props.children);
 				var beginIndex = Math.max(dataForInterval.length - initialDisplay, 0);
 				var plotData = dataForInterval.slice(beginIndex);
-	
+
 				var chartData = _utilsChartDataUtil2["default"].getChartData(props, dimensions, plotData, data, options);
-	
+
 				this.setState({
 					data: data,
 					rawData: rawData,
@@ -5772,46 +5772,46 @@
 				var chartData = _state.chartData;
 				var plotData = _state.plotData;
 				var rawData = _state.rawData;
-	
+
 				var prevDataForInterval = data[interval];
-	
+
 				var dataChanged = false;
 				if (prevData !== nextData || !deepEquals(prevDataTransform, nextDataTransform)) {
 					var transformedData = this.getTransformedData(nextData, defaultDataTransform, nextDataTransform, intervalProp);
 					data = transformedData.data;
 					options = transformedData.options;
-	
+
 					dataChanged = true;
 					rawData = nextData;
 				}
-	
+
 				var dataForInterval = data[interval];
-	
+
 				var mainChart = _utilsChartDataUtil2["default"].getMainChart(nextProps.children);
 				var mainChartData = chartData.filter(function (each) {
 					return each.id === mainChart;
 				})[0];
 				var xScale = mainChartData.plot.scales.xScale;
-	
+
 				var domainL,
 				    domainR,
 				    startDomain = xScale.domain();
 				// console.log(dataPushed, lastItemVisible);
-	
+
 				if (dataChanged) {
 					var beginIndex = Math.max(dataForInterval.length - initialDisplay, 0);
 					var endIndex = dataForInterval.length;
-	
+
 					plotData = dataForInterval.slice(beginIndex, endIndex);
 				} else {
-	
+
 					domainL = startDomain[0];
 					domainR = startDomain[1];
 				}
-	
+
 				// console.log(plotData[0], plotData[plotData.length - 1]);
 				var newChartData = _utilsChartDataUtil2["default"].getChartData(nextProps, dimensions, plotData, data, options);
-	
+
 				newChartData = newChartData.map(function (eachChart) {
 					var plot = _utilsChartDataUtil2["default"].getChartPlotFor(eachChart.config, plotData, domainL, domainR);
 					return {
@@ -5820,11 +5820,11 @@
 						plot: plot
 					};
 				});
-	
+
 				var newCurrentItems = _utilsChartDataUtil2["default"].getCurrentItems(newChartData, this.state.mouseXY, plotData);
-	
+
 				this.clearBothCanvas(nextProps);
-	
+
 				this.setState({
 					rawData: rawData,
 					data: data,
@@ -5842,9 +5842,9 @@
 			key: "pushData",
 			value: function pushData(array) {
 				var _this = this;
-	
+
 				if (array === undefined || array === null || array.length === 0) return;
-	
+
 				var _props2 = this.props;
 				var dataTransform = _props2.dataTransform;
 				var defaultDataTransform = _props2.defaultDataTransform;
@@ -5857,26 +5857,26 @@
 				var chartData = _state2.chartData;
 				var plotData = _state2.plotData;
 				var mainChart = _state2.mainChart;
-	
+
 				var newRawData = rawData.concat(array);
 				var transformedData = this.getTransformedData(newRawData, defaultDataTransform, dataTransform, interval);
-	
+
 				var prevDataForInterval = data[interval];
 				var dataForInterval = transformedData.data[interval];
-	
+
 				var mainChartData = chartData.filter(function (each) {
 					return each.id === mainChart;
 				})[0];
 				var xAccessor = mainChartData.config.xAccessor;
 				var xScale = mainChartData.plot.scales.xScale;
-	
+
 				var deltaPushed = array.length;
-	
+
 				var startDomain = xScale.domain();
 				var domainL, domainR;
-	
+
 				var lastItemVisible = plotData[plotData.length - 1] === prevDataForInterval[prevDataForInterval.length - 1];
-	
+
 				var beginIndex, endIndex;
 				if (lastItemVisible) {
 					/* var left = xAccessor(plotData[deltaPushed]);
@@ -5885,7 +5885,7 @@
 	    	if ((xScale(xAccessor(plotData[0])) - xScale(startDomain[0])) > tick) {
 	    	left = xAccessor(plotData[0]);
 	    } */
-	
+
 					// beginIndex = Utils.getClosestItemIndexes(dataForInterval, left, xAccessor).left;
 					endIndex = dataForInterval.length;
 					beginIndex = dataForInterval.length - plotData.length;
@@ -5896,28 +5896,28 @@
 					var beginIndex = _utilsUtils2["default"].getClosestItemIndexes(dataForInterval, domainL, xAccessor).left;
 					var endIndex = beginIndex + plotData.length;
 				}
-	
+
 				var newPlotData = dataForInterval.slice(beginIndex, endIndex);
 				// console.log(newPlotData[newPlotData.length - 1]);
-	
+
 				if (lastItemVisible && domainL === undefined) {
 					if (startDomain[1] > xAccessor(plotData[plotData.length - 1])) {
 						domainL = startDomain[0] + (xAccessor(newPlotData[newPlotData.length - 1]) - xAccessor(plotData[plotData.length - 1]));
 						domainR = startDomain[1] + (xAccessor(newPlotData[newPlotData.length - 1]) - xAccessor(plotData[plotData.length - 1]));
 					}
 				}
-	
+
 				var newChartData = _utilsChartDataUtil2["default"].getChartData(this.props, dimensions, newPlotData, transformedData.data, transformedData.options);
-	
+
 				if (domainL === undefined) {
 					domainL = xAccessor(newPlotData[0]);
 					domainR = xAccessor(newPlotData[newPlotData.length - 1]);
 				}
-	
+
 				var l = 2,
 				    i = 0,
 				    speed = 16;
-	
+
 				var updateState = function updateState(L, R) {
 					newChartData = newChartData.map(function (eachChart) {
 						var plot = _utilsChartDataUtil2["default"].getChartPlotFor(eachChart.config, newPlotData, L, R);
@@ -5927,13 +5927,13 @@
 							plot: plot
 						};
 					});
-	
+
 					var newCurrentItems = _utilsChartDataUtil2["default"].getCurrentItems(newChartData, _this.state.mouseXY, newPlotData);
-	
+
 					_this.clearBothCanvas(_this.props);
-	
+
 					// console.log(L, R, this.state.secretToSuperFastCanvasDraw.length);
-	
+
 					_this.setState({
 						rawData: newRawData,
 						data: transformedData.data,
@@ -5946,19 +5946,19 @@
 					});
 				};
 				if (lastItemVisible) {
-	
+
 					var timeout = setInterval(function () {
 						var dxL = (startDomain[0] - domainL) / l;
 						var dxR = (startDomain[1] - domainR) / l;
-	
+
 						i++;
-	
+
 						var L = i === l ? domainL : startDomain[0] - dxL * i;
 						var R = i === l ? domainR : startDomain[1] - dxR * i;
 						// console.log(i, L, domainL, R, domainR);
 						// console.log(startDomain[0], domainL, startDomain[0] - dxL * i, i);
 						// console.log(startDomain[1], domainR, startDomain[1] - dxR * i, i);
-	
+
 						updateState(L, R);
 						if (i === l) clearInterval(timeout);
 					}, speed);
@@ -5979,7 +5979,7 @@
 			// canvases: null,
 			value: function alterData(newRawData) {
 				if (newRawData === undefined || newRawData === null || newRawData.length === 0) return;
-	
+
 				var _props3 = this.props;
 				var dataTransform = _props3.dataTransform;
 				var defaultDataTransform = _props3.defaultDataTransform;
@@ -5992,32 +5992,32 @@
 				var chartData = _state3.chartData;
 				var plotData = _state3.plotData;
 				var mainChart = _state3.mainChart;
-	
+
 				if (rawData.length !== newRawData.length) {
 					console.log(rawData.length, newRawData.length);
 					throw Error("Have to update data of same length");
 				}
-	
+
 				var transformedData = this.getTransformedData(newRawData, defaultDataTransform, dataTransform, interval);
-	
+
 				var dataForInterval = transformedData.data[interval];
-	
+
 				var mainChartData = chartData.filter(function (each) {
 					return each.id === mainChart;
 				})[0];
 				var xAccessor = mainChartData.config.xAccessor;
 				var xScale = mainChartData.plot.scales.xScale;
-	
+
 				var startDomain = xScale.domain();
-	
+
 				var left = xAccessor(plotData[0]);
 				var beginIndex = _utilsUtils2["default"].getClosestItemIndexes(dataForInterval, left, xAccessor).left;
 				var endIndex = beginIndex + plotData.length;
-	
+
 				var newPlotData = dataForInterval.slice(beginIndex, endIndex);
-	
+
 				var newChartData = _utilsChartDataUtil2["default"].getChartData(this.props, dimensions, newPlotData, transformedData.data, transformedData.options);
-	
+
 				newChartData = newChartData.map(function (eachChart) {
 					var plot = _utilsChartDataUtil2["default"].getChartPlotFor(eachChart.config, newPlotData, startDomain[0], startDomain[1]);
 					return {
@@ -6026,13 +6026,13 @@
 						plot: plot
 					};
 				});
-	
+
 				var newCurrentItems = _utilsChartDataUtil2["default"].getCurrentItems(newChartData, this.state.mouseXY, newPlotData);
-	
+
 				this.clearBothCanvas(this.props);
-	
+
 				// console.log(newPlotData.length);
-	
+
 				this.setState({
 					rawData: newRawData,
 					data: transformedData.data,
@@ -6080,7 +6080,7 @@
 					secretToSuperFastCanvasDraw: this.state.secretToSuperFastCanvasDraw,
 					margin: this.props.margin,
 					dataTransform: this.props.dataTransform,
-	
+
 					getCanvasContexts: this.getCanvasContexts,
 					onMouseMove: this.handleMouseMove,
 					onMouseEnter: this.handleMouseEnter,
@@ -6106,18 +6106,18 @@
 					return chartData.id;
 				});
 				var currentItems = _utilsChartDataUtil2["default"].getCurrentItems(this.state.chartData, mouseXY, this.state.plotData);
-	
+
 				var chartData = this.state.chartData;
-	
+
 				var contexts = this.getCanvasContexts();
-	
+
 				if (contexts && contexts.mouseCoord) {
 					var mouseCoord = contexts.mouseCoord;
-	
+
 					mouseCoord.setTransform(1, 0, 0, 1, 0, 0);
 					mouseCoord.clearRect(-1, -1, mouseCoord.canvas.width + 2, mouseCoord.canvas.height + 2);
 				}
-	
+
 				this.setState({
 					mouseXY: mouseXY,
 					currentItems: currentItems,
@@ -6140,7 +6140,7 @@
 				var type = _props4.type;
 				var canvasContexts = _props4.canvasContexts;
 				var canvases = this.state.canvases;
-	
+
 				if (type === "svg") {
 					canvases = null;
 				} else {
@@ -6155,14 +6155,14 @@
 			key: "handleMouseLeave",
 			value: function handleMouseLeave() {
 				var contexts = this.getCanvasContexts();
-	
+
 				if (contexts && contexts.mouseCoord) {
 					var mouseCoord = contexts.mouseCoord;
-	
+
 					mouseCoord.setTransform(1, 0, 0, 1, 0, 0);
 					mouseCoord.clearRect(-1, -1, mouseCoord.canvas.width + 2, mouseCoord.canvas.height + 2);
 				}
-	
+
 				this.setState({
 					show: false
 				});
@@ -6177,7 +6177,7 @@
 				var chartData = _state4.chartData;
 				var plotData = _state4.plotData;
 				var interval = _state4.interval;
-	
+
 				var chart = chartData.filter(function (eachChart) {
 					return eachChart.id === mainChart;
 				})[0],
@@ -6194,10 +6194,10 @@
 				    fullData = data[interval],
 				    last = fullData[fullData.length - 1],
 				    first = fullData[0];
-	
+
 				domainL = Math.max(getLongValue(chart.config.xAccessor(first)) - Math.floor(domainRange / 3), domainL);
 				domainR = Math.min(getLongValue(chart.config.xAccessor(last)) + Math.floor(domainRange / 3), domainR);
-	
+
 				var dataToPlot = _utilsChartDataUtil2["default"].getDataToPlotForDomain(domainL, domainR, data, chart.config.width, chart.config.xAccessor);
 				if (dataToPlot.data.length < 10) return;
 				var newChartData = chartData.map(function (eachChart) {
@@ -6209,7 +6209,7 @@
 					};
 				});
 				this.clearBothCanvas();
-	
+
 				this.setState({
 					chartData: newChartData,
 					plotData: dataToPlot.data,
@@ -6238,7 +6238,7 @@
 				var interval = _state5.interval;
 				var panStartDomain = _state5.panStartDomain;
 				var panOrigin = _state5.panOrigin;
-	
+
 				var chart = chartData.filter(function (eachChart) {
 					return eachChart.id === mainChart;
 				})[0],
@@ -6248,9 +6248,9 @@
 				    first = fullData[0],
 				    dx = mousePosition[0] - panOrigin[0],
 				    xAccessor = chart.config.xAccessor;
-	
+
 				// console.log("pan -- mouse move - ", mousePosition, " dragged by ", dx, " pixels");
-	
+
 				var domainStart = getLongValue(panStartDomain[0]) - dx / chart.config.width * domainRange;
 				if (domainStart < getLongValue(xAccessor(first)) - Math.floor(domainRange / 3)) {
 					domainStart = getLongValue(xAccessor(first)) - Math.floor(domainRange / 3);
@@ -6263,12 +6263,12 @@
 					domainL = new Date(domainL);
 					domainR = new Date(domainR);
 				}
-	
+
 				var beginIndex = _utilsUtils2["default"].getClosestItemIndexes(fullData, domainL, xAccessor).left;
 				var endIndex = _utilsUtils2["default"].getClosestItemIndexes(fullData, domainR, xAccessor).right;
-	
+
 				var filteredData = fullData.slice(beginIndex, endIndex);
-	
+
 				var newChartData = chartData.map(function (eachChart) {
 					var plot = _utilsChartDataUtil2["default"].getChartPlotFor(eachChart.config, filteredData, domainL, domainR);
 					return {
@@ -6278,7 +6278,7 @@
 					};
 				});
 				var currentItems = _utilsChartDataUtil2["default"].getCurrentItems(newChartData, mousePosition, filteredData);
-	
+
 				var currentCharts = newChartData.filter(function (eachChartData) {
 					var top = eachChartData.config.origin[1];
 					var bottom = top + eachChartData.config.height;
@@ -6308,12 +6308,12 @@
 			key: "handlePan",
 			value: function handlePan(mousePosition, startDomain) {
 				var _this2 = this;
-	
+
 				/* can also use plotData, use this if you want to pan and show only within that data set*/
 				if (this.state.panStartDomain === null) {
 					this.handlePanStart(startDomain, mousePosition);
 				} else {
-	
+
 					var state = this.panHelper(mousePosition);
 					// console.log(this.state.secretToSuperFastCanvasDraw);
 					if (this.props.type !== "svg") {
@@ -6321,17 +6321,17 @@
 						var canvasList = _context.canvasList;
 						var getCanvasContexts = _context.getCanvasContexts;
 						var margin = _context.margin;
-	
+
 						var _getCanvasContexts = this.getCanvasContexts();
-	
+
 						var axesCanvasContext = _getCanvasContexts.axes;
 						var mouseContext = _getCanvasContexts.mouseCoord;
 						var chartData = state.chartData;
 						var plotData = state.plotData;
-	
+
 						requestAnimationFrame(function () {
 							_this2.clearCanvas([axesCanvasContext, mouseContext]);
-	
+
 							chartData.forEach(function (eachChart) {
 								_this2.state.secretToSuperFastCanvasDraw.filter(function (each) {
 									return eachChart.id === each.chartId;
@@ -6339,7 +6339,7 @@
 									var _eachChart$plot$scales = eachChart.plot.scales;
 									var xScale = _eachChart$plot$scales.xScale;
 									var yScale = _eachChart$plot$scales.yScale;
-	
+
 									eachChart.config.overlays.filter(function (eachOverlay) {
 										return eachOverlay.id === each.seriesId;
 									}).forEach(function (eachOverlay) {
@@ -6348,7 +6348,7 @@
 										var xAccessor = _eachChart$config.xAccessor;
 										var compareSeries = _eachChart$config.compareSeries;
 										var yAccessor = eachOverlay.yAccessor;
-	
+
 										// xScale, yScale, plotData
 										each.draw(axesCanvasContext, xScale, yScale, plotData);
 									});
@@ -6364,13 +6364,13 @@
 							}).forEach(function (each) {
 								return each.draw(axesCanvasContext, chartData);
 							});
-	
+
 							_this2.state.secretToSuperFastCanvasDraw.filter(function (each) {
 								return each.type === "mouse";
 							}).forEach(function (each) {
 								return each.draw(mouseContext, _this2.state.show, state.mouseXY, state.currentCharts, state.chartData, state.currentItems);
 							});
-	
+
 							_this2.state.secretToSuperFastCanvasDraw.filter(function (each) {
 								return each.type === "currentcoordinate";
 							}).forEach(function (each) {
@@ -6386,7 +6386,7 @@
 			key: "handlePanEnd",
 			value: function handlePanEnd(mousePosition) {
 				this.clearBothCanvas();
-	
+
 				var state = this.panHelper(mousePosition);
 				this.setState((0, _objectAssign2["default"])({}, state, {
 					show: this.state.show,
@@ -6407,13 +6407,13 @@
 			key: "render",
 			value: function render() {
 				var _this3 = this;
-	
+
 				var children = _react2["default"].Children.map(this.props.children, function (child) {
 					var newChild = _utilsUtils2["default"].isReactVersion13() ? _react2["default"].withContext(_this3.getChildContext(), function () {
 						return _react2["default"].createElement(child.type, (0, _objectAssign2["default"])({ key: child.key, ref: child.ref }, child.props));
 					}) : _react2["default"].cloneElement(child);
 					// React.createElement(child.type, objectAssign({ key: child.key, ref: child.ref}, child.props));
-	
+
 					return newChild;
 				});
 				return _react2["default"].createElement(
@@ -6423,14 +6423,14 @@
 				);
 			}
 		}]);
-	
+
 		return EventHandler;
 	})(_utilsPureComponent2["default"]);
-	
+
 	EventHandler.defaultProps = {
 		defaultDataTransform: [{ transform: _transforms.DummyTransformer }]
 	};
-	
+
 	EventHandler.childContextTypes = {
 		plotData: _react2["default"].PropTypes.array,
 		chartData: _react2["default"].PropTypes.array,
@@ -6447,7 +6447,7 @@
 		secretToSuperFastCanvasDraw: _react2["default"].PropTypes.array.isRequired,
 		margin: _react2["default"].PropTypes.object.isRequired,
 		dataTransform: _react2["default"].PropTypes.array,
-	
+
 		getCanvasContexts: _react2["default"].PropTypes.func,
 		onMouseMove: _react2["default"].PropTypes.func,
 		onMouseEnter: _react2["default"].PropTypes.func,
@@ -6461,7 +6461,7 @@
 		onFocus: _react2["default"].PropTypes.func,
 		deltaXY: _react2["default"].PropTypes.func
 	};
-	
+
 	module.exports = EventHandler;
 
 /***/ },
@@ -6469,48 +6469,48 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _d3 = __webpack_require__(5);
-	
+
 	var _d32 = _interopRequireDefault(_d3);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	function d3_scaleExtent(domain) {
 		var start = domain[0],
 		    stop = domain[domain.length - 1];
 		return start < stop ? [start, stop] : [stop, start];
 	}
-	
+
 	function d3_scaleRange(scale) {
 		return scale.rangeExtent ? scale.rangeExtent() : d3_scaleExtent(scale.range());
 	}
-	
+
 	var AxisLine = (function (_React$Component) {
 		_inherits(AxisLine, _React$Component);
-	
+
 		function AxisLine() {
 			_classCallCheck(this, AxisLine);
-	
+
 			_get(Object.getPrototypeOf(AxisLine.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(AxisLine, [{
 			key: "render",
 			value: function render() {
@@ -6524,19 +6524,19 @@
 				var className = _props.className;
 				var shapeRendering = _props.shapeRendering;
 				var opacity = _props.opacity;
-	
+
 				var sign = orient === "top" || orient === "left" ? -1 : 1;
-	
+
 				var range = d3_scaleRange(scale);
-	
+
 				var d;
-	
+
 				if (orient === "bottom" || orient === "top") {
 					d = "M" + range[0] + "," + sign * outerTickSize + "V0H" + range[1] + "V" + sign * outerTickSize;
 				} else {
 					d = "M" + sign * outerTickSize + "," + range[0] + "H0V" + range[1] + "H" + sign * outerTickSize;
 				}
-	
+
 				return _react2["default"].createElement("path", {
 					className: className,
 					shapeRendering: shapeRendering,
@@ -6547,10 +6547,10 @@
 					strokeWidth: strokeWidth });
 			}
 		}]);
-	
+
 		return AxisLine;
 	})(_react2["default"].Component);
-	
+
 	AxisLine.propTypes = {
 		className: _react2["default"].PropTypes.string,
 		shapeRendering: _react2["default"].PropTypes.string,
@@ -6562,7 +6562,7 @@
 		strokeWidth: _react2["default"].PropTypes.number,
 		opacity: _react2["default"].PropTypes.number
 	};
-	
+
 	AxisLine.defaultProps = {
 		className: "react-stockcharts-axis-line",
 		shapeRendering: "crispEdges",
@@ -6572,10 +6572,10 @@
 		strokeWidth: 1,
 		opacity: 1
 	};
-	
+
 	AxisLine.drawOnCanvasStatic = function (props, ctx, chartData, xScale, yScale) {
 		props = (0, _objectAssign2["default"])({}, AxisLine.defaultProps, props);
-	
+
 		var _props2 = props;
 		var orient = _props2.orient;
 		var outerTickSize = _props2.outerTickSize;
@@ -6585,20 +6585,20 @@
 		var className = _props2.className;
 		var shapeRendering = _props2.shapeRendering;
 		var opacity = _props2.opacity;
-	
+
 		var sign = orient === "top" || orient === "left" ? -1 : 1;
 		var xAxis = orient === "bottom" || orient === "top";
-	
+
 		var range = d3_scaleRange(xAxis ? xScale : yScale);
-	
+
 		var strokeStyle = ctx.strokeStyle;
 		var globalAlpha = ctx.globalAlpha;
-	
+
 		ctx.strokeStyle = stroke;
 		ctx.globalAlpha = opacity;
-	
+
 		ctx.beginPath();
-	
+
 		if (xAxis) {
 			ctx.moveTo(range[0], sign * outerTickSize);
 			ctx.lineTo(range[0], 0);
@@ -6611,11 +6611,11 @@
 			ctx.lineTo(sign * outerTickSize, range[1]);
 		}
 		ctx.stroke();
-	
+
 		ctx.strokeStyle = strokeStyle;
 		ctx.globalAlpha = globalAlpha;
 	};
-	
+
 	module.exports = AxisLine;
 
 /***/ },
@@ -6623,54 +6623,54 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _d3 = __webpack_require__(5);
-	
+
 	var _d32 = _interopRequireDefault(_d3);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	function d3_identity(d) {
 		return d;
 	}
-	
+
 	function tickTransform_svg_axisX(scale, tick) {
 		return [~ ~(0.5 + scale(tick)), 0];
 	}
-	
+
 	function tickTransform_svg_axisY(scale, tick) {
 		return [0, ~ ~(0.5 + scale(tick))];
 	}
-	
+
 	var Tick = (function (_React$Component) {
 		_inherits(Tick, _React$Component);
-	
+
 		function Tick() {
 			_classCallCheck(this, Tick);
-	
+
 			_get(Object.getPrototypeOf(Tick.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(Tick, [{
 			key: "render",
 			value: function render() {
@@ -6687,7 +6687,7 @@
 				var x2 = _props2.x2;
 				var y2 = _props2.y2;
 				var dy = _props2.dy;
-	
+
 				return _react2["default"].createElement(
 					"g",
 					{ className: "tick", transform: "translate(" + transform[0] + ", " + transform[1] + ")" },
@@ -6704,10 +6704,10 @@
 				);
 			}
 		}]);
-	
+
 		return Tick;
 	})(_react2["default"].Component);
-	
+
 	Tick.drawOnCanvasStatic = function (tick, ctx, chartData, result) {
 		var scale = result.scale;
 		var tickTransform = result.tickTransform;
@@ -6718,27 +6718,27 @@
 		var x2 = result.x2;
 		var y2 = result.y2;
 		var format = result.format;
-	
+
 		var origin = tickTransform(scale, tick);
-	
+
 		ctx.beginPath();
-	
+
 		ctx.moveTo(origin[0], origin[1]);
 		ctx.lineTo(origin[0] + x2, origin[1] + y2);
 		ctx.stroke();
-	
+
 		ctx.fillText(format(tick), origin[0] + x, origin[1] + y + canvas_dy);
 	};
-	
+
 	var AxisTicks = (function (_React$Component2) {
 		_inherits(AxisTicks, _React$Component2);
-	
+
 		function AxisTicks() {
 			_classCallCheck(this, AxisTicks);
-	
+
 			_get(Object.getPrototypeOf(AxisTicks.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(AxisTicks, [{
 			key: "render",
 			value: function render() {
@@ -6757,7 +6757,7 @@
 				var fontSize = result.fontSize;
 				var fontFamily = result.fontFamily;
 				var format = result.format;
-	
+
 				return _react2["default"].createElement(
 					"g",
 					null,
@@ -6775,10 +6775,10 @@
 				);
 			}
 		}]);
-	
+
 		return AxisTicks;
 	})(_react2["default"].Component);
-	
+
 	AxisTicks.propTypes = {
 		orient: _react2["default"].PropTypes.oneOf(["top", "bottom", "left", "right"]).isRequired,
 		innerTickSize: _react2["default"].PropTypes.number,
@@ -6790,7 +6790,7 @@
 		tickStroke: _react2["default"].PropTypes.string,
 		tickStrokeOpacity: _react2["default"].PropTypes.number
 	};
-	
+
 	AxisTicks.defaultProps = {
 		innerTickSize: 5,
 		tickPadding: 6,
@@ -6798,7 +6798,7 @@
 		tickStroke: "#000",
 		tickStrokeOpacity: 1
 	};
-	
+
 	AxisTicks.helper = function (props, scale) {
 		var orient = props.orient;
 		var innerTickSize = props.innerTickSize;
@@ -6811,16 +6811,16 @@
 		var tickSize = props.tickSize;
 		var tickArguments = props.ticks;
 		var tickValues = props.tickValues;
-	
+
 		var ticks = tickValues === undefined ? scale.ticks ? scale.ticks.apply(scale, tickArguments) : scale.domain() : tickValues;
-	
+
 		var format = tickFormat === undefined ? scale.tickFormat ? scale.tickFormat.apply(scale, tickArguments) : d3_identity : tickFormat;
-	
+
 		var sign = orient === "top" || orient === "left" ? -1 : 1;
 		var tickSpacing = Math.max(innerTickSize, 0) + tickPadding;
-	
+
 		var tickTransform, x, y, x2, y2, dy, canvas_dy, textAnchor;
-	
+
 		if (orient === "bottom" || orient === "top") {
 			tickTransform = tickTransform_svg_axisX;
 			x2 = 0;
@@ -6842,35 +6842,35 @@
 		}
 		return { ticks: ticks, scale: scale, tickTransform: tickTransform, tickStroke: tickStroke, tickStrokeOpacity: tickStrokeOpacity, dy: dy, canvas_dy: canvas_dy, x: x, y: y, x2: x2, y2: y2, textAnchor: textAnchor, fontSize: fontSize, fontFamily: fontFamily, format: format };
 	};
-	
+
 	AxisTicks.drawOnCanvasStatic = function (props, ctx, chartData, xScale, yScale) {
 		props = (0, _objectAssign2["default"])({}, AxisTicks.defaultProps, props);
-	
+
 		var _props3 = props;
 		var orient = _props3.orient;
-	
+
 		var xAxis = orient === "bottom" || orient === "top";
-	
+
 		var result = AxisTicks.helper(props, xAxis ? xScale : yScale);
-	
+
 		var tickStroke = result.tickStroke;
 		var tickStrokeOpacity = result.tickStrokeOpacity;
 		var textAnchor = result.textAnchor;
 		var fontSize = result.fontSize;
 		var fontFamily = result.fontFamily;
-	
+
 		ctx.strokeStyle = _utilsUtils2["default"].hexToRGBA(tickStroke, tickStrokeOpacity);
-	
+
 		ctx.font = fontSize + "px " + fontFamily;
 		ctx.fillStyle = tickStroke;
 		ctx.textAlign = textAnchor === "middle" ? "center" : textAnchor;
 		// ctx.textBaseline = 'middle';
-	
+
 		result.ticks.forEach(function (tick) {
 			Tick.drawOnCanvasStatic(tick, ctx, chartData, result);
 		});
 	};
-	
+
 	module.exports = AxisTicks;
 
 /***/ },
@@ -6878,40 +6878,40 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _Axis = __webpack_require__(47);
-	
+
 	var _Axis2 = _interopRequireDefault(_Axis);
-	
+
 	var XAxis = (function (_React$Component) {
 		_inherits(XAxis, _React$Component);
-	
+
 		function XAxis() {
 			_classCallCheck(this, XAxis);
-	
+
 			_get(Object.getPrototypeOf(XAxis.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(XAxis, [{
 			key: "render",
 			value: function render() {
@@ -6920,16 +6920,16 @@
 				var showTicks = _props.showTicks;
 				var tickFormat = _props.tickFormat;
 				var ticks = _props.ticks;
-	
+
 				var range = this.context.yScale.range(),
 				    axisLocation;
 				if (axisAt === "top") axisLocation = 0;else if (axisAt === "bottom") axisLocation = this.context.height;else if (axisAt === "middle") axisLocation = this.context.height / 2;else axisLocation = axisAt;
-	
+
 				if (tickFormat && this.context.xScale.isPolyLinear && this.context.xScale.isPolyLinear()) {
 					console.warn("Cannot set tickFormat on a poly linear scale, ignoring tickFormat on XAxis");
 					tickFormat = undefined;
 				}
-	
+
 				if (ticks) ticks = [ticks];
 				return _react2["default"].createElement(_Axis2["default"], _extends({}, this.props, {
 					transform: [0, axisLocation],
@@ -6937,10 +6937,10 @@
 					scale: this.context.xScale }));
 			}
 		}]);
-	
+
 		return XAxis;
 	})(_react2["default"].Component);
-	
+
 	XAxis.propTypes = {
 		axisAt: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.oneOf(["top", "bottom", "middle"]), _react2["default"].PropTypes.number]).isRequired,
 		orient: _react2["default"].PropTypes.oneOf(["top", "bottom"]).isRequired,
@@ -6961,14 +6961,14 @@
 		className: "react-stockcharts-x-axis",
 		ticks: 10
 	};
-	
+
 	XAxis.contextTypes = {
 		xScale: _react2["default"].PropTypes.func.isRequired,
 		yScale: _react2["default"].PropTypes.func.isRequired,
 		height: _react2["default"].PropTypes.number.isRequired,
 		width: _react2["default"].PropTypes.number.isRequired
 	};
-	
+
 	exports["default"] = XAxis;
 	module.exports = exports["default"];
 
@@ -6977,40 +6977,40 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _Axis = __webpack_require__(47);
-	
+
 	var _Axis2 = _interopRequireDefault(_Axis);
-	
+
 	var YAxis = (function (_React$Component) {
 		_inherits(YAxis, _React$Component);
-	
+
 		function YAxis() {
 			_classCallCheck(this, YAxis);
-	
+
 			_get(Object.getPrototypeOf(YAxis.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(YAxis, [{
 			key: "render",
 			value: function render() {
@@ -7023,29 +7023,29 @@
 				var _context = this.context;
 				var yScale = _context.yScale;
 				var chartData = _context.chartData;
-	
+
 				if (percentScale) yScale = yScale.copy().domain([0, 1]);
-	
+
 				tickValues = tickValues || chartData.config.yTicks;
-	
+
 				var axisLocation;
-	
+
 				if (axisAt === "left") axisLocation = 0;else if (axisAt === "right") axisLocation = this.context.width;else if (axisAt === "middle") axisLocation = this.context.width / 2;else axisLocation = axisAt;
-	
+
 				if (this.context.compareSeries.length > 0) {
 					tickFormat = d3.format(".0%");
 				}
-	
+
 				return _react2["default"].createElement(_Axis2["default"], _extends({}, this.props, {
 					transform: [axisLocation, 0],
 					tickFormat: tickFormat, ticks: [ticks], tickValues: tickValues,
 					scale: yScale }));
 			}
 		}]);
-	
+
 		return YAxis;
 	})(_react2["default"].Component);
-	
+
 	YAxis.propTypes = {
 		axisAt: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.oneOf(["left", "right", "middle"]), _react2["default"].PropTypes.number]).isRequired,
 		orient: _react2["default"].PropTypes.oneOf(["left", "right"]).isRequired,
@@ -7075,7 +7075,7 @@
 		width: _react2["default"].PropTypes.number.isRequired,
 		compareSeries: _react2["default"].PropTypes.array.isRequired
 	};
-	
+
 	exports["default"] = YAxis;
 	module.exports = exports["default"];
 
@@ -7084,21 +7084,21 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _XAxis = __webpack_require__(78);
-	
+
 	var _XAxis2 = _interopRequireDefault(_XAxis);
-	
+
 	var _YAxis = __webpack_require__(79);
-	
+
 	var _YAxis2 = _interopRequireDefault(_YAxis);
-	
+
 	exports["default"] = {
 		XAxis: _XAxis2["default"],
 		YAxis: _YAxis2["default"]
@@ -7110,40 +7110,40 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _EdgeCoordinate = __webpack_require__(48);
-	
+
 	var _EdgeCoordinate2 = _interopRequireDefault(_EdgeCoordinate);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	// "../utils/Object.assign"
-	
+
 	var CrossHair = (function (_React$Component) {
 		_inherits(CrossHair, _React$Component);
-	
+
 		function CrossHair() {
 			_classCallCheck(this, CrossHair);
-	
+
 			_get(Object.getPrototypeOf(CrossHair.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(CrossHair, [{
 			key: "shouldComponentUpdate",
 			value: function shouldComponentUpdate(nextProps) {
@@ -7155,7 +7155,7 @@
 				var result = CrossHair.helper(this.props);
 				var line = result.line;
 				var edges = result.edges;
-	
+
 				var svgLine = line !== undefined ? _react2["default"].createElement("line", { className: "react-stockcharts-cross-hair", opacity: line.opacity, stroke: line.stroke,
 					x1: line.x1, y1: line.y1,
 					x2: line.x2, y2: line.y2 }) : null;
@@ -7180,10 +7180,10 @@
 				);
 			}
 		}]);
-	
+
 		return CrossHair;
 	})(_react2["default"].Component);
-	
+
 	CrossHair.propTypes = {
 		yAxisPad: _react2["default"].PropTypes.number.isRequired,
 		height: _react2["default"].PropTypes.number.isRequired,
@@ -7192,12 +7192,12 @@
 		xDisplayValue: _react2["default"].PropTypes.string.isRequired,
 		edges: _react2["default"].PropTypes.array.isRequired
 	};
-	
+
 	CrossHair.defaultProps = {
 		namespace: "ReStock.CrossHair",
 		yAxisPad: 5
 	};
-	
+
 	CrossHair.helper = function (props) {
 		var width = props.width;
 		var edges = props.edges;
@@ -7205,10 +7205,10 @@
 		var mouseXY = props.mouseXY;
 		var xDisplayValue = props.xDisplayValue;
 		var height = props.height;
-	
+
 		var x1 = 0,
 		    x2 = width;
-	
+
 		var edges = edges.map(function (edge, idx) {
 			if (edge.at === "left") {
 				x1 = -yAxisPad;
@@ -7253,29 +7253,29 @@
 		}
 		return { edges: edges, line: line };
 	};
-	
+
 	CrossHair.drawOnCanvasStatic = function (ctx, props) {
 		props = (0, _objectAssign2["default"])({}, CrossHair.defaultProps, props);
-	
+
 		var result = CrossHair.helper(props);
 		var line = result.line;
 		var edges = result.edges;
-	
+
 		edges.forEach(function (edge) {
 			return _EdgeCoordinate2["default"].drawOnCanvasStatic(ctx, edge);
 		});
-	
+
 		if (line) {
 			ctx.globalAlpha = line.opacity;
 			ctx.strokeStype = line.stroke;
-	
+
 			ctx.beginPath();
 			ctx.moveTo(line.x1, line.y1);
 			ctx.lineTo(line.x2, line.y2);
 			ctx.stroke();
 		}
 	};
-	
+
 	module.exports = CrossHair;
 
 /***/ },
@@ -7283,37 +7283,37 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var CurrentCoordinate = (function (_React$Component) {
 		_inherits(CurrentCoordinate, _React$Component);
-	
+
 		function CurrentCoordinate() {
 			_classCallCheck(this, CurrentCoordinate);
-	
+
 			_get(Object.getPrototypeOf(CurrentCoordinate.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(CurrentCoordinate, [{
 			key: "componentDidMount",
 			value: function componentDidMount() {
 				var _context = this.context;
 				var type = _context.type;
 				var getCanvasContexts = _context.getCanvasContexts;
-	
+
 				if (type !== "svg" && getCanvasContexts !== undefined) {
 					var contexts = getCanvasContexts();
 					if (contexts) CurrentCoordinate.drawOnCanvas(contexts.mouseCoord, this.context, this.props);
@@ -7333,17 +7333,17 @@
 			key: "componentWillReceiveProps",
 			value: function componentWillReceiveProps(nextProps, nextContext) {
 				var draw = CurrentCoordinate.drawOnCanvasStatic.bind(null, nextContext, nextProps);
-	
+
 				var forChart = nextProps.forChart;
 				var forCompareSeries = nextProps.forCompareSeries;
 				var forDataSeries = nextProps.forDataSeries;
-	
+
 				var temp = nextContext.secretToSuperFastCanvasDraw.filter(function (each) {
 					return each.type === "currentcoordinate" && each.forChart === forChart && each.forDataSeries === forDataSeries;
 				}).filter(function (each) {
 					return each.forCompareSeries === forCompareSeries;
 				});
-	
+
 				if (temp.length === 0) {
 					nextContext.secretToSuperFastCanvasDraw.push({
 						type: "currentcoordinate",
@@ -7365,20 +7365,20 @@
 				var show = _context2.show;
 				var chartData = _context2.chartData;
 				var currentItems = _context2.currentItems;
-	
+
 				if (type !== "svg") return null;
-	
+
 				var circle = CurrentCoordinate.helper(this.props, show, chartData, currentItems);
-	
+
 				if (!circle) return null;
-	
+
 				return _react2["default"].createElement("circle", { className: className, cx: circle.x, cy: circle.y, r: circle.r, fill: circle.fill });
 			}
 		}]);
-	
+
 		return CurrentCoordinate;
 	})(_react2["default"].Component);
-	
+
 	CurrentCoordinate.propTypes = {
 		forChart: _react2["default"].PropTypes.number.isRequired,
 		forDataSeries: _react2["default"].PropTypes.number.isRequired,
@@ -7387,45 +7387,45 @@
 		r: _react2["default"].PropTypes.number.isRequired,
 		className: _react2["default"].PropTypes.string
 	};
-	
+
 	CurrentCoordinate.defaultProps = { namespace: "ReStock.CurrentCoordinate", r: 3 };
-	
+
 	CurrentCoordinate.contextTypes = {
 		show: _react2["default"].PropTypes.bool.isRequired,
 		currentItems: _react2["default"].PropTypes.array.isRequired,
 		chartData: _react2["default"].PropTypes.array.isRequired,
-	
+
 		getCanvasContexts: _react2["default"].PropTypes.func,
 		margin: _react2["default"].PropTypes.object.isRequired,
 		secretToSuperFastCanvasDraw: _react2["default"].PropTypes.array.isRequired,
 		type: _react2["default"].PropTypes.string.isRequired
 	};
-	
+
 	CurrentCoordinate.drawOnCanvas = function (canvasContext, context, props) {
 		var mouseXY = context.mouseXY;
 		var currentCharts = context.currentCharts;
 		var chartData = context.chartData;
 		var currentItems = context.currentItems;
 		var show = context.show;
-	
+
 		CurrentCoordinate.drawOnCanvasStatic(context, props, canvasContext, show, mouseXY, currentCharts, chartData, currentItems);
 	};
-	
+
 	CurrentCoordinate.drawOnCanvasStatic = function (context, props, ctx, show, mouseXY, currentCharts, chartData, currentItems) {
 		var margin = context.margin;
-	
+
 		var circle = CurrentCoordinate.helper(props, show, chartData, currentItems);
-	
+
 		if (!circle) return null;
-	
+
 		var originX = 0.5 + margin.left;
 		var originY = 0.5 + margin.top;
-	
+
 		ctx.save();
-	
+
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
 		ctx.translate(originX, originY);
-	
+
 		ctx.fillStyle = circle.fill;
 		ctx.beginPath();
 		ctx.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI, false);
@@ -7433,13 +7433,13 @@
 		// CurrentCoordinate.drawOnCanvasStatic(ctx, pointer);
 		ctx.restore();
 	};
-	
+
 	CurrentCoordinate.helper = function (props, show, chartData, currentItems) {
 		var forChart = props.forChart;
 		var forCompareSeries = props.forCompareSeries;
 		var forDataSeries = props.forDataSeries;
 		var r = props.r;
-	
+
 		var chartData = chartData.filter(function (each) {
 			return each.id === forChart;
 		})[0];
@@ -7448,15 +7448,15 @@
 		})[0];
 		var item = currentItem ? currentItem.data : undefined;
 		var fill = "black";
-	
+
 		if (!show || item === undefined) return null;
 		var yAccessor;
-	
+
 		if (forCompareSeries !== undefined) {
 			var compSeries = chartData.config.compareSeries.filter(function (each) {
 				return each.id === forCompareSeries;
 			});
-	
+
 			if (compSeries.length !== 1) {
 				console.warn("Unique compareSeries with id={%s} not found", forCompareSeries);
 				throw new Error("Unique compareSeries not found");
@@ -7467,28 +7467,28 @@
 			var overlays = chartData.config.overlays.filter(function (each) {
 				return each.id === forDataSeries;
 			});
-	
+
 			if (overlays.length !== 1) {
 				console.warn("Unique DataSeries with id={%s} not found", forDataSeries);
 				throw new Error("Unique DataSeries not found");
 			}
-	
+
 			fill = overlays[0].stroke;
-	
+
 			yAccessor = overlays[0].yAccessor;
 		}
-	
+
 		var xValue = chartData.config.xAccessor(item);
 		var yValue = yAccessor(item);
-	
+
 		if (yValue === undefined) return null;
-	
+
 		var x = Math.round(chartData.plot.scales.xScale(xValue)) + chartData.config.origin[0];
 		var y = Math.round(chartData.plot.scales.yScale(yValue)) + chartData.config.origin[1];
-	
+
 		return { x: x, y: y, r: r, fill: fill };
 	};
-	
+
 	module.exports = CurrentCoordinate;
 
 /***/ },
@@ -7496,47 +7496,47 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var _utilsPureComponent = __webpack_require__(23);
-	
+
 	var _utilsPureComponent2 = _interopRequireDefault(_utilsPureComponent);
-	
+
 	var EdgeContainer = (function (_PureComponent) {
 		_inherits(EdgeContainer, _PureComponent);
-	
+
 		function EdgeContainer() {
 			_classCallCheck(this, EdgeContainer);
-	
+
 			_get(Object.getPrototypeOf(EdgeContainer.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(EdgeContainer, [{
 			key: "render",
 			value: function render() {
 				var _this = this;
-	
+
 				var children = _react2["default"].Children.map(this.props.children, function (child) {
 					var newChild = _utilsUtils2["default"].isReactVersion13() ? _react2["default"].withContext(_this.context, function () {
 						return _react2["default"].createElement(child.type, (0, _objectAssign2["default"])({ key: child.key, ref: child.ref }, child.props));
@@ -7551,10 +7551,10 @@
 				);
 			}
 		}]);
-	
+
 		return EdgeContainer;
 	})(_utilsPureComponent2["default"]);
-	
+
 	EdgeContainer.contextTypes = {
 		width: _react2["default"].PropTypes.number.isRequired,
 		chartData: _react2["default"].PropTypes.array.isRequired,
@@ -7564,7 +7564,7 @@
 		margin: _react2["default"].PropTypes.object.isRequired,
 		secretToSuperFastCanvasDraw: _react2["default"].PropTypes.array.isRequired
 	};
-	
+
 	module.exports = EdgeContainer;
 
 /***/ },
@@ -7572,53 +7572,53 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _d3 = __webpack_require__(5);
-	
+
 	var _d32 = _interopRequireDefault(_d3);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var _EdgeCoordinate = __webpack_require__(48);
-	
+
 	var _EdgeCoordinate2 = _interopRequireDefault(_EdgeCoordinate);
-	
+
 	var _utilsChartDataUtil = __webpack_require__(6);
-	
+
 	var _utilsChartDataUtil2 = _interopRequireDefault(_utilsChartDataUtil);
-	
+
 	var EdgeIndicator = (function (_React$Component) {
 		_inherits(EdgeIndicator, _React$Component);
-	
+
 		function EdgeIndicator(props) {
 			_classCallCheck(this, EdgeIndicator);
-	
+
 			_get(Object.getPrototypeOf(EdgeIndicator.prototype), "constructor", this).call(this, props);
 			this.drawOnCanvas = this.drawOnCanvas.bind(this);
 		}
-	
+
 		_createClass(EdgeIndicator, [{
 			key: "componentDidMount",
 			value: function componentDidMount() {
 				var type = this.props.type;
 				var getCanvasContexts = this.context.getCanvasContexts;
-	
+
 				if (type !== "svg" && getCanvasContexts !== undefined) {
 					var contexts = getCanvasContexts();
 					if (contexts) this.drawOnCanvas(contexts.axes);
@@ -7640,9 +7640,9 @@
 				var chartData = nextContext.chartData;
 				var margin = nextContext.margin;
 				var width = nextContext.width;
-	
+
 				var draw = EdgeIndicator.drawOnCanvasStatic.bind(null, margin, nextProps, width);
-	
+
 				nextContext.secretToSuperFastCanvasDraw.push({
 					type: "axis",
 					draw: draw
@@ -7655,20 +7655,20 @@
 				var chartData = _context.chartData;
 				var margin = _context.margin;
 				var width = _context.width;
-	
+
 				EdgeIndicator.drawOnCanvasStatic(margin, this.props, width, ctx, chartData);
 			}
 		}, {
 			key: "render",
 			value: function render() {
 				if (this.context.type !== "svg") return null;
-	
+
 				var _context2 = this.context;
 				var width = _context2.width;
 				var chartData = _context2.chartData;
-	
+
 				var edge = EdgeIndicator.helper(this.props, width, chartData);
-	
+
 				if (edge === undefined) return null;
 				return _react2["default"].createElement(_EdgeCoordinate2["default"], {
 					type: edge.type,
@@ -7684,10 +7684,10 @@
 					orient: edge.orient });
 			}
 		}]);
-	
+
 		return EdgeIndicator;
 	})(_react2["default"].Component);
-	
+
 	EdgeIndicator.contextTypes = {
 		width: _react2["default"].PropTypes.number.isRequired,
 		chartData: _react2["default"].PropTypes.array.isRequired,
@@ -7696,7 +7696,7 @@
 		margin: _react2["default"].PropTypes.object.isRequired,
 		secretToSuperFastCanvasDraw: _react2["default"].PropTypes.array.isRequired
 	};
-	
+
 	EdgeIndicator.propTypes = {
 		type: _react2["default"].PropTypes.oneOf(["horizontal"]).isRequired,
 		className: _react2["default"].PropTypes.string,
@@ -7707,7 +7707,7 @@
 		forDataSeries: _react2["default"].PropTypes.number.isRequired,
 		displayFormat: _react2["default"].PropTypes.func.isRequired
 	};
-	
+
 	EdgeIndicator.defaultProps = {
 		type: "horizontal",
 		orient: "left",
@@ -7716,23 +7716,23 @@
 		yAxisPad: 5,
 		namespace: "ReStock.EdgeIndicator"
 	};
-	
+
 	EdgeIndicator.drawOnCanvasStatic = function (margin, props, width, ctx, chartDataArray) {
 		var edge = EdgeIndicator.helper(props, width, chartDataArray);
-	
+
 		if (edge === undefined) return null;
-	
+
 		var originX = margin.left;
 		var originY = margin.top;
 		ctx.save();
-	
+
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
 		ctx.translate(originX, originY);
-	
+
 		_EdgeCoordinate2["default"].drawOnCanvasStatic(ctx, edge);
 		ctx.restore();
 	};
-	
+
 	EdgeIndicator.helper = function (props, width, chartData) {
 		var edgeType = props.type;
 		var displayFormat = props.displayFormat;
@@ -7742,7 +7742,7 @@
 		var edgeAt = props.edgeAt;
 		var yAxisPad = props.yAxisPad;
 		var orient = props.orient;
-	
+
 		var currentChartData = _utilsChartDataUtil2["default"].getChartDataForChartNew(chartData, forChart);
 		// var currentItem = ChartDataUtil.getCurrentItemForChartNew(currentItems, forChart);
 		var edge = null,
@@ -7750,29 +7750,29 @@
 		    yAccessor;
 		// console.log(chartData.config.compareSeries.length);
 		var displayFormat = currentChartData.config.compareSeries.length > 0 ? _d32["default"].format(".0%") : displayFormat;
-	
+
 		if (forDataSeries !== undefined && currentChartData.config.overlays.length > 0 && currentChartData.plot.overlayValues.length > 0) {
-	
+
 			var overlay = currentChartData.config.overlays.filter(function (eachOverlay) {
 				return eachOverlay.id === forDataSeries;
 			});
 			var overlayValue = currentChartData.plot.overlayValues.filter(function (eachOverlayValue) {
 				return eachOverlayValue.id === forDataSeries;
 			});
-	
+
 			item = itemType === "first" ? overlayValue[0].first : overlayValue[0].last;
-	
+
 			yAccessor = overlay[0].yAccessor;
-	
+
 			if (item !== undefined) {
 				var yValue = yAccessor(item),
 				    xValue = currentChartData.config.xAccessor(item);
 				var x1 = Math.round(currentChartData.plot.scales.xScale(xValue)),
 				    y1 = Math.round(currentChartData.plot.scales.yScale(yValue));
-	
+
 				var stroke = overlay[0].stroke;
 				var edgeX = edgeAt === "left" ? 0 - yAxisPad : width + yAxisPad;
-	
+
 				edge = {
 					type: edgeType,
 					fill: stroke,
@@ -7790,7 +7790,7 @@
 		}
 		return edge;
 	};
-	
+
 	module.exports = EdgeIndicator;
 
 /***/ },
@@ -7798,49 +7798,49 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var _utilsPureComponent = __webpack_require__(23);
-	
+
 	var _utilsPureComponent2 = _interopRequireDefault(_utilsPureComponent);
-	
+
 	var _CrossHair = __webpack_require__(81);
-	
+
 	var _CrossHair2 = _interopRequireDefault(_CrossHair);
-	
+
 	var MouseCoordinates = (function (_PureComponent) {
 		_inherits(MouseCoordinates, _PureComponent);
-	
+
 		function MouseCoordinates() {
 			_classCallCheck(this, MouseCoordinates);
-	
+
 			_get(Object.getPrototypeOf(MouseCoordinates.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(MouseCoordinates, [{
 			key: "componentDidMount",
 			value: function componentDidMount() {
 				var _context = this.context;
 				var type = _context.type;
 				var getCanvasContexts = _context.getCanvasContexts;
-	
+
 				if (type !== "svg" && getCanvasContexts !== undefined) {
 					var contexts = getCanvasContexts();
 					if (contexts) MouseCoordinates.drawOnCanvas(contexts.mouseCoord, this.context, this.props);
@@ -7860,7 +7860,7 @@
 			key: "componentWillReceiveProps",
 			value: function componentWillReceiveProps(nextProps, nextContext) {
 				var draw = MouseCoordinates.drawOnCanvasStatic.bind(null, nextContext, nextProps);
-	
+
 				var temp = nextContext.secretToSuperFastCanvasDraw.filter(function (each) {
 					return each.type === "mouse";
 				});
@@ -7883,21 +7883,21 @@
 				var chartData = _context2.chartData;
 				var currentItems = _context2.currentItems;
 				var show = _context2.show;
-	
+
 				if (type !== "svg") return null;
-	
+
 				var pointer = MouseCoordinates.helper(this.context, this.props, show, mouseXY, currentCharts, chartData, currentItems);
-	
+
 				if (!pointer) return null;
-	
+
 				return _react2["default"].createElement(_CrossHair2["default"], { height: pointer.height, width: pointer.width, mouseXY: pointer.mouseXY,
 					xDisplayValue: pointer.xDisplayValue, edges: pointer.edges });
 			}
 		}]);
-	
+
 		return MouseCoordinates;
 	})(_utilsPureComponent2["default"]);
-	
+
 	MouseCoordinates.contextTypes = {
 		width: _react2["default"].PropTypes.number.isRequired,
 		height: _react2["default"].PropTypes.number.isRequired,
@@ -7913,13 +7913,13 @@
 		secretToSuperFastCanvasDraw: _react2["default"].PropTypes.array.isRequired,
 		type: _react2["default"].PropTypes.string.isRequired
 	};
-	
+
 	MouseCoordinates.propTypes = {
 		xDisplayFormat: _react2["default"].PropTypes.func.isRequired,
 		yDisplayFormat: _react2["default"].PropTypes.func.isRequired,
 		type: _react2["default"].PropTypes.oneOf(["crosshair"]).isRequired
 	};
-	
+
 	MouseCoordinates.defaultProps = {
 		namespace: "ReStock.MouseCoordinates",
 		show: false,
@@ -7928,35 +7928,35 @@
 		xDisplayFormat: _utilsUtils2["default"].displayDateFormat,
 		yDisplayFormat: _utilsUtils2["default"].displayNumberFormat
 	};
-	
+
 	MouseCoordinates.drawOnCanvas = function (canvasContext, context, props) {
 		var mouseXY = context.mouseXY;
 		var currentCharts = context.currentCharts;
 		var chartData = context.chartData;
 		var currentItems = context.currentItems;
 		var show = context.show;
-	
+
 		MouseCoordinates.drawOnCanvasStatic(context, props, canvasContext, show, mouseXY, currentCharts, chartData, currentItems);
 	};
 	MouseCoordinates.drawOnCanvasStatic = function (context, props, ctx, show, mouseXY, currentCharts, chartData, currentItems) {
 		var margin = context.margin;
-	
+
 		var pointer = MouseCoordinates.helper(context, props, show, mouseXY, currentCharts, chartData, currentItems);
-	
+
 		if (!pointer) return null;
-	
+
 		var originX = 0.5 + margin.left;
 		var originY = 0.5 + margin.top;
-	
+
 		ctx.save();
-	
+
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
 		ctx.translate(originX, originY);
-	
+
 		_CrossHair2["default"].drawOnCanvasStatic(ctx, pointer);
 		ctx.restore();
 	};
-	
+
 	MouseCoordinates.helper = function (context, props, show, mouseXY, currentCharts, chartData, currentItems) {
 		if (!show) return;
 		var mainChart = context.mainChart;
@@ -7966,7 +7966,7 @@
 		var snapX = props.snapX;
 		var type = props.type;
 		var xDisplayFormat = props.xDisplayFormat;
-	
+
 		var edges = chartData.filter(function (eachChartData) {
 			return currentCharts.indexOf(eachChartData.id) > -1;
 		}).map(function (each) {
@@ -7989,14 +7989,14 @@
 			each.yDisplayValue = each.yDisplayFormat(each.yValue);
 			return each;
 		});
-	
+
 		// console.log(edges);
 		var singleChartData = chartData.filter(function (eachChartData) {
 			return eachChartData.id === mainChart;
 		})[0];
-	
+
 		// var yDisplayFormat = singleChartData.config.compareSeries.length > 0 ? (d) => (Math.round(d * 10000) / 100).toFixed(2) + "%" : this.props.yDisplayFormat;
-	
+
 		var item = currentItems.filter(function (eachItem) {
 			return eachItem.id === mainChart;
 		})[0]; // ChartDataUtil.getCurrentItemForChart(this.props, this.context);
@@ -8004,17 +8004,17 @@
 		item = item.data;
 		// console.log(singleChartData, item);
 		var xValue = singleChartData.config.xAccessor(item);
-	
+
 		var xDisplayValue = dateAccessor === undefined ? xValue : dateAccessor(item);
-	
+
 		// var yValue = singleChartData.plot.scales.yScale.invert(mouseXY[1]);
 		if (xValue === undefined) return null;
 		var x = snapX ? Math.round(singleChartData.plot.scales.xScale(xValue)) : mouseXY[0];
 		var y = mouseXY[1];
-	
+
 		return { height: height, width: width, mouseXY: [x, y], xDisplayValue: xDisplayFormat(xDisplayValue), edges: edges };
 	};
-	
+
 	module.exports = MouseCoordinates;
 
 /***/ },
@@ -8022,29 +8022,29 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _EdgeContainer = __webpack_require__(83);
-	
+
 	var _EdgeContainer2 = _interopRequireDefault(_EdgeContainer);
-	
+
 	var _EdgeIndicator = __webpack_require__(84);
-	
+
 	var _EdgeIndicator2 = _interopRequireDefault(_EdgeIndicator);
-	
+
 	var _MouseCoordinates = __webpack_require__(85);
-	
+
 	var _MouseCoordinates2 = _interopRequireDefault(_MouseCoordinates);
-	
+
 	var _CurrentCoordinate = __webpack_require__(82);
-	
+
 	var _CurrentCoordinate2 = _interopRequireDefault(_CurrentCoordinate);
-	
+
 	exports["default"] = {
 		EdgeContainer: _EdgeContainer2["default"],
 		EdgeIndicator: _EdgeIndicator2["default"],
@@ -8058,20 +8058,20 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	// import ReactDOM from "react-dom";
-	
+
 	var ChartWidthMixin = {
 		handleWindowResize: function handleWindowResize() {
 			var el = _react2["default"].findDOMNode(this);
 			// console.log(this.refs, el, this);
-	
+
 			var w = el.parentNode.clientWidth;
 			// console.log("width = ", w);
 			this.setState({
@@ -8092,7 +8092,7 @@
 			});
 		}
 	};
-	
+
 	module.exports = ChartWidthMixin;
 
 /***/ },
@@ -8100,9 +8100,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var saveAsPng = __webpack_require__(128);
-	
+
 	var SaveChartAsImage = {
 		save: function save(doc, container, background, cb) {
 			if (saveAsPng === undefined) {
@@ -8115,7 +8115,7 @@
 					canvas.width = image.width;
 					canvas.height = image.height;
 					var context = canvas.getContext('2d');
-	
+
 					if (background !== undefined) {
 						context.fillStyle = background;
 						context.fillRect(0, 0, canvas.width, canvas.height);
@@ -8129,7 +8129,7 @@
 							context.drawImage(each, rect.left - parent.left, rect.top - parent.top);
 						}
 					};
-	
+
 					context.drawImage(image, 0, 0);
 					cb(canvas.toDataURL('image/png'));
 				};
@@ -8144,17 +8144,17 @@
 				var a = document.createElement("a");
 				a.setAttribute("href", src);
 				a.setAttribute("download", "Chart.png");
-	
+
 				document.body.appendChild(a);
 				a.addEventListener("click", function (e) {
 					a.parentNode.removeChild(a);
 				});
-	
+
 				a.click();
 			});
 		}
 	};
-	
+
 	module.exports = SaveChartAsImage;
 
 /***/ },
@@ -8162,34 +8162,34 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var TypeChooser = (function (_React$Component) {
 		_inherits(TypeChooser, _React$Component);
-	
+
 		function TypeChooser(props) {
 			_classCallCheck(this, TypeChooser);
-	
+
 			_get(Object.getPrototypeOf(TypeChooser.prototype), "constructor", this).call(this, props);
 			this.state = {
 				type: this.props.type
 			};
 			this.handleTypeChange = this.handleTypeChange.bind(this);
 		}
-	
+
 		_createClass(TypeChooser, [{
 			key: "handleTypeChange",
 			value: function handleTypeChange(e) {
@@ -8227,14 +8227,14 @@
 				);
 			}
 		}]);
-	
+
 		return TypeChooser;
 	})(_react2["default"].Component);
-	
+
 	TypeChooser.defaultProps = {
 		type: "hybrid"
 	};
-	
+
 	module.exports = TypeChooser;
 
 /***/ },
@@ -8242,25 +8242,25 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _TypeChooser = __webpack_require__(89);
-	
+
 	var _TypeChooser2 = _interopRequireDefault(_TypeChooser);
-	
+
 	var _ChartWidthMixin = __webpack_require__(87);
-	
+
 	var _ChartWidthMixin2 = _interopRequireDefault(_ChartWidthMixin);
-	
+
 	var _SaveChartAsImage = __webpack_require__(88);
-	
+
 	var _SaveChartAsImage2 = _interopRequireDefault(_SaveChartAsImage);
-	
+
 	exports["default"] = {
 		TypeChooser: _TypeChooser2["default"],
 		ChartWidthMixin: _ChartWidthMixin2["default"],
@@ -8273,46 +8273,46 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _utilsMovingAverageCalculator = __webpack_require__(21);
-	
+
 	var _utilsMovingAverageCalculator2 = _interopRequireDefault(_utilsMovingAverageCalculator);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var _defaultOptions = __webpack_require__(16);
-	
+
 	function BollingerBandIndicator(options, chartProps, dataSeriesProps) {
-	
+
 		var prefix = "chart_" + chartProps.id;
 		var key = "overlay_" + dataSeriesProps.id;
-	
+
 		var settings = (0, _objectAssign2["default"])({}, _defaultOptions.BollingerBand, options);
-	
+
 		function indicator() {}
 		indicator.options = function () {
 			return settings;
 		};
 		indicator.calculate = function (data) {
 			var period = settings.period;
-	
+
 			var ma = settings.movingAverageType === "sma" ? _utilsMovingAverageCalculator2["default"].calculateSMANew : _utilsMovingAverageCalculator2["default"].calculateEMANew;
 			var getter = function getter(d) {
 				return d[settings.source];
 			};
 			var setter = _utilsMovingAverageCalculator2["default"].setter.bind(null, [prefix, key], "middle");
 			var newData = ma(data, period, getter, setter);
-	
+
 			// console.log(period, newData.slice(0, 20));
-	
+
 			newData.map(function (each, i) {
 				return newData.slice(i - period + 1, i + 1);
 			}).filter(function (array) {
@@ -8350,7 +8350,7 @@
 		};
 		return indicator;
 	}
-	
+
 	exports["default"] = BollingerBandIndicator;
 	module.exports = exports["default"];
 
@@ -8359,33 +8359,33 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _utilsMovingAverageCalculator = __webpack_require__(21);
-	
+
 	var _utilsMovingAverageCalculator2 = _interopRequireDefault(_utilsMovingAverageCalculator);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _defaultOptions = __webpack_require__(16);
-	
+
 	function EMAIndicator(options, chartProps, dataSeriesProps) {
-	
+
 		var prefix = "chart_" + chartProps.id;
 		var key = "overlay_" + dataSeriesProps.id;
-	
+
 		var settings = (0, _objectAssign2["default"])({}, _defaultOptions.EMA, options);
 		if (!settings.stroke) settings.stroke = (0, _utilsUtils.overlayColors)(dataSeriesProps.id);
-	
+
 		function indicator() {}
 		indicator.options = function () {
 			return settings;
@@ -8394,15 +8394,15 @@
 			return settings.stroke;
 		};
 		indicator.calculate = function (data) {
-	
+
 			var setter = _utilsMovingAverageCalculator2["default"].setter.bind(null, [prefix], key);
 			var source = settings.source;
-	
+
 			var newData = _utilsMovingAverageCalculator2["default"].calculateEMANew(data, settings.period, function (d) {
 				return d[source];
 			}, setter);
 			// console.log(settings.period, newData[newData.length - 3]);
-	
+
 			return newData;
 		};
 		indicator.yAccessor = function () {
@@ -8418,7 +8418,7 @@
 		};
 		return indicator;
 	}
-	
+
 	exports["default"] = EMAIndicator;
 	module.exports = exports["default"];
 
@@ -8427,48 +8427,48 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _utilsMovingAverageCalculator = __webpack_require__(21);
-	
+
 	var _utilsMovingAverageCalculator2 = _interopRequireDefault(_utilsMovingAverageCalculator);
-	
+
 	var _utilsUtilsJs = __webpack_require__(2);
-	
+
 	var _utilsUtilsJs2 = _interopRequireDefault(_utilsUtilsJs);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var _defaultOptions = __webpack_require__(16);
-	
+
 	function FullStochasticOscillator(options, chartProps, dataSeriesProps) {
-	
+
 		var prefix = "chart_" + chartProps.id;
 		var key = "overlay_" + dataSeriesProps.id;
-	
+
 		var settings = (0, _objectAssign2["default"])({}, _defaultOptions.FullStochasticOscillator, options);
-	
+
 		function indicator() {}
 		indicator.options = function () {
 			return settings;
 		};
 		indicator.calculate = function (data) {
 			var arr, highAndLow, ohlc;
-	
+
 			var setter = function setter(setKey, d, value) {
 				if (d[prefix] === undefined) d[prefix] = {};
 				if (d[prefix][key] === undefined) d[prefix][key] = {};
 				d[prefix][key][setKey] = value;
 				return d;
 			};
-	
+
 			for (var i = settings.period - 1; i < data.length; i++) {
 				arr = data.slice(i - settings.period + 1, i + 1);
 				highAndLow = arr.map(settings.ohlc).map(function (ohlc) {
@@ -8477,20 +8477,20 @@
 					return [Math.max(a[0], b[0]), Math.min(a[1], b[1])];
 				});
 				ohlc = settings.ohlc(data[i]);
-	
+
 				var oscilator = (ohlc.close - highAndLow[1]) / (highAndLow[0] - highAndLow[1]) * 100;
-	
+
 				setter("stochasticOscillatorBase", data[i], oscilator);
 			}
-	
+
 			var newData = _utilsMovingAverageCalculator2["default"].calculateSMANew(data.slice(settings.period), settings.K, function (d) {
 				return d[prefix][key].stochasticOscillatorBase;
 			}, setter.bind(null, "K"));
-	
+
 			newData = _utilsMovingAverageCalculator2["default"].calculateSMANew(newData.slice(settings.period), settings.D, function (d) {
 				return d[prefix][key].K;
 			}, setter.bind(null, "D"));
-	
+
 			// console.log(newData[newData.length - 1]);
 			return newData;
 		};
@@ -8513,7 +8513,7 @@
 		};
 		return indicator;
 	}
-	
+
 	exports["default"] = FullStochasticOscillator;
 	module.exports = exports["default"];
 
@@ -8522,34 +8522,34 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _utilsMovingAverageCalculator = __webpack_require__(21);
-	
+
 	var _utilsMovingAverageCalculator2 = _interopRequireDefault(_utilsMovingAverageCalculator);
-	
+
 	var _utilsUtilsJs = __webpack_require__(2);
-	
+
 	var _utilsUtilsJs2 = _interopRequireDefault(_utilsUtilsJs);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var _defaultOptions = __webpack_require__(16);
-	
+
 	function MACDIndicator(options, chartProps, dataSeriesProps) {
-	
+
 		var prefix = "chart_" + chartProps.id;
 		var key = "overlay_" + dataSeriesProps.id;
-	
+
 		var settings = (0, _objectAssign2["default"])({}, _defaultOptions.MACD, options);
-	
+
 		function indicator() {}
 		indicator.options = function () {
 			return settings;
@@ -8559,7 +8559,7 @@
 			var fastKey = "ema" + settings.fast;
 			var slowKey = "ema" + settings.slow;
 			var source = settings.source;
-	
+
 			var setter = function setter(setKey, d, value) {
 				if (d[prefix] === undefined) d[prefix] = {};
 				if (d[prefix][key] === undefined) d[prefix][key] = {};
@@ -8569,10 +8569,10 @@
 			var getter = function getter(d) {
 				return d[source];
 			};
-	
+
 			var newData = _utilsMovingAverageCalculator2["default"].calculateEMANew(data, settings.fast, getter, setter.bind(null, fastKey));
 			newData = _utilsMovingAverageCalculator2["default"].calculateEMANew(newData, settings.slow, getter, setter.bind(null, slowKey));
-	
+
 			newData.forEach(function (each) {
 				if (each[prefix]) {
 					if (each[prefix][key][slowKey] && each[prefix][key][fastKey]) {
@@ -8584,7 +8584,7 @@
 			newData = _utilsMovingAverageCalculator2["default"].calculateEMANew(newData.slice(settings.slow), settings.signal, function (d) {
 				return d[prefix][key].MACDLine;
 			}, setter.bind(null, "signalLine"));
-	
+
 			newData.forEach(function (each) {
 				if (each[prefix] && each[prefix][key]) {
 					if (each[prefix][key].MACDLine && each[prefix][key].signalLine) {
@@ -8592,7 +8592,7 @@
 					}
 				}
 			});
-	
+
 			// console.table(newData);
 			// console.log(newData[newData.length - 3]);
 			return newData;
@@ -8609,7 +8609,7 @@
 		};
 		return indicator;
 	}
-	
+
 	exports["default"] = MACDIndicator;
 	module.exports = exports["default"];
 
@@ -8618,24 +8618,24 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var _defaultOptions = __webpack_require__(16);
-	
+
 	function RSIIndicator(options, chartProps, dataSeriesProps) {
-	
+
 		var prefix = "chart_" + chartProps.id;
 		var key = "overlay_" + dataSeriesProps.id;
-	
+
 		var settings = (0, _objectAssign2["default"])({}, _defaultOptions.RSI, options);
 		function indicator() {}
 		indicator.options = function () {
@@ -8644,26 +8644,26 @@
 		indicator.calculate = function (data) {
 			var period = settings.period;
 			var source = settings.source;
-	
+
 			var getter = function getter(d) {
 				return d[source];
 			};
 			var now, prev, change;
-	
+
 			var first = data[0];
 			first[prefix] = {};
 			first[prefix][key] = {};
-	
+
 			for (var i = 1; i < data.length; i++) {
 				now = data[i];
 				prev = data[i - 1];
 				now[prefix] = {};
 				now[prefix][key] = {};
-	
+
 				change = getter(now) - getter(prev);
 				now[prefix][key].gain = Math.max(change, 0);
 				now[prefix][key].loss = Math.min(change, 0);
-	
+
 				if (prev[prefix][key].avgGain === undefined) {
 					// first avg gain & loss
 					if (i >= period) {
@@ -8674,7 +8674,7 @@
 						}).reduce(function (a, b) {
 							return a + b;
 						}) / period;
-	
+
 						now[prefix][key].avgLoss = firstN.map(function (d) {
 							return d[prefix][key].loss;
 						}).reduce(function (a, b) {
@@ -8711,7 +8711,7 @@
 		};
 		return indicator;
 	}
-	
+
 	exports["default"] = RSIIndicator;
 	module.exports = exports["default"];
 
@@ -8720,35 +8720,35 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _utilsMovingAverageCalculator = __webpack_require__(21);
-	
+
 	var _utilsMovingAverageCalculator2 = _interopRequireDefault(_utilsMovingAverageCalculator);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _defaultOptions = __webpack_require__(16);
-	
+
 	function SMAIndicator(options, chartProps, dataSeriesProps) {
-	
+
 		var prefix = "chart_" + chartProps.id;
 		var key = "overlay_" + dataSeriesProps.id;
-	
+
 		var settings = (0, _objectAssign2["default"])({}, _defaultOptions.SMA, options);
 		if (!settings.stroke) settings.stroke = (0, _utilsUtils.overlayColors)(dataSeriesProps.id);
-	
+
 		function indicator() {}
-	
+
 		indicator.options = function () {
 			return settings;
 		};
@@ -8757,9 +8757,9 @@
 		};
 		indicator.calculate = function (data) {
 			var setter = _utilsMovingAverageCalculator2["default"].setter.bind(null, [prefix], key);
-	
+
 			var source = settings.source;
-	
+
 			var newData = _utilsMovingAverageCalculator2["default"].calculateSMANew(data, settings.period, function (d) {
 				return d[source];
 			}, setter);
@@ -8778,7 +8778,7 @@
 		};
 		return indicator;
 	}
-	
+
 	exports["default"] = SMAIndicator;
 	module.exports = exports["default"];
 
@@ -8787,43 +8787,43 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _MACDIndicator = __webpack_require__(94);
-	
+
 	var _MACDIndicator2 = _interopRequireDefault(_MACDIndicator);
-	
+
 	var _EMAIndicator = __webpack_require__(92);
-	
+
 	var _EMAIndicator2 = _interopRequireDefault(_EMAIndicator);
-	
+
 	var _SMAIndicator = __webpack_require__(96);
-	
+
 	var _SMAIndicator2 = _interopRequireDefault(_SMAIndicator);
-	
+
 	var _BollingerBandIndicator = __webpack_require__(91);
-	
+
 	var _BollingerBandIndicator2 = _interopRequireDefault(_BollingerBandIndicator);
-	
+
 	var _RSIIndicator = __webpack_require__(95);
-	
+
 	var _RSIIndicator2 = _interopRequireDefault(_RSIIndicator);
-	
+
 	var _FullStochasticOscillator = __webpack_require__(93);
-	
+
 	var _FullStochasticOscillator2 = _interopRequireDefault(_FullStochasticOscillator);
-	
+
 	var _defaultOptions = __webpack_require__(16);
-	
+
 	var defaultOptions = _interopRequireWildcard(_defaultOptions);
-	
+
 	exports["default"] = {
 		MACD: _MACDIndicator2["default"],
 		EMA: _EMAIndicator2["default"],
@@ -8840,15 +8840,15 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _d3 = __webpack_require__(5);
-	
+
 	var _d32 = _interopRequireDefault(_d3);
-	
+
 	function financeTimeScale(drawableData, indexAccessor, backingLinearScale) {
-	
+
 		var timeScaleSteps = [{ step: 864e5, f: function f(d) {
 				return d.date !== undefined && true;
 			} }, // 1-day
@@ -8908,7 +8908,7 @@
 			// console.log(tickDisplay);
 			return tickDisplay;
 		}
-	
+
 		function scale(x) {
 			return backingLinearScale(x);
 		}
@@ -8931,7 +8931,7 @@
 		scale.domain = function (x) {
 			if (!arguments.length) return backingLinearScale.domain();
 			// console.log("before = %s, after = %s", JSON.stringify(backingLinearScale.domain()), JSON.stringify(x))
-	
+
 			var d = [x[0], x[1]];
 			// console.log(d);
 			backingLinearScale.domain(d);
@@ -9001,11 +9001,11 @@
 		};
 		return scale;
 	}
-	
+
 	var defaultFinanceDateTimeScale = function defaultFinanceDateTimeScale(indexAccessor) {
 		return financeTimeScale([0, 1], indexAccessor, _d32["default"].scale.linear());
 	};
-	
+
 	module.exports = defaultFinanceDateTimeScale;
 
 /***/ },
@@ -9013,46 +9013,46 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _Line = __webpack_require__(12);
-	
+
 	var _Line2 = _interopRequireDefault(_Line);
-	
+
 	var _Area = __webpack_require__(36);
-	
+
 	var _Area2 = _interopRequireDefault(_Area);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var AreaSeries = (function (_React$Component) {
 		_inherits(AreaSeries, _React$Component);
-	
+
 		function AreaSeries() {
 			_classCallCheck(this, AreaSeries);
-	
+
 			_get(Object.getPrototypeOf(AreaSeries.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(AreaSeries, [{
 			key: "render",
 			value: function render() {
@@ -9068,7 +9068,7 @@
 				var fill = props.fill;
 				var defaultStroke = props.defaultStroke;
 				var opacity = props.opacity;
-	
+
 				return _react2["default"].createElement(
 					"g",
 					null,
@@ -9089,27 +9089,27 @@
 				);
 			}
 		}]);
-	
+
 		return AreaSeries;
 	})(_react2["default"].Component);
-	
+
 	AreaSeries.propTypes = {
 		stroke: _react2["default"].PropTypes.string,
 		fill: _react2["default"].PropTypes.string.isRequired,
 		opacity: _react2["default"].PropTypes.number.isRequired,
 		className: _react2["default"].PropTypes.string
 	};
-	
+
 	AreaSeries.defaultProps = {
 		stroke: "steelblue",
 		opacity: 0.5,
 		fill: "steelblue"
 	};
-	
+
 	AreaSeries.yAccessor = function (d) {
 		return d.close;
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(AreaSeries);
 	module.exports = exports["default"];
 
@@ -9118,50 +9118,50 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _HistogramSeries = __webpack_require__(37);
-	
+
 	var _HistogramSeries2 = _interopRequireDefault(_HistogramSeries);
-	
+
 	var _Line = __webpack_require__(12);
-	
+
 	var _Line2 = _interopRequireDefault(_Line);
-	
+
 	var _Area = __webpack_require__(36);
-	
+
 	var _Area2 = _interopRequireDefault(_Area);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var BollingerSeries = (function (_React$Component) {
 		_inherits(BollingerSeries, _React$Component);
-	
+
 		function BollingerSeries() {
 			_classCallCheck(this, BollingerSeries);
-	
+
 			_get(Object.getPrototypeOf(BollingerSeries.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(BollingerSeries, [{
 			key: "render",
 			value: function render() {
@@ -9176,7 +9176,7 @@
 				var className = props.className;
 				var fill = props.fill;
 				var opacity = props.opacity;
-	
+
 				return _react2["default"].createElement(
 					"g",
 					{ className: "bollinger-band-series" },
@@ -9219,10 +9219,10 @@
 				);
 			}
 		}]);
-	
+
 		return BollingerSeries;
 	})(_react2["default"].Component);
-	
+
 	BollingerSeries.defaultProps = {
 		stroke: {
 			top: "brown",
@@ -9232,7 +9232,7 @@
 		fill: "steelblue",
 		opacity: 0.2
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(BollingerSeries);
 	module.exports = exports["default"];
 
@@ -9241,43 +9241,43 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var CandlestickSeries = (function (_React$Component) {
 		_inherits(CandlestickSeries, _React$Component);
-	
+
 		function CandlestickSeries() {
 			_classCallCheck(this, CandlestickSeries);
-	
+
 			_get(Object.getPrototypeOf(CandlestickSeries.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(CandlestickSeries, [{
 			key: "render",
 			value: function render() {
 				var props = this.props;
-	
+
 				return _react2["default"].createElement(
 					"g",
 					{ className: "react-stockcharts-candlestick" },
@@ -9294,10 +9294,10 @@
 				);
 			}
 		}]);
-	
+
 		return CandlestickSeries;
 	})(_react2["default"].Component);
-	
+
 	CandlestickSeries.propTypes = {
 		classNames: _react2["default"].PropTypes.shape({
 			up: _react2["default"].PropTypes.string,
@@ -9312,7 +9312,7 @@
 			down: _react2["default"].PropTypes.string
 		})
 	};
-	
+
 	CandlestickSeries.defaultProps = {
 		classNames: {
 			up: "up",
@@ -9327,7 +9327,7 @@
 			down: "red"
 		}
 	};
-	
+
 	CandlestickSeries.getWicksSVG = function (props) {
 		var xAccessor = props.xAccessor;
 		var yAccessor = props.yAccessor;
@@ -9335,7 +9335,7 @@
 		var yScale = props.yScale;
 		var compareSeries = props.compareSeries;
 		var plotData = props.plotData;
-	
+
 		var wickData = CandlestickSeries.getWickData(props, xAccessor, yAccessor, xScale, yScale, compareSeries, plotData);
 		var wicks = wickData.map(function (d, idx) {
 			return _react2["default"].createElement("line", { key: idx,
@@ -9352,7 +9352,7 @@
 		var yScale = props.yScale;
 		var compareSeries = props.compareSeries;
 		var plotData = props.plotData;
-	
+
 		var candleData = CandlestickSeries.getCandleData(props, xAccessor, yAccessor, xScale, yScale, compareSeries, plotData);
 		var candles = candleData.map(function (d, idx) {
 			if (d.width < 0) return _react2["default"].createElement("line", { className: d.className, key: idx, x1: d.x, y1: d.y, x2: d.x, y2: d.y + d.height, stroke: d.fill });else if (d.height === 0) return _react2["default"].createElement("line", { key: idx, x1: d.x, y1: d.y, x2: d.x + d.width, y2: d.y + d.height, stroke: d.fill });
@@ -9360,18 +9360,18 @@
 		});
 		return candles;
 	};
-	
+
 	CandlestickSeries.yAccessor = function (d) {
 		return { open: d.open, high: d.high, low: d.low, close: d.close };
 	};
-	
+
 	CandlestickSeries.drawOnCanvas = function (props, ctx, xScale, yScale, plotData) {
 		var compareSeries = props.compareSeries;
 		var xAccessor = props.xAccessor;
 		var yAccessor = props.yAccessor;
 		var stroke = props.stroke;
 		var fill = props.fill;
-	
+
 		var wickData = CandlestickSeries.getWickData(props, xAccessor, yAccessor, xScale, yScale, compareSeries, plotData);
 		wickData.forEach(function (d) {
 			ctx.beginPath();
@@ -9380,7 +9380,7 @@
 			ctx.stroke();
 		});
 		var candleData = CandlestickSeries.getCandleData(props, xAccessor, yAccessor, xScale, yScale, compareSeries, plotData);
-	
+
 		var each,
 		    group = { up: [], down: [] };
 		for (var i = 0; i < candleData.length; i++) {
@@ -9391,7 +9391,7 @@
 				group.down.push(each);
 			}
 		};
-	
+
 		ctx.fillStyle = fill.up;
 		group.up.forEach(function (d) {
 			if (d.width < 0) {
@@ -9413,7 +9413,7 @@
 				ctx.fill();
 			}
 		});
-	
+
 		ctx.fillStyle = fill.down;
 		group.down.forEach(function (d) {
 			if (d.width < 0) {
@@ -9437,24 +9437,24 @@
 		});
 		// ctx.fillStyle = fillStyle;
 	};
-	
+
 	CandlestickSeries.getWickData = function (props, xAccessor, yAccessor, xScale, yScale, compareSeries, plotData) {
 		var isCompareSeries = compareSeries.length > 0;
-	
+
 		var classNames = props.classNames;
-	
+
 		var wickData = plotData.filter(function (d) {
 			return d.close !== undefined;
 		}).map(function (d, idx) {
 			// console.log(yAccessor);
 			var ohlc = isCompareSeries ? yAccessor(d.compare) : yAccessor(d);
-	
+
 			var x1 = Math.round(xScale(xAccessor(d))),
 			    y1 = yScale(ohlc.high),
 			    x2 = x1,
 			    y2 = yScale(ohlc.low),
 			    className = ohlc.open <= ohlc.close ? classNames.up : classNames.down;
-	
+
 			return {
 				x1: x1,
 				y1: y1,
@@ -9467,14 +9467,14 @@
 		});
 		return wickData;
 	};
-	
+
 	CandlestickSeries.getCandleData = function (props, xAccessor, yAccessor, xScale, yScale, compareSeries, plotData) {
 		var isCompareSeries = compareSeries.length > 0;
-	
+
 		var classNames = props.classNames;
 		var fill = props.fill;
 		var stroke = props.stroke;
-	
+
 		var width = xScale(xAccessor(plotData[plotData.length - 1])) - xScale(xAccessor(plotData[0]));
 		var cw = width / plotData.length * 0.5;
 		var candleWidth = Math.round(cw); // Math.floor(cw) % 2 === 0 ? Math.floor(cw) : Math.round(cw);
@@ -9500,7 +9500,7 @@
 		});
 		return candles;
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(CandlestickSeries);
 	module.exports = exports["default"];
 
@@ -9509,42 +9509,42 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _Line = __webpack_require__(12);
-	
+
 	var _Line2 = _interopRequireDefault(_Line);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var CompareSeries = (function (_React$Component) {
 		_inherits(CompareSeries, _React$Component);
-	
+
 		function CompareSeries() {
 			_classCallCheck(this, CompareSeries);
-	
+
 			_get(Object.getPrototypeOf(CompareSeries.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(CompareSeries, [{
 			key: "render",
 			value: function render() {
@@ -9557,7 +9557,7 @@
 				var plotData = props.plotData;
 				var type = props.type;
 				var id = props.id;
-	
+
 				var thisSeries = compareSeries.filter(function (each) {
 					return each.id === id;
 				})[0];
@@ -9570,21 +9570,21 @@
 					type: type });
 			}
 		}]);
-	
+
 		return CompareSeries;
 	})(_react2["default"].Component);
-	
+
 	CompareSeries.propTypes = {
 		className: _react2["default"].PropTypes.string,
 		stroke: _react2["default"].PropTypes.string,
 		displayLabel: _react2["default"].PropTypes.string.isRequired,
 		id: _react2["default"].PropTypes.number.isRequired
 	};
-	
+
 	CompareSeries.defaultProps = {
 		className: "line "
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(CompareSeries);
 	module.exports = exports["default"];
 
@@ -9593,42 +9593,42 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _d3 = __webpack_require__(5);
-	
+
 	var _d32 = _interopRequireDefault(_d3);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var KagiSeries = (function (_React$Component) {
 		_inherits(KagiSeries, _React$Component);
-	
+
 		function KagiSeries() {
 			_classCallCheck(this, KagiSeries);
-	
+
 			_get(Object.getPrototypeOf(KagiSeries.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(KagiSeries, [{
 			key: "render",
 			value: function render() {
@@ -9641,7 +9641,7 @@
 				var xScale = props.xScale;
 				var yScale = props.yScale;
 				var plotData = props.plotData;
-	
+
 				var paths = KagiSeries.helper(plotData, xAccessor).map(function (each, i) {
 					var dataSeries = _d32["default"].svg.line().x(function (item) {
 						return xScale(item[0]);
@@ -9658,10 +9658,10 @@
 				);
 			}
 		}]);
-	
+
 		return KagiSeries;
 	})(_react2["default"].Component);
-	
+
 	KagiSeries.defaultProps = {
 		className: "react-stockcharts-kagi",
 		strokeWidth: 2,
@@ -9674,32 +9674,32 @@
 			yin: "none"
 		}
 	};
-	
+
 	KagiSeries.yAccessor = function (d) {
 		return { open: d.open, high: d.high, low: d.low, close: d.close };
 	};
-	
+
 	KagiSeries.drawOnCanvas = function (props, ctx, xScale, yScale, plotData) {
 		var xAccessor = props.xAccessor;
 		var yAccessor = props.yAccessor;
 		var stroke = props.stroke;
 		var fill = props.fill;
 		var strokeWidth = props.strokeWidth;
-	
+
 		var begin = true;
-	
+
 		var paths = KagiSeries.helper(plotData, xAccessor);
-	
+
 		paths.forEach(function (each, i) {
 			ctx.strokeStyle = stroke[each.type];
 			ctx.lineWidth = strokeWidth;
-	
+
 			ctx.beginPath();
 			var prevX, prevY;
 			each.plot.forEach(function (d) {
 				var x = xScale(d[0]);
 				var y = yScale(d[1]);
-	
+
 				if (begin) {
 					ctx.moveTo(x, y);
 					begin = false;
@@ -9711,7 +9711,7 @@
 				}
 				prevX = x;
 				prevY = y;
-	
+
 				// console.log(d);
 			});
 			ctx.stroke();
@@ -9721,23 +9721,23 @@
 		ctx.beginPath();
 		// ctx.strokeStyle = "black";
 		ctx.lineWidth = 1;
-	
+
 		var x = xScale(last[0]);
 		var y1 = yScale(last[2]);
 		var y2 = yScale(last[3]);
-	
+
 		// console.log(last, x, y);
 		ctx.moveTo(x, y1);
 		ctx.lineTo(x + 10, y1);
 		ctx.stroke();
-	
+
 		ctx.beginPath();
 		ctx.strokeStyle = "black";
 		ctx.moveTo(x - 10, y2);
 		ctx.lineTo(x, y2);
 		ctx.stroke();
 	};
-	
+
 	KagiSeries.helper = function (plotData, xAccessor) {
 		var kagiLine = [];
 		var kagi = {};
@@ -9748,12 +9748,12 @@
 			if (kagi.plot === undefined) kagi.plot = [];
 			var idx = xAccessor(d);
 			kagi.plot.push([idx, d.open]);
-	
+
 			if (d.changeTo !== undefined) {
 				kagi.plot.push([idx, d.changePoint]);
 				kagi.added = true;
 				kagiLine.push(kagi);
-	
+
 				kagi = {
 					type: d.changeTo,
 					plot: [],
@@ -9766,12 +9766,12 @@
 			kagi.plot.push([idx, d.close, d.current, d.reverseAt]);
 			kagiLine.push(kagi);
 		}
-	
+
 		// console.log(d.reverseAt);
-	
+
 		return kagiLine;
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(KagiSeries);
 	module.exports = exports["default"];
 
@@ -9780,42 +9780,42 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _Line = __webpack_require__(12);
-	
+
 	var _Line2 = _interopRequireDefault(_Line);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var LineSeries = (function (_React$Component) {
 		_inherits(LineSeries, _React$Component);
-	
+
 		function LineSeries() {
 			_classCallCheck(this, LineSeries);
-	
+
 			_get(Object.getPrototypeOf(LineSeries.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(LineSeries, [{
 			key: "render",
 			value: function render() {
@@ -9828,7 +9828,7 @@
 				var plotData = props.plotData;
 				var stroke = props.stroke;
 				var type = props.type;
-	
+
 				return _react2["default"].createElement(_Line2["default"], {
 					className: className,
 					xScale: xScale, yScale: yScale,
@@ -9838,23 +9838,23 @@
 					type: type });
 			}
 		}]);
-	
+
 		return LineSeries;
 	})(_react2["default"].Component);
-	
+
 	LineSeries.propTypes = {
 		className: _react2["default"].PropTypes.string
 	};
-	
+
 	LineSeries.defaultProps = {
 		stroke: "steelblue",
 		className: "line "
 	};
-	
+
 	LineSeries.yAccessor = function (d) {
 		return d.close;
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(LineSeries);
 	module.exports = exports["default"];
 
@@ -9863,50 +9863,50 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _HistogramSeries = __webpack_require__(37);
-	
+
 	var _HistogramSeries2 = _interopRequireDefault(_HistogramSeries);
-	
+
 	var _Line = __webpack_require__(12);
-	
+
 	var _Line2 = _interopRequireDefault(_Line);
-	
+
 	var _StraightLine = __webpack_require__(28);
-	
+
 	var _StraightLine2 = _interopRequireDefault(_StraightLine);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var MACDSeries = (function (_React$Component) {
 		_inherits(MACDSeries, _React$Component);
-	
+
 		function MACDSeries() {
 			_classCallCheck(this, MACDSeries);
-	
+
 			_get(Object.getPrototypeOf(MACDSeries.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(MACDSeries, [{
 			key: "render",
 			value: function render() {
@@ -9918,9 +9918,9 @@
 				var yAccessor = props.yAccessor;
 				var plotData = props.plotData;
 				var type = props.type;
-	
+
 				var options = indicator.options();
-	
+
 				return _react2["default"].createElement(
 					"g",
 					{ className: "macd-series" },
@@ -9953,10 +9953,10 @@
 				);
 			}
 		}]);
-	
+
 		return MACDSeries;
 	})(_react2["default"].Component);
-	
+
 	MACDSeries.getHorizontalLine = function (props) {
 		var xScale = props.xScale;
 		var yScale = props.yScale;
@@ -9964,10 +9964,10 @@
 		var yAccessor = props.yAccessor;
 		var plotData = props.plotData;
 		var type = props.type;
-	
+
 		var first = xAccessor(plotData[0]);
 		var last = xAccessor(plotData[plotData.length - 1]);
-	
+
 		return _react2["default"].createElement(_StraightLine2["default"], {
 			stroke: "black", opacity: 0.3, type: type,
 			xScale: xScale, yScale: yScale,
@@ -9975,11 +9975,11 @@
 			plotData: plotData,
 			yValue: 0 });
 	};
-	
+
 	MACDSeries.childContextTypes = {
 		yAccessor: _react2["default"].PropTypes.func.isRequired
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(MACDSeries);
 	module.exports = exports["default"];
 
@@ -9988,40 +9988,40 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; })();
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var PointAndFigureSeries = (function (_React$Component) {
 		_inherits(PointAndFigureSeries, _React$Component);
-	
+
 		function PointAndFigureSeries() {
 			_classCallCheck(this, PointAndFigureSeries);
-	
+
 			_get(Object.getPrototypeOf(PointAndFigureSeries.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(PointAndFigureSeries, [{
 			key: "render",
 			value: function render() {
@@ -10031,13 +10031,13 @@
 				var yScale = props.yScale;
 				var yAccessor = props.yAccessor;
 				var plotData = props.plotData;
-	
+
 				var columns = PointAndFigureSeries.getColumns(xScale, xAccessor, yScale, yAccessor, plotData);
 				var stroke = props.stroke;
 				var fill = props.fill;
 				var strokeWidth = props.strokeWidth;
 				var className = props.className;
-	
+
 				return _react2["default"].createElement(
 					"g",
 					null,
@@ -10066,10 +10066,10 @@
 				);
 			}
 		}]);
-	
+
 		return PointAndFigureSeries;
 	})(_react2["default"].Component);
-	
+
 	PointAndFigureSeries.defaultProps = {
 		className: "react-stockcharts-point-and-figure",
 		strokeWidth: 1,
@@ -10082,66 +10082,66 @@
 			down: "none"
 		}
 	};
-	
+
 	PointAndFigureSeries.yAccessor = function (d) {
 		return { open: d.open, high: d.high, low: d.low, close: d.close };
 	};
-	
+
 	PointAndFigureSeries.drawOnCanvas = function (props, ctx, xScale, yScale, plotData) {
 		var xAccessor = props.xAccessor;
 		var yAccessor = props.yAccessor;
-	
+
 		var columns = PointAndFigureSeries.getColumns(xScale, xAccessor, yScale, yAccessor, plotData);
 		var stroke = props.stroke;
 		var fill = props.fill;
 		var strokeWidth = props.strokeWidth;
 		var className = props.className;
-	
+
 		columns.forEach(function (col) {
 			var _col$offset = _slicedToArray(col.offset, 2);
-	
+
 			var offsetX = _col$offset[0];
 			var offsetY = _col$offset[1];
-	
+
 			col.boxes.forEach(function (box) {
 				if (col.direction > 0) {
 					ctx.fillStyle = fill.up;
 					ctx.strokeStyle = stroke.up;
-	
+
 					ctx.beginPath();
-	
+
 					ctx.moveTo(offsetX, offsetY + box.open);
 					ctx.lineTo(offsetX + box.columnWidth, offsetY + box.close);
 					ctx.moveTo(offsetX, offsetY + box.close);
 					ctx.lineTo(offsetX + box.columnWidth, offsetY + box.open);
-	
+
 					ctx.stroke();
 				} else {
 					ctx.fillStyle = fill.down;
 					ctx.strokeStyle = stroke.down;
-	
+
 					ctx.beginPath();
-	
+
 					var x = offsetX + box.columnWidth / 2;
 					var y = offsetY + box.open + box.boxHeight / 2;
 					var rx = box.columnWidth / 2;
 					var ry = box.boxHeight / 2;
-	
+
 					ctx.ellipse(x, y, rx, ry, 0, 0, 2 * Math.PI);
 					ctx.stroke();
 				}
 			});
 		});
-	
+
 		ctx.stroke();
 	};
-	
+
 	PointAndFigureSeries.getColumns = function (xScale, xAccessor, yScale, yAccessor, plotData) {
-	
+
 		var width = xScale(xAccessor(plotData[plotData.length - 1])) - xScale(xAccessor(plotData[0]));
-	
+
 		var columnWidth = width / (plotData.length - 1);
-	
+
 		var anyBox,
 		    j = 0;
 		while (anyBox === undefined) {
@@ -10150,9 +10150,9 @@
 			}
 			j++;
 		}
-	
+
 		var boxHeight = Math.abs(yScale(anyBox.open) - yScale(anyBox.close));
-	
+
 		var columns = plotData.filter(function (d) {
 			return d.close !== undefined;
 		}).map(function (d, idx) {
@@ -10174,7 +10174,7 @@
 		});
 		return columns;
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(PointAndFigureSeries);
 	module.exports = exports["default"];
 
@@ -10183,46 +10183,46 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _Line = __webpack_require__(12);
-	
+
 	var _Line2 = _interopRequireDefault(_Line);
-	
+
 	var _StraightLine = __webpack_require__(28);
-	
+
 	var _StraightLine2 = _interopRequireDefault(_StraightLine);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var RSISeries = (function (_React$Component) {
 		_inherits(RSISeries, _React$Component);
-	
+
 		function RSISeries() {
 			_classCallCheck(this, RSISeries);
-	
+
 			_get(Object.getPrototypeOf(RSISeries.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(RSISeries, [{
 			key: "render",
 			value: function render() {
@@ -10236,7 +10236,7 @@
 				var plotData = props.plotData;
 				var stroke = props.stroke;
 				var type = props.type;
-	
+
 				var options = indicator.options();
 				return _react2["default"].createElement(
 					"g",
@@ -10254,10 +10254,10 @@
 				);
 			}
 		}]);
-	
+
 		return RSISeries;
 	})(_react2["default"].Component);
-	
+
 	RSISeries.getHorizontalLine = function (props, yValue, stroke) {
 		var xScale = props.xScale;
 		var yScale = props.yScale;
@@ -10265,7 +10265,7 @@
 		var yAccessor = props.yAccessor;
 		var plotData = props.plotData;
 		var type = props.type;
-	
+
 		return _react2["default"].createElement(_StraightLine2["default"], {
 			stroke: stroke, opacity: 0.3, type: type,
 			xScale: xScale, yScale: yScale,
@@ -10273,15 +10273,15 @@
 			plotData: plotData,
 			yValue: yValue });
 	};
-	
+
 	RSISeries.propTypes = {
 		className: _react2["default"].PropTypes.string
 	};
-	
+
 	RSISeries.defaultProps = {
 		className: "react-stockcharts-rsi-series"
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(RSISeries);
 	module.exports = exports["default"];
 
@@ -10290,38 +10290,38 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var RenkoSeries = (function (_React$Component) {
 		_inherits(RenkoSeries, _React$Component);
-	
+
 		function RenkoSeries() {
 			_classCallCheck(this, RenkoSeries);
-	
+
 			_get(Object.getPrototypeOf(RenkoSeries.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(RenkoSeries, [{
 			key: "render",
 			value: function render() {
@@ -10331,7 +10331,7 @@
 				var xAccessor = props.xAccessor;
 				var yScale = props.yScale;
 				var yAccessor = props.yAccessor;
-	
+
 				var candles = RenkoSeries.getRenko(props, plotData, xScale, xAccessor, yScale, yAccessor).map(function (each, idx) {
 					return _react2["default"].createElement("rect", { key: idx, className: each.className,
 						fill: each.fill,
@@ -10340,7 +10340,7 @@
 						width: each.width,
 						height: each.height });
 				});
-	
+
 				return _react2["default"].createElement(
 					"g",
 					null,
@@ -10352,10 +10352,10 @@
 				);
 			}
 		}]);
-	
+
 		return RenkoSeries;
 	})(_react2["default"].Component);
-	
+
 	RenkoSeries.propTypes = {
 		classNames: _react2["default"].PropTypes.shape({
 			up: _react2["default"].PropTypes.string,
@@ -10370,7 +10370,7 @@
 			down: _react2["default"].PropTypes.string
 		})
 	};
-	
+
 	RenkoSeries.defaultProps = {
 		classNames: {
 			up: "up",
@@ -10386,34 +10386,34 @@
 			partial: "steelblue"
 		}
 	};
-	
+
 	RenkoSeries.yAccessor = function (d) {
 		return { open: d.open, high: d.high, low: d.low, close: d.close };
 	};
-	
+
 	RenkoSeries.drawOnCanvas = function (props, ctx, xScale, yScale, plotData) {
 		var xAccessor = props.xAccessor;
 		var yAccessor = props.yAccessor;
-	
+
 		var renko = RenkoSeries.getRenko(props, plotData, xScale, xAccessor, yScale, yAccessor);
 		renko.forEach(function (d) {
 			ctx.beginPath();
-	
+
 			ctx.strokeStyle = d.stroke;
 			ctx.fillStyle = d.fill;
-	
+
 			ctx.rect(d.x, d.y, d.width, d.height);
 			ctx.closePath();
 			ctx.fill();
 		});
 	};
-	
+
 	RenkoSeries.getRenko = function (props, plotData, xScale, xAccessor, yScale, yAccessor) {
 		var classNames = props.classNames;
 		var fill = props.fill;
-	
+
 		var width = xScale(xAccessor(plotData[plotData.length - 1])) - xScale(xAccessor(plotData[0]));
-	
+
 		var candleWidth = width / (plotData.length - 1);
 		var candles = plotData.filter(function (d) {
 			return d.close !== undefined;
@@ -10424,7 +10424,7 @@
 			    height = Math.abs(yScale(ohlc.open) - yScale(ohlc.close)),
 			    className = ohlc.open <= ohlc.close ? classNames.up : classNames.down,
 			    svgfill = ohlc.open <= ohlc.close ? fill.up : fill.down;
-	
+
 			if (!d.fullyFormed) {
 				svgfill = fill.partial;
 			}
@@ -10439,7 +10439,7 @@
 		});
 		return candles;
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(RenkoSeries);
 	module.exports = exports["default"];
 
@@ -10448,46 +10448,46 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	var _Line = __webpack_require__(12);
-	
+
 	var _Line2 = _interopRequireDefault(_Line);
-	
+
 	var _StraightLine = __webpack_require__(28);
-	
+
 	var _StraightLine2 = _interopRequireDefault(_StraightLine);
-	
+
 	var StochasticSeries = (function (_React$Component) {
 		_inherits(StochasticSeries, _React$Component);
-	
+
 		function StochasticSeries() {
 			_classCallCheck(this, StochasticSeries);
-	
+
 			_get(Object.getPrototypeOf(StochasticSeries.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(StochasticSeries, [{
 			key: "render",
 			value: function render() {
@@ -10501,9 +10501,9 @@
 				var plotData = props.plotData;
 				var stroke = props.stroke;
 				var type = props.type;
-	
+
 				var options = indicator.options();
-	
+
 				return _react2["default"].createElement(
 					"g",
 					{ className: className },
@@ -10529,10 +10529,10 @@
 				);
 			}
 		}]);
-	
+
 		return StochasticSeries;
 	})(_react2["default"].Component);
-	
+
 	StochasticSeries.getHorizontalLine = function (props, yValue, stroke) {
 		var xScale = props.xScale;
 		var yScale = props.yScale;
@@ -10540,7 +10540,7 @@
 		var yAccessor = props.yAccessor;
 		var plotData = props.plotData;
 		var type = props.type;
-	
+
 		return _react2["default"].createElement(_StraightLine2["default"], {
 			stroke: stroke, opacity: 0.3, type: type,
 			xScale: xScale, yScale: yScale,
@@ -10548,15 +10548,15 @@
 			plotData: plotData,
 			yValue: yValue });
 	};
-	
+
 	StochasticSeries.propTypes = {
 		className: _react2["default"].PropTypes.string
 	};
-	
+
 	StochasticSeries.defaultProps = {
 		className: "react-stockcharts-rsi-series"
 	};
-	
+
 	exports["default"] = (0, _wrap2["default"])(StochasticSeries);
 	module.exports = exports["default"];
 
@@ -10565,77 +10565,77 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _AreaSeries = __webpack_require__(99);
-	
+
 	var _AreaSeries2 = _interopRequireDefault(_AreaSeries);
-	
+
 	var _LineSeries = __webpack_require__(104);
-	
+
 	var _LineSeries2 = _interopRequireDefault(_LineSeries);
-	
+
 	var _CompareSeries = __webpack_require__(102);
-	
+
 	var _CompareSeries2 = _interopRequireDefault(_CompareSeries);
-	
+
 	var _CandlestickSeries = __webpack_require__(101);
-	
+
 	var _CandlestickSeries2 = _interopRequireDefault(_CandlestickSeries);
-	
+
 	var _HistogramSeries = __webpack_require__(37);
-	
+
 	var _HistogramSeries2 = _interopRequireDefault(_HistogramSeries);
-	
+
 	var _KagiSeries = __webpack_require__(103);
-	
+
 	var _KagiSeries2 = _interopRequireDefault(_KagiSeries);
-	
+
 	var _PointAndFigureSeries = __webpack_require__(106);
-	
+
 	var _PointAndFigureSeries2 = _interopRequireDefault(_PointAndFigureSeries);
-	
+
 	var _RenkoSeries = __webpack_require__(108);
-	
+
 	var _RenkoSeries2 = _interopRequireDefault(_RenkoSeries);
-	
+
 	var _MACDSeries = __webpack_require__(105);
-	
+
 	var _MACDSeries2 = _interopRequireDefault(_MACDSeries);
-	
+
 	var _BollingerSeries = __webpack_require__(100);
-	
+
 	var _BollingerSeries2 = _interopRequireDefault(_BollingerSeries);
-	
+
 	var _RSISeries = __webpack_require__(107);
-	
+
 	var _RSISeries2 = _interopRequireDefault(_RSISeries);
-	
+
 	var _StochasticSeries = __webpack_require__(109);
-	
+
 	var _StochasticSeries2 = _interopRequireDefault(_StochasticSeries);
-	
+
 	var _Area = __webpack_require__(36);
-	
+
 	var _Area2 = _interopRequireDefault(_Area);
-	
+
 	var _Line = __webpack_require__(12);
-	
+
 	var _Line2 = _interopRequireDefault(_Line);
-	
+
 	var _StraightLine = __webpack_require__(28);
-	
+
 	var _StraightLine2 = _interopRequireDefault(_StraightLine);
-	
+
 	var _wrap = __webpack_require__(4);
-	
+
 	var _wrap2 = _interopRequireDefault(_wrap);
-	
+
 	exports["default"] = {
 		AreaSeries: _AreaSeries2["default"],
 		LineSeries: _LineSeries2["default"],
@@ -10661,46 +10661,46 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var _utilsChartDataUtil = __webpack_require__(6);
-	
+
 	var _utilsChartDataUtil2 = _interopRequireDefault(_utilsChartDataUtil);
-	
+
 	var _ToolTipText = __webpack_require__(18);
-	
+
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
-	
+
 	var _ToolTipTSpanLabel = __webpack_require__(17);
-	
+
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
-	
+
 	var BollingerBandTooltip = (function (_React$Component) {
 		_inherits(BollingerBandTooltip, _React$Component);
-	
+
 		function BollingerBandTooltip() {
 			_classCallCheck(this, BollingerBandTooltip);
-	
+
 			_get(Object.getPrototypeOf(BollingerBandTooltip.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(BollingerBandTooltip, [{
 			key: "render",
 			value: function render() {
@@ -10708,12 +10708,12 @@
 				var onClick = _props.onClick;
 				var forChart = _props.forChart;
 				var forDataSeries = _props.forDataSeries;
-	
+
 				var chartData = _utilsChartDataUtil2["default"].getChartDataForChart(this.props, this.context);
 				var item = _utilsChartDataUtil2["default"].getCurrentItemForChart(this.props, this.context);
 				var top, middle, bottom;
 				top = middle = bottom = "n/a";
-	
+
 				var overlays = chartData.config.overlays.filter(function (eachOverlay) {
 					return forDataSeries === undefined ? true : forDataSeries === eachOverlay.id;
 				}).filter(function (eachOverlay) {
@@ -10721,31 +10721,31 @@
 				}).filter(function (eachOverlay) {
 					return eachOverlay.indicator.isBollingerBand && eachOverlay.indicator.isBollingerBand();
 				});
-	
+
 				if (overlays.length > 1 || overlays.length === 0) {
 					console.error("Could not find Exactly one DataSeries with BollingerBand indicator for Chart id=" + forChart + ", either use \n\t\t\t\tsingle BollingerBand indicator per chart\n\t\t\t\tor use forDataSeries property to narrow down to single Series");
 				}
 				var overlay = overlays[0];
 				var options = overlay.indicator.options();
-	
+
 				var yAccessor = overlay.indicator.yAccessor();
 				var value = yAccessor(item);
 				var format = _utilsUtils2["default"].displayNumberFormat;
-	
+
 				if (value !== undefined) {
 					top = format(value.top);
 					middle = format(value.middle);
 					bottom = format(value.bottom);
 				}
-	
+
 				var _chartData$config = chartData.config;
 				var origin = _chartData$config.origin;
 				var height = _chartData$config.height;
 				var width = _chartData$config.width;
-	
+
 				var relativeOrigin = typeof this.props.origin === "function" ? this.props.origin(this.context.width, this.context.height) : this.props.origin;
 				var absoluteOrigin = [origin[0] + relativeOrigin[0], origin[1] + relativeOrigin[1]];
-	
+
 				return _react2["default"].createElement(
 					"g",
 					{ transform: "translate(" + absoluteOrigin[0] + ", " + absoluteOrigin[1] + ")",
@@ -10769,15 +10769,15 @@
 				);
 			}
 		}]);
-	
+
 		return BollingerBandTooltip;
 	})(_react2["default"].Component);
-	
+
 	BollingerBandTooltip.contextTypes = {
 		chartData: _react2["default"].PropTypes.array.isRequired,
 		currentItems: _react2["default"].PropTypes.array.isRequired
 	};
-	
+
 	BollingerBandTooltip.propTypes = {
 		forChart: _react2["default"].PropTypes.number.isRequired,
 		displayFormat: _react2["default"].PropTypes.func.isRequired,
@@ -10788,7 +10788,7 @@
 		forDataSeries: _react2["default"].PropTypes.number,
 		onClick: _react2["default"].PropTypes.func
 	};
-	
+
 	BollingerBandTooltip.defaultProps = {
 		namespace: "ReStock.BollingerBandTooltip",
 		className: "react-stockcharts-moving-average-tooltip",
@@ -10796,7 +10796,7 @@
 		origin: [0, 10],
 		width: 65
 	};
-	
+
 	module.exports = BollingerBandTooltip;
 
 /***/ },
@@ -10804,72 +10804,72 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var _utilsChartDataUtil = __webpack_require__(6);
-	
+
 	var _utilsChartDataUtil2 = _interopRequireDefault(_utilsChartDataUtil);
-	
+
 	var _ToolTipText = __webpack_require__(18);
-	
+
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
-	
+
 	var _ToolTipTSpanLabel = __webpack_require__(17);
-	
+
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
-	
+
 	var CompareTooltip = (function (_React$Component) {
 		_inherits(CompareTooltip, _React$Component);
-	
+
 		function CompareTooltip() {
 			_classCallCheck(this, CompareTooltip);
-	
+
 			_get(Object.getPrototypeOf(CompareTooltip.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(CompareTooltip, [{
 			key: "render",
 			value: function render() {
 				var _this = this;
-	
+
 				var displayValue = "n/a";
-	
+
 				var chartData = _utilsChartDataUtil2["default"].getChartDataForChart(this.props, this.context);
 				var item = _utilsChartDataUtil2["default"].getCurrentItemForChart(this.props, this.context);
-	
+
 				var thisSeries = chartData.config.compareSeries.filter(function (each) {
 					return each.id === _this.props.forCompareSeries;
 				})[0];
-	
+
 				if (item !== undefined && thisSeries.yAccessor(item) !== undefined) {
 					displayValue = thisSeries.yAccessor(item);
 				}
-	
+
 				var _chartData$config = chartData.config;
 				var origin = _chartData$config.origin;
 				var height = _chartData$config.height;
 				var width = _chartData$config.width;
-	
+
 				var relativeOrigin = typeof this.props.origin === "function" ? this.props.origin(this.context.width, this.context.height) : this.props.origin;
 				var absoluteOrigin = [origin[0] + relativeOrigin[0], origin[1] + relativeOrigin[1]];
-	
+
 				return _react2["default"].createElement(
 					"g",
 					{ transform: "translate(" + absoluteOrigin[0] + ", " + absoluteOrigin[1] + ")" },
@@ -10891,15 +10891,15 @@
 				);
 			}
 		}]);
-	
+
 		return CompareTooltip;
 	})(_react2["default"].Component);
-	
+
 	CompareTooltip.contextTypes = {
 		chartData: _react2["default"].PropTypes.array.isRequired,
 		currentItems: _react2["default"].PropTypes.array.isRequired
 	};
-	
+
 	CompareTooltip.propTypes = {
 		forChart: _react2["default"].PropTypes.number.isRequired,
 		forCompareSeries: _react2["default"].PropTypes.number.isRequired,
@@ -10908,13 +10908,13 @@
 		fontFamily: _react2["default"].PropTypes.string,
 		fontSize: _react2["default"].PropTypes.number
 	};
-	
+
 	CompareTooltip.defaultProps = {
 		namespace: "ReStock.CompareTooltip",
 		xDisplayFormat: _utilsUtils2["default"].displayDateFormat,
 		origin: [0, 0]
 	};
-	
+
 	module.exports = CompareTooltip;
 
 /***/ },
@@ -10922,46 +10922,46 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var _utilsChartDataUtil = __webpack_require__(6);
-	
+
 	var _utilsChartDataUtil2 = _interopRequireDefault(_utilsChartDataUtil);
-	
+
 	var _ToolTipText = __webpack_require__(18);
-	
+
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
-	
+
 	var _ToolTipTSpanLabel = __webpack_require__(17);
-	
+
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
-	
+
 	var MACDTooltip = (function (_React$Component) {
 		_inherits(MACDTooltip, _React$Component);
-	
+
 		function MACDTooltip() {
 			_classCallCheck(this, MACDTooltip);
-	
+
 			_get(Object.getPrototypeOf(MACDTooltip.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(MACDTooltip, [{
 			key: "render",
 			value: function render() {
@@ -10969,7 +10969,7 @@
 				var onClick = _props.onClick;
 				var forChart = _props.forChart;
 				var forDataSeries = _props.forDataSeries;
-	
+
 				var chartData = _utilsChartDataUtil2["default"].getChartDataForChart(this.props, this.context);
 				var overlays = chartData.config.overlays.filter(function (eachOverlay) {
 					return forDataSeries === undefined ? true : forDataSeries === eachOverlay.id;
@@ -10978,29 +10978,29 @@
 				}).filter(function (eachOverlay) {
 					return eachOverlay.indicator.isMACD && eachOverlay.indicator.isMACD();
 				});
-	
+
 				if (overlays.length > 1 || overlays.length === 0) {
 					console.error("Could not find Exactly one DataSeries with MACD indicator for Chart id=" + forChart + ", either use \n\t\t\t\tsingle MACD indicator per chart\n\t\t\t\tor use forDataSeries property to narrow down to single Series");
 				}
 				var overlay = overlays[0];
 				var options = overlay.indicator.options();
-	
+
 				var item = _utilsChartDataUtil2["default"].getCurrentItemForChart(this.props, this.context);
 				var macd = overlay.yAccessor(item);
 				var format = chartData.config.mouseCoordinates.format;
-	
+
 				var MACDLine = macd && macd.MACDLine && format(macd.MACDLine) || "n/a";
 				var signalLine = macd && macd.signalLine && format(macd.signalLine) || "n/a";
 				var histogram = macd && macd.histogram && format(macd.histogram) || "n/a";
-	
+
 				var _chartData$config = chartData.config;
 				var origin = _chartData$config.origin;
 				var height = _chartData$config.height;
 				var width = _chartData$config.width;
-	
+
 				var relativeOrigin = typeof this.props.origin === "function" ? this.props.origin(this.context.width, this.context.height) : this.props.origin;
 				var absoluteOrigin = [origin[0] + relativeOrigin[0], origin[1] + relativeOrigin[1]];
-	
+
 				return _react2["default"].createElement(
 					"g",
 					{ transform: "translate(" + absoluteOrigin[0] + ", " + absoluteOrigin[1] + ")",
@@ -11073,17 +11073,17 @@
 				);
 			}
 		}]);
-	
+
 		return MACDTooltip;
 	})(_react2["default"].Component);
-	
+
 	MACDTooltip.contextTypes = {
 		chartData: _react2["default"].PropTypes.array.isRequired,
 		currentItems: _react2["default"].PropTypes.array.isRequired,
 		width: _react2["default"].PropTypes.number.isRequired,
 		height: _react2["default"].PropTypes.number.isRequired
 	};
-	
+
 	MACDTooltip.propTypes = {
 		forChart: _react2["default"].PropTypes.number.isRequired,
 		xDisplayFormat: _react2["default"].PropTypes.func.isRequired,
@@ -11093,13 +11093,13 @@
 		forDataSeries: _react2["default"].PropTypes.number,
 		onClick: _react2["default"].PropTypes.func
 	};
-	
+
 	MACDTooltip.defaultProps = {
 		namespace: "ReStock.MACDTooltip",
 		xDisplayFormat: _utilsUtils2["default"].displayDateFormat,
 		origin: [0, 0]
 	};
-	
+
 	module.exports = MACDTooltip;
 	// export default MACDTooltip;
 
@@ -11108,46 +11108,46 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var _utilsChartDataUtil = __webpack_require__(6);
-	
+
 	var _utilsChartDataUtil2 = _interopRequireDefault(_utilsChartDataUtil);
-	
+
 	var _ToolTipText = __webpack_require__(18);
-	
+
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
-	
+
 	var _ToolTipTSpanLabel = __webpack_require__(17);
-	
+
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
-	
+
 	var SingleMAToolTip = (function (_React$Component) {
 		_inherits(SingleMAToolTip, _React$Component);
-	
+
 		function SingleMAToolTip() {
 			_classCallCheck(this, SingleMAToolTip);
-	
+
 			_get(Object.getPrototypeOf(SingleMAToolTip.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(SingleMAToolTip, [{
 			key: "render",
 			value: function render() {
@@ -11156,7 +11156,7 @@
 				var forChart = _props.forChart;
 				var forDataSeries = _props.forDataSeries;
 				var options = _props.options;
-	
+
 				var translate = "translate(" + this.props.origin[0] + ", " + this.props.origin[1] + ")";
 				return _react2["default"].createElement(
 					"g",
@@ -11183,10 +11183,10 @@
 				);
 			}
 		}]);
-	
+
 		return SingleMAToolTip;
 	})(_react2["default"].Component);
-	
+
 	SingleMAToolTip.propTypes = {
 		origin: _react2["default"].PropTypes.array.isRequired,
 		color: _react2["default"].PropTypes.string.isRequired,
@@ -11196,21 +11196,21 @@
 		fontFamily: _react2["default"].PropTypes.string,
 		fontSize: _react2["default"].PropTypes.number
 	};
-	
+
 	var MovingAverageTooltip = (function (_React$Component2) {
 		_inherits(MovingAverageTooltip, _React$Component2);
-	
+
 		function MovingAverageTooltip() {
 			_classCallCheck(this, MovingAverageTooltip);
-	
+
 			_get(Object.getPrototypeOf(MovingAverageTooltip.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(MovingAverageTooltip, [{
 			key: "render",
 			value: function render() {
 				var _this = this;
-	
+
 				var chartData = _utilsChartDataUtil2["default"].getChartDataForChart(this.props, this.context);
 				var item = _utilsChartDataUtil2["default"].getCurrentItemForChart(this.props, this.context);
 				var _props2 = this.props;
@@ -11221,10 +11221,10 @@
 				var origin = _chartData$config.origin;
 				var height = _chartData$config.height;
 				var width = _chartData$config.width;
-	
+
 				var relativeOrigin = typeof this.props.origin === "function" ? this.props.origin(this.context.width, this.context.height) : this.props.origin;
 				var absoluteOrigin = [origin[0] + relativeOrigin[0], origin[1] + relativeOrigin[1]];
-	
+
 				return _react2["default"].createElement(
 					"g",
 					{ transform: "translate(" + absoluteOrigin[0] + ", " + absoluteOrigin[1] + ")", className: this.props.className },
@@ -11250,15 +11250,15 @@
 				);
 			}
 		}]);
-	
+
 		return MovingAverageTooltip;
 	})(_react2["default"].Component);
-	
+
 	MovingAverageTooltip.contextTypes = {
 		chartData: _react2["default"].PropTypes.array.isRequired,
 		currentItems: _react2["default"].PropTypes.array.isRequired
 	};
-	
+
 	MovingAverageTooltip.propTypes = {
 		forChart: _react2["default"].PropTypes.number.isRequired,
 		displayFormat: _react2["default"].PropTypes.func.isRequired,
@@ -11268,7 +11268,7 @@
 		fontSize: _react2["default"].PropTypes.number,
 		forDataSeries: _react2["default"].PropTypes.arrayOf(_react2["default"].PropTypes.number)
 	};
-	
+
 	MovingAverageTooltip.defaultProps = {
 		namespace: "ReStock.MovingAverageTooltip",
 		className: "react-stockcharts-moving-average-tooltip",
@@ -11276,7 +11276,7 @@
 		origin: [0, 10],
 		width: 65
 	};
-	
+
 	module.exports = MovingAverageTooltip;
 
 /***/ },
@@ -11284,54 +11284,54 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var _utilsChartDataUtil = __webpack_require__(6);
-	
+
 	var _utilsChartDataUtil2 = _interopRequireDefault(_utilsChartDataUtil);
-	
+
 	var _ToolTipText = __webpack_require__(18);
-	
+
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
-	
+
 	var _ToolTipTSpanLabel = __webpack_require__(17);
-	
+
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var billion = 1 * 1000 * 1000 * 1000;
 	var million = 1 * 1000 * 1000;
 	var thousand = 1 * 1000;
-	
+
 	var OHLCTooltip = (function (_React$Component) {
 		_inherits(OHLCTooltip, _React$Component);
-	
+
 		function OHLCTooltip() {
 			_classCallCheck(this, OHLCTooltip);
-	
+
 			_get(Object.getPrototypeOf(OHLCTooltip.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(OHLCTooltip, [{
 			key: "render",
 			value: function render() {
@@ -11342,32 +11342,32 @@
 				var fontSize = _props.fontSize;
 				var forChart = _props.forChart;
 				var dataTransform = this.context.dataTransform;
-	
+
 				var displayDate, fromDate, toDate, open, high, low, close, volume;
-	
+
 				displayDate = fromDate = toDate = open = high = low = close = volume = "n/a";
-	
+
 				var item = _utilsChartDataUtil2["default"].getCurrentItemForChart(this.props, this.context);
 				var chartData = _utilsChartDataUtil2["default"].getChartDataForChart(this.props, this.context);
-	
+
 				if (item !== undefined && item.close !== undefined) {
 					volume = item.volume / billion > 1 ? (item.volume / billion).toFixed(2) + "b" : item.volume / million > 1 ? (item.volume / million).toFixed(2) + "m" : item.volume / thousand > 1 ? (item.volume / thousand).toFixed(2) + "k" : item.volume;
-	
+
 					displayDate = xDisplayFormat(item.date);
 					open = _utilsUtils2["default"].displayNumberFormat(item.open);
 					high = _utilsUtils2["default"].displayNumberFormat(item.high);
 					low = _utilsUtils2["default"].displayNumberFormat(item.low);
 					close = _utilsUtils2["default"].displayNumberFormat(item.close);
 				}
-	
+
 				var _chartData$config = chartData.config;
 				var origin = _chartData$config.origin;
 				var height = _chartData$config.height;
 				var width = _chartData$config.width;
-	
+
 				var relativeOrigin = typeof this.props.origin === "function" ? this.props.origin(this.context.width, this.context.height) : this.props.origin;
 				var absoluteOrigin = [origin[0] + relativeOrigin[0], origin[1] + relativeOrigin[1]];
-	
+
 				return _react2["default"].createElement(
 					"g",
 					{ transform: "translate(" + absoluteOrigin[0] + ", " + absoluteOrigin[1] + ")",
@@ -11440,10 +11440,10 @@
 				);
 			}
 		}]);
-	
+
 		return OHLCTooltip;
 	})(_react2["default"].Component);
-	
+
 	OHLCTooltip.contextTypes = {
 		chartData: _react2["default"].PropTypes.array.isRequired,
 		currentItems: _react2["default"].PropTypes.array.isRequired,
@@ -11451,7 +11451,7 @@
 		height: _react2["default"].PropTypes.number.isRequired,
 		dataTransform: _react2["default"].PropTypes.array
 	};
-	
+
 	OHLCTooltip.propTypes = {
 		forChart: _react2["default"].PropTypes.number.isRequired,
 		accessor: _react2["default"].PropTypes.func.isRequired,
@@ -11461,7 +11461,7 @@
 		fontSize: _react2["default"].PropTypes.number,
 		onClick: _react2["default"].PropTypes.func
 	};
-	
+
 	OHLCTooltip.defaultProps = {
 		namespace: "ReStock.OHLCTooltip",
 		accessor: function accessor(d) {
@@ -11470,7 +11470,7 @@
 		xDisplayFormat: _utilsUtils2["default"].displayDateFormat,
 		origin: [0, 0]
 	};
-	
+
 	module.exports = OHLCTooltip;
 
 /***/ },
@@ -11478,46 +11478,46 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var _utilsChartDataUtil = __webpack_require__(6);
-	
+
 	var _utilsChartDataUtil2 = _interopRequireDefault(_utilsChartDataUtil);
-	
+
 	var _ToolTipText = __webpack_require__(18);
-	
+
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
-	
+
 	var _ToolTipTSpanLabel = __webpack_require__(17);
-	
+
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
-	
+
 	var RSITooltip = (function (_React$Component) {
 		_inherits(RSITooltip, _React$Component);
-	
+
 		function RSITooltip() {
 			_classCallCheck(this, RSITooltip);
-	
+
 			_get(Object.getPrototypeOf(RSITooltip.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(RSITooltip, [{
 			key: "render",
 			value: function render() {
@@ -11527,9 +11527,9 @@
 				var forDataSeries = _props.forDataSeries;
 				var fontSize = _props.fontSize;
 				var fontFamily = _props.fontFamily;
-	
+
 				var chartData = _utilsChartDataUtil2["default"].getChartDataForChart(this.props, this.context);
-	
+
 				var overlays = chartData.config.overlays.filter(function (eachOverlay) {
 					return forDataSeries === undefined ? true : forDataSeries === eachOverlay.id;
 				}).filter(function (eachOverlay) {
@@ -11537,28 +11537,28 @@
 				}).filter(function (eachOverlay) {
 					return eachOverlay.indicator.isRSI && eachOverlay.indicator.isRSI();
 				});
-	
+
 				if (overlays.length > 1 || overlays.length === 0) {
 					console.error("Could not find Exactly one DataSeries with RSI indicator for Chart id=" + forChart + ", either use \n\t\t\t\tsingle RSI indicator per chart\n\t\t\t\tor use forDataSeries property to narrow down to single Series");
 				}
-	
+
 				var overlay = overlays[0];
 				var options = overlay.indicator.options();
-	
+
 				var item = _utilsChartDataUtil2["default"].getCurrentItemForChart(this.props, this.context);
 				var rsi = overlay.yAccessor(item);
 				var format = chartData.config.mouseCoordinates.format;
-	
+
 				var value = rsi !== undefined && format(rsi) || "n/a";
-	
+
 				var _chartData$config = chartData.config;
 				var origin = _chartData$config.origin;
 				var height = _chartData$config.height;
 				var width = _chartData$config.width;
-	
+
 				var relativeOrigin = typeof this.props.origin === "function" ? this.props.origin(this.context.width, this.context.height) : this.props.origin;
 				var absoluteOrigin = [origin[0] + relativeOrigin[0], origin[1] + relativeOrigin[1]];
-	
+
 				return _react2["default"].createElement(
 					"g",
 					{ transform: "translate(" + absoluteOrigin[0] + ", " + absoluteOrigin[1] + ")",
@@ -11581,17 +11581,17 @@
 				);
 			}
 		}]);
-	
+
 		return RSITooltip;
 	})(_react2["default"].Component);
-	
+
 	RSITooltip.contextTypes = {
 		chartData: _react2["default"].PropTypes.array.isRequired,
 		currentItems: _react2["default"].PropTypes.array.isRequired,
 		width: _react2["default"].PropTypes.number.isRequired,
 		height: _react2["default"].PropTypes.number.isRequired
 	};
-	
+
 	RSITooltip.propTypes = {
 		forChart: _react2["default"].PropTypes.number.isRequired,
 		accessor: _react2["default"].PropTypes.func.isRequired,
@@ -11602,7 +11602,7 @@
 		forDataSeries: _react2["default"].PropTypes.number,
 		onClick: _react2["default"].PropTypes.func
 	};
-	
+
 	RSITooltip.defaultProps = {
 		namespace: "ReStock.RSITooltip",
 		accessor: function accessor(d) {
@@ -11611,7 +11611,7 @@
 		xDisplayFormat: _utilsUtils2["default"].displayDateFormat,
 		origin: [0, 0]
 	};
-	
+
 	module.exports = RSITooltip;
 
 /***/ },
@@ -11619,46 +11619,46 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var _utilsChartDataUtil = __webpack_require__(6);
-	
+
 	var _utilsChartDataUtil2 = _interopRequireDefault(_utilsChartDataUtil);
-	
+
 	var _ToolTipText = __webpack_require__(18);
-	
+
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
-	
+
 	var _ToolTipTSpanLabel = __webpack_require__(17);
-	
+
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
-	
+
 	var StochasticTooltip = (function (_React$Component) {
 		_inherits(StochasticTooltip, _React$Component);
-	
+
 		function StochasticTooltip() {
 			_classCallCheck(this, StochasticTooltip);
-	
+
 			_get(Object.getPrototypeOf(StochasticTooltip.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(StochasticTooltip, [{
 			key: "render",
 			value: function render() {
@@ -11666,7 +11666,7 @@
 				var onClick = _props.onClick;
 				var forChart = _props.forChart;
 				var forDataSeries = _props.forDataSeries;
-	
+
 				var chartData = _utilsChartDataUtil2["default"].getChartDataForChart(this.props, this.context);
 				var overlays = chartData.config.overlays.filter(function (eachOverlay) {
 					return forDataSeries === undefined ? true : forDataSeries === eachOverlay.id;
@@ -11675,29 +11675,29 @@
 				}).filter(function (eachOverlay) {
 					return eachOverlay.indicator.isStochastic && eachOverlay.indicator.isStochastic();
 				});
-	
+
 				if (overlays.length > 1 || overlays.length === 0) {
 					console.error("Could not find Exactly one DataSeries with Stochastic indicator for Chart id=" + forChart + ", either use \n\t\t\t\tsingle Stochastic indicator per chart\n\t\t\t\tor use forDataSeries property to narrow down to single Series");
 				}
 				var overlay = overlays[0];
 				var options = overlay.indicator.options();
-	
+
 				var item = _utilsChartDataUtil2["default"].getCurrentItemForChart(this.props, this.context);
 				var stochastic = overlay.yAccessor(item);
 				var format = chartData.config.mouseCoordinates.format;
-	
+
 				var K = stochastic && stochastic.K && format(stochastic.K) || "n/a";
 				var D = stochastic && stochastic.D && format(stochastic.D) || "n/a";
-	
+
 				var _chartData$config = chartData.config;
 				var origin = _chartData$config.origin;
 				var height = _chartData$config.height;
 				var width = _chartData$config.width;
-	
+
 				var relativeOrigin = typeof this.props.origin === "function" ? this.props.origin(this.context.width, this.context.height) : this.props.origin;
 				var absoluteOrigin = [origin[0] + relativeOrigin[0], origin[1] + relativeOrigin[1]];
 				var label = this.props.children || "Stochastic";
-	
+
 				return _react2["default"].createElement(
 					"g",
 					{ transform: "translate(" + absoluteOrigin[0] + ", " + absoluteOrigin[1] + ")",
@@ -11749,17 +11749,17 @@
 				);
 			}
 		}]);
-	
+
 		return StochasticTooltip;
 	})(_react2["default"].Component);
-	
+
 	StochasticTooltip.contextTypes = {
 		chartData: _react2["default"].PropTypes.array.isRequired,
 		currentItems: _react2["default"].PropTypes.array.isRequired,
 		width: _react2["default"].PropTypes.number.isRequired,
 		height: _react2["default"].PropTypes.number.isRequired
 	};
-	
+
 	StochasticTooltip.propTypes = {
 		forChart: _react2["default"].PropTypes.number.isRequired,
 		xDisplayFormat: _react2["default"].PropTypes.func.isRequired,
@@ -11769,13 +11769,13 @@
 		forDataSeries: _react2["default"].PropTypes.number,
 		onClick: _react2["default"].PropTypes.func
 	};
-	
+
 	StochasticTooltip.defaultProps = {
 		namespace: "ReStock.StochasticTooltip",
 		xDisplayFormat: _utilsUtils2["default"].displayDateFormat,
 		origin: [0, 0]
 	};
-	
+
 	module.exports = StochasticTooltip;
 	// export default StochasticTooltip;
 
@@ -11784,47 +11784,47 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _utilsUtils = __webpack_require__(2);
-	
+
 	var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-	
+
 	var _utilsPureComponent = __webpack_require__(23);
-	
+
 	var _utilsPureComponent2 = _interopRequireDefault(_utilsPureComponent);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var TooltipContainer = (function (_PureComponent) {
 		_inherits(TooltipContainer, _PureComponent);
-	
+
 		function TooltipContainer() {
 			_classCallCheck(this, TooltipContainer);
-	
+
 			_get(Object.getPrototypeOf(TooltipContainer.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(TooltipContainer, [{
 			key: "render",
 			value: function render() {
 				var _this = this;
-	
+
 				var children = _react2["default"].Children.map(this.props.children, function (child) {
 					var newChild = _utilsUtils2["default"].isReactVersion13() ? _react2["default"].withContext(_this.context, function () {
 						return _react2["default"].createElement(child.type, (0, _objectAssign2["default"])({ key: child.key, ref: child.ref }, child.props));
@@ -11839,17 +11839,17 @@
 				);
 			}
 		}]);
-	
+
 		return TooltipContainer;
 	})(_utilsPureComponent2["default"]);
-	
+
 	TooltipContainer.contextTypes = {
 		chartData: _react2["default"].PropTypes.array.isRequired,
 		currentItems: _react2["default"].PropTypes.array.isRequired
 	};
-	
+
 	TooltipContainer.defaultProps = { namespace: "ReStock.TooltipContainer" };
-	
+
 	module.exports = TooltipContainer;
 
 /***/ },
@@ -11857,45 +11857,45 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _MACDTooltip = __webpack_require__(113);
-	
+
 	var _MACDTooltip2 = _interopRequireDefault(_MACDTooltip);
-	
+
 	var _TooltipContainer = __webpack_require__(118);
-	
+
 	var _TooltipContainer2 = _interopRequireDefault(_TooltipContainer);
-	
+
 	var _OHLCTooltip = __webpack_require__(115);
-	
+
 	var _OHLCTooltip2 = _interopRequireDefault(_OHLCTooltip);
-	
+
 	var _CompareTooltip = __webpack_require__(112);
-	
+
 	var _CompareTooltip2 = _interopRequireDefault(_CompareTooltip);
-	
+
 	var _MovingAverageTooltip = __webpack_require__(114);
-	
+
 	var _MovingAverageTooltip2 = _interopRequireDefault(_MovingAverageTooltip);
-	
+
 	var _BollingerBandTooltip = __webpack_require__(111);
-	
+
 	var _BollingerBandTooltip2 = _interopRequireDefault(_BollingerBandTooltip);
-	
+
 	var _RSITooltip = __webpack_require__(116);
-	
+
 	var _RSITooltip2 = _interopRequireDefault(_RSITooltip);
-	
+
 	var _StochasticTooltip = __webpack_require__(117);
-	
+
 	var _StochasticTooltip2 = _interopRequireDefault(_StochasticTooltip);
-	
+
 	exports["default"] = {
 		MACDTooltip: _MACDTooltip2["default"],
 		TooltipContainer: _TooltipContainer2["default"],
@@ -11913,21 +11913,21 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	function DummyTransformer() {
 		function transform(data, interval) {
 			var responseData = {};
 			responseData[interval] = data;
-	
+
 			return responseData;
 		};
-	
+
 		transform.options = function (opt) {
 			return opt;
 		};
 		return transform;
 	}
-	
+
 	module.exports = DummyTransformer;
 
 /***/ },
@@ -11935,17 +11935,17 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	function buildHA(data, indexAccessor, indexMutator, dateAccessor, dateMutator) {
 		var prevEach;
-	
+
 		var haData = data.map(function (d) {
 			var each = {};
 			indexMutator(each, indexAccessor(d));
 			each.close = (d.open + d.high + d.low + d.close) / 4;
-	
+
 			dateMutator(each, dateAccessor(d));
-	
+
 			if (!prevEach) {
 				each.open = d.open;
 				each.high = d.high;
@@ -11957,19 +11957,19 @@
 				each.trueRange = Math.max(d.high - d.low, d.high - prevEach.close, d.low - prevEach.close);
 			}
 			each.volume = d.volume;
-	
+
 			each.startOfWeek = d.startOfWeek;
 			each.startOfMonth = d.startOfMonth;
 			each.startOfQuarter = d.startOfQuarter;
 			each.startOfYear = d.startOfYear;
-	
+
 			prevEach = each;
 			return each;
 		});
 		// console.table(haData);
 		return haData;
 	}
-	
+
 	function HeikinAshiTransformer() {
 		var newOptions;
 		function transform(data) {
@@ -11978,24 +11978,24 @@
 			var dateMutator = _newOptions.dateMutator;
 			var indexAccessor = _newOptions.indexAccessor;
 			var indexMutator = _newOptions.indexMutator;
-	
+
 			// console.log(data, options);
-	
+
 			var haData = {};
 			Object.keys(data).forEach(function (key) {
 				return haData[key] = buildHA(data[key], indexAccessor, indexMutator, dateAccessor, dateMutator);
 			});
-	
+
 			return haData;
 		};
-	
+
 		transform.options = function (opt) {
 			newOptions = opt;
 			return opt;
 		};
 		return transform;
 	}
-	
+
 	module.exports = HeikinAshiTransformer;
 
 /***/ },
@@ -12003,19 +12003,19 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _utilsATRCalculator = __webpack_require__(49);
-	
+
 	var _utilsATRCalculator2 = _interopRequireDefault(_utilsATRCalculator);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var _defaultOptions = __webpack_require__(29);
-	
+
 	function KagiTransformer() {
 		var newOptions;
 		function transform(data) {
@@ -12028,7 +12028,7 @@
 			var dateAccessor = _newOptions2.dateAccessor;
 			var dateMutator = _newOptions2.dateMutator;
 			var indexMutator = _newOptions2.indexMutator;
-	
+
 			var reversalThreshold, pricingMethod;
 			if (reversalType === "ATR") {
 				(0, _utilsATRCalculator2["default"])(data.D, period);
@@ -12040,25 +12040,25 @@
 					return reversal;
 				};
 			}
-	
+
 			pricingMethod = function (d) {
 				return d[source];
 			};
-	
+
 			var kagiData = [];
-	
+
 			var index = 0,
 			    prevPeak,
 			    prevTrough,
 			    direction;
 			var line = {};
-	
+
 			data.D.forEach(function (d) {
 				if (line.from === undefined) {
 					indexMutator(line, index++);
 					dateMutator(line, dateAccessor(d));
 					line.from = dateAccessor(d);
-	
+
 					if (!line.open) line.open = d.open;
 					line.high = d.high;
 					line.low = d.low;
@@ -12068,7 +12068,7 @@
 					line.startOfMonth = d.startOfMonth;
 					line.startOfWeek = d.startOfWeek;
 				}
-	
+
 				if (!line.startOfYear) {
 					line.startOfYear = d.startOfYear;
 					if (line.startOfYear) {
@@ -12076,7 +12076,7 @@
 						// line.displayDate = d.displayDate;
 					}
 				}
-	
+
 				if (!line.startOfQuarter) {
 					line.startOfQuarter = d.startOfQuarter;
 					if (line.startOfQuarter && !line.startOfYear) {
@@ -12084,7 +12084,7 @@
 						// line.displayDate = d.displayDate;
 					}
 				}
-	
+
 				if (!line.startOfMonth) {
 					line.startOfMonth = d.startOfMonth;
 					if (line.startOfMonth && !line.startOfQuarter) {
@@ -12103,9 +12103,9 @@
 				line.high = Math.max(line.high, d.high);
 				line.low = Math.min(line.low, d.low);
 				line.to = dateAccessor(d);
-	
+
 				var priceMovement = pricingMethod(d) - line.close;
-	
+
 				if (line.close > line.open /* going up */ && priceMovement > 0 /* and moving in same direction */ || line.close < line.open /* going down */ && priceMovement < 0 /* and moving in same direction */) {
 						line.close = pricingMethod(d);
 						if (prevTrough && line.close < prevTrough) {
@@ -12133,9 +12133,9 @@
 					 && Math.abs(priceMovement) > reversalThreshold(d) /* and the movement is big enough for reversal */) {
 							// reverse direction
 							var nextLineOpen = line.close;
-	
+
 							direction = (line.close - line.open) / Math.abs(line.close - line.open);
-	
+
 							var nextChangePoint, nextChangeTo;
 							if (direction < 0 /* if direction so far has been -ve*/) {
 									// compare with line.close becomes prevTrough
@@ -12156,12 +12156,12 @@
 							if (line.startAs === undefined) {
 								line.startAs = direction > 0 ? "yang" : "yin";
 							}
-	
+
 							var startAs = line.changeTo || line.startAs;
 							line.added = true;
 							kagiData.push(line);
 							direction = -1 * direction; // direction is reversed
-	
+
 							line = (0, _objectAssign2["default"])({}, line);
 							line.open = nextLineOpen;
 							line.close = pricingMethod(d);
@@ -12181,17 +12181,17 @@
 				line.reverseAt = dir > 0 ? line.close - reversalThreshold(d) : line.open - reversalThreshold(d);
 			});
 			if (!line.added) kagiData.push(line);
-	
+
 			return { "D": kagiData };
 		};
-	
+
 		transform.options = function (opt) {
 			newOptions = (0, _objectAssign2["default"])({}, _defaultOptions.Kagi, opt);
 			return newOptions;
 		};
 		return transform;
 	}
-	
+
 	module.exports = KagiTransformer;
 
 /***/ },
@@ -12199,15 +12199,15 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var _defaultOptions = __webpack_require__(29);
-	
+
 	function createBox(d, dateAccessor, dateMutator) {
 		var box = {
 			open: d.open,
@@ -12221,33 +12221,33 @@
 		dateMutator(box, dateAccessor(d));
 		return box;
 	}
-	
+
 	function updateColumns(columnData, dateAccessor, dateMutator) {
 		columnData.forEach(function (d) {
 			// var lastBox = d.boxes[d.boxes.length - 1];
-	
+
 			d.startOfYear = false;
 			d.startOfQuarter = false;
 			d.startOfMonth = false;
 			d.startOfWeek = false;
-	
+
 			d.boxes.forEach(function (eachBox) {
 				if (d.open === undefined) d.open = eachBox.open;
 				d.close = eachBox.close;
 				d.high = Math.max(d.open, d.close);
 				d.low = Math.min(d.open, d.close);
-	
+
 				if (d.fromDate === undefined) d.fromDate = eachBox.fromDate;
 				if (d.date === undefined) d.date = eachBox.date;
 				// if (d.displayDate === undefined) d.displayDate = eachBox.displayDate;
 				d.toDate = eachBox.toDate;
-	
+
 				if (eachBox.startOfYear) {
 					d.startOfYear = d.startOfYear || eachBox.startOfYear;
 					d.startOfQuarter = eachBox.startOfQuarter;
 					d.startOfMonth = eachBox.startOfMonth;
 					d.startOfWeek = eachBox.startOfWeek;
-	
+
 					dateMutator(d, dateAccessor(eachBox));
 				}
 				if (d.startOfQuarter !== true && eachBox.startOfQuarter) {
@@ -12270,12 +12270,12 @@
 				}
 			});
 		});
-	
+
 		// console.table(columnData);
 		// console.table(rawData);
 		return columnData;
 	}
-	
+
 	function PointAndFigureTransformer() {
 		var newOptions;
 		function transform(rawData, interval) {
@@ -12287,7 +12287,7 @@
 			var reversal = _newOptions.reversal;
 			var boxSize = _newOptions.boxSize;
 			var source = _newOptions.source;
-	
+
 			var pricingMethod;
 			if (source = "hi/lo") {
 				pricingMethod = function (d) {
@@ -12298,21 +12298,21 @@
 					return { high: d.close, low: d.close };
 				};
 			}
-	
+
 			var columnData = [];
-	
+
 			var column = {
 				boxes: [],
 				open: rawData.D[0].open
 			},
 			    box = createBox(rawData.D[0], dateAccessor, dateMutator);
-	
+
 			indexMutator(column, 0);
 			columnData.push(column);
-	
+
 			rawData.D.forEach(function (d) {
 				column.volume = (column.volume || 0) + d.volume;
-	
+
 				if (!box.startOfYear) {
 					box.startOfYear = d.startOfYear;
 					if (box.startOfYear) {
@@ -12320,7 +12320,7 @@
 						// box.displayDate = d.displayDate;
 					}
 				}
-	
+
 				if (!box.startOfYear && !box.startOfQuarter) {
 					box.startOfQuarter = d.startOfQuarter;
 					if (box.startOfQuarter && !box.startOfYear) {
@@ -12328,7 +12328,7 @@
 						// box.displayDate = d.displayDate;
 					}
 				}
-	
+
 				if (!box.startOfQuarter && !box.startOfMonth) {
 					box.startOfMonth = d.startOfMonth;
 					if (box.startOfMonth && !box.startOfQuarter) {
@@ -12343,7 +12343,7 @@
 						// box.displayDate = d.displayDate;
 					}
 				}
-	
+
 				if (columnData.length === 1 && column.boxes.length === 0) {
 					var upwardMovement = Math.max(pricingMethod(d).high - column.open, 0); // upward movement
 					var downwardMovement = Math.abs(Math.min(column.open - pricingMethod(d).low, 0)); // downward movement
@@ -12368,7 +12368,7 @@
 					// one or more boxes already formed in the current column
 					var upwardMovement = Math.max(pricingMethod(d).high - box.open, 0); // upward movement
 					var downwardMovement = Math.abs(Math.min(pricingMethod(d).low - box.open, 0)); // downward movement
-	
+
 					if (column.direction > 0 && upwardMovement > boxSize || /* rising column AND box can be formed */
 					column.direction < 0 && downwardMovement > boxSize /* falling column AND box can be formed */) {
 							// form another box
@@ -12383,7 +12383,7 @@
 						} else if (column.direction > 0 && downwardMovement > boxSize * reversal || /* rising column and there is downward movement to trigger a reversal */
 					column.direction < 0 && upwardMovement > boxSize * reversal /* falling column and there is downward movement to trigger a reversal */) {
 							// reversal
-	
+
 							box.open = box.open + -1 * column.direction * boxSize;
 							box.toDate = dateAccessor(d);
 							// box.displayDate = d.displayDate;
@@ -12408,23 +12408,23 @@
 								box = createBox(d, dateAccessor, dateMutator);
 								box.open = prevBoxClose;
 							}
-	
+
 							columnData.push(column);
 						}
 				}
 			});
 			updateColumns(columnData, dateAccessor, dateMutator);
-	
+
 			return { "D": columnData };
 		};
-	
+
 		transform.options = function (opt) {
 			newOptions = (0, _objectAssign2["default"])({}, _defaultOptions.PointAndFigure, opt);
 			return newOptions;
 		};
 		return transform;
 	}
-	
+
 	module.exports = PointAndFigureTransformer;
 
 /***/ },
@@ -12432,19 +12432,19 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _utilsATRCalculator = __webpack_require__(49);
-	
+
 	var _utilsATRCalculator2 = _interopRequireDefault(_utilsATRCalculator);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var _defaultOptions = __webpack_require__(29);
-	
+
 	function RenkoTransformer() {
 		var newOptions;
 		function transform(rawData, interval) {
@@ -12457,7 +12457,7 @@
 			var indexMutator = _newOptions.indexMutator;
 			var period = _newOptions.period;
 			var source = _newOptions.source;
-	
+
 			var brickSize, pricingMethod;
 			if (reversalType === "ATR") {
 				(0, _utilsATRCalculator2["default"])(rawData.D, period);
@@ -12478,15 +12478,15 @@
 					return { high: d.close, low: d.close };
 				};
 			}
-	
+
 			var renkoData = [];
-	
+
 			var index = 0,
 			    prevBrickClose = rawData.D[index].open,
 			    prevBrickOpen = rawData.D[index].open;
 			var brick = {},
 			    direction = 0;
-	
+
 			rawData.D.forEach(function (d) {
 				if (brick.from === undefined) {
 					brick.high = d.high;
@@ -12495,23 +12495,23 @@
 					brick.startOfQuarter = d.startOfQuarter;
 					brick.startOfMonth = d.startOfMonth;
 					brick.startOfWeek = d.startOfWeek;
-	
+
 					brick.from = indexAccessor(d);
 					brick.fromDate = dateAccessor(d);
 					indexMutator(brick, index++);
 					dateMutator(brick, dateAccessor(d));
 				}
 				brick.volume = (brick.volume || 0) + d.volume;
-	
+
 				var prevCloseToHigh = prevBrickClose - pricingMethod(d).high,
 				    prevCloseToLow = prevBrickClose - pricingMethod(d).low,
 				    prevOpenToHigh = prevBrickOpen - pricingMethod(d).high,
 				    prevOpenToLow = prevBrickOpen - pricingMethod(d).low,
 				    priceMovement = Math.min(Math.abs(prevCloseToHigh), Math.abs(prevCloseToLow), Math.abs(prevOpenToHigh), Math.abs(prevOpenToLow));
-	
+
 				brick.high = Math.max(brick.high, d.high);
 				brick.low = Math.min(brick.low, d.low);
-	
+
 				if (!brick.startOfYear) {
 					brick.startOfYear = d.startOfYear;
 					if (brick.startOfYear) {
@@ -12519,7 +12519,7 @@
 						// brick.displayDate = d.displayDate;
 					}
 				}
-	
+
 				if (!brick.startOfQuarter) {
 					brick.startOfQuarter = d.startOfQuarter;
 					if (brick.startOfQuarter && !brick.startOfYear) {
@@ -12527,7 +12527,7 @@
 						// brick.displayDate = d.displayDate;
 					}
 				}
-	
+
 				if (!brick.startOfMonth) {
 					brick.startOfMonth = d.startOfMonth;
 					if (brick.startOfMonth && !brick.startOfQuarter) {
@@ -12542,13 +12542,13 @@
 						// brick.displayDate = d.displayDate;
 					}
 				}
-	
+
 				// d.brick = JSON.stringify(brick);
 				if (brickSize(d)) {
 					var noOfBricks = Math.floor(priceMovement / brickSize(d));
-	
+
 					brick.open = Math.abs(prevCloseToHigh) < Math.abs(prevOpenToHigh) || Math.abs(prevCloseToLow) < Math.abs(prevOpenToLow) ? prevBrickClose : prevBrickOpen;
-	
+
 					if (noOfBricks >= 1) {
 						for (var j = 0; j < noOfBricks; j++) {
 							brick.close = brick.open < pricingMethod(d).high ?
@@ -12562,10 +12562,10 @@
 							// brick.atr = d.atr;
 							brick.fullyFormed = true;
 							renkoData.push(brick);
-	
+
 							prevBrickClose = brick.close;
 							prevBrickOpen = brick.open;
-	
+
 							var newBrick = {
 								high: brick.high,
 								low: brick.low,
@@ -12590,7 +12590,7 @@
 							brick.to = indexAccessor(d);
 							brick.toDate = dateAccessor(d);
 							dateMutator(brick, dateAccessor(d));
-	
+
 							brick.fullyFormed = false;
 							renkoData.push(brick);
 						}
@@ -12599,14 +12599,14 @@
 			});
 			return { "D": renkoData };
 		};
-	
+
 		transform.options = function (opt) {
 			newOptions = (0, _objectAssign2["default"])({}, _defaultOptions.Renko, opt);
 			return newOptions;
 		};
 		return transform;
 	}
-	
+
 	module.exports = RenkoTransformer;
 
 /***/ },
@@ -12614,17 +12614,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _scalePolylineartimescale = __webpack_require__(98);
-	
+
 	var _scalePolylineartimescale2 = _interopRequireDefault(_scalePolylineartimescale);
-	
+
 	var _objectAssign = __webpack_require__(3);
-	
+
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
+
 	var defaultOptions = {
 		dateAccessor: function dateAccessor(d) {
 			return d.date;
@@ -12639,39 +12639,39 @@
 			d.idx = i;
 		}
 	};
-	
+
 	function buildWeeklyData(daily, indexMutator, dateAccesor, dateMutator) {
 		var weekly = [],
 		    prevWeek,
 		    eachWeek = {};
-	
+
 		for (var i = 0; i < daily.length; i++) {
-	
+
 			var d = daily[i];
-	
+
 			if (dateAccesor(eachWeek)) indexMutator(eachWeek, i);
-	
+
 			dateMutator(eachWeek, dateAccesor(d));
-	
+
 			eachWeek.startOfWeek = eachWeek.startOfWeek || d.startOfWeek;
 			eachWeek.startOfMonth = eachWeek.startOfMonth || d.startOfMonth;
 			eachWeek.startOfQuarter = eachWeek.startOfQuarter || d.startOfQuarter;
 			eachWeek.startOfYear = eachWeek.startOfYear || d.startOfYear;
-	
+
 			if (!eachWeek.open) eachWeek.open = d.open;
 			if (!eachWeek.high) eachWeek.high = d.high;
 			if (!eachWeek.low) eachWeek.low = d.low;
-	
+
 			eachWeek.close = d.close;
-	
+
 			eachWeek.high = Math.max(eachWeek.high, d.high);
 			eachWeek.low = Math.min(eachWeek.low, d.low);
-	
+
 			if (!eachWeek.volume) eachWeek.volume = 0;
 			eachWeek.volume += d.volume;
-	
+
 			eachWeek = (0, _objectAssign2["default"])({}, d, eachWeek);
-	
+
 			if (d.startOfWeek) {
 				if (prevWeek) {
 					eachWeek.trueRange = Math.max(eachWeek.high - eachWeek.low, eachWeek.high - prevWeek.close, eachWeek.low - prevWeek.close);
@@ -12683,36 +12683,36 @@
 		}
 		return weekly;
 	}
-	
+
 	function buildMonthlyData(daily, indexMutator, dateAccesor) {
 		var monthly = [],
 		    prevMonth,
 		    eachMonth = {};
 		for (var i = 0; i < daily.length; i++) {
 			var d = daily[i];
-	
+
 			if (!eachMonth.date) indexMutator(eachMonth, i);
-	
+
 			eachMonth.date = dateAccesor(d);
-	
+
 			eachMonth.startOfMonth = eachMonth.startOfMonth || d.startOfMonth;
 			eachMonth.startOfQuarter = eachMonth.startOfQuarter || d.startOfQuarter;
 			eachMonth.startOfYear = eachMonth.startOfYear || d.startOfYear;
-	
+
 			if (!eachMonth.open) eachMonth.open = d.open;
 			if (!eachMonth.high) eachMonth.high = d.high;
 			if (!eachMonth.low) eachMonth.low = d.low;
-	
+
 			eachMonth.close = d.close;
-	
+
 			eachMonth.high = Math.max(eachMonth.high, d.high);
 			eachMonth.low = Math.min(eachMonth.low, d.low);
-	
+
 			if (!eachMonth.volume) eachMonth.volume = 0;
 			eachMonth.volume += d.volume;
-	
+
 			eachMonth = (0, _objectAssign2["default"])({}, d, eachMonth);
-	
+
 			if (d.startOfMonth) {
 				eachMonth.startOfWeek = d.startOfWeek;
 				if (prevMonth) {
@@ -12725,7 +12725,7 @@
 		}
 		return monthly;
 	}
-	
+
 	function StockscaleTransformer() {
 		var newOptions;
 		function transform(data, interval) {
@@ -12733,7 +12733,7 @@
 			var dateAccessor = _newOptions.dateAccessor;
 			var dateMutator = _newOptions.dateMutator;
 			var indexMutator = _newOptions.indexMutator;
-	
+
 			var prevDate;
 			var responseData = {};
 			var dd = data[interval];
@@ -12743,13 +12743,13 @@
 					row[key] = each[key];
 				});
 				indexMutator(row, i);
-	
+
 				row.startOfWeek = false;
 				row.startOfMonth = false;
 				row.startOfQuarter = false;
 				row.startOfYear = false;
 				var date = dateAccessor(row);
-	
+
 				if (prevDate !== undefined) {
 					// According to ISO calendar
 					// Sunday = 0, Monday = 1, ... Saturday = 6
@@ -12770,7 +12770,7 @@
 			responseData.M = buildMonthlyData(responseData.D, indexMutator, dateAccessor, dateMutator);
 			return responseData;
 		};
-	
+
 		transform.options = function (opt) {
 			newOptions = (0, _objectAssign2["default"])({}, defaultOptions, opt);
 			newOptions.xAccessor = newOptions.indexAccessor;
@@ -12779,7 +12779,7 @@
 		};
 		return transform;
 	}
-	
+
 	module.exports = StockscaleTransformer;
 
 /***/ },
@@ -12787,17 +12787,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _utils = __webpack_require__(2);
-	
+
 	var _utils2 = _interopRequireDefault(_utils);
-	
+
 	var _MovingAverageCalculator = __webpack_require__(21);
-	
+
 	var _MovingAverageCalculator2 = _interopRequireDefault(_MovingAverageCalculator);
-	
+
 	var OverlayUtils = {
 		getToolTipLabel: function getToolTipLabel(props) {
 			if (props.type === "sma" || props.type === "ema") {
@@ -12841,7 +12841,7 @@
 			return _utils2["default"].cloneMe(each);
 		}
 	};
-	
+
 	module.exports = OverlayUtils;
 
 /***/ },
@@ -12849,7 +12849,7 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	function pushToValues(values, eachValue) {
 		if (typeof eachValue === "object" && Object.keys(eachValue).length > 0) {
 			Object.keys(eachValue).forEach(function (key) {
@@ -12863,7 +12863,7 @@
 			}
 		}
 	}
-	
+
 	var ScaleUtils = {
 		flattenData: function flattenData(data, xAccessors, yAccessors) {
 			// console.log(xAccessors, yAccessors);
@@ -12889,7 +12889,7 @@
 			};
 		}
 	};
-	
+
 	module.exports = ScaleUtils;
 
 /***/ },
@@ -12898,13 +12898,13 @@
 
 	(function() {
 	  var out$ = typeof exports != 'undefined' && exports || this;
-	
+
 	  var doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">';
-	
+
 	  function isExternal(url) {
 	    return url && url.lastIndexOf('http',0) == 0 && url.lastIndexOf(window.location.host) == -1;
 	  }
-	
+
 	  function inlineImages(el, callback) {
 	    var images = el.querySelectorAll('image');
 	    var left = images.length;
@@ -12945,7 +12945,7 @@
 	      })(images[i]);
 	    }
 	  }
-	
+
 	  function styles(el, selectorRemap) {
 	    var css = "";
 	    var sheets = document.styleSheets;
@@ -12977,19 +12977,19 @@
 	    }
 	    return css;
 	  }
-	
+
 	  function getDimension(el, clone, dim) {
 	    return (clone.getAttribute(dim) !== null && !clone.getAttribute(dim).match(/%$/) && parseInt(clone.getAttribute(dim))) ||
 	      el.getBoundingClientRect()[dim] ||
 	      parseInt(clone.style[dim]) ||
 	      parseInt(window.getComputedStyle(el).getPropertyValue(dim));
 	  }
-	
+
 	  out$.svgAsDataUri = function(el, options, cb) {
 	    options = options || {};
 	    options.scale = options.scale || 1;
 	    var xmlns = "http://www.w3.org/2000/xmlns/";
-	
+
 	    inlineImages(el, function() {
 	      var outer = document.createElement("div");
 	      var clone = el.cloneNode(true);
@@ -13012,21 +13012,21 @@
 	        clone.setAttribute('transform', clone.getAttribute('transform').replace(/translate\(.*?\)/, ''));
 	        viewBoxWidth = width;
 	        viewBoxHeight =  height;
-	
+
 	        var svg = document.createElementNS('http://www.w3.org/2000/svg','svg')
 	        svg.appendChild(clone)
 	        clone = svg;
 	      }
-	
+
 	      clone.setAttribute("version", "1.1");
 	      clone.setAttributeNS(xmlns, "xmlns", "http://www.w3.org/2000/svg");
 	      clone.setAttributeNS(xmlns, "xmlns:xlink", "http://www.w3.org/1999/xlink");
 	      clone.setAttribute("width", width * options.scale);
 	      clone.setAttribute("height", height * options.scale);
 	      clone.setAttribute("viewBox", "0 0 " + viewBoxWidth + " " + viewBoxHeight);
-	
+
 	      outer.appendChild(clone);
-	
+
 	      var css = styles(el, options.selectorRemap);
 	      var s = document.createElement('style');
 	      s.setAttribute('type', 'text/css');
@@ -13034,7 +13034,7 @@
 	      var defs = document.createElement('defs');
 	      defs.appendChild(s);
 	      clone.insertBefore(defs, clone.firstChild);
-	
+
 	      var svg = doctype + outer.innerHTML;
 	      // encode then decode to handle `btoa` on Unicode; see MDN for `btoa`.
 	      var uri = 'data:image/svg+xml;base64,' + window.btoa(decodeURIComponent(encodeURIComponent(svg)));
@@ -13043,7 +13043,7 @@
 	      }
 	    });
 	  }
-	
+
 	  out$.saveSvgAsPng = function(el, name, options) {
 	    options = options || {};
 	    out$.svgAsDataUri(el, options, function(uri) {
@@ -13054,7 +13054,7 @@
 	        canvas.height = image.height;
 	        var context = canvas.getContext('2d');
 	        context.drawImage(image, 0, 0);
-	
+
 	        var a = document.createElement('a');
 	        a.download = name;
 	        a.href = canvas.toDataURL('image/png');
@@ -13075,34 +13075,34 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var ContentSection = (function (_Component) {
 		_inherits(ContentSection, _Component);
-	
+
 		function ContentSection() {
 			_classCallCheck(this, ContentSection);
-	
+
 			_get(Object.getPrototypeOf(ContentSection.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(ContentSection, [{
 			key: "render",
 			value: function render() {
@@ -13113,14 +13113,14 @@
 				);
 			}
 		}]);
-	
+
 		return ContentSection;
 	})(_react.Component);
-	
+
 	ContentSection.propTypes = {
 		rightPane: _react.PropTypes.bool.isRequired
 	};
-	
+
 	exports["default"] = ContentSection;
 	module.exports = exports["default"];
 
@@ -13129,41 +13129,41 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _classnames = __webpack_require__(25);
-	
+
 	var _classnames2 = _interopRequireDefault(_classnames);
-	
+
 	var _actionsPageActions = __webpack_require__(31);
-	
+
 	var PageActions = _interopRequireWildcard(_actionsPageActions);
-	
+
 	var PageContainer = function PageContainer(props) {
 		var classes = (0, _classnames2["default"])({
 			"page-container": true,
 			"leftnav-hide": props.hideLeftNav,
 			"header-hide": props.hideHeader
 		});
-	
+
 		return _react2["default"].createElement(
 			"div",
 			{ className: classes },
 			props.children
 		);
 	};
-	
+
 	exports["default"] = PageContainer;
 	module.exports = exports["default"];
 
@@ -13172,37 +13172,37 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _AccountAreaContainer = __webpack_require__(132);
-	
+
 	var _AccountAreaContainer2 = _interopRequireDefault(_AccountAreaContainer);
-	
+
 	var _Announcement = __webpack_require__(134);
-	
+
 	var _Announcement2 = _interopRequireDefault(_Announcement);
-	
+
 	var _Alerts = __webpack_require__(133);
-	
+
 	var _Alerts2 = _interopRequireDefault(_Alerts);
-	
+
 	var _MarqueeArea = __webpack_require__(138);
-	
+
 	var _MarqueeArea2 = _interopRequireDefault(_MarqueeArea);
-	
+
 	var _Profile = __webpack_require__(139);
-	
+
 	var _Profile2 = _interopRequireDefault(_Profile);
-	
+
 	var AccountArea = function AccountArea(props) {
 		return _react2["default"].createElement(
 			_AccountAreaContainer2["default"],
@@ -13217,7 +13217,7 @@
 			)
 		);
 	};
-	
+
 	exports["default"] = AccountArea;
 	module.exports = exports["default"];
 	/* new features, breaking news */ /* algorithm progress updates */ /* sparkline of BSE, NSE rotate to time of day, Fav stocks */ /* change theme, Signout, Go to profile page */
@@ -13227,17 +13227,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var AccountAreaContainer = function AccountAreaContainer(_ref) {
 		var children = _ref.children;
 		return _react2["default"].createElement(
@@ -13250,7 +13250,7 @@
 			)
 		);
 	};
-	
+
 	exports["default"] = AccountAreaContainer;
 	module.exports = exports["default"];
 
@@ -13259,17 +13259,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var Alerts = function Alerts(props) {
 		return _react2["default"].createElement(
 			"li",
@@ -13286,7 +13286,7 @@
 			)
 		);
 	};
-	
+
 	exports["default"] = Alerts;
 	module.exports = exports["default"];
 
@@ -13295,17 +13295,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var Announcement = function Announcement(props) {
 		return _react2["default"].createElement(
 			"li",
@@ -13317,7 +13317,7 @@
 			)
 		);
 	};
-	
+
 	exports["default"] = Announcement;
 	module.exports = exports["default"];
 
@@ -13326,17 +13326,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var Brand = function Brand(props) {
 		return _react2["default"].createElement(
 			"div",
@@ -13352,7 +13352,7 @@
 			)
 		);
 	};
-	
+
 	exports["default"] = Brand;
 	module.exports = exports["default"];
 
@@ -13361,33 +13361,33 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _HeaderContainer = __webpack_require__(137);
-	
+
 	var _HeaderContainer2 = _interopRequireDefault(_HeaderContainer);
-	
+
 	var _Brand = __webpack_require__(135);
-	
+
 	var _Brand2 = _interopRequireDefault(_Brand);
-	
+
 	var _SideBarCollapse = __webpack_require__(140);
-	
+
 	var _SideBarCollapse2 = _interopRequireDefault(_SideBarCollapse);
-	
+
 	var _AccountArea = __webpack_require__(131);
-	
+
 	var _AccountArea2 = _interopRequireDefault(_AccountArea);
-	
+
 	var Header = function Header(props) {
 		return _react2["default"].createElement(
 			_HeaderContainer2["default"],
@@ -13397,7 +13397,7 @@
 			_react2["default"].createElement(_AccountArea2["default"], null)
 		);
 	};
-	
+
 	exports["default"] = Header;
 	module.exports = exports["default"];
 
@@ -13406,17 +13406,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var HeaderContainer = function HeaderContainer(_ref) {
 		var children = _ref.children;
 		return _react2["default"].createElement(
@@ -13433,7 +13433,7 @@
 			)
 		);
 	};
-	
+
 	exports["default"] = HeaderContainer;
 	module.exports = exports["default"];
 
@@ -13442,30 +13442,30 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var slideInterval = 10 * 1000; // 10s
 	function slideRight(carousel) {
 		var item_width = carousel.find("li").outerWidth();
 		var left_indent = parseInt(carousel.css("left")) - item_width;
-	
+
 		// make the sliding effect using jQuery's animate function... '
 		carousel.not(":animated").animate({ "left": left_indent }, 1000, function () {
 			/* when the animation finishes use the if statement again, and make an ilussion
@@ -13476,18 +13476,18 @@
 			carousel.css({ "left": "-200px" });
 		});
 	}
-	
+
 	var date = new Date();
-	
+
 	var MarqueeArea = (function (_React$Component) {
 		_inherits(MarqueeArea, _React$Component);
-	
+
 		function MarqueeArea() {
 			_classCallCheck(this, MarqueeArea);
-	
+
 			_get(Object.getPrototypeOf(MarqueeArea.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(MarqueeArea, [{
 			key: "componentDidMount",
 			value: function componentDidMount() {
@@ -13500,7 +13500,7 @@
 					return timer;
 				}
 				var timer = defineTimer();
-	
+
 				carousel.hover(function () {
 					// stop the interval
 					clearInterval(timer);
@@ -13542,10 +13542,10 @@
 				);
 			}
 		}]);
-	
+
 		return MarqueeArea;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = MarqueeArea;
 	module.exports = exports["default"];
 
@@ -13554,17 +13554,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var Profile = function Profile(props) {
 		return _react2["default"].createElement(
 			"li",
@@ -13576,7 +13576,7 @@
 			)
 		);
 	};
-	
+
 	exports["default"] = Profile;
 	module.exports = exports["default"];
 
@@ -13585,17 +13585,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var SideBarCollapse = function SideBarCollapse(props) {
 		return _react2["default"].createElement(
 			"div",
@@ -13603,7 +13603,7 @@
 			_react2["default"].createElement("i", { className: "collapse-icon fa fa-bars" })
 		);
 	};
-	
+
 	exports["default"] = SideBarCollapse;
 	module.exports = exports["default"];
 
@@ -13612,19 +13612,19 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _Header = __webpack_require__(136);
-	
+
 	var _Header2 = _interopRequireDefault(_Header);
-	
+
 	;
-	
+
 	exports["default"] = _Header2["default"];
 	module.exports = exports["default"];
 
@@ -13633,37 +13633,37 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _PageContainer = __webpack_require__(130);
-	
+
 	var _PageContainer2 = _interopRequireDefault(_PageContainer);
-	
+
 	var _ContentSection = __webpack_require__(129);
-	
+
 	var _ContentSection2 = _interopRequireDefault(_ContentSection);
-	
+
 	var _header = __webpack_require__(141);
-	
+
 	var _header2 = _interopRequireDefault(_header);
-	
+
 	var _leftnav = __webpack_require__(150);
-	
+
 	var _leftnav2 = _interopRequireDefault(_leftnav);
-	
+
 	var _rightpane = __webpack_require__(169);
-	
+
 	var _rightpane2 = _interopRequireDefault(_rightpane);
-	
+
 	var _page = __webpack_require__(167);
-	
+
 	var _page2 = _interopRequireDefault(_page);
-	
+
 	exports["default"] = {
 		PageContainer: _PageContainer2["default"],
 		ContentSection: _ContentSection2["default"],
@@ -13679,41 +13679,41 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _LeftNavContainer = __webpack_require__(144);
-	
+
 	var _LeftNavContainer2 = _interopRequireDefault(_LeftNavContainer);
-	
+
 	var _NavItemCharts = __webpack_require__(146);
-	
+
 	var _NavItemCharts2 = _interopRequireDefault(_NavItemCharts);
-	
+
 	var _NavItemAlgorithm = __webpack_require__(145);
-	
+
 	var _NavItemAlgorithm2 = _interopRequireDefault(_NavItemAlgorithm);
-	
+
 	var _NavItemManageAlerts = __webpack_require__(149);
-	
+
 	var _NavItemManageAlerts2 = _interopRequireDefault(_NavItemManageAlerts);
-	
+
 	var _NavItemContactUs = __webpack_require__(148);
-	
+
 	var _NavItemContactUs2 = _interopRequireDefault(_NavItemContactUs);
-	
+
 	var _NavItemComingSoon = __webpack_require__(147);
-	
+
 	var _NavItemComingSoon2 = _interopRequireDefault(_NavItemComingSoon);
-	
+
 	var LeftNav = function LeftNav(props) {
 		return _react2["default"].createElement(
 			_LeftNavContainer2["default"],
@@ -13725,11 +13725,11 @@
 			_react2["default"].createElement(_NavItemComingSoon2["default"], { size: props.size })
 		);
 	};
-	
+
 	LeftNav.propTypes = {
 		size: _react.PropTypes.number
 	};
-	
+
 	exports["default"] = LeftNav;
 	module.exports = exports["default"];
 
@@ -13738,17 +13738,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var LeftNavContainer = function LeftNavContainer(props) {
 		return _react2["default"].createElement(
 			"div",
@@ -13760,7 +13760,7 @@
 			)
 		);
 	};
-	
+
 	exports["default"] = LeftNavContainer;
 	module.exports = exports["default"];
 
@@ -13769,34 +13769,34 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var NavItemAlgorithm = (function (_React$Component) {
 		_inherits(NavItemAlgorithm, _React$Component);
-	
+
 		function NavItemAlgorithm() {
 			_classCallCheck(this, NavItemAlgorithm);
-	
+
 			_get(Object.getPrototypeOf(NavItemAlgorithm.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(NavItemAlgorithm, [{
 			key: "handleClick",
 			value: function handleClick() {
@@ -13834,10 +13834,10 @@
 				);
 			}
 		}]);
-	
+
 		return NavItemAlgorithm;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = NavItemAlgorithm;
 	module.exports = exports["default"];
 
@@ -13846,34 +13846,34 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var NavItemCharts = (function (_React$Component) {
 		_inherits(NavItemCharts, _React$Component);
-	
+
 		function NavItemCharts() {
 			_classCallCheck(this, NavItemCharts);
-	
+
 			_get(Object.getPrototypeOf(NavItemCharts.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(NavItemCharts, [{
 			key: "handleClick",
 			value: function handleClick() {
@@ -13911,10 +13911,10 @@
 				);
 			}
 		}]);
-	
+
 		return NavItemCharts;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = NavItemCharts;
 	module.exports = exports["default"];
 
@@ -13923,34 +13923,34 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var NavItemComingSoon = (function (_React$Component) {
 		_inherits(NavItemComingSoon, _React$Component);
-	
+
 		function NavItemComingSoon() {
 			_classCallCheck(this, NavItemComingSoon);
-	
+
 			_get(Object.getPrototypeOf(NavItemComingSoon.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(NavItemComingSoon, [{
 			key: "handleClick",
 			value: function handleClick() {
@@ -13988,10 +13988,10 @@
 				);
 			}
 		}]);
-	
+
 		return NavItemComingSoon;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = NavItemComingSoon;
 	module.exports = exports["default"];
 
@@ -14000,34 +14000,34 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var NavItemContactUs = (function (_React$Component) {
 		_inherits(NavItemContactUs, _React$Component);
-	
+
 		function NavItemContactUs() {
 			_classCallCheck(this, NavItemContactUs);
-	
+
 			_get(Object.getPrototypeOf(NavItemContactUs.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(NavItemContactUs, [{
 			key: "handleClick",
 			value: function handleClick() {
@@ -14065,10 +14065,10 @@
 				);
 			}
 		}]);
-	
+
 		return NavItemContactUs;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = NavItemContactUs;
 	module.exports = exports["default"];
 
@@ -14077,34 +14077,34 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var NavItemManageAlerts = (function (_React$Component) {
 		_inherits(NavItemManageAlerts, _React$Component);
-	
+
 		function NavItemManageAlerts() {
 			_classCallCheck(this, NavItemManageAlerts);
-	
+
 			_get(Object.getPrototypeOf(NavItemManageAlerts.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(NavItemManageAlerts, [{
 			key: "handleClick",
 			value: function handleClick() {
@@ -14142,10 +14142,10 @@
 				);
 			}
 		}]);
-	
+
 		return NavItemManageAlerts;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = NavItemManageAlerts;
 	module.exports = exports["default"];
 
@@ -14154,15 +14154,15 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _LeftNav = __webpack_require__(143);
-	
+
 	var _LeftNav2 = _interopRequireDefault(_LeftNav);
 
 	exports["default"] = _LeftNav2["default"];
@@ -14173,46 +14173,46 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _redux = __webpack_require__(11);
-	
+
 	var _reactRedux = __webpack_require__(20);
-	
+
 	var _actionsPageActions = __webpack_require__(31);
-	
+
 	var PageActions = _interopRequireWildcard(_actionsPageActions);
-	
+
 	var EscHandler = (function (_Component) {
 		_inherits(EscHandler, _Component);
-	
+
 		function EscHandler(props) {
 			_classCallCheck(this, EscHandler);
-	
+
 			_get(Object.getPrototypeOf(EscHandler.prototype), "constructor", this).call(this, props);
 			this.handleEscKeyPress = this.handleEscKeyPress.bind(this);
 			this.handleClick = this.handleClick.bind(this);
 		}
-	
+
 		_createClass(EscHandler, [{
 			key: "componentDidMount",
 			value: function componentDidMount() {
@@ -14256,18 +14256,18 @@
 				);
 			}
 		}]);
-	
+
 		return EscHandler;
 	})(_react.Component);
-	
+
 	EscHandler.propTypes = {
 		enabled: _react.PropTypes.bool.isRequired
 	};
-	
+
 	function mapDispatchToProps(dispatch) {
 		return (0, _redux.bindActionCreators)(PageActions, dispatch);
 	}
-	
+
 	exports["default"] = (0, _reactRedux.connect)(null, mapDispatchToProps)(EscHandler);
 	module.exports = exports["default"];
 
@@ -14276,51 +14276,51 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _reactRedux = __webpack_require__(20);
-	
+
 	var _redux = __webpack_require__(11);
-	
+
 	var _actionsPageActions = __webpack_require__(31);
-	
+
 	var PageActions = _interopRequireWildcard(_actionsPageActions);
-	
+
 	var HideRight = (function (_React$Component) {
 		_inherits(HideRight, _React$Component);
-	
+
 		function HideRight() {
 			_classCallCheck(this, HideRight);
-	
+
 			_get(Object.getPrototypeOf(HideRight.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(HideRight, [{
 			key: "render",
 			value: function render() {
 				var _props = this.props;
 				var rightPane = _props.rightPane;
 				var toggleRightPane = _props.toggleRightPane;
-	
+
 				var d = rightPane ? "M 15 4 L 26 15 L 15 26" : "M 15 4 L 4 15 L 15 26";
 				return _react2["default"].createElement(
 					"div",
@@ -14334,22 +14334,22 @@
 				);
 			}
 		}]);
-	
+
 		return HideRight;
 	})(_react2["default"].Component);
-	
+
 	HideRight.propTypes = {
 		rightPane: _react.PropTypes.bool.isRequired
 	};
-	
+
 	function mapDispatchToProps(dispatch) {
 		return { toggleRightPane: (0, _redux.bindActionCreators)(PageActions.toggleRightPane, dispatch) };
 	}
-	
+
 	exports["default"] = (0, _reactRedux.connect)(function (state) {
 		return state;
 	}, mapDispatchToProps)(HideRight);
-	
+
 	// 					<path d="M 15 4 L 26 15 L 15 26" stroke="black" strokeWidth="4" />
 	// 					<path d="M 15 4 L 4 15 L 15 26" stroke="black" strokeWidth="4" />
 	module.exports = exports["default"];
@@ -14359,34 +14359,34 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var BackgroundText = (function (_React$Component) {
 		_inherits(BackgroundText, _React$Component);
-	
+
 		function BackgroundText() {
 			_classCallCheck(this, BackgroundText);
-	
+
 			_get(Object.getPrototypeOf(BackgroundText.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(BackgroundText, [{
 			key: "render",
 			value: function render() {
@@ -14396,7 +14396,7 @@
 				var height = _props.height;
 				var security = _props.security;
 				var interval = this.context.interval;
-	
+
 				return _react2["default"].createElement(
 					"text",
 					{ x: x, y: y,
@@ -14408,14 +14408,14 @@
 				);
 			}
 		}]);
-	
+
 		return BackgroundText;
 	})(_react2["default"].Component);
-	
+
 	BackgroundText.contextTypes = {
 		interval: _react2["default"].PropTypes.string.isRequired
 	};
-	
+
 	exports["default"] = BackgroundText;
 	module.exports = exports["default"];
 
@@ -14424,82 +14424,82 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _redux = __webpack_require__(11);
-	
+
 	var _reactRedux = __webpack_require__(20);
-	
+
 	var _SecuritySearchSelector = __webpack_require__(164);
-	
+
 	var _SecuritySearchSelector2 = _interopRequireDefault(_SecuritySearchSelector);
-	
+
 	var _ChartTypeSelector = __webpack_require__(159);
-	
+
 	var _ChartTypeSelector2 = _interopRequireDefault(_ChartTypeSelector);
-	
+
 	var _Indicators = __webpack_require__(162);
-	
+
 	var _Indicators2 = _interopRequireDefault(_Indicators);
-	
+
 	var _ChartSettings = __webpack_require__(158);
-	
+
 	var _ChartSettings2 = _interopRequireDefault(_ChartSettings);
-	
+
 	var _ChartWidget = __webpack_require__(160);
-	
+
 	var _ChartWidget2 = _interopRequireDefault(_ChartWidget);
-	
+
 	var _SettingsModal = __webpack_require__(165);
-	
+
 	var _SettingsModal2 = _interopRequireDefault(_SettingsModal);
-	
+
 	var _componentsMiscEscHandler = __webpack_require__(151);
-	
+
 	var _componentsMiscEscHandler2 = _interopRequireDefault(_componentsMiscEscHandler);
-	
+
 	var _actionsChartPageActions = __webpack_require__(30);
-	
+
 	var ChartPageActions = _interopRequireWildcard(_actionsChartPageActions);
-	
+
 	var ChartComponent = (function (_Component) {
 		_inherits(ChartComponent, _Component);
-	
+
 		function ChartComponent(props) {
 			_classCallCheck(this, ChartComponent);
-	
+
 			_get(Object.getPrototypeOf(ChartComponent.prototype), "constructor", this).call(this, props);
 			this.handleIndicatorSettingsChange = this.handleIndicatorSettingsChange.bind(this);
 			this.handleChartSettingsChange = this.handleChartSettingsChange.bind(this);
 			// this.getDimensions = this.getDimensions.bind(this);
 		}
-	
+
 		_createClass(ChartComponent, [{
 			key: "handleSecuritySelect",
 			value: function handleSecuritySelect(exchange, security) {
 				var actions = this.props.actions;
-	
+
 				// actions.securitySearch(this.props.index, query)
 				console.log(exchange, security);
 			}
@@ -14520,7 +14520,7 @@
 				var securitySelector = _props.securitySelector;
 				var security = securitySelector.security;
 				var exchange = securitySelector.exchange;
-	
+
 				if (!data) actions.loadData(index, security, exchange);
 			}
 		}, {
@@ -14533,7 +14533,7 @@
 				var securitySelector = _props2.securitySelector;
 				var security = securitySelector.security;
 				var exchange = securitySelector.exchange;
-	
+
 				// if (!data) actions.loadData(index, security, exchange);
 			}
 		}, {
@@ -14542,7 +14542,7 @@
 				var _props3 = this.props;
 				var actions = _props3.actions;
 				var index = _props3.index;
-	
+
 				// console.log(chartType, options);
 				actions.showChartSettings(index, options);
 			}
@@ -14552,7 +14552,7 @@
 				var _props4 = this.props;
 				var actions = _props4.actions;
 				var index = _props4.index;
-	
+
 				actions.showChartIndicatorSettings(index, reference, options);
 			}
 		}, {
@@ -14588,7 +14588,7 @@
 				var settingsDropDownToggle = actions.settingsDropDownToggle;
 				var changeSettings = actions.changeSettings;
 				var changeChartSettings = actions.changeChartSettings;
-	
+
 				var widget = !data ? _react2["default"].createElement(
 					"div",
 					null,
@@ -14605,7 +14605,7 @@
 					grid: chartSettings.settings.showGrid,
 					onIndicatorSettingsChange: this.handleIndicatorSettingsChange,
 					onChartSettingsChange: this.handleChartSettingsChange });
-	
+
 				var settingsModal = showSettings ? _react2["default"].createElement(_SettingsModal2["default"], { title: "Change Settings",
 					settingsType: settingsType, chartType: chartSelector.chartType,
 					onSubmit: updateChartIndicatorSettings.bind(null, index),
@@ -14639,10 +14639,10 @@
 				);
 			}
 		}]);
-	
+
 		return ChartComponent;
 	})(_react.Component);
-	
+
 	ChartComponent.propTypes = {
 		index: _react.PropTypes.number.isRequired,
 		securitySelector: _react.PropTypes.object.isRequired,
@@ -14651,11 +14651,11 @@
 		chartSettings: _react.PropTypes.object.isRequired,
 		actions: _react.PropTypes.object.isRequired
 	};
-	
+
 	function mapDispatchToProps(dispatch) {
 		return { actions: (0, _redux.bindActionCreators)(ChartPageActions, dispatch) };
 	}
-	
+
 	exports["default"] = (0, _reactRedux.connect)(function (state) {
 		return state;
 	}, mapDispatchToProps)(ChartComponent);
@@ -14664,7 +14664,7 @@
 	onDropDownToggle={exchangeSelectDropDownToggle.bind(null, index, !securitySelector.showExchangeSelectorDropDown)}
 	onExchangeSelect={exchangeSelect.bind(null, index)}
 	onSecurityFocus={securityFocus.bind(null, index)}
-	onSecuritySearch={securitySearch.bind(null, index)} 
+	onSecuritySearch={securitySearch.bind(null, index)}
 	onSecuritySelect={this.handleSecuritySelect} /> */
 
 /***/ },
@@ -14672,44 +14672,44 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _redux = __webpack_require__(11);
-	
+
 	var _reactRedux = __webpack_require__(20);
-	
+
 	var _actionsChartPageActions = __webpack_require__(30);
-	
+
 	var ChartPageActions = _interopRequireWildcard(_actionsChartPageActions);
-	
+
 	var ChartComponentLayoutChooser = (function (_React$Component) {
 		_inherits(ChartComponentLayoutChooser, _React$Component);
-	
+
 		function ChartComponentLayoutChooser() {
 			_classCallCheck(this, ChartComponentLayoutChooser);
-	
+
 			_get(Object.getPrototypeOf(ChartComponentLayoutChooser.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(ChartComponentLayoutChooser, [{
 			key: "handleLayoutChange",
 			value: function handleLayoutChange(layoutType) {
@@ -14785,18 +14785,18 @@
 				);
 			}
 		}]);
-	
+
 		return ChartComponentLayoutChooser;
 	})(_react2["default"].Component);
-	
+
 	function mapDispatchToProps(dispatch) {
 		var _bindActionCreators = (0, _redux.bindActionCreators)(ChartPageActions, dispatch);
-	
+
 		var changeLayout = _bindActionCreators.changeLayout;
-	
+
 		return { onLayoutChange: changeLayout };
 	}
-	
+
 	exports["default"] = (0, _reactRedux.connect)(null, mapDispatchToProps)(ChartComponentLayoutChooser);
 	module.exports = exports["default"];
 
@@ -14805,63 +14805,63 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _redux = __webpack_require__(11);
-	
+
 	var _reactRedux = __webpack_require__(20);
-	
+
 	var _ChartComponent = __webpack_require__(154);
-	
+
 	var _ChartComponent2 = _interopRequireDefault(_ChartComponent);
-	
+
 	var _actionsChartPageActions = __webpack_require__(30);
-	
+
 	var ChartPageActions = _interopRequireWildcard(_actionsChartPageActions);
-	
+
 	var ChartSectionContent = (function (_Component) {
 		_inherits(ChartSectionContent, _Component);
-	
+
 		function ChartSectionContent(props) {
 			_classCallCheck(this, ChartSectionContent);
-	
+
 			_get(Object.getPrototypeOf(ChartSectionContent.prototype), "constructor", this).call(this, props);
 			this.handleWindowResize = this.handleWindowResize.bind(this);
 		}
-	
+
 		_createClass(ChartSectionContent, [{
 			key: "componentDidMount",
 			value: function componentDidMount() {
 				var resized = this.props.pageProps.resized;
-	
+
 				if (resized) this.handleWindowResize();
 			}
 		}, {
 			key: "componentDidUpdate",
 			value: function componentDidUpdate() {
 				var resized = this.props.pageProps.resized;
-	
+
 				if (resized) this.handleWindowResize();
 			}
 		}, {
@@ -14871,16 +14871,16 @@
 				var width = el.clientWidth;
 				var height = el.clientHeight;
 				// console.log(el);
-	
+
 				var resizeChart = this.props.resizeChart;
-	
+
 				resizeChart(width, height);
 			}
 		}, {
 			key: "render",
 			value: function render() {
 				var _this = this;
-	
+
 				return _react2["default"].createElement(
 					"div",
 					{ className: "section-body", ref: "page" },
@@ -14890,14 +14890,14 @@
 				);
 			}
 		}]);
-	
+
 		return ChartSectionContent;
 	})(_react.Component);
-	
+
 	ChartSectionContent.propTypes = {
 		pageProps: _react.PropTypes.object.isRequired
 	};
-	
+
 	function mapDispatchToProps(dispatch) {
 		return { resizeChart: (0, _redux.bindActionCreators)(ChartPageActions.resizeChart, dispatch) };
 	}
@@ -14911,42 +14911,42 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _miscHideRight = __webpack_require__(152);
-	
+
 	var _miscHideRight2 = _interopRequireDefault(_miscHideRight);
-	
+
 	var _ChartComponentLayoutChooser = __webpack_require__(155);
-	
+
 	var _ChartComponentLayoutChooser2 = _interopRequireDefault(_ChartComponentLayoutChooser);
-	
+
 	var ChartSectionHead = (function (_React$Component) {
 		_inherits(ChartSectionHead, _React$Component);
-	
+
 		function ChartSectionHead() {
 			_classCallCheck(this, ChartSectionHead);
-	
+
 			_get(Object.getPrototypeOf(ChartSectionHead.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(ChartSectionHead, [{
 			key: "render",
 			value: function render() {
@@ -14958,10 +14958,10 @@
 				);
 			}
 		}]);
-	
+
 		return ChartSectionHead;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = ChartSectionHead;
 	module.exports = exports["default"];
 
@@ -14970,46 +14970,46 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _classnames = __webpack_require__(25);
-	
+
 	var _classnames2 = _interopRequireDefault(_classnames);
-	
+
 	var ChartSettings = (function (_React$Component) {
 		_inherits(ChartSettings, _React$Component);
-	
+
 		function ChartSettings() {
 			_classCallCheck(this, ChartSettings);
-	
+
 			_get(Object.getPrototypeOf(ChartSettings.prototype), "constructor", this).call(this);
 			this.handleShowGridToggle = this.handleShowGridToggle.bind(this);
 		}
-	
+
 		_createClass(ChartSettings, [{
 			key: "handleShowGridToggle",
 			value: function handleShowGridToggle() {
 				var settings = this.props.settings;
-	
+
 				this.props.onChangeSettings(_extends({}, settings, {
 					showGrid: !settings.showGrid
 				}));
@@ -15026,7 +15026,7 @@
 					"open": this.props.showDropDown
 				});
 				var settings = this.props.settings;
-	
+
 				return _react2["default"].createElement(
 					"div",
 					{ className: classes, "data-intro": "change settings for the chart", "data-step": 3 },
@@ -15090,10 +15090,10 @@
 				);
 			}
 		}]);
-	
+
 		return ChartSettings;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = ChartSettings;
 	module.exports = exports["default"];
 
@@ -15102,44 +15102,44 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _constantsChartTypes = __webpack_require__(32);
-	
+
 	var ChartTypes = _interopRequireWildcard(_constantsChartTypes);
-	
+
 	var _classnames = __webpack_require__(25);
-	
+
 	var _classnames2 = _interopRequireDefault(_classnames);
-	
+
 	var ChartTypeSelector = (function (_React$Component) {
 		_inherits(ChartTypeSelector, _React$Component);
-	
+
 		function ChartTypeSelector() {
 			_classCallCheck(this, ChartTypeSelector);
-	
+
 			_get(Object.getPrototypeOf(ChartTypeSelector.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(ChartTypeSelector, [{
 			key: "selectChartType",
 			value: function selectChartType(chartType) {
@@ -15243,10 +15243,10 @@
 				);
 			}
 		}]);
-	
+
 		return ChartTypeSelector;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = ChartTypeSelector;
 	module.exports = exports["default"];
 
@@ -15255,57 +15255,57 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x6, _x7, _x8) { var _again = true; _function: while (_again) { var object = _x6, property = _x7, receiver = _x8; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x6 = parent; _x7 = property; _x8 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _reactDom = __webpack_require__(69);
-	
+
 	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
+
 	var _d3 = __webpack_require__(5);
-	
+
 	var _d32 = _interopRequireDefault(_d3);
-	
+
 	var _reactStockcharts = __webpack_require__(39);
-	
+
 	var _reactStockcharts2 = _interopRequireDefault(_reactStockcharts);
-	
+
 	var _jsCookie = __webpack_require__(60);
-	
+
 	var _jsCookie2 = _interopRequireDefault(_jsCookie);
-	
+
 	var _utilsPureComponent = __webpack_require__(178);
-	
+
 	var _utilsPureComponent2 = _interopRequireDefault(_utilsPureComponent);
-	
+
 	var _constantsChartTypes = __webpack_require__(32);
-	
+
 	var ChartTypes = _interopRequireWildcard(_constantsChartTypes);
-	
+
 	var _BackgroundText = __webpack_require__(153);
-	
+
 	var _BackgroundText2 = _interopRequireDefault(_BackgroundText);
-	
+
 	var ChartCanvas = _reactStockcharts2["default"].ChartCanvas;
 	var Chart = _reactStockcharts2["default"].Chart;
 	var DataSeries = _reactStockcharts2["default"].DataSeries;
@@ -15349,14 +15349,14 @@
 	var BollingerBand = _ReStock$indicator.BollingerBand;
 	var RSI = _ReStock$indicator.RSI;
 	var FullStochasticOscillator = _ReStock$indicator.FullStochasticOscillator;
-	
+
 	var margin = { left: 70, right: 70, top: 10, bottom: 30 };
 	var dateFormat = _d32["default"].time.format("%Y-%m-%d");
-	
+
 	function getXAxis(show, verticalGrid) {
 		return show ? _react2["default"].createElement(XAxis, _extends({ axisAt: "bottom", orient: "bottom" }, verticalGrid)) : _react2["default"].createElement(XAxis, { axisAt: "bottom", orient: "bottom", showTicks: false, outerTickSize: 0 });
 	}
-	
+
 	function getMainChartType(type) {
 		switch (type.value) {
 			case ChartTypes.AREA.value:
@@ -15389,13 +15389,13 @@
 				}
 		}
 	}
-	
+
 	function getConfig(each, dy, movingAverageTooltipExists, chartHeight, verticalGrid, logger) {
 		var chart, dataSeries, toolTip, toolTipDY, indicator;
 		var chartId = each.chartId;
 		var dataSeriesId = each.dataSeriesId;
 		var options = each.options;
-	
+
 		// console.log(options);
 		switch (each.type) {
 			case "BollingerBand":
@@ -15516,20 +15516,20 @@
 		}
 		return { chart: chart, dataSeries: dataSeries, toolTip: toolTip, toolTipDY: toolTipDY };
 	}
-	
+
 	var ChartWidget = (function (_PureComponent) {
 		_inherits(ChartWidget, _PureComponent);
-	
+
 		function ChartWidget() {
 			_classCallCheck(this, ChartWidget);
-	
+
 			_get(Object.getPrototypeOf(ChartWidget.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		/* ChartWidget.propTypes = {
 	 };
 	 */
-	
+
 		_createClass(ChartWidget, [{
 			key: "componentWillUnmount",
 			value: function componentWillUnmount() {
@@ -15544,16 +15544,16 @@
 			key: "componentDidMount",
 			value: function componentDidMount() {
 				var cookie = _jsCookie2["default"].get("demoComplete");
-	
+
 				if (cookie !== undefined) {
 					var _props = this.props;
 					var width = _props.width;
 					var height = _props.height;
-	
+
 					var gridHeight = height - margin.bottom;
-	
+
 					var el = _reactDom2["default"].findDOMNode(this.refs.canvas).parentNode;
-	
+
 					var tooltip = _reactDom2["default"].findDOMNode(this.refs.MACDTooltip).innerHTML.replace(/data-reactid="[^"]*"/g, "");
 					// d3.select(el).append("svg").attr("width", 400).attr("height", 20).append(svgTooltip);
 					// tooltip.createElement
@@ -15577,20 +15577,20 @@
 				var _props3 = this.props;
 				var onIndicatorSettingsChange = _props3.onIndicatorSettingsChange;
 				var onChartSettingsChange = _props3.onChartSettingsChange;
-	
+
 				var chartSettings = transforms[transforms.length - 1].options;
 				// console.log(type, exchange, security);
 				var MainChartSeries = getMainChartType(type);
-	
+
 				var gridHeight = height - margin.top - margin.bottom;
 				var gridWidth = width - margin.left - margin.right;
-	
+
 				var chartHeight = Math.min(gridHeight / 5, 125);
-	
+
 				var horizontalGrid = grid ? { innerTickSize: -1 * gridWidth, tickStrokeOpacity: 0.2 } : {};
-	
+
 				var verticalGrid = grid ? { innerTickSize: -1 * gridHeight, tickStrokeOpacity: 0.2 } : {};
-	
+
 				var chartId = 3,
 				    dataSeriesId = 1;
 				var charts = [function (showXAxis, dataSeries) {
@@ -15633,7 +15633,7 @@
 				var dataSeries = [];
 				var toolTips = [];
 				var toolTipDY = 5;
-	
+
 				var movingAverageTooltipExists = false;
 				for (var i = 0; i < indicators.length; i++) {
 					var each = indicators[i];
@@ -15655,7 +15655,7 @@
 				var chartsJSX = [];
 				for (var i = 0; i < charts.length; i++) {
 					var each;
-	
+
 					if (i === charts.length - 1) {
 						// last
 						each = charts[i](true, dataSeries, charts.length - i - 1);
@@ -15684,10 +15684,10 @@
 				);
 			}
 		}]);
-	
+
 		return ChartWidget;
 	})(_utilsPureComponent2["default"]);
-	
+
 	exports["default"] = ChartWidget;
 	module.exports = exports["default"];
 
@@ -15696,34 +15696,34 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var ExchangeList = (function (_React$Component) {
 		_inherits(ExchangeList, _React$Component);
-	
+
 		function ExchangeList() {
 			_classCallCheck(this, ExchangeList);
-	
+
 			_get(Object.getPrototypeOf(ExchangeList.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(ExchangeList, [{
 			key: "handleExchangeSelect",
 			value: function handleExchangeSelect(exchange, e) {
@@ -15766,10 +15766,10 @@
 				);
 			}
 		}]);
-	
+
 		return ExchangeList;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = ExchangeList;
 	module.exports = exports["default"];
 
@@ -15778,40 +15778,40 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _classnames = __webpack_require__(25);
-	
+
 	var _classnames2 = _interopRequireDefault(_classnames);
-	
+
 	var INDICATORS = [{ name: "Bollinger Bands", onClickParams: { type: "BollingerBand" } }, { name: "MACD", onClickParams: { type: "MACD" } }, { name: "Moving Average - Exponential", onClickParams: { type: "EMA" } }, { name: "Moving Average - Simple", onClickParams: { type: "SMA" } }, { name: "RSI", onClickParams: { type: "RSI" } }, { name: "Stochastics", onClickParams: { type: "FullStochasticOscillator" } }];
-	
+
 	var Indicators = (function (_React$Component) {
 		_inherits(Indicators, _React$Component);
-	
+
 		function Indicators() {
 			_classCallCheck(this, Indicators);
-	
+
 			_get(Object.getPrototypeOf(Indicators.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		/*
 	 						<li className=" search">
 	 							<form className="navbar-form navbar-left" role="search">
@@ -15821,7 +15821,7 @@
 	 							</form>
 	 						</li>
 	 */
-	
+
 		_createClass(Indicators, [{
 			key: "render",
 			value: function render() {
@@ -15830,7 +15830,7 @@
 					"open": this.props.showDropDown
 				});
 				var onIndicatorAdd = this.props.onIndicatorAdd;
-	
+
 				return _react2["default"].createElement(
 					"div",
 					{ className: "indicators", "data-intro": "add indicators to a chart", "data-step": 2 },
@@ -15864,10 +15864,10 @@
 				);
 			}
 		}]);
-	
+
 		return Indicators;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = Indicators;
 	module.exports = exports["default"];
 
@@ -15876,34 +15876,34 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var Loading = (function (_React$Component) {
 		_inherits(Loading, _React$Component);
-	
+
 		function Loading() {
 			_classCallCheck(this, Loading);
-	
+
 			_get(Object.getPrototypeOf(Loading.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(Loading, [{
 			key: "render",
 			value: function render() {
@@ -15919,19 +15919,19 @@
 				);
 			}
 		}]);
-	
+
 		return Loading;
 	})(_react2["default"].Component);
-	
+
 	var Error = (function (_React$Component2) {
 		_inherits(Error, _React$Component2);
-	
+
 		function Error() {
 			_classCallCheck(this, Error);
-	
+
 			_get(Object.getPrototypeOf(Error.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(Error, [{
 			key: "render",
 			value: function render() {
@@ -15947,19 +15947,19 @@
 				);
 			}
 		}]);
-	
+
 		return Error;
 	})(_react2["default"].Component);
-	
+
 	var EachResult = (function (_React$Component3) {
 		_inherits(EachResult, _React$Component3);
-	
+
 		function EachResult() {
 			_classCallCheck(this, EachResult);
-	
+
 			_get(Object.getPrototypeOf(EachResult.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(EachResult, [{
 			key: "render",
 			value: function render() {
@@ -15985,19 +15985,19 @@
 				);
 			}
 		}]);
-	
+
 		return EachResult;
 	})(_react2["default"].Component);
-	
+
 	var PageNavigation = (function (_React$Component4) {
 		_inherits(PageNavigation, _React$Component4);
-	
+
 		function PageNavigation() {
 			_classCallCheck(this, PageNavigation);
-	
+
 			_get(Object.getPrototypeOf(PageNavigation.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(PageNavigation, [{
 			key: "showPrevPage",
 			value: function showPrevPage() {}
@@ -16049,24 +16049,24 @@
 				);
 			}
 		}]);
-	
+
 		return PageNavigation;
 	})(_react2["default"].Component);
-	
+
 	var ExchangeHead = (function (_React$Component5) {
 		_inherits(ExchangeHead, _React$Component5);
-	
+
 		function ExchangeHead() {
 			_classCallCheck(this, ExchangeHead);
-	
+
 			_get(Object.getPrototypeOf(ExchangeHead.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(ExchangeHead, [{
 			key: "render",
 			value: function render() {
 				var exchange = this.props.exchange;
-	
+
 				return _react2["default"].createElement(
 					"li",
 					{ className: "dropdown-header" },
@@ -16074,19 +16074,19 @@
 				);
 			}
 		}]);
-	
+
 		return ExchangeHead;
 	})(_react2["default"].Component);
-	
+
 	var ExchangeResult = (function (_React$Component6) {
 		_inherits(ExchangeResult, _React$Component6);
-	
+
 		function ExchangeResult() {
 			_classCallCheck(this, ExchangeResult);
-	
+
 			_get(Object.getPrototypeOf(ExchangeResult.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(ExchangeResult, [{
 			key: "render",
 			value: function render() {
@@ -16094,7 +16094,7 @@
 				var security = _props.security;
 				var exchange = _props.exchange;
 				var onClick = _props.onClick;
-	
+
 				return _react2["default"].createElement(
 					"li",
 					{ className: "ticker" },
@@ -16114,19 +16114,19 @@
 				);
 			}
 		}]);
-	
+
 		return ExchangeResult;
 	})(_react2["default"].Component);
-	
+
 	var SecuritySearchResult = (function (_React$Component7) {
 		_inherits(SecuritySearchResult, _React$Component7);
-	
+
 		function SecuritySearchResult() {
 			_classCallCheck(this, SecuritySearchResult);
-	
+
 			_get(Object.getPrototypeOf(SecuritySearchResult.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(SecuritySearchResult, [{
 			key: "render",
 			value: function render() {
@@ -16136,9 +16136,9 @@
 				var results = _props2.results;
 				var error = _props2.error;
 				var onSelect = _props2.onSelect;
-	
+
 				if (!showDropDown) return null;
-	
+
 				var items = [];
 				if (results.exchange) {
 					items = results.exchange.map(function (exchange, idx) {
@@ -16160,10 +16160,10 @@
 				);
 			}
 		}]);
-	
+
 		return SecuritySearchResult;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = SecuritySearchResult;
 	module.exports = exports["default"];
 
@@ -16172,49 +16172,49 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _classnames = __webpack_require__(25);
-	
+
 	var _classnames2 = _interopRequireDefault(_classnames);
-	
+
 	var _ExchangeList = __webpack_require__(161);
-	
+
 	var _ExchangeList2 = _interopRequireDefault(_ExchangeList);
-	
+
 	var _SecuritySearchResult = __webpack_require__(163);
-	
+
 	var _SecuritySearchResult2 = _interopRequireDefault(_SecuritySearchResult);
-	
+
 	var SecuritySearchSelector = (function (_React$Component) {
 		_inherits(SecuritySearchSelector, _React$Component);
-	
+
 		function SecuritySearchSelector() {
 			_classCallCheck(this, SecuritySearchSelector);
-	
+
 			_get(Object.getPrototypeOf(SecuritySearchSelector.prototype), "constructor", this).call(this);
 			this.focusSearchText = this.focusSearchText.bind(this);
 			// this.handleExchangeSelect = this.handleExchangeSelect.bind(this);
 			this.handleSearch = this.handleSearch.bind(this);
 		}
-	
+
 		_createClass(SecuritySearchSelector, [{
 			key: "componentDidMount",
 			value: function componentDidMount() {
@@ -16284,10 +16284,10 @@
 				);
 			}
 		}]);
-	
+
 		return SecuritySearchSelector;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = SecuritySearchSelector;
 	module.exports = exports["default"];
 
@@ -16296,25 +16296,25 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	function getLabelFor(key) {
 		return key.split("").map(function (each, idx) {
 			return idx === 0 ? each.toUpperCase() : each;
@@ -16331,20 +16331,20 @@
 		});
 		return newOptions;
 	}
-	
+
 	var SettingsModal = (function (_React$Component) {
 		_inherits(SettingsModal, _React$Component);
-	
+
 		function SettingsModal(props) {
 			_classCallCheck(this, SettingsModal);
-	
+
 			_get(Object.getPrototypeOf(SettingsModal.prototype), "constructor", this).call(this, props);
 			this.initState = this.initState.bind(this);
 			this.handleSubmit = this.handleSubmit.bind(this);
 			this.valueLink = this.valueLink.bind(this);
 			this.handleChange = this.handleChange.bind(this);
 		}
-	
+
 		_createClass(SettingsModal, [{
 			key: "handleSubmit",
 			value: function handleSubmit(e) {
@@ -16354,7 +16354,7 @@
 				var options = _props.options;
 				var settingsType = _props.settingsType;
 				var onChartSettingsChange = _props.onChartSettingsChange;
-	
+
 				var newOptions = getOptionsFromState(options, this.state);
 				if (settingsType === "Chart") {
 					onChartSettingsChange(newOptions);
@@ -16362,9 +16362,9 @@
 					var type = options.indicatorType;
 					var chartId = options.chartId;
 					var dataSeriesId = options.dataSeriesId;
-	
+
 					var indicatorToAdd = { type: type, chartId: chartId, dataSeriesId: dataSeriesId, options: newOptions };
-	
+
 					onSubmit(indicatorToAdd);
 				}
 			}
@@ -16390,9 +16390,9 @@
 			key: "initState",
 			value: function initState(props) {
 				var options = props.options;
-	
+
 				if (!options) return;
-	
+
 				var keys = Object.keys(options).filter(function (key) {
 					return key !== "indicatorType";
 				}).filter(function (key) {
@@ -16404,12 +16404,12 @@
 				}).filter(function (key) {
 					return typeof options[key] !== "function";
 				});
-	
+
 				var optionsInState = {};
 				keys.forEach(function (key) {
 					return optionsInState[key] = options[key];
 				});
-	
+
 				this.setState(optionsInState);
 			}
 		}, {
@@ -16431,7 +16431,7 @@
 			key: "render",
 			value: function render() {
 				var _this = this;
-	
+
 				var _props2 = this.props;
 				var title = _props2.title;
 				var options = _props2.options;
@@ -16440,10 +16440,10 @@
 				var onDestroy = _props2.onDestroy;
 				var settingsType = _props2.settingsType;
 				var chartType = _props2.chartType;
-	
+
 				var submitLabel = "Change";
 				var destroyLabel = "Remove this";
-	
+
 				var showDestroy = true;
 				var settingsTitle;
 				if (settingsType === "Chart" && ["RENKO", "KAGI", "POINT_FIGURE"].indexOf(chartType.value) > -1) {
@@ -16454,7 +16454,7 @@
 				} else {
 					settingsTitle = title + " for " + options.indicatorType;
 				}
-	
+
 				// console.log(settingsType, chartType);
 				return _react2["default"].createElement(
 					"div",
@@ -16528,10 +16528,10 @@
 				);
 			}
 		}]);
-	
+
 		return SettingsModal;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = SettingsModal;
 	module.exports = exports["default"];
 
@@ -16540,27 +16540,27 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _ChartSectionHead = __webpack_require__(157);
-	
+
 	var _ChartSectionHead2 = _interopRequireDefault(_ChartSectionHead);
-	
+
 	var _ChartSectionContent = __webpack_require__(156);
-	
+
 	var _ChartSectionContent2 = _interopRequireDefault(_ChartSectionContent);
-	
+
 	var _actionsChartPageActions = __webpack_require__(30);
-	
+
 	var Actions = _interopRequireWildcard(_actionsChartPageActions);
-	
+
 	exports["default"] = {
 		SectionHead: _ChartSectionHead2["default"],
 		SectionContent: _ChartSectionContent2["default"],
@@ -16573,17 +16573,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	var _ChartPage = __webpack_require__(166);
-	
+
 	var ChartPage = _interopRequireWildcard(_ChartPage);
-	
+
 	exports["default"] = [{ route: "/", page: ChartPage }, { route: "/chart", page: ChartPage }];
 	module.exports = exports["default"];
 
@@ -16592,34 +16592,34 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var RightPane = (function (_React$Component) {
 		_inherits(RightPane, _React$Component);
-	
+
 		function RightPane() {
 			_classCallCheck(this, RightPane);
-	
+
 			_get(Object.getPrototypeOf(RightPane.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(RightPane, [{
 			key: "render",
 			value: function render() {
@@ -16634,10 +16634,10 @@
 				);
 			}
 		}]);
-	
+
 		return RightPane;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = RightPane;
 	module.exports = exports["default"];
 
@@ -16646,15 +16646,15 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _RightPane = __webpack_require__(168);
-	
+
 	var _RightPane2 = _interopRequireDefault(_RightPane);
 
 	exports["default"] = _RightPane2["default"];
@@ -16665,95 +16665,95 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _redux = __webpack_require__(11);
-	
+
 	var _reactRedux = __webpack_require__(20);
-	
+
 	var _reduxThunk = __webpack_require__(296);
-	
+
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
-	
+
 	var _ChartXLBasePage = __webpack_require__(171);
-	
+
 	var _ChartXLBasePage2 = _interopRequireDefault(_ChartXLBasePage);
-	
+
 	var _reducers = __webpack_require__(175);
-	
+
 	var _reducers2 = _interopRequireDefault(_reducers);
-	
+
 	var DEBUG = false && (false);
-	
+
 	function getFinalStore() {
 		var finalCreateStore = undefined;
 		if (DEBUG) {
 			var _require = __webpack_require__(248);
-	
+
 			var devTools = _require.devTools;
 			var persistState = _require.persistState;
-	
+
 			finalCreateStore = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2["default"]), devTools(), persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)))(_redux.createStore);
 		} else {
 			finalCreateStore = (0, _redux.applyMiddleware)(_reduxThunk2["default"])(_redux.createStore);
 		}
-	
+
 		return finalCreateStore(_reducers2["default"]);
 	}
-	
+
 	var store = getFinalStore();
-	
+
 	if (false) {
 		module.hot.accept("../reducers", function () {
 			var nextReducer = require("../reducers");
 			store.replaceReducer(nextReducer);
 		});
 	}
-	
+
 	var App = (function (_React$Component) {
 		_inherits(App, _React$Component);
-	
+
 		function App() {
 			_classCallCheck(this, App);
-	
+
 			_get(Object.getPrototypeOf(App.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(App, [{
 			key: "render",
 			value: function render() {
 				var debug = null;
 				if (DEBUG) {
 					var _require2 = __webpack_require__(255);
-	
+
 					var DevTools = _require2.DevTools;
 					var DebugPanel = _require2.DebugPanel;
 					var LogMonitor = _require2.LogMonitor;
-	
+
 					debug = _react2["default"].createElement(
 						DebugPanel,
 						{ top: true, bottom: true, right: true },
 						_react2["default"].createElement(DevTools, { store: store, monitor: LogMonitor })
 					);
 				}
-	
+
 				return _react2["default"].createElement(
 					"div",
 					null,
@@ -16766,10 +16766,10 @@
 				);
 			}
 		}]);
-	
+
 		return App;
 	})(_react2["default"].Component);
-	
+
 	exports["default"] = App;
 	module.exports = exports["default"];
 
@@ -16778,64 +16778,64 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _d3 = __webpack_require__(5);
-	
+
 	var _d32 = _interopRequireDefault(_d3);
-	
+
 	var _reactRedux = __webpack_require__(20);
-	
+
 	var _redux = __webpack_require__(11);
-	
+
 	var _actionsPageActions = __webpack_require__(31);
-	
+
 	var PageActions = _interopRequireWildcard(_actionsPageActions);
-	
+
 	var _introJs = __webpack_require__(227);
-	
+
 	var _components = __webpack_require__(142);
-	
+
 	var _jsCookie = __webpack_require__(60);
-	
+
 	var _jsCookie2 = _interopRequireDefault(_jsCookie);
-	
+
 	var ChartXLBasePage = (function (_React$Component) {
 		_inherits(ChartXLBasePage, _React$Component);
-	
+
 		function ChartXLBasePage(props) {
 			_classCallCheck(this, ChartXLBasePage);
-	
+
 			_get(Object.getPrototypeOf(ChartXLBasePage.prototype), "constructor", this).call(this, props);
 			this.handleWindowResize = this.handleWindowResize.bind(this);
 		}
-	
+
 		/*
 	 				<div className="modal-backdrop fade in" />
 	 				<div style={{ position: "fixed", top: 0, right: 10, height: 40, width: 190, zIndex: 1999,
 	 					backgroundColor: "rgba(255, 255, 255, 0.9)" }}>
 	 				</div>
 	 */
-	
+
 		_createClass(ChartXLBasePage, [{
 			key: "componentWillUnmount",
 			value: function componentWillUnmount() {
@@ -16855,7 +16855,7 @@
 					_jsCookie2["default"].set("demoComplete", "" + (c + 1), { expires: 10, path: "/" });
 				};
 				var cookiePresent = c >= 2;
-	
+
 				// console.log(`value of cookie demoComplete is ${Cookies.get("demoComplete")}`)
 				if (!cookiePresent) {
 					setTimeout(function () {
@@ -16880,7 +16880,7 @@
 				var dispatch = _props.dispatch;
 				var route = _props.route;
 				var chartPageProps = _props.chartPageProps;
-	
+
 				var pages = _components.Pages.filter(function (each) {
 					return each.route === route;
 				});
@@ -16891,14 +16891,14 @@
 					});
 				}
 				var Page = pages[0].page;
-	
+
 				var SectionHead = Page.SectionHead;
 				var SectionContent = Page.SectionContent;
 				var Actions = Page.Actions;
-	
+
 				var header = moduleToggle.showHeader ? _react2["default"].createElement(_components.Header, null) : null;
 				var leftNav = moduleToggle.showLeftNav ? _react2["default"].createElement(_components.LeftNav, null) : null;
-	
+
 				return _react2["default"].createElement(
 					"div",
 					null,
@@ -16922,10 +16922,10 @@
 				);
 			}
 		}]);
-	
+
 		return ChartXLBasePage;
 	})(_react2["default"].Component);
-	
+
 	function mapStateToProps(state) {
 		return {
 			moduleToggle: state.moduleToggler,
@@ -16933,11 +16933,11 @@
 			chartPageProps: state.chartPage
 		};
 	}
-	
+
 	function mapDispatchToProps(dispatch) {
 		return { windowResize: (0, _redux.bindActionCreators)(PageActions.windowResize, dispatch) };
 	}
-	
+
 	exports["default"] = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ChartXLBasePage);
 	module.exports = exports["default"];
 
@@ -16946,9 +16946,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var styles = __webpack_require__(303);
-	
+
 	__webpack_require__(173);
 
 /***/ },
@@ -16956,21 +16956,21 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _reactDom = __webpack_require__(69);
-	
+
 	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
+
 	var _containersApp = __webpack_require__(170);
-	
+
 	var _containersApp2 = _interopRequireDefault(_containersApp);
-	
+
 	var rootInstance = _reactDom2["default"].render(_react2["default"].createElement(_containersApp2["default"], null), document.getElementById("app"));
 
 /***/ },
@@ -16978,36 +16978,36 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
-	
+
 	var _reactStockcharts = __webpack_require__(39);
-	
+
 	var _reactStockcharts2 = _interopRequireDefault(_reactStockcharts);
-	
+
 	var _constantsActionTypes = __webpack_require__(24);
-	
+
 	var _constantsChartTypes = __webpack_require__(32);
-	
+
 	var ChartTypes = _interopRequireWildcard(_constantsChartTypes);
-	
+
 	var _utils = __webpack_require__(179);
-	
+
 	var Utils = _interopRequireWildcard(_utils);
-	
+
 	var StockscaleTransformer = _reactStockcharts2["default"].transforms.StockscaleTransformer;
 	var defaultOptions = _reactStockcharts2["default"].indicator.defaultOptions;
-	
+
 	var initialState = {
 		chartComponent: [{
 			layout: "full",
@@ -17091,16 +17091,16 @@
 	// "full"
 	// "top", "bottom"
 	// "top-left", "top-right", "bottom-left", "bottom-right"
-	
+
 	function getEachDimension(n, width, height) {
 		var eachWidth = n <= 3 ? width - 15 : (width - 30) / 2;
 		var eachHeight = n === 1 ? height - 15 - 34 : n === 2 || n === 4 ? (height - (15 * 2 + 34 * 2)) / 2 - 1 : (height - (15 * 2 + 34 * 3)) / 3 - 1;
 		return { width: eachWidth, height: eachHeight };
 	}
-	
+
 	exports["default"] = function (state, action) {
 		if (state === undefined) state = initialState;
-	
+
 		// console.log(state, action);
 		switch (action.type) {
 			case _constantsActionTypes.CHART_PAGE_LAYOUT_CHANGE:
@@ -17108,7 +17108,7 @@
 					var width, height, chartComponent;
 					var l;
 					var dim;
-	
+
 					var _ret = (function () {
 						var _state = state;
 						width = _state.width;
@@ -17116,7 +17116,7 @@
 						chartComponent = _state.chartComponent;
 						l = action.layout.length;
 						dim = getEachDimension(l, width, height);
-	
+
 						// console.log(width, height, dim);
 						var last = chartComponent[chartComponent.length - 1];
 						var newChartComponent = action.layout.map(function (each, i) {
@@ -17125,12 +17125,12 @@
 							}
 							return _extends({}, last, { layout: each }, dim);
 						});
-	
+
 						return {
 							v: _extends({}, state, { chartComponent: newChartComponent })
 						};
 					})();
-	
+
 					if (typeof _ret === "object") return _ret.v;
 				}
 			case _constantsActionTypes.CHART_PAGE_SET_DATA:
@@ -17138,7 +17138,7 @@
 					// console.log("CHART_PAGE_SET_DATA", action);
 					var _state2 = state;
 					var chartComponent = _state2.chartComponent;
-	
+
 					var newChartComponent = chartComponent.map(function (each, idx) {
 						if (idx === action.index) return _extends({}, each, { data: action.data });
 						return each;
@@ -17149,7 +17149,7 @@
 				{
 					var _state3 = state;
 					var chartComponent = _state3.chartComponent;
-	
+
 					var newChartComponent = chartComponent.map(function (each, idx) {
 						if (idx === action.index) return _extends({}, each, { showSettings: true, settingsType: "Chart", settings: action.settings });
 						return each;
@@ -17160,7 +17160,7 @@
 				{
 					var _state4 = state;
 					var chartComponent = _state4.chartComponent;
-	
+
 					var newChartComponent = chartComponent.map(function (each, idx) {
 						if (idx === action.index) return _extends({}, each, { showSettings: true, settingsType: "Indicator", settings: action.settings });
 						return each;
@@ -17171,7 +17171,7 @@
 				{
 					var _state5 = state;
 					var chartComponent = _state5.chartComponent;
-	
+
 					var newChartComponent = chartComponent.map(function (each, idx) {
 						if (idx === action.index) return _extends({}, each, { showSettings: false, settings: {} });
 						return each;
@@ -17284,11 +17284,11 @@
 					var newIndicatorList = component.indicators.list.filter(function (each) {
 						return !(each.chartId === action.indicator.chartId && each.dataSeriesId === action.indicator.dataSeriesId);
 					});
-	
+
 					var newComponents = state.chartComponent.map(function (each, idx) {
 						if (idx === action.index) {
 							var newIndicator = _extends({}, component.indicators, { list: newIndicatorList });
-	
+
 							return _extends({}, each, { indicators: newIndicator, settings: {}, showSettings: false });
 						}
 						return each;
@@ -17306,11 +17306,11 @@
 					var newIndicatorList = component.indicators.list.map(function (each) {
 						return each.chartId === action.indicator.chartId && each.dataSeriesId === action.indicator.dataSeriesId ? action.indicator : each;
 					});
-	
+
 					var newComponents = state.chartComponent.map(function (each, idx) {
 						if (idx === action.index) {
 							var newIndicator = _extends({}, component.indicators, { list: newIndicatorList });
-	
+
 							return _extends({}, each, { indicators: newIndicator, settings: {}, showSettings: false });
 						}
 						return each;
@@ -17336,7 +17336,7 @@
 			case _constantsActionTypes.CHART_PAGE_CHART_SETTINGS_CHANGE:
 				{
 					// console.log("HERE..........", action.settings);
-	
+
 					var _newComponents11 = state.chartComponent.map(function (each, idx) {
 						if (idx === action.index) {
 							return changeSettings(each, action.settings);
@@ -17356,15 +17356,15 @@
 					var chartComponent = _state6.chartComponent;
 					var width = action.width;
 					var height = action.height;
-	
+
 					var dim = getEachDimension(chartComponent.length, width, height);
-	
+
 					var newChartComponent = chartComponent.map(function (each) {
 						return _extends({}, each, dim);
 					});
-	
+
 					// console.log("CHART_PAGE_RESIZE_COMPLETE...", action);
-	
+
 					return _extends({}, state, { chartComponent: newChartComponent, width: width, height: height, resized: false });
 				}
 			case _constantsActionTypes.WINDOW_RESIZE:
@@ -17376,7 +17376,7 @@
 				return state;
 		}
 	};
-	
+
 	function exchangeSelectorDropDownToggle(singleChartComponent, value, focus) {
 		var securitySelector = _extends({}, singleChartComponent.securitySelector, {
 			showExchangeSelectorDropDown: value,
@@ -17388,7 +17388,7 @@
 			securitySelector: securitySelector
 		});
 	}
-	
+
 	function exchangeSelectorSelectExchange(singleChartComponent, exchange) {
 		var securitySelector = _extends({}, singleChartComponent.securitySelector, {
 			showExchangeSelectorDropDown: false,
@@ -17400,7 +17400,7 @@
 			securitySelector: securitySelector
 		});
 	}
-	
+
 	function searchInProgress(singleChartComponent, result) {
 		var securitySelector = _extends({}, singleChartComponent.securitySelector, {
 			searchInProgress: true,
@@ -17446,7 +17446,7 @@
 			indicators: indicators
 		});
 	}
-	
+
 	function chartTypeSelect(singleChartComponent, chartType, transforms) {
 		var chartSelector = _extends({}, singleChartComponent.chartSelector, {
 			chartType: chartType,
@@ -17458,11 +17458,11 @@
 			showSettings: false
 		});
 	}
-	
+
 	// var indicatorId = 0;
 	function addIndicator(singleChartComponent, indicator) {
 		// indicator.id = indicatorId++;
-	
+
 		var indicators = _extends({}, singleChartComponent.indicators, {
 			list: [].concat(_toConsumableArray(singleChartComponent.indicators.list), [indicator]),
 			showDropDown: false
@@ -17511,33 +17511,33 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	var _redux = __webpack_require__(11);
-	
+
 	var _moduleToggler = __webpack_require__(176);
-	
+
 	var _moduleToggler2 = _interopRequireDefault(_moduleToggler);
-	
+
 	var _route = __webpack_require__(177);
-	
+
 	var _route2 = _interopRequireDefault(_route);
-	
+
 	var _chartPage = __webpack_require__(174);
-	
+
 	var _chartPage2 = _interopRequireDefault(_chartPage);
-	
+
 	exports["default"] = (0, _redux.combineReducers)({
 		moduleToggler: _moduleToggler2["default"],
 		routeTo: _route2["default"],
 		chartPage: _chartPage2["default"]
 	});
-	
+
 	// rootReducer;
 	module.exports = exports["default"];
 
@@ -17546,24 +17546,24 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	var _constantsActionTypes = __webpack_require__(24);
-	
+
 	var initialState = {
 		showHeader: false,
 		showRightPane: false,
 		showLeftNav: false
 	};
-	
+
 	exports["default"] = function (state, action) {
 		if (state === undefined) state = initialState;
-	
+
 		// console.log(state, action);
 		switch (action.type) {
 			case _constantsActionTypes.TOGGLE_HEADER:
@@ -17576,7 +17576,7 @@
 				return state;
 		}
 	};
-	
+
 	module.exports = exports["default"];
 
 /***/ },
@@ -17584,18 +17584,18 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	
+
 	var _constantsActionTypes = __webpack_require__(24);
-	
+
 	var initialRoute = "/";
-	
+
 	exports["default"] = function (state, action) {
 		if (state === undefined) state = initialRoute;
-	
+
 		// console.log(state, action);
 		switch (action.type) {
 			case _constantsActionTypes.CHANGE_ROUTE:
@@ -17604,7 +17604,7 @@
 				return state;
 		}
 	};
-	
+
 	module.exports = exports["default"];
 
 /***/ },
@@ -17612,44 +17612,44 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _shallowEqual = __webpack_require__(180);
-	
+
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
-	
+
 	var PureComponent = (function (_React$Component) {
 		_inherits(PureComponent, _React$Component);
-	
+
 		function PureComponent() {
 			_classCallCheck(this, PureComponent);
-	
+
 			_get(Object.getPrototypeOf(PureComponent.prototype), "constructor", this).apply(this, arguments);
 		}
-	
+
 		_createClass(PureComponent, [{
 			key: "shouldComponentUpdate",
 			value: function shouldComponentUpdate(nextProps, nextState, nextContext) {
 				return !(0, _shallowEqual2["default"])(this.props, nextProps) || !(0, _shallowEqual2["default"])(this.state, nextState) || !(0, _shallowEqual2["default"])(this.context, nextContext);
 			}
 		}]);
-	
+
 		return PureComponent;
 	})(_react2["default"].Component);
-	
+
 	module.exports = PureComponent;
 
 /***/ },
@@ -17657,12 +17657,12 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
 	exports.guid = guid;
-	
+
 	function guid() {
 		function s4() {
 			return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
@@ -17675,22 +17675,22 @@
 /***/ function(module, exports) {
 
 	// https://github.com/jonschlinkert/is-equal-shallow/
-	
+
 	/*
 	The MIT License (MIT)
-	
+
 	Copyright (c) 2015, Jon Schlinkert.
-	
+
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
 	in the Software without restriction, including without limitation the rights
 	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 	copies of the Software, and to permit persons to whom the Software is
 	furnished to do so, subject to the following conditions:
-	
+
 	The above copyright notice and this permission notice shall be included in
 	all copies or substantial portions of the Software.
-	
+
 	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -17699,13 +17699,13 @@
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE.
 	*/
-	
+
 	"use strict";
-	
+
 	function isPrimitive(value) {
 		return value == null || typeof value !== "function" && typeof value !== "object";
 	};
-	
+
 	function shallowEqual(a, b) {
 		if (!a && !b) {
 			return true;
@@ -17713,7 +17713,7 @@
 		if (!a && b || a && !b) {
 			return false;
 		}
-	
+
 		var numKeysA = 0,
 		    numKeysB = 0,
 		    key;
@@ -17729,7 +17729,7 @@
 		}
 		return numKeysA === numKeysB;
 	};
-	
+
 	module.exports = shallowEqual;
 
 /***/ },
@@ -17785,9 +17785,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	var _Object$defineProperty = __webpack_require__(185)["default"];
-	
+
 	exports["default"] = (function () {
 	  function defineProperties(target, props) {
 	    for (var i = 0; i < props.length; i++) {
@@ -17795,18 +17795,18 @@
 	      descriptor.enumerable = descriptor.enumerable || false;
 	      descriptor.configurable = true;
 	      if ("value" in descriptor) descriptor.writable = true;
-	
+
 	      _Object$defineProperty(target, descriptor.key, descriptor);
 	    }
 	  }
-	
+
 	  return function (Constructor, protoProps, staticProps) {
 	    if (protoProps) defineProperties(Constructor.prototype, protoProps);
 	    if (staticProps) defineProperties(Constructor, staticProps);
 	    return Constructor;
 	  };
 	})();
-	
+
 	exports.__esModule = true;
 
 /***/ },
@@ -17814,11 +17814,11 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	exports["default"] = function (obj) {
 	  return obj && obj.__esModule ? obj["default"] : obj;
 	};
-	
+
 	exports.__esModule = true;
 
 /***/ },
@@ -17901,7 +17901,7 @@
 	  , IObject  = __webpack_require__(53)
 	  , enumKeys = __webpack_require__(203)
 	  , has      = __webpack_require__(43);
-	
+
 	// should work with symbols and should have deterministic property order (V8 bug)
 	module.exports = __webpack_require__(41)(function(){
 	  var a = Object.assign
@@ -17936,7 +17936,7 @@
 	  , TAG = __webpack_require__(22)('toStringTag')
 	  // ES3 wrong here
 	  , ARG = cof(function(){ return arguments; }()) == 'Arguments';
-	
+
 	module.exports = function(it){
 	  var O, T, B;
 	  return it === undefined ? 'Undefined' : it === null ? 'Null'
@@ -18010,10 +18010,10 @@
 	'use strict';
 	var $ = __webpack_require__(19)
 	  , IteratorPrototype = {};
-	
+
 	// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
 	__webpack_require__(33)(IteratorPrototype, __webpack_require__(22)('iterator'), function(){ return this; });
-	
+
 	module.exports = function(Constructor, NAME, next){
 	  Constructor.prototype = $.create(IteratorPrototype, {next: __webpack_require__(55)(1,next)});
 	  __webpack_require__(56)(Constructor, NAME + ' Iterator');
@@ -18196,7 +18196,7 @@
 	  , step       = __webpack_require__(206)
 	  , Iterators  = __webpack_require__(34)
 	  , toIObject  = __webpack_require__(215);
-	
+
 	// 22.1.3.4 Array.prototype.entries()
 	// 22.1.3.13 Array.prototype.keys()
 	// 22.1.3.29 Array.prototype.values()
@@ -18218,10 +18218,10 @@
 	  if(kind == 'values')return step(0, O[index]);
 	  return step(0, [index, O[index]]);
 	}, 'values');
-	
+
 	// argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
 	Iterators.Arguments = Iterators.Array;
-	
+
 	setUnscope('keys');
 	setUnscope('values');
 	setUnscope('entries');
@@ -18234,7 +18234,7 @@
 	var $def      = __webpack_require__(26)
 	  , isInteger = __webpack_require__(204)
 	  , abs       = Math.abs;
-	
+
 	$def($def.S, 'Number', {
 	  isSafeInteger: function isSafeInteger(number){
 	    return isInteger(number) && abs(number) <= 0x1fffffffffffff;
@@ -18247,7 +18247,7 @@
 
 	// 19.1.3.1 Object.assign(target, source)
 	var $def = __webpack_require__(26);
-	
+
 	$def($def.S + $def.F, 'Object', {assign: __webpack_require__(200)});
 
 /***/ },
@@ -18256,7 +18256,7 @@
 
 	// 19.1.2.14 Object.keys(O)
 	var toObject = __webpack_require__(57);
-	
+
 	__webpack_require__(208)('keys', function($keys){
 	  return function keys(it){
 	    return $keys(toObject(it));
@@ -18277,11 +18277,11 @@
 
 	exports = module.exports = __webpack_require__(226)();
 	// imports
-	
-	
+
+
 	// module
 	exports.push([module.id, "@-webkit-keyframes pulse {\n  0% {\n    -webkit-transform: scale(1);\n  }\n  50% {\n    -webkit-transform: scale(1.1);\n  }\n  100% {\n    -webkit-transform: scale(1);\n  }\n}\n\n@keyframes pulse {\n  0% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n  }\n  50% {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n  }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n  }\n}\n\n.pulse {\n  -webkit-animation-name: pulse;\n  animation-name: pulse;\n}\n\n.animated {\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n}\n\n.animated.infinite {\n  -webkit-animation-iteration-count: infinite;\n  animation-iteration-count: infinite;\n}\n\nhtml {\n  min-height: 100%;\n  position: relative;\n  overflow-x: hidden;\n  overflow-y: hidden;\n}\n\nbody {\n  padding-bottom: 0;\n  min-height: 100%;\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-size: 13px;\n}\n\nbody:before {\n  content: \"\";\n  display: block;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  z-index: -1;\n  background-color: #eee;\n  color: #444;\n}\n\n.navbar {\n  padding: 0;\n  margin: 0;\n  border: none;\n  height: 45px;\n  min-height: 45px;\n  z-index: 200;\n}\n\n.navbar .navbar-inner {\n  border: 0;\n  border-radius: 0px;\n  background-clip: padding-box;\n  /* stops bg color from leaking outside the border: */\n  margin: 0;\n  padding-left: 0;\n  padding-right: 0;\n  min-height: 45px;\n  position: relative;\n  background: #2dc3e8;\n}\n\n.navbar .navbar-inner .navbar-container {\n  padding-left: 10px;\n  height: 45px;\n}\n\n.navbar .navbar-brand {\n  height: 45px;\n  width: 300px;\n  color: #000;\n}\n\n.navbar .sidebar-collapse {\n  text-align: center;\n  padding: 0;\n  position: absolute;\n  left: 300px;\n  top: 0px;\n  z-index: 2;\n  width: 35px;\n  height: 45px;\n}\n\n.navbar .sidebar-collapse:hover {\n  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);\n}\n\n.navbar .sidebar-collapse .collapse-icon {\n  display: inline-block;\n  cursor: pointer;\n  font-size: 18px;\n  color: #fff;\n  padding: 11px 5px;\n  line-height: 22px;\n  position: relative;\n  -webkit-transition: background-color 0.218s ease;\n  transition: background-color 0.218s ease;\n  -webkit-transition: box-shadow 0.218s ease;\n  transition: box-shadow 0.218s ease;\n  -webkit-transition: color 0.318s ease;\n  transition: color 0.318s ease;\n}\n\n.navbar .sidebar-collapse.active:hover {\n  box-shadow: none;\n}\n\n.navbar .sidebar-collapse.active .collapse-icon {\n  font-size: 14px;\n  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);\n  padding: 11px;\n}\n\n.navbar .account-area {\n  position: absolute;\n  top: 0;\n  right: 15px;\n  opacity: 1;\n  filter: alpha(opacity=100);\n  list-style: none;\n  margin-bottom: 0;\n  display: inline-block;\n}\n\n.navbar .account-area > li {\n  float: left;\n  position: relative;\n  height: 45px;\n  min-width: 50px;\n  display: block;\n  z-index: 150;\n}\n\n.navbar .account-area > li > a:hover {\n  text-decoration: none;\n}\n\n.navbar .account-area > li:not(.marqee-area):hover {\n  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);\n}\n\n.navbar .account-area .icon {\n  display: block;\n  color: #fff;\n  font-size: 16px;\n  line-height: 45px;\n  text-align: center;\n  -webkit-transition: line-height 0.3s ease;\n  transition: line-height 0.3s ease;\n}\n\n.navbar .account-area .badge {\n  position: absolute;\n  top: 6px;\n  left: 4px;\n  padding: 2px;\n  cursor: pointer;\n  background-color: transparent !important;\n  border: 1px solid #fff;\n  width: 18px;\n  height: 18px;\n  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0.2);\n}\n\n.navbar .account-area .marqee-area {\n  width: 200px;\n  line-height: 45px;\n  text-align: center;\n  color: #fff;\n  cursor: default;\n  overflow: hidden;\n}\n\n.navbar .account-area .marqee-area > ul {\n  position: relative;\n  left: -200px;\n  /* important (this should be negative number of list items width(including margin) */\n  list-style-type: none;\n  /* removing the default styling for unordered list items */\n  margin: 0px;\n  padding: 0px;\n  width: 9999px;\n  /* important */\n  /* non-important styling bellow */\n  padding-bottom: 0px;\n}\n\n.navbar .account-area .marqee-area > ul > li {\n  float: left;\n  /* important for inline positioning of the list items */\n  width: 200px;\n  /* fixed width, important */\n}\n\n.leftnav-hide .sidebar-left {\n  display: none;\n}\n\n.sidebar-left {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  width: 85px;\n  display: block;\n}\n\n.sidebar-left.sidebar-fixed {\n  position: fixed;\n  top: 45px;\n  float: none !important;\n  z-index: 1000;\n}\n\n.sidebar-left.sidebar-fixed:before {\n  height: 5000px;\n  top: 45px;\n  bottom: auto;\n}\n\n.sidebar-left.hide {\n  display: none !important;\n}\n\n.sidebar-left.hide:before {\n  display: none;\n}\n\n.sidebar-left.hide + .page-content {\n  margin-left: 0 !important;\n}\n\n.sidebar-left.hide + .page-content .breadcrumbs-fixed {\n  left: 0 !important;\n}\n\n.sidebar-left.hide + .page-content .page-header-fixed {\n  left: 0 !important;\n}\n\n.sidebar-left:before {\n  content: \"\";\n  position: fixed;\n  display: block;\n  width: 80px;\n  bottom: 0;\n  top: 0;\n  left: 5px;\n  background-color: #fff;\n  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);\n  z-index: 1;\n}\n\n.sidebar-left .nav-sidebar {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n  margin-left: 10px;\n  margin-top: 50px;\n}\n\n.sidebar-left .nav-sidebar > li {\n  position: relative;\n  background: #ccc;\n  width: 70px;\n  height: 70px;\n  margin-bottom: 5px;\n  z-index: 4;\n  cursor: pointer;\n}\n\n.sidebar-left .nav-sidebar > li .link_bg {\n  width: 70px;\n  height: 70px;\n  position: absolute;\n  background: #444;\n  color: #fff;\n  z-index: 2;\n}\n\n.sidebar-left .nav-sidebar > li .link_title {\n  position: absolute;\n  height: 100%;\n  z-index: 3;\n  color: #fff;\n  width: 100%;\n}\n\n.sidebar-left .nav-sidebar > li .link_title .icon {\n  float: left;\n  width: 70px;\n  height: 70px;\n  text-align: center;\n}\n\n.sidebar-left .nav-sidebar > li .link_title .icon i {\n  top: 22px;\n  position: relative;\n}\n\n.sidebar-left .nav-sidebar > li .link_title .icon i.typcn {\n  top: 15px;\n}\n\n.sidebar-left .nav-sidebar > li .link_title .title {\n  float: left;\n  height: 100%;\n  visibility: visible;\n}\n\n.sidebar-left .nav-sidebar > li a {\n  margin: 0 auto;\n  font-family: arial;\n  color: #fff;\n  text-decoration: none;\n  width: 100%;\n  height: 70px;\n  text-align: center;\n}\n\n.sidebar-left .nav-sidebar > li a:hover, .sidebar-left .nav-sidebar > li a:focus {\n  background: none;\n}\n\n.sidebar-left .nav-sidebar > li span {\n  margin-top: 25px;\n  display: block;\n}\n\n.sidebar-left .nav-sidebar > li:hover {\n  width: 200px;\n}\n\n.sidebar-left .nav-sidebar > li:hover .link_bg {\n  width: 100%;\n  -webkit-transition: all 0.3s ease-in-out;\n  transition: all 0.3s ease-in-out;\n}\n\n.sidebar-left .nav-sidebar > li:hover .title {\n  visibility: visible;\n  font-weight: bold;\n}\n\n.page-mainarea {\n  display: block;\n  margin-left: 85px;\n  position: absolute;\n  margin-right: 0;\n  margin-top: 0;\n  top: 45px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  padding: 0;\n}\n\n.leftnav-hide .page-mainarea {\n  margin-left: 0px;\n}\n\n.header-hide .page-mainarea {\n  top: 0;\n}\n\n.content {\n  position: absolute;\n  height: 100%;\n  left: 0;\n  right: 200px;\n}\n\n.content .section-head {\n  height: 30px;\n}\n\n.content .section-head .hideRight {\n  float: right;\n  margin-right: 15px;\n  background: white;\n}\n\n.content .section-head .chart-layout {\n  float: right;\n  margin-right: 3px;\n}\n\n.content .section-head .chart-layout ul {\n  min-width: 70px;\n}\n\n.content .section-head .chart-layout div {\n  float: left;\n  height: 30px;\n  background: white;\n  color: #fff;\n  margin: 0px 0px 0 0;\n}\n\n.content .section-head .chart-layout div span {\n  line-height: 30px;\n  margin: 0 5px;\n}\n\n.content .section-body {\n  position: absolute;\n  left: 0px;\n  top: 30px;\n  bottom: 0px;\n  right: 0px;\n  margin-right: 15px;\n}\n\n.content .section-body .full {\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  bottom: 0px;\n  right: 0px;\n}\n\n.content .section-body .top {\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  bottom: 50%;\n  right: 0px;\n}\n\n.content .section-body .bottom {\n  position: absolute;\n  left: 0px;\n  top: 50%;\n  bottom: 0px;\n  right: 0px;\n}\n\n.content .section-body .topof3 {\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  bottom: 66%;\n  right: 0px;\n}\n\n.content .section-body .middleof3 {\n  position: absolute;\n  left: 0px;\n  top: 33%;\n  bottom: 33%;\n  right: 0px;\n}\n\n.content .section-body .bottomof3 {\n  position: absolute;\n  left: 0px;\n  top: 66%;\n  bottom: 0%;\n  right: 0px;\n}\n\n.content .section-body .topof3-left {\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  bottom: 66%;\n  right: 50%;\n}\n\n.content .section-body .middleof3-left {\n  position: absolute;\n  left: 0px;\n  top: 33%;\n  bottom: 33%;\n  right: 50%;\n}\n\n.content .section-body .bottomof3-left {\n  position: absolute;\n  left: 0px;\n  top: 66%;\n  bottom: 0%;\n  right: 50%;\n}\n\n.content .section-body .topof3-right {\n  position: absolute;\n  left: 50%;\n  top: 0px;\n  bottom: 66%;\n  right: 0%;\n}\n\n.content .section-body .middleof3-right {\n  position: absolute;\n  left: 50%;\n  top: 33%;\n  bottom: 33%;\n  right: 0%;\n}\n\n.content .section-body .bottomof3-right {\n  position: absolute;\n  left: 50%;\n  top: 66%;\n  bottom: 0%;\n  right: 0%;\n}\n\n.content .section-body .top-left {\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  bottom: 50%;\n  right: 50%;\n}\n\n.content .section-body .top-right {\n  position: absolute;\n  left: 50%;\n  top: 0px;\n  bottom: 50%;\n  right: 0px;\n}\n\n.content .section-body .bottom-left {\n  position: absolute;\n  left: 0px;\n  top: 50%;\n  bottom: 0px;\n  right: 50%;\n}\n\n.content .section-body .bottom-right {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  bottom: 0px;\n  right: 0px;\n}\n\n.expanded .content {\n  right: 0px;\n}\n\n.page-mainarea .rightpane {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: 0;\n  width: 200px;\n  display: block;\n}\n\n.page-mainarea .rightpane:before {\n  content: \"\";\n  position: fixed;\n  width: 200px;\n  bottom: 0;\n  top: 0;\n  background-color: #fff;\n  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);\n  z-index: 1;\n}\n\n.page-mainarea .rightpane div {\n  z-index: 2;\n  position: relative;\n  color: #000;\n}\n\n.expanded .rightpane {\n  display: none;\n}\n\n.chart-component {\n  display: block;\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  right: 0px;\n  bottom: 0px;\n  background-color: #fff;\n  margin: 0px 0px 15px 15px;\n}\n\n.chart-component:before {\n  content: \"\";\n  position: absolute;\n  display: block;\n  left: 0px;\n  top: 0px;\n  right: 0px;\n  bottom: 0px;\n  background-color: #fff;\n  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);\n  z-index: 0;\n}\n\n.chart-component .gcrow {\n  height: 34px;\n}\n\n.chart-component .gcrow > div {\n  float: left;\n}\n\n.chart-component .gcrow > div p {\n  height: 100%;\n  vertical-align: middle;\n}\n\n.chart-component .securitySearchSelector {\n  width: 160px;\n  /* enable absolute positioning */\n  /* style glyph */\n  /* align glyph */\n  /* add padding  */\n}\n\n.chart-component .securitySearchSelector.focus {\n  width: 400px;\n}\n\n.chart-component .securitySearchSelector .inner-addon {\n  position: relative;\n}\n\n.chart-component .securitySearchSelector ul.autocomplete {\n  width: 391px;\n}\n\n.chart-component .securitySearchSelector ul.autocomplete li.ticker {\n  border-bottom: 1px solid #f3f3f3;\n  font-size: 12px;\n}\n\n.chart-component .securitySearchSelector ul.autocomplete li.dropdown-header {\n  font-size: 11px;\n  background-color: #2dc3e8;\n}\n\n.chart-component .securitySearchSelector ul.autocomplete .pagination {\n  margin: 10px 10px 0 0;\n}\n\n.chart-component .securitySearchSelector ul.autocomplete .info {\n  float: left;\n  width: 170px;\n}\n\n.chart-component .securitySearchSelector .inner-addon .glyphicon {\n  position: absolute;\n  padding: 10px;\n  pointer-events: none;\n  z-index: 3;\n}\n\n.chart-component .securitySearchSelector .left-addon .glyphicon {\n  left: 0px;\n}\n\n.chart-component .securitySearchSelector .right-addon .glyphicon {\n  right: 0px;\n}\n\n.chart-component .securitySearchSelector .left-addon input {\n  padding-left: 30px;\n}\n\n.chart-component .securitySearchSelector .right-addon input {\n  padding-right: 30px;\n}\n\n.chart-component .chartTypeSelector {\n  margin-left: 5px;\n}\n\n.chart-component .indicators {\n  margin-left: 5px;\n}\n\n.chart-component .indicators ul {\n  width: 391px;\n}\n\n.chart-component .indicators ul li.search {\n  background-color: #2dc3e8;\n}\n\n.chart-component .indicators ul li.search input {\n  width: 360px;\n}\n\n.chart-component .indicators ul .pagination {\n  margin: 10px 10px 0 0;\n}\n\n.chart-component .indicators ul .info {\n  float: left;\n  width: 170px;\n}\n\n.chart-component .chart-settings {\n  margin-left: 5px;\n}\n\n.chart-component .chart-settings .chart-settings-menu li {\n  margin: 0px 10px;\n}\n\n.chart-component .chart-settings .chart-settings-menu span {\n  line-height: 34px;\n}\n\n.chart-component .modal-container {\n  position: relative;\n}\n\n.chart-component .modal-container .modal, .chart-component .modal-container .modal-backdrop {\n  position: absolute;\n}\n\n.chart-component .chart-widget {\n  position: absolute;\n  left: 0px;\n  top: 34px;\n  right: 0px;\n  bottom: 0px;\n}\n\n.chart-component .chart-widget .centerMe {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n}\n", ""]);
-	
+
 	// exports
 
 
@@ -18296,7 +18296,7 @@
 	// css base code, injected by the css-loader
 	module.exports = function() {
 		var list = [];
-	
+
 		// return the list of modules as css string
 		list.toString = function toString() {
 			var result = [];
@@ -18310,7 +18310,7 @@
 			}
 			return result.join("");
 		};
-	
+
 		// import a list of modules into the list
 		list.i = function(modules, mediaQuery) {
 			if(typeof modules === "string")
@@ -18352,7 +18352,7 @@
 	 *
 	 * Copyright (C) 2013 usabli.ca - A weekend project by Afshin Mehrabani (@afshinmeh)
 	 */
-	
+
 	(function (root, factory) {
 	  if (true) {
 	    // CommonJS
@@ -18367,7 +18367,7 @@
 	} (this, function (exports) {
 	  //Default config/variables
 	  var VERSION = '1.1.1';
-	
+
 	  /**
 	   * IntroJs main class
 	   *
@@ -18375,7 +18375,7 @@
 	   */
 	  function IntroJs(obj) {
 	    this._targetElement = obj;
-	
+
 	    this._options = {
 	      /* Next button label in tooltip box */
 	      nextLabel: 'Next &rarr;',
@@ -18415,7 +18415,7 @@
 	      disableInteraction: false
 	    };
 	  }
-	
+
 	  /**
 	   * Initiate a new introduction/guide from an element in the page
 	   *
@@ -18427,7 +18427,7 @@
 	  function _introForElement(targetElm) {
 	    var introItems = [],
 	        self = this;
-	
+
 	    if (this._options.steps) {
 	      //use steps passed programmatically
 	      for (var i = 0, stepsLength = this._options.steps.length; i < stepsLength; i++) {
@@ -18439,27 +18439,27 @@
 	          //grab the element with given selector from the page
 	          currentItem.element = document.querySelector(currentItem.element);
 	        }
-	
+
 	        //intro without element
 	        if (typeof(currentItem.element) === 'undefined' || currentItem.element == null) {
 	          var floatingElementQuery = document.querySelector(".introjsFloatingElement");
-	
+
 	          if (floatingElementQuery == null) {
 	            floatingElementQuery = document.createElement('div');
 	            floatingElementQuery.className = 'introjsFloatingElement';
-	
+
 	            document.body.appendChild(floatingElementQuery);
 	          }
-	
+
 	          currentItem.element  = floatingElementQuery;
 	          currentItem.position = 'floating';
 	        }
-	
+
 	        if (currentItem.element != null) {
 	          introItems.push(currentItem);
 	        }
 	      }
-	
+
 	    } else {
 	      //use steps from data-* annotations
 	      var allIntroSteps = targetElm.querySelectorAll('*[data-intro]');
@@ -18467,12 +18467,12 @@
 	      if (allIntroSteps.length < 1) {
 	        return false;
 	      }
-	
+
 	      //first add intro items with data-step
 	      for (var i = 0, elmsLength = allIntroSteps.length; i < elmsLength; i++) {
 	        var currentElement = allIntroSteps[i];
 	        var step = parseInt(currentElement.getAttribute('data-step'), 10);
-	
+
 	        if (step > 0) {
 	          introItems[step - 1] = {
 	            element: currentElement,
@@ -18484,15 +18484,15 @@
 	          };
 	        }
 	      }
-	
+
 	      //next add intro items without data-step
 	      //todo: we need a cleanup here, two loops are redundant
 	      var nextStep = 0;
 	      for (var i = 0, elmsLength = allIntroSteps.length; i < elmsLength; i++) {
 	        var currentElement = allIntroSteps[i];
-	
+
 	        if (currentElement.getAttribute('data-step') == null) {
-	
+
 	          while (true) {
 	            if (typeof introItems[nextStep] == 'undefined') {
 	              break;
@@ -18500,7 +18500,7 @@
 	              nextStep++;
 	            }
 	          }
-	
+
 	          introItems[nextStep] = {
 	            element: currentElement,
 	            intro: currentElement.getAttribute('data-intro'),
@@ -18512,31 +18512,31 @@
 	        }
 	      }
 	    }
-	
+
 	    //removing undefined/null elements
 	    var tempIntroItems = [];
 	    for (var z = 0; z < introItems.length; z++) {
 	      introItems[z] && tempIntroItems.push(introItems[z]);  // copy non-empty values to the end of the array
 	    }
-	
+
 	    introItems = tempIntroItems;
-	
+
 	    //Ok, sort all items with given steps
 	    introItems.sort(function (a, b) {
 	      return a.step - b.step;
 	    });
-	
+
 	    //set it to the introJs object
 	    self._introItems = introItems;
-	
+
 	    //add overlay layer to the page
 	    if(_addOverlayLayer.call(self, targetElm)) {
 	      //then, start the show
 	      _nextStep.call(self);
-	
+
 	      var skipButton     = targetElm.querySelector('.introjs-skipbutton'),
 	          nextStepButton = targetElm.querySelector('.introjs-nextbutton');
-	
+
 	      self._onKeyDown = function(e) {
 	        if (e.keyCode === 27 && self._options.exitOnEsc == true) {
 	          //escape key pressed, exit the intro
@@ -18571,7 +18571,7 @@
 	            //default behavior for responding to enter
 	            _nextStep.call(self);
 	          }
-	
+
 	          //prevent default behaviour on hitting Enter, to prevent steps being skipped in some browsers
 	          if(e.preventDefault) {
 	            e.preventDefault();
@@ -18580,12 +18580,12 @@
 	          }
 	        }
 	      };
-	
+
 	      self._onResize = function(e) {
 	        _setHelperLayerPosition.call(self, document.querySelector('.introjs-helperLayer'));
 	        _setHelperLayerPosition.call(self, document.querySelector('.introjs-tooltipReferenceLayer'));
 	      };
-	
+
 	      if (window.addEventListener) {
 	        if (this._options.keyboardNavigation) {
 	          window.addEventListener('keydown', self._onKeyDown, true);
@@ -18602,7 +18602,7 @@
 	    }
 	    return false;
 	  }
-	
+
 	 /*
 	   * makes a copy of the object
 	   * @api private
@@ -18635,7 +18635,7 @@
 	      _nextStep.call(this);
 	    }
 	  }
-	
+
 	  /**
 	   * Go to next step on intro
 	   *
@@ -18644,13 +18644,13 @@
 	   */
 	  function _nextStep() {
 	    this._direction = 'forward';
-	
+
 	    if (typeof (this._currentStep) === 'undefined') {
 	      this._currentStep = 0;
 	    } else {
 	      ++this._currentStep;
 	    }
-	
+
 	    if ((this._introItems.length) <= this._currentStep) {
 	      //end of the intro
 	      //check if any callback is defined
@@ -18660,15 +18660,15 @@
 	      _exitIntro.call(this, this._targetElement);
 	      return;
 	    }
-	
+
 	    var nextStep = this._introItems[this._currentStep];
 	    if (typeof (this._introBeforeChangeCallback) !== 'undefined') {
 	      this._introBeforeChangeCallback.call(this, nextStep.element);
 	    }
-	
+
 	    _showElement.call(this, nextStep);
 	  }
-	
+
 	  /**
 	   * Go to previous step on intro
 	   *
@@ -18677,19 +18677,19 @@
 	   */
 	  function _previousStep() {
 	    this._direction = 'backward';
-	
+
 	    if (this._currentStep === 0) {
 	      return false;
 	    }
-	
+
 	    var nextStep = this._introItems[--this._currentStep];
 	    if (typeof (this._introBeforeChangeCallback) !== 'undefined') {
 	      this._introBeforeChangeCallback.call(this, nextStep.element);
 	    }
-	
+
 	    _showElement.call(this, nextStep);
 	  }
-	
+
 	  /**
 	   * Exit from intro
 	   *
@@ -18700,12 +18700,12 @@
 	  function _exitIntro(targetElement) {
 	    //remove overlay layer from the page
 	    var overlayLayer = targetElement.querySelector('.introjs-overlay');
-	
+
 	    //return if intro already completed or skipped
 	    if (overlayLayer == null) {
 	      return;
 	    }
-	
+
 	    //for fade-out animation
 	    overlayLayer.style.opacity = 0;
 	    setTimeout(function () {
@@ -18713,13 +18713,13 @@
 	        overlayLayer.parentNode.removeChild(overlayLayer);
 	      }
 	    }, 500);
-	
+
 	    //remove all helper layers
 	    var helperLayer = targetElement.querySelector('.introjs-helperLayer');
 	    if (helperLayer) {
 	      helperLayer.parentNode.removeChild(helperLayer);
 	    }
-	
+
 	    var referenceLayer = targetElement.querySelector('.introjs-tooltipReferenceLayer');
 	    if (referenceLayer) {
 	      referenceLayer.parentNode.removeChild(referenceLayer);
@@ -18729,19 +18729,19 @@
 	    if (disableInteractionLayer) {
 	      disableInteractionLayer.parentNode.removeChild(disableInteractionLayer);
 	    }
-	
+
 	    //remove intro floating element
 	    var floatingElement = document.querySelector('.introjsFloatingElement');
 	    if (floatingElement) {
 	      floatingElement.parentNode.removeChild(floatingElement);
 	    }
-	
+
 	    //remove `introjs-showElement` class from the element
 	    var showElement = document.querySelector('.introjs-showElement');
 	    if (showElement) {
 	      showElement.className = showElement.className.replace(/introjs-[a-zA-Z]+/g, '').replace(/^\s+|\s+$/g, ''); // This is a manual trim.
 	    }
-	
+
 	    //remove `introjs-fixParent` class from the elements
 	    var fixParents = document.querySelectorAll('.introjs-fixParent');
 	    if (fixParents && fixParents.length > 0) {
@@ -18749,18 +18749,18 @@
 	        fixParents[i].className = fixParents[i].className.replace(/introjs-fixParent/g, '').replace(/^\s+|\s+$/g, '');
 	      }
 	    }
-	
+
 	    //clean listeners
 	    if (window.removeEventListener) {
 	      window.removeEventListener('keydown', this._onKeyDown, true);
 	    } else if (document.detachEvent) { //IE
 	      document.detachEvent('onkeydown', this._onKeyDown);
 	    }
-	
+
 	    //set the step to zero
 	    this._currentStep = undefined;
 	  }
-	
+
 	  /**
 	   * Render tooltip box in the page
 	   *
@@ -18778,7 +18778,7 @@
 	        targetOffset,
 	        windowSize,
 	        currentTooltipPosition;
-	
+
 	    //reset the old style
 	    tooltipLayer.style.top        = null;
 	    tooltipLayer.style.right      = null;
@@ -18786,17 +18786,17 @@
 	    tooltipLayer.style.left       = null;
 	    tooltipLayer.style.marginLeft = null;
 	    tooltipLayer.style.marginTop  = null;
-	
+
 	    arrowLayer.style.display = 'inherit';
-	
+
 	    if (typeof(helperNumberLayer) != 'undefined' && helperNumberLayer != null) {
 	      helperNumberLayer.style.top  = null;
 	      helperNumberLayer.style.left = null;
 	    }
-	
+
 	    //prevent error when `this._currentStep` is undefined
 	    if (!this._introItems[this._currentStep]) return;
-	
+
 	    //if we have a custom css class for each step
 	    currentStepObj = this._introItems[this._currentStep];
 	    if (typeof (currentStepObj.tooltipClass) === 'string') {
@@ -18804,9 +18804,9 @@
 	    } else {
 	      tooltipCssClass = this._options.tooltipClass;
 	    }
-	
+
 	    tooltipLayer.className = ('introjs-tooltip ' + tooltipCssClass).replace(/^\s+|\s+$/g, '');
-	
+
 	    currentTooltipPosition = this._introItems[this._currentStep].position;
 	    if ((currentTooltipPosition == "auto" || this._options.tooltipPosition == "auto")) {
 	      if (currentTooltipPosition != "floating") { // Floating is always valid, no point in calculating
@@ -18819,7 +18819,7 @@
 	    switch (currentTooltipPosition) {
 	      case 'top':
 	        arrowLayer.className = 'introjs-arrow bottom';
-	
+
 	        var tooltipLayerStyleLeft = 15;
 	        _checkRight(targetOffset, tooltipLayerStyleLeft, tooltipOffset, windowSize, tooltipLayer);
 	        tooltipLayer.style.bottom = (targetOffset.height +  20) + 'px';
@@ -18839,7 +18839,7 @@
 	        if (this._options.showStepNumbers == true) {
 	          tooltipLayer.style.top = '15px';
 	        }
-	
+
 	        if (targetOffset.top + tooltipOffset.height > windowSize.height) {
 	          // In this case, left would have fallen below the bottom of the screen.
 	          // Modify so that the bottom of the tooltip connects with the target
@@ -18849,34 +18849,34 @@
 	          arrowLayer.className = 'introjs-arrow right';
 	        }
 	        tooltipLayer.style.right = (targetOffset.width + 20) + 'px';
-	
+
 	        break;
 	      case 'floating':
 	        arrowLayer.style.display = 'none';
-	
+
 	        //we have to adjust the top and left of layer manually for intro items without element
 	        tooltipLayer.style.left   = '50%';
 	        tooltipLayer.style.top    = '50%';
 	        tooltipLayer.style.marginLeft = '-' + (tooltipOffset.width / 2)  + 'px';
 	        tooltipLayer.style.marginTop  = '-' + (tooltipOffset.height / 2) + 'px';
-	
+
 	        if (typeof(helperNumberLayer) != 'undefined' && helperNumberLayer != null) {
 	          helperNumberLayer.style.left = '-' + ((tooltipOffset.width / 2) + 18) + 'px';
 	          helperNumberLayer.style.top  = '-' + ((tooltipOffset.height / 2) + 18) + 'px';
 	        }
-	
+
 	        break;
 	      case 'bottom-right-aligned':
 	        arrowLayer.className      = 'introjs-arrow top-right';
-	
+
 	        var tooltipLayerStyleRight = 0;
 	        _checkLeft(targetOffset, tooltipLayerStyleRight, tooltipOffset, tooltipLayer);
 	        tooltipLayer.style.top    = (targetOffset.height +  20) + 'px';
 	        break;
-	
+
 	      case 'bottom-middle-aligned':
 	        arrowLayer.className      = 'introjs-arrow top-middle';
-	
+
 	        var tooltipLayerStyleLeftRight = targetOffset.width / 2 - tooltipOffset.width / 2;
 	        if (_checkLeft(targetOffset, tooltipLayerStyleLeftRight, tooltipOffset, tooltipLayer)) {
 	          tooltipLayer.style.right = null;
@@ -18884,21 +18884,21 @@
 	        }
 	        tooltipLayer.style.top = (targetOffset.height + 20) + 'px';
 	        break;
-	
+
 	      case 'bottom-left-aligned':
 	      // Bottom-left-aligned is the same as the default bottom
 	      case 'bottom':
 	      // Bottom going to follow the default behavior
 	      default:
 	        arrowLayer.className = 'introjs-arrow top';
-	
+
 	        var tooltipLayerStyleLeft = 0;
 	        _checkRight(targetOffset, tooltipLayerStyleLeft, tooltipOffset, windowSize, tooltipLayer);
 	        tooltipLayer.style.top    = (targetOffset.height +  20) + 'px';
 	        break;
 	    }
 	  }
-	
+
 	  /**
 	   * Set tooltip left so it doesn't go off the right side of the window
 	   *
@@ -18913,7 +18913,7 @@
 	    tooltipLayer.style.left = tooltipLayerStyleLeft + 'px';
 	    return true;
 	  }
-	
+
 	  /**
 	   * Set tooltip right so it doesn't go off the left side of the window
 	   *
@@ -18928,7 +18928,7 @@
 	    tooltipLayer.style.right = tooltipLayerStyleRight + 'px';
 	    return true;
 	  }
-	
+
 	  /**
 	   * Determines the position of the tooltip based on the position precedence and availability
 	   * of screen space.
@@ -18939,19 +18939,19 @@
 	   *
 	   */
 	  function _determineAutoPosition(targetElement, tooltipLayer, desiredTooltipPosition) {
-	
+
 	    // Take a clone of position precedence. These will be the available
 	    var possiblePositions = this._options.positionPrecedence.slice();
-	
+
 	    var windowSize = _getWinSize();
 	    var tooltipHeight = _getOffset(tooltipLayer).height + 10;
 	    var tooltipWidth = _getOffset(tooltipLayer).width + 20;
 	    var targetOffset = _getOffset(targetElement);
-	
+
 	    // If we check all the possible areas, and there are no valid places for the tooltip, the element
 	    // must take up most of the screen real estate. Show the tooltip floating in the middle of the screen.
 	    var calculatedPosition = "floating";
-	
+
 	    // Check if the width of the tooltip + the starting point would spill off the right side of the screen
 	    // If no, neither bottom or top are valid
 	    if (targetOffset.left + tooltipWidth > windowSize.width || ((targetOffset.left + (targetOffset.width / 2)) - tooltipWidth) < 0) {
@@ -18962,38 +18962,38 @@
 	      if ((targetOffset.height + targetOffset.top + tooltipHeight) > windowSize.height) {
 	        _removeEntry(possiblePositions, "bottom");
 	      }
-	
+
 	      // Check for space above
 	      if (targetOffset.top - tooltipHeight < 0) {
 	        _removeEntry(possiblePositions, "top");
 	      }
 	    }
-	
+
 	    // Check for space to the right
 	    if (targetOffset.width + targetOffset.left + tooltipWidth > windowSize.width) {
 	      _removeEntry(possiblePositions, "right");
 	    }
-	
+
 	    // Check for space to the left
 	    if (targetOffset.left - tooltipWidth < 0) {
 	      _removeEntry(possiblePositions, "left");
 	    }
-	
+
 	    // At this point, our array only has positions that are valid. Pick the first one, as it remains in order
 	    if (possiblePositions.length > 0) {
 	      calculatedPosition = possiblePositions[0];
 	    }
-	
+
 	    // If the requested position is in the list, replace our calculated choice with that
 	    if (desiredTooltipPosition && desiredTooltipPosition != "auto") {
 	      if (possiblePositions.indexOf(desiredTooltipPosition) > -1) {
 	        calculatedPosition = desiredTooltipPosition;
 	      }
 	    }
-	
+
 	    return calculatedPosition;
 	  }
-	
+
 	  /**
 	   * Remove an entry from a string array if it's there, does nothing if it isn't there.
 	   *
@@ -19005,7 +19005,7 @@
 	      stringArray.splice(stringArray.indexOf(stringToRemove), 1);
 	    }
 	  }
-	
+
 	  /**
 	   * Update the position of the helper layer on the screen
 	   *
@@ -19017,24 +19017,24 @@
 	    if (helperLayer) {
 	      //prevent error when `this._currentStep` in undefined
 	      if (!this._introItems[this._currentStep]) return;
-	
+
 	      var currentElement  = this._introItems[this._currentStep],
 	          elementPosition = _getOffset(currentElement.element),
 	          widthHeightPadding = 10;
-	
+
 	      if (currentElement.position == 'floating') {
 	        widthHeightPadding = 0;
 	      }
-	
+
 	      //set new position to helper layer
 	      helperLayer.setAttribute('style', 'width: ' + (elementPosition.width  + widthHeightPadding)  + 'px; ' +
 	                                        'height:' + (elementPosition.height + widthHeightPadding)  + 'px; ' +
 	                                        'top:'    + (elementPosition.top    - 5)   + 'px;' +
 	                                        'left: '  + (elementPosition.left   - 5)   + 'px;');
-	
+
 	    }
 	  }
-	
+
 	  /**
 	   * Add disableinteraction layer and adjust the size and position of the layer
 	   *
@@ -19048,10 +19048,10 @@
 	      disableInteractionLayer.className = 'introjs-disableInteraction';
 	      this._targetElement.appendChild(disableInteractionLayer);
 	    }
-	
+
 	    _setHelperLayerPosition.call(this, disableInteractionLayer);
 	  }
-	
+
 	  /**
 	   * Show an element on the page
 	   *
@@ -19060,17 +19060,17 @@
 	   * @param {Object} targetElement
 	   */
 	  function _showElement(targetElement) {
-	
+
 	    if (typeof (this._introChangeCallback) !== 'undefined') {
 	      this._introChangeCallback.call(this, targetElement.element);
 	    }
-	
+
 	    var self = this,
 	        oldHelperLayer = document.querySelector('.introjs-helperLayer'),
 	        oldReferenceLayer = document.querySelector('.introjs-tooltipReferenceLayer'),
 	        highlightClass = 'introjs-helperLayer',
 	        elementPosition = _getOffset(targetElement.element);
-	
+
 	    //check for a current step highlight class
 	    if (typeof (targetElement.highlightClass) === 'string') {
 	      highlightClass += (' ' + targetElement.highlightClass);
@@ -19079,7 +19079,7 @@
 	    if (typeof (this._options.highlightClass) === 'string') {
 	      highlightClass += (' ' + this._options.highlightClass);
 	    }
-	
+
 	    if (oldHelperLayer != null) {
 	      var oldHelperNumberLayer = oldReferenceLayer.querySelector('.introjs-helperNumberLayer'),
 	          oldtooltipLayer      = oldReferenceLayer.querySelector('.introjs-tooltiptext'),
@@ -19088,25 +19088,25 @@
 	          skipTooltipButton    = oldReferenceLayer.querySelector('.introjs-skipbutton'),
 	          prevTooltipButton    = oldReferenceLayer.querySelector('.introjs-prevbutton'),
 	          nextTooltipButton    = oldReferenceLayer.querySelector('.introjs-nextbutton');
-	
+
 	      //update or reset the helper highlight class
 	      oldHelperLayer.className = highlightClass;
 	      //hide the tooltip
 	      oldtooltipContainer.style.opacity = 0;
 	      oldtooltipContainer.style.display = "none";
-	
+
 	      if (oldHelperNumberLayer != null) {
 	        var lastIntroItem = this._introItems[(targetElement.step - 2 >= 0 ? targetElement.step - 2 : 0)];
-	
+
 	        if (lastIntroItem != null && (this._direction == 'forward' && lastIntroItem.position == 'floating') || (this._direction == 'backward' && targetElement.position == 'floating')) {
 	          oldHelperNumberLayer.style.opacity = 0;
 	        }
 	      }
-	
+
 	      //set new position to helper layer
 	      _setHelperLayerPosition.call(self, oldHelperLayer);
 	      _setHelperLayerPosition.call(self, oldReferenceLayer);
-	
+
 	      //remove `introjs-fixParent` class from the elements
 	      var fixParents = document.querySelectorAll('.introjs-fixParent');
 	      if (fixParents && fixParents.length > 0) {
@@ -19114,11 +19114,11 @@
 	          fixParents[i].className = fixParents[i].className.replace(/introjs-fixParent/g, '').replace(/^\s+|\s+$/g, '');
 	        };
 	      }
-	
+
 	      //remove old classes
 	      var oldShowElement = document.querySelector('.introjs-showElement');
 	      oldShowElement.className = oldShowElement.className.replace(/introjs-[a-zA-Z]+/g, '').replace(/^\s+|\s+$/g, '');
-	
+
 	      //we should wait until the CSS3 transition is competed (it's 0.3 sec) to prevent incorrect `height` and `width` calculation
 	      if (self._lastShowElementTimer) {
 	        clearTimeout(self._lastShowElementTimer);
@@ -19133,17 +19133,17 @@
 	        //set the tooltip position
 	        oldtooltipContainer.style.display = "block";
 	        _placeTooltip.call(self, targetElement.element, oldtooltipContainer, oldArrowLayer, oldHelperNumberLayer);
-	
+
 	        //change active bullet
 	        oldReferenceLayer.querySelector('.introjs-bullets li > a.active').className = '';
 	        oldReferenceLayer.querySelector('.introjs-bullets li > a[data-stepnumber="' + targetElement.step + '"]').className = 'active';
-	
+
 	        oldReferenceLayer.querySelector('.introjs-progress .introjs-progressbar').setAttribute('style', 'width:' + _getProgress.call(self) + '%;');
-	
+
 	        //show the tooltip
 	        oldtooltipContainer.style.opacity = 1;
 	        if (oldHelperNumberLayer) oldHelperNumberLayer.style.opacity = 1;
-	
+
 	        //reset button focus
 	        if (nextTooltipButton.tabIndex === -1) {
 	          //tabindex of -1 means we are at the end of the tour - focus on skip / done
@@ -19153,7 +19153,7 @@
 	          nextTooltipButton.focus();
 	        }
 	      }, 350);
-	
+
 	    } else {
 	      var helperLayer       = document.createElement('div'),
 	          referenceLayer    = document.createElement('div'),
@@ -19163,72 +19163,72 @@
 	          bulletsLayer      = document.createElement('div'),
 	          progressLayer     = document.createElement('div'),
 	          buttonsLayer      = document.createElement('div');
-	
+
 	      helperLayer.className = highlightClass;
 	      referenceLayer.className = 'introjs-tooltipReferenceLayer';
-	
+
 	      //set new position to helper layer
 	      _setHelperLayerPosition.call(self, helperLayer);
 	      _setHelperLayerPosition.call(self, referenceLayer);
-	
+
 	      //add helper layer to target element
 	      this._targetElement.appendChild(helperLayer);
 	      this._targetElement.appendChild(referenceLayer);
-	
+
 	      arrowLayer.className = 'introjs-arrow';
-	
+
 	      tooltipTextLayer.className = 'introjs-tooltiptext';
 	      tooltipTextLayer.innerHTML = targetElement.intro;
-	
+
 	      bulletsLayer.className = 'introjs-bullets';
-	
+
 	      if (this._options.showBullets === false) {
 	        bulletsLayer.style.display = 'none';
 	      }
-	
+
 	      var ulContainer = document.createElement('ul');
-	
+
 	      for (var i = 0, stepsLength = this._introItems.length; i < stepsLength; i++) {
 	        var innerLi    = document.createElement('li');
 	        var anchorLink = document.createElement('a');
-	
+
 	        anchorLink.onclick = function() {
 	          self.goToStep(this.getAttribute('data-stepnumber'));
 	        };
-	
+
 	        if (i === (targetElement.step-1)) anchorLink.className = 'active';
-	
+
 	        anchorLink.href = 'javascript:void(0);';
 	        anchorLink.innerHTML = "&nbsp;";
 	        anchorLink.setAttribute('data-stepnumber', this._introItems[i].step);
-	
+
 	        innerLi.appendChild(anchorLink);
 	        ulContainer.appendChild(innerLi);
 	      }
-	
+
 	      bulletsLayer.appendChild(ulContainer);
-	
+
 	      progressLayer.className = 'introjs-progress';
-	
+
 	      if (this._options.showProgress === false) {
 	        progressLayer.style.display = 'none';
 	      }
 	      var progressBar = document.createElement('div');
 	      progressBar.className = 'introjs-progressbar';
 	      progressBar.setAttribute('style', 'width:' + _getProgress.call(this) + '%;');
-	
+
 	      progressLayer.appendChild(progressBar);
-	
+
 	      buttonsLayer.className = 'introjs-tooltipbuttons';
 	      if (this._options.showButtons === false) {
 	        buttonsLayer.style.display = 'none';
 	      }
-	
+
 	      tooltipLayer.className = 'introjs-tooltip';
 	      tooltipLayer.appendChild(tooltipTextLayer);
 	      tooltipLayer.appendChild(bulletsLayer);
 	      tooltipLayer.appendChild(progressLayer);
-	
+
 	      //add helper layer number
 	      if (this._options.showStepNumbers == true) {
 	        var helperNumberLayer = document.createElement('span');
@@ -19236,74 +19236,74 @@
 	        helperNumberLayer.innerHTML = targetElement.step;
 	        referenceLayer.appendChild(helperNumberLayer);
 	      }
-	
+
 	      tooltipLayer.appendChild(arrowLayer);
 	      referenceLayer.appendChild(tooltipLayer);
-	
+
 	      //next button
 	      var nextTooltipButton = document.createElement('a');
-	
+
 	      nextTooltipButton.onclick = function() {
 	        if (self._introItems.length - 1 != self._currentStep) {
 	          _nextStep.call(self);
 	        }
 	      };
-	
+
 	      nextTooltipButton.href = 'javascript:void(0);';
 	      nextTooltipButton.innerHTML = this._options.nextLabel;
-	
+
 	      //previous button
 	      var prevTooltipButton = document.createElement('a');
-	
+
 	      prevTooltipButton.onclick = function() {
 	        if (self._currentStep != 0) {
 	          _previousStep.call(self);
 	        }
 	      };
-	
+
 	      prevTooltipButton.href = 'javascript:void(0);';
 	      prevTooltipButton.innerHTML = this._options.prevLabel;
-	
+
 	      //skip button
 	      var skipTooltipButton = document.createElement('a');
 	      skipTooltipButton.className = 'introjs-button introjs-skipbutton';
 	      skipTooltipButton.href = 'javascript:void(0);';
 	      skipTooltipButton.innerHTML = this._options.skipLabel;
-	
+
 	      skipTooltipButton.onclick = function() {
 	        if (self._introItems.length - 1 == self._currentStep && typeof (self._introCompleteCallback) === 'function') {
 	          self._introCompleteCallback.call(self);
 	        }
-	
+
 	        if (self._introItems.length - 1 != self._currentStep && typeof (self._introExitCallback) === 'function') {
 	          self._introExitCallback.call(self);
 	        }
-	
+
 	        _exitIntro.call(self, self._targetElement);
 	      };
-	
+
 	      buttonsLayer.appendChild(skipTooltipButton);
-	
+
 	      //in order to prevent displaying next/previous button always
 	      if (this._introItems.length > 1) {
 	        buttonsLayer.appendChild(prevTooltipButton);
 	        buttonsLayer.appendChild(nextTooltipButton);
 	      }
-	
+
 	      tooltipLayer.appendChild(buttonsLayer);
-	
+
 	      //set proper position
 	      _placeTooltip.call(self, targetElement.element, tooltipLayer, arrowLayer, helperNumberLayer);
 	    }
-	
+
 	    //disable interaction
 	    if (this._options.disableInteraction === true) {
 	      _disableInteraction.call(self);
 	    }
-	
+
 	    prevTooltipButton.removeAttribute('tabIndex');
 	    nextTooltipButton.removeAttribute('tabIndex');
-	
+
 	    if (this._currentStep == 0 && this._introItems.length > 1) {
 	      prevTooltipButton.className = 'introjs-button introjs-prevbutton introjs-disabled';
 	      prevTooltipButton.tabIndex = '-1';
@@ -19319,24 +19319,24 @@
 	      nextTooltipButton.className = 'introjs-button introjs-nextbutton';
 	      skipTooltipButton.innerHTML = this._options.skipLabel;
 	    }
-	
+
 	    //Set focus on "next" button, so that hitting Enter always moves you onto the next step
 	    nextTooltipButton.focus();
-	
+
 	    //add target element position style
 	    targetElement.element.className += ' introjs-showElement';
-	
+
 	    var currentElementPosition = _getPropValue(targetElement.element, 'position');
 	    if (currentElementPosition !== 'absolute' &&
 	        currentElementPosition !== 'relative') {
 	      //change to new intro item
 	      targetElement.element.className += ' introjs-relativePosition';
 	    }
-	
+
 	    var parentElm = targetElement.element.parentNode;
 	    while (parentElm != null) {
 	      if (parentElm.tagName.toLowerCase() === 'body') break;
-	
+
 	      //fix The Stacking Contenxt problem.
 	      //More detail: https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context
 	      var zIndex = _getPropValue(parentElm, 'z-index');
@@ -19345,31 +19345,31 @@
 	      if (/[0-9]+/.test(zIndex) || opacity < 1 || (transform !== 'none' && transform !== undefined)) {
 	        parentElm.className += ' introjs-fixParent';
 	      }
-	
+
 	      parentElm = parentElm.parentNode;
 	    }
-	
+
 	    if (!_elementInViewport(targetElement.element) && this._options.scrollToElement === true) {
 	      var rect = targetElement.element.getBoundingClientRect(),
 	        winHeight = _getWinSize().height,
 	        top = rect.bottom - (rect.bottom - rect.top),
 	        bottom = rect.bottom - winHeight;
-	
+
 	      //Scroll up
 	      if (top < 0 || targetElement.element.clientHeight > winHeight) {
 	        window.scrollBy(0, top - 30); // 30px padding from edge to look nice
-	
+
 	      //Scroll down
 	      } else {
 	        window.scrollBy(0, bottom + 100); // 70px + 30px padding from edge to look nice
 	      }
 	    }
-	
+
 	    if (typeof (this._introAfterChangeCallback) !== 'undefined') {
 	      this._introAfterChangeCallback.call(this, targetElement.element);
 	    }
 	  }
-	
+
 	  /**
 	   * Get an element CSS property on the page
 	   * Thanks to JavaScript Kit: http://www.javascriptkit.com/dhtmltutors/dhtmlcascade4.shtml
@@ -19387,7 +19387,7 @@
 	    } else if (document.defaultView && document.defaultView.getComputedStyle) { //Others
 	      propValue = document.defaultView.getComputedStyle(element, null).getPropertyValue(propName);
 	    }
-	
+
 	    //Prevent exception in IE
 	    if (propValue && propValue.toLowerCase) {
 	      return propValue.toLowerCase();
@@ -19395,7 +19395,7 @@
 	      return propValue;
 	    }
 	  }
-	
+
 	  /**
 	   * Provides a cross-browser way to get the screen dimensions
 	   * via: http://stackoverflow.com/questions/5864467/internet-explorer-innerheight
@@ -19412,7 +19412,7 @@
 	      return { width: D.clientWidth, height: D.clientHeight };
 	    }
 	  }
-	
+
 	  /**
 	   * Add overlay layer to the page
 	   * http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
@@ -19423,7 +19423,7 @@
 	   */
 	  function _elementInViewport(el) {
 	    var rect = el.getBoundingClientRect();
-	
+
 	    return (
 	      rect.top >= 0 &&
 	      rect.left >= 0 &&
@@ -19431,7 +19431,7 @@
 	      rect.right <= window.innerWidth
 	    );
 	  }
-	
+
 	  /**
 	   * Add overlay layer to the page
 	   *
@@ -19443,10 +19443,10 @@
 	    var overlayLayer = document.createElement('div'),
 	        styleText = '',
 	        self = this;
-	
+
 	    //set css class name
 	    overlayLayer.className = 'introjs-overlay';
-	
+
 	    //check if the target element is body, we should calculate the size of overlay layer in a better way
 	    if (targetElm.tagName.toLowerCase() === 'body') {
 	      styleText += 'top: 0;bottom: 0; left: 0;right: 0;position: fixed;';
@@ -19459,12 +19459,12 @@
 	        overlayLayer.setAttribute('style', styleText);
 	      }
 	    }
-	
+
 	    targetElm.appendChild(overlayLayer);
-	
+
 	    overlayLayer.onclick = function() {
 	      if (self._options.exitOnOverlayClick == true) {
-	
+
 	        //check if any callback is defined
 	        if (self._introExitCallback != undefined) {
 	          self._introExitCallback.call(self);
@@ -19472,15 +19472,15 @@
 	        _exitIntro.call(self, targetElm);
 	      }
 	    };
-	
+
 	    setTimeout(function() {
 	      styleText += 'opacity: ' + self._options.overlayOpacity.toString() + ';';
 	      overlayLayer.setAttribute('style', styleText);
 	    }, 10);
-	
+
 	    return true;
 	  }
-	
+
 	  /**
 	   * Get an element position on the page
 	   * Thanks to `meouw`: http://stackoverflow.com/a/442474/375966
@@ -19492,13 +19492,13 @@
 	   */
 	  function _getOffset(element) {
 	    var elementPosition = {};
-	
+
 	    //set width
 	    elementPosition.width = element.offsetWidth;
-	
+
 	    //set height
 	    elementPosition.height = element.offsetHeight;
-	
+
 	    //calculate element top and left
 	    var _x = 0;
 	    var _y = 0;
@@ -19511,10 +19511,10 @@
 	    elementPosition.top = _y;
 	    //set left
 	    elementPosition.left = _x;
-	
+
 	    return elementPosition;
 	  }
-	
+
 	  /**
 	   * Gets the current progress percentage
 	   *
@@ -19527,7 +19527,7 @@
 	    var currentStep = parseInt((this._currentStep + 1), 10);
 	    return ((currentStep / this._introItems.length) * 100);
 	  }
-	
+
 	  /**
 	   * Overwrites obj1's values with obj2's and adds obj2's if non existent in obj1
 	   * via: http://stackoverflow.com/questions/171251/how-can-i-merge-properties-of-two-javascript-objects-dynamically
@@ -19542,16 +19542,16 @@
 	    for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
 	    return obj3;
 	  }
-	
+
 	  var introJs = function (targetElm) {
 	    if (typeof (targetElm) === 'object') {
 	      //Ok, create a new instance
 	      return new IntroJs(targetElm);
-	
+
 	    } else if (typeof (targetElm) === 'string') {
 	      //select the target element with query selector
 	      var targetElement = document.querySelector(targetElm);
-	
+
 	      if (targetElement) {
 	        return new IntroJs(targetElement);
 	      } else {
@@ -19561,7 +19561,7 @@
 	      return new IntroJs(document.body);
 	    }
 	  };
-	
+
 	  /**
 	   * Current IntroJs version
 	   *
@@ -19569,7 +19569,7 @@
 	   * @type String
 	   */
 	  introJs.version = VERSION;
-	
+
 	  //Prototype
 	  introJs.fn = IntroJs.prototype = {
 	    clone: function () {
@@ -19649,7 +19649,7 @@
 	      return this;
 	    }
 	  };
-	
+
 	  exports.introJs = introJs;
 	  return introJs;
 	}));
@@ -19669,9 +19669,9 @@
 	 *
 	 * @providesModule invariant
 	 */
-	
+
 	'use strict';
-	
+
 	/**
 	 * Use invariant() to assert state which your program assumes to be true.
 	 *
@@ -19682,14 +19682,14 @@
 	 * The invariant message will be stripped in production, but the invariant
 	 * will remain to ensure logic does not differ in production.
 	 */
-	
+
 	var invariant = function(condition, format, a, b, c, d, e, f) {
 	  if (process.env.NODE_ENV !== 'production') {
 	    if (format === undefined) {
 	      throw new Error('invariant requires an error message argument');
 	    }
 	  }
-	
+
 	  if (!condition) {
 	    var error;
 	    if (format === undefined) {
@@ -19705,14 +19705,14 @@
 	        format.replace(/%s/g, function() { return args[argIndex++]; })
 	      );
 	    }
-	
+
 	    error.framesToPop = 1; // we don't care about invariant's own frame
 	    throw error;
 	  }
 	};
-	
+
 	module.exports = invariant;
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(45)))
 
 /***/ },
@@ -19720,29 +19720,29 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	function ToObject(val) {
 		if (val == null) {
 			throw new TypeError('Object.assign cannot be called with null or undefined');
 		}
-	
+
 		return Object(val);
 	}
-	
+
 	module.exports = Object.assign || function (target, source) {
 		var from;
 		var keys;
 		var to = ToObject(target);
-	
+
 		for (var s = 1; s < arguments.length; s++) {
 			from = arguments[s];
 			keys = Object.keys(Object(from));
-	
+
 			for (var i = 0; i < keys.length; i++) {
 				to[keys[i]] = from[keys[i]];
 			}
 		}
-	
+
 		return to;
 	};
 
@@ -19752,35 +19752,35 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _inherits = __webpack_require__(10)['default'];
-	
+
 	var _classCallCheck = __webpack_require__(8)['default'];
-	
+
 	var _extends = __webpack_require__(9)['default'];
-	
+
 	var _interopRequireDefault = __webpack_require__(7)['default'];
-	
+
 	exports.__esModule = true;
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _reactMixin = __webpack_require__(15);
-	
+
 	var _reactMixin2 = _interopRequireDefault(_reactMixin);
-	
+
 	var _mixins = __webpack_require__(14);
-	
+
 	var _JSONArrow = __webpack_require__(46);
-	
+
 	var _JSONArrow2 = _interopRequireDefault(_JSONArrow);
-	
+
 	var _grabNode = __webpack_require__(35);
-	
+
 	var _grabNode2 = _interopRequireDefault(_grabNode);
-	
+
 	var styles = {
 	  base: {
 	    position: 'relative',
@@ -19802,13 +19802,13 @@
 	    marginRight: 5
 	  }
 	};
-	
+
 	var JSONArrayNode = (function (_React$Component) {
 	  _inherits(JSONArrayNode, _React$Component);
-	
+
 	  function JSONArrayNode(props) {
 	    _classCallCheck(this, _JSONArrayNode);
-	
+
 	    _React$Component.call(this, props);
 	    this.defaultProps = {
 	      data: [],
@@ -19822,14 +19822,14 @@
 	      createdChildNodes: false
 	    };
 	  }
-	
+
 	  // Returns the child nodes for each element in the array. If we have
 	  // generated them previously, we return from cache, otherwise we create
 	  // them.
-	
+
 	  JSONArrayNode.prototype.getChildNodes = function getChildNodes() {
 	    var _this = this;
-	
+
 	    if (this.state.expanded && this.needsChildNodes) {
 	      (function () {
 	        var childNodes = [];
@@ -19849,17 +19849,17 @@
 	    }
 	    return this.renderedChildren;
 	  };
-	
+
 	  // Returns the "n Items" string for this node, generating and
 	  // caching it if it hasn't been created yet.
-	
+
 	  JSONArrayNode.prototype.getItemString = function getItemString() {
 	    if (!this.itemString) {
 	      this.itemString = this.props.data.length + ' item' + (this.props.data.length !== 1 ? 's' : '');
 	    }
 	    return this.itemString;
 	  };
-	
+
 	  JSONArrayNode.prototype.render = function render() {
 	    var childNodes = this.getChildNodes();
 	    var childListStyle = {
@@ -19907,19 +19907,19 @@
 	      )
 	    );
 	  };
-	
+
 	  var _JSONArrayNode = JSONArrayNode;
 	  JSONArrayNode = _reactMixin2['default'].decorate(_mixins.ExpandedStateHandlerMixin)(JSONArrayNode) || JSONArrayNode;
 	  return JSONArrayNode;
 	})(_react2['default'].Component);
-	
+
 	exports['default'] = JSONArrayNode;
 	module.exports = exports['default'];
-	
+
 	// flag to see if we still need to render our child nodes
-	
+
 	// cache store for our child nodes
-	
+
 	// cache store for the number of items string we display
 
 /***/ },
@@ -19927,31 +19927,31 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _inherits = __webpack_require__(10)['default'];
-	
+
 	var _classCallCheck = __webpack_require__(8)['default'];
-	
+
 	var _extends = __webpack_require__(9)['default'];
-	
+
 	var _interopRequireDefault = __webpack_require__(7)['default'];
-	
+
 	exports.__esModule = true;
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _reactMixin = __webpack_require__(15);
-	
+
 	var _reactMixin2 = _interopRequireDefault(_reactMixin);
-	
+
 	var _mixins = __webpack_require__(14);
-	
+
 	var _utilsHexToRgb = __webpack_require__(27);
-	
+
 	var _utilsHexToRgb2 = _interopRequireDefault(_utilsHexToRgb);
-	
+
 	var styles = {
 	  base: {
 	    paddingTop: 3,
@@ -19964,16 +19964,16 @@
 	    marginRight: 5
 	  }
 	};
-	
+
 	var JSONBooleanNode = (function (_React$Component) {
 	  _inherits(JSONBooleanNode, _React$Component);
-	
+
 	  function JSONBooleanNode() {
 	    _classCallCheck(this, _JSONBooleanNode);
-	
+
 	    _React$Component.apply(this, arguments);
 	  }
-	
+
 	  JSONBooleanNode.prototype.render = function render() {
 	    var truthString = this.props.value ? 'true' : 'false';
 	    var backgroundColor = 'transparent';
@@ -19999,12 +19999,12 @@
 	      )
 	    );
 	  };
-	
+
 	  var _JSONBooleanNode = JSONBooleanNode;
 	  JSONBooleanNode = _reactMixin2['default'].decorate(_mixins.SquashClickEventMixin)(JSONBooleanNode) || JSONBooleanNode;
 	  return JSONBooleanNode;
 	})(_react2['default'].Component);
-	
+
 	exports['default'] = JSONBooleanNode;
 	module.exports = exports['default'];
 
@@ -20013,31 +20013,31 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _inherits = __webpack_require__(10)['default'];
-	
+
 	var _classCallCheck = __webpack_require__(8)['default'];
-	
+
 	var _extends = __webpack_require__(9)['default'];
-	
+
 	var _interopRequireDefault = __webpack_require__(7)['default'];
-	
+
 	exports.__esModule = true;
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _reactMixin = __webpack_require__(15);
-	
+
 	var _reactMixin2 = _interopRequireDefault(_reactMixin);
-	
+
 	var _mixins = __webpack_require__(14);
-	
+
 	var _utilsHexToRgb = __webpack_require__(27);
-	
+
 	var _utilsHexToRgb2 = _interopRequireDefault(_utilsHexToRgb);
-	
+
 	var styles = {
 	  base: {
 	    paddingTop: 3,
@@ -20050,16 +20050,16 @@
 	    marginRight: 5
 	  }
 	};
-	
+
 	var JSONDateNode = (function (_React$Component) {
 	  _inherits(JSONDateNode, _React$Component);
-	
+
 	  function JSONDateNode() {
 	    _classCallCheck(this, _JSONDateNode);
-	
+
 	    _React$Component.apply(this, arguments);
 	  }
-	
+
 	  JSONDateNode.prototype.render = function render() {
 	    var backgroundColor = 'transparent';
 	    if (this.props.previousValue !== this.props.value) {
@@ -20084,12 +20084,12 @@
 	      )
 	    );
 	  };
-	
+
 	  var _JSONDateNode = JSONDateNode;
 	  JSONDateNode = _reactMixin2['default'].decorate(_mixins.SquashClickEventMixin)(JSONDateNode) || JSONDateNode;
 	  return JSONDateNode;
 	})(_react2['default'].Component);
-	
+
 	exports['default'] = JSONDateNode;
 	module.exports = exports['default'];
 
@@ -20098,39 +20098,39 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _inherits = __webpack_require__(10)['default'];
-	
+
 	var _classCallCheck = __webpack_require__(8)['default'];
-	
+
 	var _extends = __webpack_require__(9)['default'];
-	
+
 	var _getIterator = __webpack_require__(181)['default'];
-	
+
 	var _Number$isSafeInteger = __webpack_require__(182)['default'];
-	
+
 	var _interopRequireDefault = __webpack_require__(7)['default'];
-	
+
 	exports.__esModule = true;
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _reactMixin = __webpack_require__(15);
-	
+
 	var _reactMixin2 = _interopRequireDefault(_reactMixin);
-	
+
 	var _mixins = __webpack_require__(14);
-	
+
 	var _JSONArrow = __webpack_require__(46);
-	
+
 	var _JSONArrow2 = _interopRequireDefault(_JSONArrow);
-	
+
 	var _grabNode = __webpack_require__(35);
-	
+
 	var _grabNode2 = _interopRequireDefault(_grabNode);
-	
+
 	var styles = {
 	  base: {
 	    position: 'relative',
@@ -20152,13 +20152,13 @@
 	    marginRight: 5
 	  }
 	};
-	
+
 	var JSONIterableNode = (function (_React$Component) {
 	  _inherits(JSONIterableNode, _React$Component);
-	
+
 	  function JSONIterableNode(props) {
 	    _classCallCheck(this, _JSONIterableNode);
-	
+
 	    _React$Component.call(this, props);
 	    this.defaultProps = {
 	      data: [],
@@ -20172,17 +20172,17 @@
 	      createdChildNodes: false
 	    };
 	  }
-	
+
 	  // Returns the child nodes for each entry in iterable. If we have
 	  // generated them previously, we return from cache, otherwise we create
 	  // them.
-	
+
 	  JSONIterableNode.prototype.getChildNodes = function getChildNodes() {
 	    if (this.state.expanded && this.needsChildNodes) {
 	      var childNodes = [];
 	      for (var _iterator = this.props.data, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _getIterator(_iterator);;) {
 	        var _ref;
-	
+
 	        if (_isArray) {
 	          if (_i >= _iterator.length) break;
 	          _ref = _iterator[_i++];
@@ -20191,9 +20191,9 @@
 	          if (_i.done) break;
 	          _ref = _i.value;
 	        }
-	
+
 	        var entry = _ref;
-	
+
 	        var key = null;
 	        var value = null;
 	        if (Array.isArray(entry)) {
@@ -20203,7 +20203,7 @@
 	          key = childNodes.length;
 	          value = entry;
 	        }
-	
+
 	        var prevData = undefined;
 	        if (typeof this.props.previousData !== 'undefined' && this.props.previousData !== null) {
 	          prevData = this.props.previousData[key];
@@ -20218,21 +20218,21 @@
 	    }
 	    return this.renderedChildren;
 	  };
-	
+
 	  // Returns the "n entries" string for this node, generating and
 	  // caching it if it hasn't been created yet.
-	
+
 	  JSONIterableNode.prototype.getItemString = function getItemString() {
 	    if (!this.itemString) {
 	      var data = this.props.data;
-	
+
 	      var count = 0;
 	      if (_Number$isSafeInteger(data.size)) {
 	        count = data.size;
 	      } else {
 	        for (var _iterator2 = data, _isArray2 = Array.isArray(_iterator2), _i2 = 0, _iterator2 = _isArray2 ? _iterator2 : _getIterator(_iterator2);;) {
 	          var _ref2;
-	
+
 	          if (_isArray2) {
 	            if (_i2 >= _iterator2.length) break;
 	            _ref2 = _iterator2[_i2++];
@@ -20241,7 +20241,7 @@
 	            if (_i2.done) break;
 	            _ref2 = _i2.value;
 	          }
-	
+
 	          var entry = _ref2;
 	          // eslint-disable-line no-unused-vars
 	          count += 1;
@@ -20251,7 +20251,7 @@
 	    }
 	    return this.itemString;
 	  };
-	
+
 	  JSONIterableNode.prototype.render = function render() {
 	    var childNodes = this.getChildNodes();
 	    var childListStyle = {
@@ -20299,19 +20299,19 @@
 	      )
 	    );
 	  };
-	
+
 	  var _JSONIterableNode = JSONIterableNode;
 	  JSONIterableNode = _reactMixin2['default'].decorate(_mixins.ExpandedStateHandlerMixin)(JSONIterableNode) || JSONIterableNode;
 	  return JSONIterableNode;
 	})(_react2['default'].Component);
-	
+
 	exports['default'] = JSONIterableNode;
 	module.exports = exports['default'];
-	
+
 	// flag to see if we still need to render our child nodes
-	
+
 	// cache store for our child nodes
-	
+
 	// cache store for the number of items string we display
 
 /***/ },
@@ -20319,31 +20319,31 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _inherits = __webpack_require__(10)['default'];
-	
+
 	var _classCallCheck = __webpack_require__(8)['default'];
-	
+
 	var _extends = __webpack_require__(9)['default'];
-	
+
 	var _interopRequireDefault = __webpack_require__(7)['default'];
-	
+
 	exports.__esModule = true;
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _reactMixin = __webpack_require__(15);
-	
+
 	var _reactMixin2 = _interopRequireDefault(_reactMixin);
-	
+
 	var _mixins = __webpack_require__(14);
-	
+
 	var _utilsHexToRgb = __webpack_require__(27);
-	
+
 	var _utilsHexToRgb2 = _interopRequireDefault(_utilsHexToRgb);
-	
+
 	var styles = {
 	  base: {
 	    paddingTop: 3,
@@ -20356,16 +20356,16 @@
 	    marginRight: 5
 	  }
 	};
-	
+
 	var JSONNullNode = (function (_React$Component) {
 	  _inherits(JSONNullNode, _React$Component);
-	
+
 	  function JSONNullNode() {
 	    _classCallCheck(this, _JSONNullNode);
-	
+
 	    _React$Component.apply(this, arguments);
 	  }
-	
+
 	  JSONNullNode.prototype.render = function render() {
 	    var backgroundColor = 'transparent';
 	    if (this.props.previousValue !== this.props.value) {
@@ -20390,12 +20390,12 @@
 	      )
 	    );
 	  };
-	
+
 	  var _JSONNullNode = JSONNullNode;
 	  JSONNullNode = _reactMixin2['default'].decorate(_mixins.SquashClickEventMixin)(JSONNullNode) || JSONNullNode;
 	  return JSONNullNode;
 	})(_react2['default'].Component);
-	
+
 	exports['default'] = JSONNullNode;
 	module.exports = exports['default'];
 
@@ -20404,31 +20404,31 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _inherits = __webpack_require__(10)['default'];
-	
+
 	var _classCallCheck = __webpack_require__(8)['default'];
-	
+
 	var _extends = __webpack_require__(9)['default'];
-	
+
 	var _interopRequireDefault = __webpack_require__(7)['default'];
-	
+
 	exports.__esModule = true;
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _reactMixin = __webpack_require__(15);
-	
+
 	var _reactMixin2 = _interopRequireDefault(_reactMixin);
-	
+
 	var _mixins = __webpack_require__(14);
-	
+
 	var _utilsHexToRgb = __webpack_require__(27);
-	
+
 	var _utilsHexToRgb2 = _interopRequireDefault(_utilsHexToRgb);
-	
+
 	var styles = {
 	  base: {
 	    paddingTop: 3,
@@ -20441,16 +20441,16 @@
 	    marginRight: 5
 	  }
 	};
-	
+
 	var JSONNumberNode = (function (_React$Component) {
 	  _inherits(JSONNumberNode, _React$Component);
-	
+
 	  function JSONNumberNode() {
 	    _classCallCheck(this, _JSONNumberNode);
-	
+
 	    _React$Component.apply(this, arguments);
 	  }
-	
+
 	  JSONNumberNode.prototype.render = function render() {
 	    var backgroundColor = 'transparent';
 	    if (this.props.previousValue !== this.props.value) {
@@ -20475,12 +20475,12 @@
 	      )
 	    );
 	  };
-	
+
 	  var _JSONNumberNode = JSONNumberNode;
 	  JSONNumberNode = _reactMixin2['default'].decorate(_mixins.SquashClickEventMixin)(JSONNumberNode) || JSONNumberNode;
 	  return JSONNumberNode;
 	})(_react2['default'].Component);
-	
+
 	exports['default'] = JSONNumberNode;
 	module.exports = exports['default'];
 
@@ -20489,37 +20489,37 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _inherits = __webpack_require__(10)['default'];
-	
+
 	var _classCallCheck = __webpack_require__(8)['default'];
-	
+
 	var _extends = __webpack_require__(9)['default'];
-	
+
 	var _Object$keys = __webpack_require__(186)['default'];
-	
+
 	var _interopRequireDefault = __webpack_require__(7)['default'];
-	
+
 	exports.__esModule = true;
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _reactMixin = __webpack_require__(15);
-	
+
 	var _reactMixin2 = _interopRequireDefault(_reactMixin);
-	
+
 	var _mixins = __webpack_require__(14);
-	
+
 	var _JSONArrow = __webpack_require__(46);
-	
+
 	var _JSONArrow2 = _interopRequireDefault(_JSONArrow);
-	
+
 	var _grabNode = __webpack_require__(35);
-	
+
 	var _grabNode2 = _interopRequireDefault(_grabNode);
-	
+
 	var styles = {
 	  base: {
 	    position: 'relative',
@@ -20540,13 +20540,13 @@
 	    marginRight: 5
 	  }
 	};
-	
+
 	var JSONObjectNode = (function (_React$Component) {
 	  _inherits(JSONObjectNode, _React$Component);
-	
+
 	  function JSONObjectNode(props) {
 	    _classCallCheck(this, _JSONObjectNode);
-	
+
 	    _React$Component.call(this, props);
 	    this.defaultProps = {
 	      data: [],
@@ -20560,11 +20560,11 @@
 	      createdChildNodes: false
 	    };
 	  }
-	
+
 	  // Returns the child nodes for each element in the object. If we have
 	  // generated them previously, we return from cache, otherwise we create
 	  // them.
-	
+
 	  JSONObjectNode.prototype.getChildNodes = function getChildNodes() {
 	    if (this.state.expanded && this.needsChildNodes) {
 	      var obj = this.props.data;
@@ -20586,10 +20586,10 @@
 	    }
 	    return this.renderedChildren;
 	  };
-	
+
 	  // Returns the "n Items" string for this node, generating and
 	  // caching it if it hasn't been created yet.
-	
+
 	  JSONObjectNode.prototype.getItemString = function getItemString() {
 	    if (!this.itemString) {
 	      var len = _Object$keys(this.props.data).length;
@@ -20597,7 +20597,7 @@
 	    }
 	    return this.itemString;
 	  };
-	
+
 	  JSONObjectNode.prototype.render = function render() {
 	    var childListStyle = {
 	      padding: 0,
@@ -20644,19 +20644,19 @@
 	      )
 	    );
 	  };
-	
+
 	  var _JSONObjectNode = JSONObjectNode;
 	  JSONObjectNode = _reactMixin2['default'].decorate(_mixins.ExpandedStateHandlerMixin)(JSONObjectNode) || JSONObjectNode;
 	  return JSONObjectNode;
 	})(_react2['default'].Component);
-	
+
 	exports['default'] = JSONObjectNode;
 	module.exports = exports['default'];
-	
+
 	// cache store for the number of items string we display
-	
+
 	// flag to see if we still need to render our child nodes
-	
+
 	// cache store for our child nodes
 
 /***/ },
@@ -20664,31 +20664,31 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _inherits = __webpack_require__(10)['default'];
-	
+
 	var _classCallCheck = __webpack_require__(8)['default'];
-	
+
 	var _extends = __webpack_require__(9)['default'];
-	
+
 	var _interopRequireDefault = __webpack_require__(7)['default'];
-	
+
 	exports.__esModule = true;
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _reactMixin = __webpack_require__(15);
-	
+
 	var _reactMixin2 = _interopRequireDefault(_reactMixin);
-	
+
 	var _mixins = __webpack_require__(14);
-	
+
 	var _utilsHexToRgb = __webpack_require__(27);
-	
+
 	var _utilsHexToRgb2 = _interopRequireDefault(_utilsHexToRgb);
-	
+
 	var styles = {
 	  base: {
 	    paddingTop: 3,
@@ -20701,16 +20701,16 @@
 	    marginRight: 5
 	  }
 	};
-	
+
 	var JSONStringNode = (function (_React$Component) {
 	  _inherits(JSONStringNode, _React$Component);
-	
+
 	  function JSONStringNode() {
 	    _classCallCheck(this, _JSONStringNode);
-	
+
 	    _React$Component.apply(this, arguments);
 	  }
-	
+
 	  JSONStringNode.prototype.render = function render() {
 	    var backgroundColor = 'transparent';
 	    if (this.props.previousValue !== this.props.value) {
@@ -20737,12 +20737,12 @@
 	      )
 	    );
 	  };
-	
+
 	  var _JSONStringNode = JSONStringNode;
 	  JSONStringNode = _reactMixin2['default'].decorate(_mixins.SquashClickEventMixin)(JSONStringNode) || JSONStringNode;
 	  return JSONStringNode;
 	})(_react2['default'].Component);
-	
+
 	exports['default'] = JSONStringNode;
 	module.exports = exports['default'];
 
@@ -20751,7 +20751,7 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	exports.__esModule = true;
 	exports["default"] = {
 	  handleClick: function handleClick(e) {
@@ -20760,7 +20760,7 @@
 	      expanded: !this.state.expanded
 	    });
 	  },
-	
+
 	  componentWillReceiveProps: function componentWillReceiveProps() {
 	    // resets our caches and flags we need to build child nodes again
 	    this.renderedChildren = [];
@@ -20775,7 +20775,7 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	exports.__esModule = true;
 	exports["default"] = {
 	  handleClick: function handleClick(e) {
@@ -20789,18 +20789,18 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _Symbol$iterator = __webpack_require__(188)['default'];
-	
+
 	exports.__esModule = true;
-	
+
 	exports['default'] = function (obj) {
 	  if (obj !== null && typeof obj === 'object' && !Array.isArray(obj) && typeof obj[_Symbol$iterator] === 'function') {
 	    return 'Iterable';
 	  }
 	  return Object.prototype.toString.call(obj).slice(8, -1);
 	};
-	
+
 	module.exports = exports['default'];
 
 /***/ },
@@ -20808,7 +20808,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'solarized',
@@ -20837,41 +20837,41 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	exports['default'] = createConnect;
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _utilsCreateStoreShape = __webpack_require__(63);
-	
+
 	var _utilsCreateStoreShape2 = _interopRequireDefault(_utilsCreateStoreShape);
-	
+
 	var _utilsShallowEqual = __webpack_require__(245);
-	
+
 	var _utilsShallowEqual2 = _interopRequireDefault(_utilsShallowEqual);
-	
+
 	var _utilsIsPlainObject = __webpack_require__(244);
-	
+
 	var _utilsIsPlainObject2 = _interopRequireDefault(_utilsIsPlainObject);
-	
+
 	var _utilsWrapActionCreators = __webpack_require__(246);
-	
+
 	var _utilsWrapActionCreators2 = _interopRequireDefault(_utilsWrapActionCreators);
-	
+
 	var _invariant = __webpack_require__(228);
-	
+
 	var _invariant2 = _interopRequireDefault(_invariant);
-	
+
 	var defaultMapStateToProps = function defaultMapStateToProps() {
 	  return {};
 	};
@@ -20881,23 +20881,23 @@
 	var defaultMergeProps = function defaultMergeProps(stateProps, dispatchProps, parentProps) {
 	  return _extends({}, parentProps, stateProps, dispatchProps);
 	};
-	
+
 	function getDisplayName(Component) {
 	  return Component.displayName || Component.name || 'Component';
 	}
-	
+
 	// Helps track hot reloading.
 	var nextVersion = 0;
-	
+
 	function createConnect(React) {
 	  var Component = React.Component;
 	  var PropTypes = React.PropTypes;
-	
+
 	  var storeShape = _utilsCreateStoreShape2['default'](PropTypes);
-	
+
 	  return function connect(mapStateToProps, mapDispatchToProps, mergeProps) {
 	    var options = arguments.length <= 3 || arguments[3] === undefined ? {} : arguments[3];
-	
+
 	    var shouldSubscribe = Boolean(mapStateToProps);
 	    var finalMapStateToProps = mapStateToProps || defaultMapStateToProps;
 	    var finalMapDispatchToProps = _utilsIsPlainObject2['default'](mapDispatchToProps) ? _utilsWrapActionCreators2['default'](mapDispatchToProps) : mapDispatchToProps || defaultMapDispatchToProps;
@@ -20906,64 +20906,64 @@
 	    var shouldUpdateDispatchProps = finalMapDispatchToProps.length > 1;
 	    var _options$pure = options.pure;
 	    var pure = _options$pure === undefined ? true : _options$pure;
-	
+
 	    // Helps track hot reloading.
 	    var version = nextVersion++;
-	
+
 	    function computeStateProps(store, props) {
 	      var state = store.getState();
 	      var stateProps = shouldUpdateStateProps ? finalMapStateToProps(state, props) : finalMapStateToProps(state);
-	
+
 	      _invariant2['default'](_utilsIsPlainObject2['default'](stateProps), '`mapStateToProps` must return an object. Instead received %s.', stateProps);
 	      return stateProps;
 	    }
-	
+
 	    function computeDispatchProps(store, props) {
 	      var dispatch = store.dispatch;
-	
+
 	      var dispatchProps = shouldUpdateDispatchProps ? finalMapDispatchToProps(dispatch, props) : finalMapDispatchToProps(dispatch);
-	
+
 	      _invariant2['default'](_utilsIsPlainObject2['default'](dispatchProps), '`mapDispatchToProps` must return an object. Instead received %s.', dispatchProps);
 	      return dispatchProps;
 	    }
-	
+
 	    function _computeNextState(stateProps, dispatchProps, parentProps) {
 	      var mergedProps = finalMergeProps(stateProps, dispatchProps, parentProps);
 	      _invariant2['default'](_utilsIsPlainObject2['default'](mergedProps), '`mergeProps` must return an object. Instead received %s.', mergedProps);
 	      return mergedProps;
 	    }
-	
+
 	    return function wrapWithConnect(WrappedComponent) {
 	      var Connect = (function (_Component) {
 	        _inherits(Connect, _Component);
-	
+
 	        Connect.prototype.shouldComponentUpdate = function shouldComponentUpdate(nextProps, nextState) {
 	          if (!pure) {
 	            this.updateState(nextProps);
 	            return true;
 	          }
-	
+
 	          var storeChanged = nextState.storeState !== this.state.storeState;
 	          var propsChanged = !_utilsShallowEqual2['default'](nextProps, this.props);
 	          var mapStateProducedChange = false;
 	          var dispatchPropsChanged = false;
-	
+
 	          if (storeChanged || propsChanged && shouldUpdateStateProps) {
 	            mapStateProducedChange = this.updateStateProps(nextProps);
 	          }
-	
+
 	          if (propsChanged && shouldUpdateDispatchProps) {
 	            dispatchPropsChanged = this.updateDispatchProps(nextProps);
 	          }
-	
+
 	          if (propsChanged || mapStateProducedChange || dispatchPropsChanged) {
 	            this.updateState(nextProps);
 	            return true;
 	          }
-	
+
 	          return false;
 	        };
-	
+
 	        _createClass(Connect, null, [{
 	          key: 'displayName',
 	          value: 'Connect(' + getDisplayName(WrappedComponent) + ')',
@@ -20985,115 +20985,115 @@
 	          },
 	          enumerable: true
 	        }]);
-	
+
 	        function Connect(props, context) {
 	          _classCallCheck(this, Connect);
-	
+
 	          _Component.call(this, props, context);
 	          this.version = version;
 	          this.store = props.store || context.store;
-	
+
 	          _invariant2['default'](this.store, 'Could not find "store" in either the context or ' + ('props of "' + this.constructor.displayName + '". ') + 'Either wrap the root component in a <Provider>, ' + ('or explicitly pass "store" as a prop to "' + this.constructor.displayName + '".'));
-	
+
 	          this.stateProps = computeStateProps(this.store, props);
 	          this.dispatchProps = computeDispatchProps(this.store, props);
 	          this.state = { storeState: null };
 	          this.updateState();
 	        }
-	
+
 	        Connect.prototype.computeNextState = function computeNextState() {
 	          var props = arguments.length <= 0 || arguments[0] === undefined ? this.props : arguments[0];
-	
+
 	          return _computeNextState(this.stateProps, this.dispatchProps, props);
 	        };
-	
+
 	        Connect.prototype.updateStateProps = function updateStateProps() {
 	          var props = arguments.length <= 0 || arguments[0] === undefined ? this.props : arguments[0];
-	
+
 	          var nextStateProps = computeStateProps(this.store, props);
 	          if (_utilsShallowEqual2['default'](nextStateProps, this.stateProps)) {
 	            return false;
 	          }
-	
+
 	          this.stateProps = nextStateProps;
 	          return true;
 	        };
-	
+
 	        Connect.prototype.updateDispatchProps = function updateDispatchProps() {
 	          var props = arguments.length <= 0 || arguments[0] === undefined ? this.props : arguments[0];
-	
+
 	          var nextDispatchProps = computeDispatchProps(this.store, props);
 	          if (_utilsShallowEqual2['default'](nextDispatchProps, this.dispatchProps)) {
 	            return false;
 	          }
-	
+
 	          this.dispatchProps = nextDispatchProps;
 	          return true;
 	        };
-	
+
 	        Connect.prototype.updateState = function updateState() {
 	          var props = arguments.length <= 0 || arguments[0] === undefined ? this.props : arguments[0];
-	
+
 	          this.nextState = this.computeNextState(props);
 	        };
-	
+
 	        Connect.prototype.isSubscribed = function isSubscribed() {
 	          return typeof this.unsubscribe === 'function';
 	        };
-	
+
 	        Connect.prototype.trySubscribe = function trySubscribe() {
 	          if (shouldSubscribe && !this.unsubscribe) {
 	            this.unsubscribe = this.store.subscribe(this.handleChange.bind(this));
 	            this.handleChange();
 	          }
 	        };
-	
+
 	        Connect.prototype.tryUnsubscribe = function tryUnsubscribe() {
 	          if (this.unsubscribe) {
 	            this.unsubscribe();
 	            this.unsubscribe = null;
 	          }
 	        };
-	
+
 	        Connect.prototype.componentDidMount = function componentDidMount() {
 	          this.trySubscribe();
 	        };
-	
+
 	        Connect.prototype.componentWillUnmount = function componentWillUnmount() {
 	          this.tryUnsubscribe();
 	        };
-	
+
 	        Connect.prototype.handleChange = function handleChange() {
 	          if (!this.unsubscribe) {
 	            return;
 	          }
-	
+
 	          this.setState({
 	            storeState: this.store.getState()
 	          });
 	        };
-	
+
 	        Connect.prototype.getWrappedInstance = function getWrappedInstance() {
 	          return this.refs.wrappedInstance;
 	        };
-	
+
 	        Connect.prototype.render = function render() {
 	          return React.createElement(WrappedComponent, _extends({ ref: 'wrappedInstance'
 	          }, this.nextState));
 	        };
-	
+
 	        return Connect;
 	      })(Component);
-	
+
 	      if (process.env.NODE_ENV !== 'production') {
 	        Connect.prototype.componentWillUpdate = function componentWillUpdate() {
 	          if (this.version === version) {
 	            return;
 	          }
-	
+
 	          // We are hot reloading!
 	          this.version = version;
-	
+
 	          // Update the state and bindings.
 	          this.trySubscribe();
 	          this.updateStateProps();
@@ -21101,12 +21101,12 @@
 	          this.updateState();
 	        };
 	      }
-	
+
 	      return Connect;
 	    };
 	  };
 	}
-	
+
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(45)))
 
@@ -21115,51 +21115,51 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	exports['default'] = createProvider;
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _utilsCreateStoreShape = __webpack_require__(63);
-	
+
 	var _utilsCreateStoreShape2 = _interopRequireDefault(_utilsCreateStoreShape);
-	
+
 	function isUsingOwnerContext(React) {
 	  var version = React.version;
-	
+
 	  if (typeof version !== 'string') {
 	    return true;
 	  }
-	
+
 	  var sections = version.split('.');
 	  var major = parseInt(sections[0], 10);
 	  var minor = parseInt(sections[1], 10);
-	
+
 	  return major === 0 && minor === 13;
 	}
-	
+
 	function createProvider(React) {
 	  var Component = React.Component;
 	  var PropTypes = React.PropTypes;
 	  var Children = React.Children;
-	
+
 	  var storeShape = _utilsCreateStoreShape2['default'](PropTypes);
 	  var requireFunctionChild = isUsingOwnerContext(React);
-	
+
 	  var didWarnAboutChild = false;
 	  function warnAboutFunctionChild() {
 	    if (didWarnAboutChild || requireFunctionChild) {
 	      return;
 	    }
-	
+
 	    didWarnAboutChild = true;
 	    console.error( // eslint-disable-line no-console
 	    'With React 0.14 and later versions, you no longer need to ' + 'wrap <Provider> child into a function.');
@@ -21168,30 +21168,30 @@
 	    if (didWarnAboutChild || !requireFunctionChild) {
 	      return;
 	    }
-	
+
 	    didWarnAboutChild = true;
 	    console.error( // eslint-disable-line no-console
 	    'With React 0.13, you need to ' + 'wrap <Provider> child into a function. ' + 'This restriction will be removed with React 0.14.');
 	  }
-	
+
 	  var didWarnAboutReceivingStore = false;
 	  function warnAboutReceivingStore() {
 	    if (didWarnAboutReceivingStore) {
 	      return;
 	    }
-	
+
 	    didWarnAboutReceivingStore = true;
 	    console.error( // eslint-disable-line no-console
 	    '<Provider> does not support changing `store` on the fly. ' + 'It is most likely that you see this error because you updated to ' + 'Redux 2.x and React Redux 2.x which no longer hot reload reducers ' + 'automatically. See https://github.com/rackt/react-redux/releases/' + 'tag/v2.0.0 for the migration instructions.');
 	  }
-	
+
 	  return (function (_Component) {
 	    _inherits(Provider, _Component);
-	
+
 	    Provider.prototype.getChildContext = function getChildContext() {
 	      return { store: this.store };
 	    };
-	
+
 	    _createClass(Provider, null, [{
 	      key: 'childContextTypes',
 	      value: {
@@ -21206,40 +21206,40 @@
 	      },
 	      enumerable: true
 	    }]);
-	
+
 	    function Provider(props, context) {
 	      _classCallCheck(this, Provider);
-	
+
 	      _Component.call(this, props, context);
 	      this.store = props.store;
 	    }
-	
+
 	    Provider.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
 	      var store = this.store;
 	      var nextStore = nextProps.store;
-	
+
 	      if (store !== nextStore) {
 	        warnAboutReceivingStore();
 	      }
 	    };
-	
+
 	    Provider.prototype.render = function render() {
 	      var children = this.props.children;
-	
+
 	      if (typeof children === 'function') {
 	        warnAboutFunctionChild();
 	        children = children();
 	      } else {
 	        warnAboutElementChild();
 	      }
-	
+
 	      return Children.only(children);
 	    };
-	
+
 	    return Provider;
 	  })(Component);
 	}
-	
+
 	module.exports = exports['default'];
 
 /***/ },
@@ -21247,34 +21247,34 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = isPlainObject;
 	var fnToString = function fnToString(fn) {
 	  return Function.prototype.toString.call(fn);
 	};
-	
+
 	/**
 	 * @param {any} obj The object to inspect.
 	 * @returns {boolean} True if the argument appears to be a plain object.
 	 */
-	
+
 	function isPlainObject(obj) {
 	  if (!obj || typeof obj !== 'object') {
 	    return false;
 	  }
-	
+
 	  var proto = typeof obj.constructor === 'function' ? Object.getPrototypeOf(obj) : Object.prototype;
-	
+
 	  if (proto === null) {
 	    return true;
 	  }
-	
+
 	  var constructor = proto.constructor;
-	
+
 	  return typeof constructor === 'function' && constructor instanceof constructor && fnToString(constructor) === fnToString(Object);
 	}
-	
+
 	module.exports = exports['default'];
 
 /***/ },
@@ -21282,22 +21282,22 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	exports.__esModule = true;
 	exports["default"] = shallowEqual;
-	
+
 	function shallowEqual(objA, objB) {
 	  if (objA === objB) {
 	    return true;
 	  }
-	
+
 	  var keysA = Object.keys(objA);
 	  var keysB = Object.keys(objB);
-	
+
 	  if (keysA.length !== keysB.length) {
 	    return false;
 	  }
-	
+
 	  // Test for A's keys different from B.
 	  var hasOwn = Object.prototype.hasOwnProperty;
 	  for (var i = 0; i < keysA.length; i++) {
@@ -21305,10 +21305,10 @@
 	      return false;
 	    }
 	  }
-	
+
 	  return true;
 	}
-	
+
 	module.exports = exports["default"];
 
 /***/ },
@@ -21316,18 +21316,18 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = wrapActionCreators;
-	
+
 	var _redux = __webpack_require__(11);
-	
+
 	function wrapActionCreators(actionCreators) {
 	  return function (dispatch) {
 	    return _redux.bindActionCreators(actionCreators, dispatch);
 	  };
 	}
-	
+
 	module.exports = exports['default'];
 
 /***/ },
@@ -21335,60 +21335,60 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	exports['default'] = createDevTools;
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _reactReduxLibComponentsCreateAll = __webpack_require__(62);
-	
+
 	var _reactReduxLibComponentsCreateAll2 = _interopRequireDefault(_reactReduxLibComponentsCreateAll);
-	
+
 	var _devTools = __webpack_require__(64);
-	
+
 	function createDevTools(React) {
 	  var PropTypes = React.PropTypes;
 	  var Component = React.Component;
-	
+
 	  var _createAll = _reactReduxLibComponentsCreateAll2['default'](React);
-	
+
 	  var connect = _createAll.connect;
-	
+
 	  var DevTools = (function (_Component) {
 	    _inherits(DevTools, _Component);
-	
+
 	    function DevTools() {
 	      _classCallCheck(this, _DevTools);
-	
+
 	      _Component.apply(this, arguments);
 	    }
-	
+
 	    DevTools.prototype.render = function render() {
 	      var Monitor = this.props.monitor;
-	
+
 	      return React.createElement(Monitor, this.props);
 	    };
-	
+
 	    var _DevTools = DevTools;
 	    DevTools = connect(function (state) {
 	      return state;
 	    }, _devTools.ActionCreators)(DevTools) || DevTools;
 	    return DevTools;
 	  })(Component);
-	
+
 	  return (function (_Component2) {
 	    _inherits(DevToolsWrapper, _Component2);
-	
+
 	    _createClass(DevToolsWrapper, null, [{
 	      key: 'propTypes',
 	      value: {
@@ -21401,25 +21401,25 @@
 	      },
 	      enumerable: true
 	    }]);
-	
+
 	    function DevToolsWrapper(props, context) {
 	      _classCallCheck(this, DevToolsWrapper);
-	
+
 	      if (props.store && !props.store.devToolsStore) {
 	        console.error('Could not find the devTools store inside your store. ' + 'Have you applied devTools() store enhancer?');
 	      }
 	      _Component2.call(this, props, context);
 	    }
-	
+
 	    DevToolsWrapper.prototype.render = function render() {
 	      return React.createElement(DevTools, _extends({}, this.props, {
 	        store: this.props.store.devToolsStore }));
 	    };
-	
+
 	    return DevToolsWrapper;
 	  })(Component);
 	}
-	
+
 	module.exports = exports['default'];
 
 /***/ },
@@ -21427,17 +21427,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	function _interopRequire(obj) { return obj && obj.__esModule ? obj['default'] : obj; }
-	
+
 	var _devTools = __webpack_require__(64);
-	
+
 	exports.devTools = _interopRequire(_devTools);
-	
+
 	var _persistState = __webpack_require__(249);
-	
+
 	exports.persistState = _interopRequire(_persistState);
 
 /***/ },
@@ -21445,17 +21445,17 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	exports['default'] = persistState;
-	
+
 	function persistState(sessionId) {
 	  var stateDeserializer = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 	  var actionDeserializer = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
-	
+
 	  if (!sessionId) {
 	    return function (next) {
 	      return function () {
@@ -21463,7 +21463,7 @@
 	      };
 	    };
 	  }
-	
+
 	  function deserializeState(fullState) {
 	    return _extends({}, fullState, {
 	      committedState: stateDeserializer(fullState.committedState),
@@ -21474,7 +21474,7 @@
 	      })
 	    });
 	  }
-	
+
 	  function deserializeActions(fullState) {
 	    return _extends({}, fullState, {
 	      stagedActions: fullState.stagedActions.map(function (action) {
@@ -21482,7 +21482,7 @@
 	      })
 	    });
 	  }
-	
+
 	  function deserialize(fullState) {
 	    if (!fullState) {
 	      return fullState;
@@ -21496,11 +21496,11 @@
 	    }
 	    return deserializedState;
 	  }
-	
+
 	  return function (next) {
 	    return function (reducer, initialState) {
 	      var key = 'redux-dev-session-' + sessionId;
-	
+
 	      var finalInitialState = undefined;
 	      try {
 	        finalInitialState = deserialize(JSON.parse(localStorage.getItem(key))) || initialState;
@@ -21513,26 +21513,26 @@
 	          finalInitialState = undefined;
 	        }
 	      }
-	
+
 	      var store = next(reducer, finalInitialState);
-	
+
 	      return _extends({}, store, {
 	        dispatch: function dispatch(action) {
 	          store.dispatch(action);
-	
+
 	          try {
 	            localStorage.setItem(key, JSON.stringify(store.getState()));
 	          } catch (e) {
 	            console.warn('Could not write debug session to localStorage:', e);
 	          }
-	
+
 	          return action;
 	        }
 	      });
 	    };
 	  };
 	}
-	
+
 	module.exports = exports['default'];
 
 /***/ },
@@ -21540,38 +21540,38 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	exports.getDefaultStyle = getDefaultStyle;
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	function getDefaultStyle(props) {
 	  var left = props.left;
 	  var right = props.right;
 	  var bottom = props.bottom;
 	  var top = props.top;
-	
+
 	  if (typeof left === 'undefined' && typeof right === 'undefined') {
 	    right = true;
 	  }
 	  if (typeof top === 'undefined' && typeof bottom === 'undefined') {
 	    bottom = true;
 	  }
-	
+
 	  return {
 	    position: 'fixed',
 	    zIndex: 10000,
@@ -21590,16 +21590,16 @@
 	    boxShadow: '-2px 0 7px 0 rgba(0, 0, 0, 0.5)'
 	  };
 	}
-	
+
 	var DebugPanel = (function (_Component) {
 	  _inherits(DebugPanel, _Component);
-	
+
 	  function DebugPanel() {
 	    _classCallCheck(this, DebugPanel);
-	
+
 	    _Component.apply(this, arguments);
 	  }
-	
+
 	  DebugPanel.prototype.render = function render() {
 	    return _react2['default'].createElement(
 	      'div',
@@ -21607,7 +21607,7 @@
 	      this.props.children
 	    );
 	  };
-	
+
 	  _createClass(DebugPanel, null, [{
 	    key: 'propTypes',
 	    value: {
@@ -21625,10 +21625,10 @@
 	    },
 	    enumerable: true
 	  }]);
-	
+
 	  return DebugPanel;
 	})(_react.Component);
-	
+
 	exports['default'] = DebugPanel;
 
 /***/ },
@@ -21636,37 +21636,37 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _LogMonitorEntry = __webpack_require__(253);
-	
+
 	var _LogMonitorEntry2 = _interopRequireDefault(_LogMonitorEntry);
-	
+
 	var _LogMonitorButton = __webpack_require__(252);
-	
+
 	var _LogMonitorButton2 = _interopRequireDefault(_LogMonitorButton);
-	
+
 	var _themes = __webpack_require__(278);
-	
+
 	var themes = _interopRequireWildcard(_themes);
-	
+
 	var styles = {
 	  container: {
 	    fontFamily: 'monaco, Consolas, Lucida Console, monospace',
@@ -21695,19 +21695,19 @@
 	    overflowY: 'auto'
 	  }
 	};
-	
+
 	var LogMonitor = (function (_Component) {
 	  _inherits(LogMonitor, _Component);
-	
+
 	  function LogMonitor(props) {
 	    _classCallCheck(this, LogMonitor);
-	
+
 	    _Component.call(this, props);
 	    if (typeof window !== 'undefined') {
 	      window.addEventListener('keydown', this.handleKeyPress.bind(this));
 	    }
 	  }
-	
+
 	  LogMonitor.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
 	    var node = _react.findDOMNode(this.refs.elements);
 	    if (!node) {
@@ -21716,13 +21716,13 @@
 	      var scrollTop = node.scrollTop;
 	      var offsetHeight = node.offsetHeight;
 	      var scrollHeight = node.scrollHeight;
-	
+
 	      this.scrollDown = Math.abs(scrollHeight - (scrollTop + offsetHeight)) < 20;
 	    } else {
 	      this.scrollDown = false;
 	    }
 	  };
-	
+
 	  LogMonitor.prototype.componentDidUpdate = function componentDidUpdate() {
 	    var node = _react.findDOMNode(this.refs.elements);
 	    if (!node) {
@@ -21731,44 +21731,44 @@
 	    if (this.scrollDown) {
 	      var offsetHeight = node.offsetHeight;
 	      var scrollHeight = node.scrollHeight;
-	
+
 	      node.scrollTop = scrollHeight - offsetHeight;
 	      this.scrollDown = false;
 	    }
 	  };
-	
+
 	  LogMonitor.prototype.componentWillMount = function componentWillMount() {
 	    var visibleOnLoad = this.props.visibleOnLoad;
 	    var monitorState = this.props.monitorState;
-	
+
 	    this.props.setMonitorState(_extends({}, monitorState, {
 	      isVisible: visibleOnLoad
 	    }));
 	  };
-	
+
 	  LogMonitor.prototype.handleRollback = function handleRollback() {
 	    this.props.rollback();
 	  };
-	
+
 	  LogMonitor.prototype.handleSweep = function handleSweep() {
 	    this.props.sweep();
 	  };
-	
+
 	  LogMonitor.prototype.handleCommit = function handleCommit() {
 	    this.props.commit();
 	  };
-	
+
 	  LogMonitor.prototype.handleToggleAction = function handleToggleAction(index) {
 	    this.props.toggleAction(index);
 	  };
-	
+
 	  LogMonitor.prototype.handleReset = function handleReset() {
 	    this.props.reset();
 	  };
-	
+
 	  LogMonitor.prototype.handleKeyPress = function handleKeyPress(event) {
 	    var monitorState = this.props.monitorState;
-	
+
 	    if (event.ctrlKey && event.keyCode === 72) {
 	      // Ctrl+H
 	      event.preventDefault();
@@ -21777,7 +21777,7 @@
 	      }));
 	    }
 	  };
-	
+
 	  LogMonitor.prototype.render = function render() {
 	    var elements = [];
 	    var _props = this.props;
@@ -21786,7 +21786,7 @@
 	    var stagedActions = _props.stagedActions;
 	    var computedStates = _props.computedStates;
 	    var select = _props.select;
-	
+
 	    var theme = undefined;
 	    if (typeof this.props.theme === 'string') {
 	      if (typeof themes[this.props.theme] !== 'undefined') {
@@ -21801,13 +21801,13 @@
 	    if (!monitorState.isVisible) {
 	      return null;
 	    }
-	
+
 	    for (var i = 0; i < stagedActions.length; i++) {
 	      var action = stagedActions[i];
 	      var _computedStates$i = computedStates[i];
 	      var state = _computedStates$i.state;
 	      var error = _computedStates$i.error;
-	
+
 	      var previousState = undefined;
 	      if (i > 0) {
 	        previousState = computedStates[i - 1].state;
@@ -21823,7 +21823,7 @@
 	        error: error,
 	        onActionClick: this.handleToggleAction.bind(this) }));
 	    }
-	
+
 	    return _react2['default'].createElement(
 	      'div',
 	      { style: _extends({}, styles.container, { backgroundColor: theme.base00 }) },
@@ -21860,7 +21860,7 @@
 	      )
 	    );
 	  };
-	
+
 	  _createClass(LogMonitor, null, [{
 	    key: 'propTypes',
 	    value: {
@@ -21893,10 +21893,10 @@
 	    },
 	    enumerable: true
 	  }]);
-	
+
 	  return LogMonitor;
 	})(_react.Component);
-	
+
 	exports['default'] = LogMonitor;
 	module.exports = exports['default'];
 
@@ -21905,25 +21905,25 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _utilsBrighten = __webpack_require__(295);
-	
+
 	var _utilsBrighten2 = _interopRequireDefault(_utilsBrighten);
-	
+
 	var styles = {
 	  base: {
 	    cursor: 'pointer',
@@ -21941,36 +21941,36 @@
 	    textDecoration: 'none'
 	  }
 	};
-	
+
 	var LogMonitorButton = (function (_React$Component) {
 	  _inherits(LogMonitorButton, _React$Component);
-	
+
 	  function LogMonitorButton(props) {
 	    _classCallCheck(this, LogMonitorButton);
-	
+
 	    _React$Component.call(this, props);
 	    this.state = {
 	      hovered: false,
 	      active: false
 	    };
 	  }
-	
+
 	  LogMonitorButton.prototype.handleMouseEnter = function handleMouseEnter() {
 	    this.setState({ hovered: true });
 	  };
-	
+
 	  LogMonitorButton.prototype.handleMouseLeave = function handleMouseLeave() {
 	    this.setState({ hovered: false });
 	  };
-	
+
 	  LogMonitorButton.prototype.handleMouseDown = function handleMouseDown() {
 	    this.setState({ active: true });
 	  };
-	
+
 	  LogMonitorButton.prototype.handleMouseUp = function handleMouseUp() {
 	    this.setState({ active: false });
 	  };
-	
+
 	  LogMonitorButton.prototype.onClick = function onClick() {
 	    if (!this.props.enabled) {
 	      return;
@@ -21979,7 +21979,7 @@
 	      this.props.onClick();
 	    }
 	  };
-	
+
 	  LogMonitorButton.prototype.render = function render() {
 	    var style = _extends({}, styles.base, {
 	      backgroundColor: this.props.theme.base02
@@ -22006,10 +22006,10 @@
 	      this.props.children
 	    );
 	  };
-	
+
 	  return LogMonitorButton;
 	})(_react2['default'].Component);
-	
+
 	exports['default'] = LogMonitorButton;
 	module.exports = exports['default'];
 
@@ -22018,31 +22018,31 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _reactJsonTree = __webpack_require__(61);
-	
+
 	var _reactJsonTree2 = _interopRequireDefault(_reactJsonTree);
-	
+
 	var _LogMonitorEntryAction = __webpack_require__(254);
-	
+
 	var _LogMonitorEntryAction2 = _interopRequireDefault(_LogMonitorEntryAction);
-	
+
 	var styles = {
 	  entry: {
 	    display: 'block',
@@ -22052,16 +22052,16 @@
 	    paddingLeft: 0
 	  }
 	};
-	
+
 	var LogMonitorEntry = (function (_Component) {
 	  _inherits(LogMonitorEntry, _Component);
-	
+
 	  function LogMonitorEntry() {
 	    _classCallCheck(this, LogMonitorEntry);
-	
+
 	    _Component.apply(this, arguments);
 	  }
-	
+
 	  LogMonitorEntry.prototype.printState = function printState(state, error) {
 	    var errorText = error;
 	    if (!errorText) {
@@ -22088,17 +22088,17 @@
 	      errorText
 	    );
 	  };
-	
+
 	  LogMonitorEntry.prototype.handleActionClick = function handleActionClick() {
 	    var _props = this.props;
 	    var index = _props.index;
 	    var onActionClick = _props.onActionClick;
-	
+
 	    if (index > 0) {
 	      onActionClick(index);
 	    }
 	  };
-	
+
 	  LogMonitorEntry.prototype.render = function render() {
 	    var _props2 = this.props;
 	    var index = _props2.index;
@@ -22106,7 +22106,7 @@
 	    var action = _props2.action;
 	    var state = _props2.state;
 	    var collapsed = _props2.collapsed;
-	
+
 	    var styleEntry = {
 	      opacity: collapsed ? 0.5 : 1,
 	      cursor: index > 0 ? 'pointer' : 'default'
@@ -22127,7 +22127,7 @@
 	      )
 	    );
 	  };
-	
+
 	  _createClass(LogMonitorEntry, null, [{
 	    key: 'propTypes',
 	    value: {
@@ -22141,10 +22141,10 @@
 	    },
 	    enumerable: true
 	  }]);
-	
+
 	  return LogMonitorEntry;
 	})(_react.Component);
-	
+
 	exports['default'] = LogMonitorEntry;
 	module.exports = exports['default'];
 
@@ -22153,27 +22153,27 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _reactJsonTree = __webpack_require__(61);
-	
+
 	var _reactJsonTree2 = _interopRequireDefault(_reactJsonTree);
-	
+
 	var styles = {
 	  actionBar: {
 	    paddingTop: 8,
@@ -22185,16 +22185,16 @@
 	    overflow: 'auto'
 	  }
 	};
-	
+
 	var LogMonitorAction = (function (_React$Component) {
 	  _inherits(LogMonitorAction, _React$Component);
-	
+
 	  function LogMonitorAction() {
 	    _classCallCheck(this, LogMonitorAction);
-	
+
 	    _React$Component.apply(this, arguments);
 	  }
-	
+
 	  LogMonitorAction.prototype.renderPayload = function renderPayload(payload) {
 	    return _react2['default'].createElement(
 	      'div',
@@ -22204,13 +22204,13 @@
 	      Object.keys(payload).length > 0 ? _react2['default'].createElement(_reactJsonTree2['default'], { theme: this.props.theme, keyName: 'action', data: payload }) : ''
 	    );
 	  };
-	
+
 	  LogMonitorAction.prototype.render = function render() {
 	    var _props$action = this.props.action;
 	    var type = _props$action.type;
-	
+
 	    var payload = _objectWithoutProperties(_props$action, ['type']);
-	
+
 	    return _react2['default'].createElement(
 	      'div',
 	      { style: _extends({
@@ -22226,10 +22226,10 @@
 	      !this.props.collapsed ? this.renderPayload(payload) : ''
 	    );
 	  };
-	
+
 	  return LogMonitorAction;
 	})(_react2['default'].Component);
-	
+
 	exports['default'] = LogMonitorAction;
 	module.exports = exports['default'];
 
@@ -22238,30 +22238,30 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	function _interopRequire(obj) { return obj && obj.__esModule ? obj['default'] : obj; }
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	var _react = __webpack_require__(1);
-	
+
 	var _react2 = _interopRequireDefault(_react);
-	
+
 	var _createDevTools = __webpack_require__(247);
-	
+
 	var _createDevTools2 = _interopRequireDefault(_createDevTools);
-	
+
 	var DevTools = _createDevTools2['default'](_react2['default']);
 	exports.DevTools = DevTools;
-	
+
 	var _LogMonitor = __webpack_require__(251);
-	
+
 	exports.LogMonitor = _interopRequire(_LogMonitor);
-	
+
 	var _DebugPanel = __webpack_require__(250);
-	
+
 	exports.DebugPanel = _interopRequire(_DebugPanel);
 
 /***/ },
@@ -22269,7 +22269,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'apathy',
@@ -22298,7 +22298,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'ashes',
@@ -22327,7 +22327,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'atelier dune',
@@ -22356,7 +22356,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'atelier forest',
@@ -22385,7 +22385,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'atelier heath',
@@ -22414,7 +22414,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'atelier lakeside',
@@ -22443,7 +22443,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'atelier seaside',
@@ -22472,7 +22472,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'bespin',
@@ -22501,7 +22501,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'brewer',
@@ -22530,7 +22530,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'bright',
@@ -22559,7 +22559,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'chalk',
@@ -22588,7 +22588,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'codeschool',
@@ -22617,7 +22617,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'colors',
@@ -22646,7 +22646,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'default',
@@ -22675,7 +22675,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'eighties',
@@ -22704,7 +22704,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'embers',
@@ -22733,7 +22733,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'flat',
@@ -22762,7 +22762,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'google',
@@ -22791,7 +22791,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'grayscale',
@@ -22820,7 +22820,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'green screen',
@@ -22849,7 +22849,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'harmonic16',
@@ -22878,7 +22878,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'hopscotch',
@@ -22907,161 +22907,161 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	function _interopRequire(obj) { return obj && obj.__esModule ? obj['default'] : obj; }
-	
+
 	var _threezerotwofour = __webpack_require__(291);
-	
+
 	exports.threezerotwofour = _interopRequire(_threezerotwofour);
-	
+
 	var _apathy = __webpack_require__(256);
-	
+
 	exports.apathy = _interopRequire(_apathy);
-	
+
 	var _ashes = __webpack_require__(257);
-	
+
 	exports.ashes = _interopRequire(_ashes);
-	
+
 	var _atelierDune = __webpack_require__(258);
-	
+
 	exports.atelierDune = _interopRequire(_atelierDune);
-	
+
 	var _atelierForest = __webpack_require__(259);
-	
+
 	exports.atelierForest = _interopRequire(_atelierForest);
-	
+
 	var _atelierHeath = __webpack_require__(260);
-	
+
 	exports.atelierHeath = _interopRequire(_atelierHeath);
-	
+
 	var _atelierLakeside = __webpack_require__(261);
-	
+
 	exports.atelierLakeside = _interopRequire(_atelierLakeside);
-	
+
 	var _atelierSeaside = __webpack_require__(262);
-	
+
 	exports.atelierSeaside = _interopRequire(_atelierSeaside);
-	
+
 	var _bespin = __webpack_require__(263);
-	
+
 	exports.bespin = _interopRequire(_bespin);
-	
+
 	var _brewer = __webpack_require__(264);
-	
+
 	exports.brewer = _interopRequire(_brewer);
-	
+
 	var _bright = __webpack_require__(265);
-	
+
 	exports.bright = _interopRequire(_bright);
-	
+
 	var _chalk = __webpack_require__(266);
-	
+
 	exports.chalk = _interopRequire(_chalk);
-	
+
 	var _codeschool = __webpack_require__(267);
-	
+
 	exports.codeschool = _interopRequire(_codeschool);
-	
+
 	var _colors = __webpack_require__(268);
-	
+
 	exports.colors = _interopRequire(_colors);
-	
+
 	var _default = __webpack_require__(269);
-	
+
 	exports['default'] = _interopRequire(_default);
-	
+
 	var _eighties = __webpack_require__(270);
-	
+
 	exports.eighties = _interopRequire(_eighties);
-	
+
 	var _embers = __webpack_require__(271);
-	
+
 	exports.embers = _interopRequire(_embers);
-	
+
 	var _flat = __webpack_require__(272);
-	
+
 	exports.flat = _interopRequire(_flat);
-	
+
 	var _google = __webpack_require__(273);
-	
+
 	exports.google = _interopRequire(_google);
-	
+
 	var _grayscale = __webpack_require__(274);
-	
+
 	exports.grayscale = _interopRequire(_grayscale);
-	
+
 	var _greenscreen = __webpack_require__(275);
-	
+
 	exports.greenscreen = _interopRequire(_greenscreen);
-	
+
 	var _harmonic = __webpack_require__(276);
-	
+
 	exports.harmonic = _interopRequire(_harmonic);
-	
+
 	var _hopscotch = __webpack_require__(277);
-	
+
 	exports.hopscotch = _interopRequire(_hopscotch);
-	
+
 	var _isotope = __webpack_require__(279);
-	
+
 	exports.isotope = _interopRequire(_isotope);
-	
+
 	var _marrakesh = __webpack_require__(280);
-	
+
 	exports.marrakesh = _interopRequire(_marrakesh);
-	
+
 	var _mocha = __webpack_require__(281);
-	
+
 	exports.mocha = _interopRequire(_mocha);
-	
+
 	var _monokai = __webpack_require__(282);
-	
+
 	exports.monokai = _interopRequire(_monokai);
-	
+
 	var _ocean = __webpack_require__(284);
-	
+
 	exports.ocean = _interopRequire(_ocean);
-	
+
 	var _paraiso = __webpack_require__(285);
-	
+
 	exports.paraiso = _interopRequire(_paraiso);
-	
+
 	var _pop = __webpack_require__(286);
-	
+
 	exports.pop = _interopRequire(_pop);
-	
+
 	var _railscasts = __webpack_require__(287);
-	
+
 	exports.railscasts = _interopRequire(_railscasts);
-	
+
 	var _shapeshifter = __webpack_require__(288);
-	
+
 	exports.shapeshifter = _interopRequire(_shapeshifter);
-	
+
 	var _solarized = __webpack_require__(289);
-	
+
 	exports.solarized = _interopRequire(_solarized);
-	
+
 	var _summerfruit = __webpack_require__(290);
-	
+
 	exports.summerfruit = _interopRequire(_summerfruit);
-	
+
 	var _tomorrow = __webpack_require__(292);
-	
+
 	exports.tomorrow = _interopRequire(_tomorrow);
-	
+
 	var _tube = __webpack_require__(293);
-	
+
 	exports.tube = _interopRequire(_tube);
-	
+
 	var _twilight = __webpack_require__(294);
-	
+
 	exports.twilight = _interopRequire(_twilight);
-	
+
 	var _nicinabox = __webpack_require__(283);
-	
+
 	exports.nicinabox = _interopRequire(_nicinabox);
 
 /***/ },
@@ -23069,7 +23069,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'isotope',
@@ -23098,7 +23098,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'marrakesh',
@@ -23127,7 +23127,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'mocha',
@@ -23156,7 +23156,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'monokai',
@@ -23185,7 +23185,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'nicinabox',
@@ -23214,7 +23214,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'ocean',
@@ -23243,7 +23243,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'paraiso',
@@ -23272,7 +23272,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'pop',
@@ -23301,7 +23301,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'railscasts',
@@ -23330,7 +23330,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'shapeshifter',
@@ -23359,7 +23359,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'solarized',
@@ -23388,7 +23388,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'summerfruit',
@@ -23417,7 +23417,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'threezerotwofour',
@@ -23446,7 +23446,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'tomorrow',
@@ -23475,7 +23475,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'london tube',
@@ -23504,7 +23504,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = {
 	  scheme: 'twilight',
@@ -23533,16 +23533,16 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	exports['default'] = function (hexColor, lightness) {
 	  var hex = String(hexColor).replace(/[^0-9a-f]/gi, '');
 	  if (hex.length < 6) {
 	    hex = hex.replace(/(.)/g, '$1$1');
 	  }
 	  var lum = lightness || 0;
-	
+
 	  var rgb = '#';
 	  var c = undefined;
 	  for (var i = 0; i < 3; ++i) {
@@ -23552,7 +23552,7 @@
 	  }
 	  return rgb;
 	};
-	
+
 	module.exports = exports['default'];
 
 /***/ },
@@ -23560,21 +23560,21 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = thunkMiddleware;
-	
+
 	function thunkMiddleware(_ref) {
 	  var dispatch = _ref.dispatch;
 	  var getState = _ref.getState;
-	
+
 	  return function (next) {
 	    return function (action) {
 	      return typeof action === 'function' ? action(dispatch, getState) : next(action);
 	    };
 	  };
 	}
-	
+
 	module.exports = exports['default'];
 
 /***/ },
@@ -23582,19 +23582,19 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
-	
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
+
 	exports['default'] = applyMiddleware;
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	var _compose = __webpack_require__(66);
-	
+
 	var _compose2 = _interopRequireDefault(_compose);
-	
+
 	/**
 	 * Creates a store enhancer that applies middleware to the dispatch method
 	 * of the Redux store. This is handy for a variety of tasks, such as expressing
@@ -23611,18 +23611,18 @@
 	 * @param {...Function} middlewares The middleware chain to be applied.
 	 * @returns {Function} A store enhancer applying the middleware.
 	 */
-	
+
 	function applyMiddleware() {
 	  for (var _len = arguments.length, middlewares = Array(_len), _key = 0; _key < _len; _key++) {
 	    middlewares[_key] = arguments[_key];
 	  }
-	
+
 	  return function (next) {
 	    return function (reducer, initialState) {
 	      var store = next(reducer, initialState);
 	      var _dispatch = store.dispatch;
 	      var chain = [];
-	
+
 	      var middlewareAPI = {
 	        getState: store.getState,
 	        dispatch: function dispatch(action) {
@@ -23633,14 +23633,14 @@
 	        return middleware(middlewareAPI);
 	      });
 	      _dispatch = _compose2['default'].apply(undefined, chain)(store.dispatch);
-	
+
 	      return _extends({}, store, {
 	        dispatch: _dispatch
 	      });
 	    };
 	  };
 	}
-	
+
 	module.exports = exports['default'];
 
 /***/ },
@@ -23648,22 +23648,22 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = bindActionCreators;
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	var _utilsMapValues = __webpack_require__(68);
-	
+
 	var _utilsMapValues2 = _interopRequireDefault(_utilsMapValues);
-	
+
 	function bindActionCreator(actionCreator, dispatch) {
 	  return function () {
 	    return dispatch(actionCreator.apply(undefined, arguments));
 	  };
 	}
-	
+
 	/**
 	 * Turns an object whose values are action creators, into an object with the
 	 * same keys, but with every function wrapped into a `dispatch` call so they
@@ -23685,22 +23685,22 @@
 	 * function as `actionCreators`, the return value will also be a single
 	 * function.
 	 */
-	
+
 	function bindActionCreators(actionCreators, dispatch) {
 	  if (typeof actionCreators === 'function') {
 	    return bindActionCreator(actionCreators, dispatch);
 	  }
-	
+
 	  if (typeof actionCreators !== 'object' || actionCreators === null || actionCreators === undefined) {
 	    // eslint-disable-line no-eq-null
 	    throw new Error('bindActionCreators expected an object or a function, instead received ' + (actionCreators === null ? 'null' : typeof actionCreators) + '. ' + 'Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?');
 	  }
-	
+
 	  return _utilsMapValues2['default'](actionCreators, function (actionCreator) {
 	    return bindActionCreator(actionCreator, dispatch);
 	  });
 	}
-	
+
 	module.exports = exports['default'];
 
 /***/ },
@@ -23708,72 +23708,72 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-	
+
 	exports.__esModule = true;
 	exports['default'] = combineReducers;
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
+
 	var _createStore = __webpack_require__(65);
-	
+
 	var _utilsIsPlainObject = __webpack_require__(67);
-	
+
 	var _utilsIsPlainObject2 = _interopRequireDefault(_utilsIsPlainObject);
-	
+
 	var _utilsMapValues = __webpack_require__(68);
-	
+
 	var _utilsMapValues2 = _interopRequireDefault(_utilsMapValues);
-	
+
 	var _utilsPick = __webpack_require__(300);
-	
+
 	var _utilsPick2 = _interopRequireDefault(_utilsPick);
-	
+
 	/* eslint-disable no-console */
-	
+
 	function getUndefinedStateErrorMessage(key, action) {
 	  var actionType = action && action.type;
 	  var actionName = actionType && '"' + actionType.toString() + '"' || 'an action';
-	
+
 	  return 'Reducer "' + key + '" returned undefined handling ' + actionName + '. ' + 'To ignore an action, you must explicitly return the previous state.';
 	}
-	
+
 	function getUnexpectedStateKeyWarningMessage(inputState, outputState, action) {
 	  var reducerKeys = Object.keys(outputState);
 	  var argumentName = action && action.type === _createStore.ActionTypes.INIT ? 'initialState argument passed to createStore' : 'previous state received by the reducer';
-	
+
 	  if (reducerKeys.length === 0) {
 	    return 'Store does not have a valid reducer. Make sure the argument passed ' + 'to combineReducers is an object whose values are reducers.';
 	  }
-	
+
 	  if (!_utilsIsPlainObject2['default'](inputState)) {
 	    return 'The ' + argumentName + ' has unexpected type of "' + ({}).toString.call(inputState).match(/\s([a-z|A-Z]+)/)[1] + '". Expected argument to be an object with the following ' + ('keys: "' + reducerKeys.join('", "') + '"');
 	  }
-	
+
 	  var unexpectedKeys = Object.keys(inputState).filter(function (key) {
 	    return reducerKeys.indexOf(key) < 0;
 	  });
-	
+
 	  if (unexpectedKeys.length > 0) {
 	    return 'Unexpected ' + (unexpectedKeys.length > 1 ? 'keys' : 'key') + ' ' + ('"' + unexpectedKeys.join('", "') + '" found in ' + argumentName + '. ') + 'Expected to find one of the known reducer keys instead: ' + ('"' + reducerKeys.join('", "') + '". Unexpected keys will be ignored.');
 	  }
 	}
-	
+
 	function assertReducerSanity(reducers) {
 	  Object.keys(reducers).forEach(function (key) {
 	    var reducer = reducers[key];
 	    var initialState = reducer(undefined, { type: _createStore.ActionTypes.INIT });
-	
+
 	    if (typeof initialState === 'undefined') {
 	      throw new Error('Reducer "' + key + '" returned undefined during initialization. ' + 'If the state passed to the reducer is undefined, you must ' + 'explicitly return the initial state. The initial state may ' + 'not be undefined.');
 	    }
-	
+
 	    var type = '@@redux/PROBE_UNKNOWN_ACTION_' + Math.random().toString(36).substring(7).split('').join('.');
 	    if (typeof reducer(undefined, { type: type }) === 'undefined') {
 	      throw new Error('Reducer "' + key + '" returned undefined when probed with a random type. ' + ('Don\'t try to handle ' + _createStore.ActionTypes.INIT + ' or other actions in "redux/*" ') + 'namespace. They are considered private. Instead, you must return the ' + 'current state for any unknown actions, unless it is undefined, ' + 'in which case you must return the initial state, regardless of the ' + 'action type. The initial state may not be undefined.');
 	    }
 	  });
 	}
-	
+
 	/**
 	 * Turns an object whose values are different reducer functions, into a single
 	 * reducer function. It will call every child reducer, and gather their results
@@ -23790,32 +23790,32 @@
 	 * @returns {Function} A reducer function that invokes every reducer inside the
 	 * passed object, and builds a state object with the same shape.
 	 */
-	
+
 	function combineReducers(reducers) {
 	  var finalReducers = _utilsPick2['default'](reducers, function (val) {
 	    return typeof val === 'function';
 	  });
 	  var sanityError;
-	
+
 	  try {
 	    assertReducerSanity(finalReducers);
 	  } catch (e) {
 	    sanityError = e;
 	  }
-	
+
 	  var defaultState = _utilsMapValues2['default'](finalReducers, function () {
 	    return undefined;
 	  });
-	
+
 	  return function combination(state, action) {
 	    if (state === undefined) state = defaultState;
-	
+
 	    if (sanityError) {
 	      throw sanityError;
 	    }
-	
+
 	    var finalState = _utilsMapValues2['default'](finalReducers, function (reducer, key) {
-	
+
 	      var newState = reducer(state[key], action);
 	      if (typeof newState === 'undefined') {
 	        var errorMessage = getUndefinedStateErrorMessage(key, action);
@@ -23830,11 +23830,11 @@
 	        console.error(warningMessage);
 	      }
 	    }
-	
+
 	    return finalState;
 	  };
 	}
-	
+
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(45)))
 
@@ -23850,10 +23850,10 @@
 	 * @returns {Object} The object with the values that satisfied the predicate.
 	 */
 	"use strict";
-	
+
 	exports.__esModule = true;
 	exports["default"] = pick;
-	
+
 	function pick(obj, fn) {
 	  return Object.keys(obj).reduce(function (result, key) {
 	    if (fn(obj[key])) {
@@ -23862,7 +23862,7 @@
 	    return result;
 	  }, {});
 	}
-	
+
 	module.exports = exports["default"];
 
 /***/ },
@@ -23870,17 +23870,17 @@
 /***/ function(module, exports) {
 
 	var objToStr = function(x){ return Object.prototype.toString.call(x); };
-	
+
 	var thrower = function(error){
 	    throw error;
 	};
-	
+
 	var mixins = module.exports = function makeMixinFunction(rules, _opts){
 	    var opts = _opts || {};
 	    if (!opts.unknownFunction) {
 	        opts.unknownFunction = mixins.ONCE;
 	    }
-	
+
 	    if (!opts.nonFunctionProperty) {
 	        opts.nonFunctionProperty = function(left, right, key){
 	            if (left !== undefined && right !== undefined) {
@@ -23898,7 +23898,7 @@
 	            return left === undefined ? right : left;
 	        };
 	    }
-	
+
 	    function setNonEnumerable(target, key, value){
 	        if (key in target){
 	            target[key] = value;
@@ -23911,22 +23911,22 @@
 	            });
 	        }
 	    }
-	
+
 	    return function applyMixin(source, mixin){
 	        Object.keys(mixin).forEach(function(key){
 	            var left = source[key], right = mixin[key], rule = rules[key];
-	
+
 	            // this is just a weird case where the key was defined, but there's no value
 	            // behave like the key wasn't defined
 	            if (left === undefined && right === undefined) return;
-	
+
 	            var wrapIfFunction = function(thing){
 	                return typeof thing !== "function" ? thing
 	                : function(){
 	                    return thing.call(this, arguments);
 	                };
 	            };
-	
+
 	            // do we have a rule for this key?
 	            if (rule) {
 	                // may throw here
@@ -23934,10 +23934,10 @@
 	                setNonEnumerable(source, key, wrapIfFunction(fn));
 	                return;
 	            }
-	
+
 	            var leftIsFn = typeof left === "function";
 	            var rightIsFn = typeof right === "function";
-	
+
 	            // check to see if they're some combination of functions or undefined
 	            // we already know there's no rule, so use the unknown function behavior
 	            if (leftIsFn && right === undefined
@@ -23948,7 +23948,7 @@
 	                setNonEnumerable(source, key, wrapIfFunction(opts.unknownFunction(left, right, key)));
 	                return;
 	            }
-	
+
 	            // we have no rule for them, one may be a function but one or both aren't
 	            // our default is MANY_MERGED_LOOSE which will merge objects, concat arrays
 	            // and throw if there's a type mismatch or both are primitives (how do you merge 3, and "foo"?)
@@ -23956,7 +23956,7 @@
 	        });
 	    };
 	};
-	
+
 	mixins._mergeObjects = function(obj1, obj2) {
 	    var assertObject = function(obj, obj2){
 	        var type = objToStr(obj);
@@ -23966,14 +23966,14 @@
 	            thrower('cannot merge returned value of type ' + displayType + ' with an ' + displayType2);
 	        }
 	    };
-	
+
 	    if (Array.isArray(obj1) && Array.isArray(obj2)) {
 	        return obj1.concat(obj2);
 	    }
-	
+
 	    assertObject(obj1, obj2);
 	    assertObject(obj2, obj1);
-	
+
 	    var result = {};
 	    Object.keys(obj1).forEach(function(k){
 	        if (Object.prototype.hasOwnProperty.call(obj2, k)) {
@@ -23981,43 +23981,43 @@
 	        }
 	        result[k] = obj1[k];
 	    });
-	
+
 	    Object.keys(obj2).forEach(function(k){
 	        // we can skip the conflict check because all conflicts would already be found
 	        result[k] = obj2[k];
 	    });
 	    return result;
-	
+
 	}
-	
+
 	// define our built-in mixin types
 	mixins.ONCE = function(left, right, key){
 	    if (left && right) {
 	        throw new TypeError('Cannot mixin ' + key + ' because it has a unique constraint.');
 	    }
-	
+
 	    var fn = left || right;
-	
+
 	    return function(args){
 	        return fn.apply(this, args);
 	    };
 	};
-	
+
 	mixins.MANY = function(left, right, key){
 	    return function(args){
 	        if (right) right.apply(this, args);
 	        return left ? left.apply(this, args) : undefined;
 	    };
 	};
-	
+
 	mixins.MANY_MERGED_LOOSE = function(left, right, key) {
 	    if(left && right) {
 	        return mixins._mergeObjects(left, right);
 	    }
-	
+
 	    return left || right;
 	}
-	
+
 	mixins.MANY_MERGED = function(left, right, key){
 	    return function(args){
 	        var res1 = right && right.apply(this, args);
@@ -24028,8 +24028,8 @@
 	        return res2 || res1;
 	    };
 	};
-	
-	
+
+
 	mixins.REDUCE_LEFT = function(_left, _right, key){
 	    var left = _left || function(x){ return x };
 	    var right = _right || function(x){ return x };
@@ -24037,7 +24037,7 @@
 	        return right.call(this, left.apply(this, args));
 	    };
 	};
-	
+
 	mixins.REDUCE_RIGHT = function(_left, _right, key){
 	    var left = _left || function(x){ return x };
 	    var right = _right || function(x){ return x };
@@ -24045,7 +24045,7 @@
 	        return left.call(this, right.apply(this, args));
 	    };
 	};
-	
+
 
 
 /***/ },
@@ -24072,20 +24072,20 @@
 		}),
 		singletonElement = null,
 		singletonCounter = 0;
-	
+
 	module.exports = function(list, options) {
 		if(false) {
 			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
 		}
-	
+
 		options = options || {};
 		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
 		// tags it will allow on a page
 		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-	
+
 		var styles = listToStyles(list);
 		addStylesToDom(styles, options);
-	
+
 		return function update(newList) {
 			var mayRemove = [];
 			for(var i = 0; i < styles.length; i++) {
@@ -24108,7 +24108,7 @@
 			}
 		};
 	}
-	
+
 	function addStylesToDom(styles, options) {
 		for(var i = 0; i < styles.length; i++) {
 			var item = styles[i];
@@ -24130,7 +24130,7 @@
 			}
 		}
 	}
-	
+
 	function listToStyles(list) {
 		var styles = [];
 		var newStyles = {};
@@ -24148,7 +24148,7 @@
 		}
 		return styles;
 	}
-	
+
 	function createStyleElement() {
 		var styleElement = document.createElement("style");
 		var head = getHeadElement();
@@ -24156,7 +24156,7 @@
 		head.appendChild(styleElement);
 		return styleElement;
 	}
-	
+
 	function createLinkElement() {
 		var linkElement = document.createElement("link");
 		var head = getHeadElement();
@@ -24164,10 +24164,10 @@
 		head.appendChild(linkElement);
 		return linkElement;
 	}
-	
+
 	function addStyle(obj, options) {
 		var styleElement, update, remove;
-	
+
 		if (options.singleton) {
 			var styleIndex = singletonCounter++;
 			styleElement = singletonElement || (singletonElement = createStyleElement());
@@ -24193,9 +24193,9 @@
 				styleElement.parentNode.removeChild(styleElement);
 			};
 		}
-	
+
 		update(obj);
-	
+
 		return function updateStyle(newObj) {
 			if(newObj) {
 				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
@@ -24206,19 +24206,19 @@
 			}
 		};
 	}
-	
+
 	var replaceText = (function () {
 		var textStore = [];
-	
+
 		return function (index, replacement) {
 			textStore[index] = replacement;
 			return textStore.filter(Boolean).join('\n');
 		};
 	})();
-	
+
 	function applyToSingletonTag(styleElement, index, remove, obj) {
 		var css = remove ? "" : obj.css;
-	
+
 		if (styleElement.styleSheet) {
 			styleElement.styleSheet.cssText = replaceText(index, css);
 		} else {
@@ -24232,16 +24232,16 @@
 			}
 		}
 	}
-	
+
 	function applyToTag(styleElement, obj) {
 		var css = obj.css;
 		var media = obj.media;
 		var sourceMap = obj.sourceMap;
-	
+
 		if(media) {
 			styleElement.setAttribute("media", media)
 		}
-	
+
 		if(styleElement.styleSheet) {
 			styleElement.styleSheet.cssText = css;
 		} else {
@@ -24251,23 +24251,23 @@
 			styleElement.appendChild(document.createTextNode(css));
 		}
 	}
-	
+
 	function updateLink(linkElement, obj) {
 		var css = obj.css;
 		var media = obj.media;
 		var sourceMap = obj.sourceMap;
-	
+
 		if(sourceMap) {
 			// http://stackoverflow.com/a/26603875
 			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
 		}
-	
+
 		var blob = new Blob([css], { type: "text/css" });
-	
+
 		var oldSrc = linkElement.href;
-	
+
 		linkElement.href = URL.createObjectURL(blob);
-	
+
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
@@ -24278,7 +24278,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
+
 	// load the styles
 	var content = __webpack_require__(225);
 	if(typeof content === 'string') content = [[module.id, content, '']];
