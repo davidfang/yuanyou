@@ -40,7 +40,7 @@ class HaikinAshi extends React.Component {
       .accessor(d => d.smaVolume50);
 
     return (
-      <ChartCanvas width={width} height={400}
+      <ChartCanvas width={width} height={200}
                    margin={{left: 80, right: 80, top:10, bottom: 30}} type={type}
                    seriesName="MSFT"
                    data={data} calculator={[ha, ema20, ema50, smaVolume50]}
@@ -76,7 +76,7 @@ class HaikinAshi extends React.Component {
         <Chart id={2}
                yExtents={[d => d.volume, smaVolume50.accessor()]}
                yMousePointerDisplayLocation="left" yMousePointerDisplayFormat={d3.format(".4s")}
-               height={150} origin={(w, h) => [0, h - 150]}>
+               height={50} origin={(w, h) => [0, h - 50]}>
           <YAxis axisAt="left" orient="left" ticks={5} tickFormat={d3.format("s")}/>
 
           <BarSeries yAccessor={d => d.volume} fill={d => d.close > d.open ? "#6BA583" : "#FF0000"} />
