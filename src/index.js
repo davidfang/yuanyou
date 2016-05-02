@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/Main';
 import d3 from 'd3';
+import Babel from 'babel-core';
 //import App from './components/bundle';
 // Render the main component into the dom
 ReactDOM.render(<App />, document.getElementById('app'));
