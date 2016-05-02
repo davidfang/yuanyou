@@ -8,7 +8,8 @@ import d3 from 'd3';
 // Render the main component into the dom
 ReactDOM.render(<App />, document.getElementById('app'));
 // Use babel transform so the examples work on the browser
-d3.xhr("./components/AreaChart.jsx", "text/plain")
+//d3.xhr("./components/AreaChart.jsx", "text/plain")
+d3.xhr("./components/CandleStickStockScaleChartWithVolumeBarV3.jsx", "text/plain")
   .get(function(err, data) {
     var outputEl = document.getElementById('chart');
     try {
